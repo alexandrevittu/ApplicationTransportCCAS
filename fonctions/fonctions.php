@@ -1006,4 +1006,69 @@ function getCompte($pseudo,$mdp){
       throw new Exception("erreur lors de la recuperation du report ");
     }
   }
+  function updateReport($idAdherent,$prix){
+      $dbh = connexion();
+      $pdoStatement = $dbh->prepare("update report set prixReport = :prix where idAdherent = :idadherent");
+      $pdoStatement->bindvalue("idadherent",$idAdherent);
+      $pdoStatement->bindvalue("prix",$prix);
+      $pdoStatement->execute();
+      if($pdoStatement->execute())
+      {
+        $pdoStatement->closeCursor();
+        $dbh=null;
+      }
+      else
+      {
+        throw new Exception("Erreur modification report");
+      }
+  }
+  /////////
+  function getNbTrajetCourtAdherentTrimestreActuel($idAdherent,$trimestreActuel){
+    $dbh = connexion();
+    try{
+      $pdoStatement = $dbh->prepare("select SUM(nbTrajet) AS nbTrajetCourt FROM tarifs WHERE idAdherent = :idAdherent AND idTypetrajet = 2 AND idTrimestre = :trimestreActuel");
+      $pdoStatement->bindvalue("idAdherent",$idAdherent);
+      $pdoStatement->bindvalue("trimestreActuel",$trimestreActuel);
+      $pdoStatement->execute();
+      $result = $pdoStatement->fetch();
+      return $result;
+      $dbh = null;
+    }
+    catch(Exception $e)
+    {
+      throw new Exception("Le nombre de trajet court n'a pas pu etre recuperer ...");
+    }
+  }
+  function getNbTrajetMoyenAdherentTrimestreActuel($idAdherent,$trimestreActuel){
+    $dbh = connexion();
+    try{
+      $pdoStatement = $dbh->prepare("select SUM(nbTrajet) AS nbTrajetCourt FROM tarifs WHERE idAdherent = :idAdherent AND idTypetrajet = 3 AND idTrimestre = :trimestreActuel");
+      $pdoStatement->bindvalue("idAdherent",$idAdherent);
+      $pdoStatement->bindvalue("trimestreActuel",$trimestreActuel);
+      $pdoStatement->execute();
+      $result = $pdoStatement->fetch();
+      return $result;
+      $dbh = null;
+    }
+    catch(Exception $e)
+    {
+      throw new Exception("Le nombre de trajet moyen n'a pas pu etre recuperer ...");
+    }
+  }
+  function getNbTrajetLongAdherentTrimestreActuel($idAdherent,$trimestreActuel){
+    $dbh = connexion();
+    try{
+      $pdoStatement = $dbh->prepare("select SUM(nbTrajet) AS nbTrajetCourt FROM tarifs WHERE idAdherent = :idAdherent AND idTypetrajet = 4 AND idTrimestre = :trimestreActuel");
+      $pdoStatement->bindvalue("idAdherent",$idAdherent);
+      $pdoStatement->bindvalue("trimestreActuel",$trimestreActuel);
+      $pdoStatement->execute();
+      $result = $pdoStatement->fetch();
+      return $result;
+      $dbh = null;
+    }
+    catch(Exception $e)
+    {
+      throw new Exception("Le nombre de trajet long n'a pas pu etre recuperer ...");
+    }
+  }
 ?>

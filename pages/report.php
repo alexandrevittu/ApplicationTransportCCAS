@@ -54,10 +54,11 @@ $(document).ready(function() {
           foreach($lesAdherents as $unAdherent){
 
             $adhesion = 0;
+            $trimestreActuel = getTrimestre(); // retourne le trimestre actuel
 
-            $adTrajetCours = getNbTrajetCourtAdherent($unAdherent['id']);
-            $adTrajetMoyen = getNbTrajetMoyenAdherent($unAdherent['id']);    //affichage du nombre de trajet court,moyen et long par adhérent.
-            $adTrajetLong = getNbTrajetLongAdherent($unAdherent['id']);
+            $adTrajetCours = getNbTrajetCourtAdherentTrimestreActuel($unAdherent['id'],$trimestreActuel);
+            $adTrajetMoyen = getNbTrajetMoyenAdherentTrimestreActuel($unAdherent['id'],$trimestreActuel);    //affichage du nombre de trajet court,moyen et long par adhérent.
+            $adTrajetLong = getNbTrajetLongAdherentTrimestreActuel($unAdherent['id'],$trimestreActuel);
 
             $trCourt = (double)$adTrajetCours['nbTrajetCourt'];
             $trMoy = (double)$adTrajetMoyen['nbTrajetCourt'];            //On caste ceci en double
@@ -65,22 +66,43 @@ $(document).ready(function() {
 
             $total = ($trCourt*$court)+($trMoy*$moyen)+($trLong*$long);      //l'addition des produits de trajet court, moyen et long
 
-
             $dateAdhesion = getDateAdhesion($unAdherent['id']); //retourne la date d'adhésion de l'adherent passé en paramètre.
-
             $dateAdhesionTrimestre = getTrimestreDate($dateAdhesion); //retourne le trimestre en fonction de la date saisie
-            $trimestreActuel = getTrimestre(); // retourne le trimestre actuel
+
             $prixAdhe = Getprixadhesion(); //retourne le prix de l'adhesion
 
-            $prixDouble = (double)$prixAdhe['prix'];
-              if($dateAdhesionTrimestre == $trimestreActuel){  // Verifie si  la date d'adhesion a ete fait dans le trimestre actuel si oui on ajoute le prix de l'adhesion
-                $total += $prixDouble;
-              }
+             $prixDouble = (double)$prixAdhe['prix'];
+            //   if($dateAdhesionTrimestre == $trimestreActuel){  // Verifie si  la date d'adhesion a ete fait dans le trimestre actuel si oui on ajoute le prix de l'adhesion
+            //     $total += $prixDouble;
+            //   }
+
+            // if($dateAdhesionTrimestre == 1){
+            //   if ($trimestreActuel == 2) {
+            //     $total += $prixDouble;
+            //   }
+            // }
+            // else if ($dateAdhesionTrimestre == 2) {
+            //   if ($trimestreActuel == 3) {
+            //     $total += $prixDouble;
+            //   }
+            // }
+            // else if ($dateAdhesionTrimestre == 3) {
+            //   if ($trimestreActuel == 4) {
+            //     $total += $prixDouble;
+            //   }
+            // }
+            // elseif ($dateAdhesionTrimestre == 4) {
+            //   if ($trimestreActuel == 1) {
+            //     $total += $prixDouble;
+            //   }
+            // }
+            //
 
               var_dump($dateAdhesionTrimestre);
               var_dump($trimestreActuel);
 
             if ($total < $leSeuil && $total != 0) {  //On affiche si seulement si le total est en dessous du sueil et que le total est different de 0
+              updateReport($unAdherent['id'],$total);
               echo '<tr>';
               echo '<td>'.$unAdherent['nom'].'</td>';
               echo '<td>'.$unAdherent['prenom'].'</td>';
