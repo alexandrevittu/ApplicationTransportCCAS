@@ -156,14 +156,14 @@
               }
               if($trimestreavant == 2)
               {
-                if($unadherent['dateAdhesion'] > $année."-04-01" && $unadherent['dateAdhesion'] < $année."-06-30")
+                if($unAdherent['dateAdhesion'] > $année."-04-01" && $unAdherent['dateAdhesion'] < $année."-06-30")
                 {
                   $prixtotal += $prixadhesion['prix'];
                 }
               }
               if($trimestreavant == 3)
               {
-                if($unadherent['dateAdhesion'] > $année."07-01" && $unadherent['dateAdhesion'] < $année."-09-30")
+                if($unAdherent['dateAdhesion'] > $année."07-01" && $unAdherent['dateAdhesion'] < $année."-09-30")
                 {
                   $prixtotal += $prixadhesion['prix'];
                 }
