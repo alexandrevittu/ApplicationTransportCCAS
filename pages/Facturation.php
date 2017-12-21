@@ -100,33 +100,33 @@
 
         if($trimestre == 1)         //affiche le trimestre en cours
         {
-          echo '<span>Trimestre actuel : Janvier/Fevrier/Mars '.$annee."</span>";
+          echo 'Trimestre actuel : Janvier/Fevrier/Mars '.$annee."";
           $trimestreavant = 4;
           echo '<br>';
           $annee = $annee -1;
-          echo '<span>Facturation trimestre : Octobre/Novembre/Décembre '.$annee.'</span>';
+          echo 'Facturation trimestre : Octobre/Novembre/Décembre '.$annee.'';
         }
         elseif($trimestre == 2)
         {
-          echo '<span>Trimestre actuel : Avril/Mai/Juin '.$annee."</span>";
+          echo 'Trimestre actuel : Avril/Mai/Juin '.$annee."";
           $trimestreavant = 1;
           echo '<br>';
-          echo '<span>Facturation trimestre : Janvier/Fevrier/Mars '.$annee.'</span>';
+          echo 'Facturation trimestre : Janvier/Fevrier/Mars '.$annee.'';
 
         }
         elseif($trimestre == 3)
         {
-          echo '<span>Trimestre actuel : Juillet/Aout/Septembre '.$annee."</span>";
+          echo 'Trimestre actuel : Juillet/Aout/Septembre '.$annee."";
           $trimestreavant = 2;
           echo '<br>';
-          echo '<span>Facturation trimestre : Avril/Mai/Juin '.$annee.'</span>';
+          echo 'Facturation trimestre : Avril/Mai/Juin '.$annee.'';
         }
         elseif($trimestre == 4)
         {
-          echo '<span>Trimestre actuel : Octobre/Novembre/Décembre '.$annee."</span>";
+          echo 'Trimestre actuel : Octobre/Novembre/Décembre '.$annee."";
           $trimestreavant = 3;
           echo '<br>';
-          echo '<span>Facturation trimestre : Juillet/Aout/Septembre '.$annee.'</span>';
+          echo 'Facturation trimestre : Juillet/Aout/Septembre '.$annee.'';
         }
 
       foreach($lesAdherents as $unAdherent)       //parcours des adherents
@@ -152,6 +152,7 @@
         $adhesion = Getadhesion();
         foreach($adhesion as $nbadhesion)
         {
+
           if($nbadhesion['idAdherent'] == $unAdherent['id'])  //ajout du prix de l'adhesion seulement si l'adhesion a eu lieux pendant ce trimestre
           {
             if($nbadhesion['nbTrajet'] == 1)    //regarde si il est adheret
@@ -173,8 +174,10 @@
               }
               if($trimestreavant == 3)
               {
-                if($unAdherent['dateAdhesion'] > $année."07-01" && $unAdherent['dateAdhesion'] < $année."-09-30")
+
+                if($unAdherent['dateAdhesion'] > $année."-07-01" && $unAdherent['dateAdhesion'] < $année."-09-30")
                 {
+
                   $prixtotal += $prixadhesion['prix'];
                 }
               }
@@ -241,7 +244,7 @@
             echo'<td></td>';
             }
           }
-          elseif($unAdherent['id'] == $unadherent['id'] && $unadherent['dateAdhesion'] > $année."07-01" && $unadherent['dateAdhesion'] < $année."-09-30")
+          elseif($unAdherent['id'] == $unadherent['id'] && $unadherent['dateAdhesion'] > $année."-07-01" && $unadherent['dateAdhesion'] < $année."-09-30")
           {
             if($trimestreavant == 3)
             {

@@ -87,22 +87,23 @@ $(document).ready(function() {
                //   $total += $prixDouble;
                // }
               $annee = date('Y');
-             if($dateAdhesionTrimestre == 1){
+              var_dump($trimestreAvant);
+             if($trimestreAvant == 1){
                if ($dateAdhesion['dateAdhesion']>$annee."-01-01" && $dateAdhesion['dateAdhesion'] < $annee."-03-31") {
                  $total += $prixDouble;
                }
              }
-             else if ($dateAdhesionTrimestre == 2) {
+             else if ($trimestreAvant == 2) {
                if ($dateAdhesion['dateAdhesion']>$annee."-04-01" && $dateAdhesion['dateAdhesion'] < $annee."-06-30") {
                  $total += $prixDouble;
                }
              }
-             else if ($dateAdhesionTrimestre == 3) {
+             else if ($trimestreAvant == 3) {
                if ($dateAdhesion['dateAdhesion']>$annee."-07-01" && $dateAdhesion['dateAdhesion'] < $annee."-09-30") {
                  $total += $prixDouble;
                }
              }
-             elseif ($dateAdhesionTrimestre == 4) {
+             elseif ($trimestreAvant == 4) {
                if ($dateAdhesion['dateAdhesion']>$annee."-10-01" && $dateAdhesion['dateAdhesion'] < $annee."-12-31") {
                  $total += $prixDouble;
                }
