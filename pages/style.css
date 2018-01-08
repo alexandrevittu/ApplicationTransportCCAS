@@ -1,9 +1,9 @@
-#adherent 
+#adherent
 {
 	float: left;
 	margin-top: 8%;
 	margin-left: 15%;
-	
+
 }
 #facturation
 {
@@ -36,4 +36,8 @@ display:block;
 
 *{
   font-family:'Roboto',Arial;
+}
+
+form{
+	margin-top: 8%;
 }
