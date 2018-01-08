@@ -1,0 +1,22 @@
+#adherent 
+{
+	float: left;
+	margin-top: 8%;
+	margin-left: 15%;
+	
+}
+#facturation
+{
+	margin-top: 8%;
+	float: left;
+	margin-left:10%;
+}
+#export
+{
+	margin-top: 8%;
+	float: left;
+	margin-left:10%;
+}
+input.accueil{
+	margin-bottom:10px;
+}

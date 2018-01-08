@@ -7,16 +7,16 @@
 </head>
 
 <body>
-accueil
+
 </body>
 <div id="adherent">
   <fieldset>
     <legend>Adhérent :</legend>
-      <form action="pages/AjoutAdherent.php">
-        <input type="submit" value="Ajout d'un adhérent">
+      <form  action="pages/AjoutAdherent.php">
+        <input class="accueil" type="submit" value="Ajout d'un adhérent">
       </form>
-      <form action="pages/ListeAdherents.php">
-        <input type="submit" value="Liste des adhérent">
+      <form  action="pages/ListeAdherents.php">
+        <input class="accueil" type="submit" value="Liste des adhérent">
       </form>
   </fieldset>
 </div>
@@ -24,18 +24,28 @@ accueil
   <fieldset>
     <legend>Facturation :</legend>
   <form action="pages/AjoutAdherent.php">
-      <input type="submit" value="Tarifs">
+      <input class="accueil" type="submit" value="Tarifs">
   </form>
   <form action="pages/AjoutAdherent.php">
-      <input type="submit" value="Trimestre">
+      <input class="accueil" type="submit" value="Trimestre">
   </form>
   <form action="pages/AjoutAdherent.php">
-      <input type="submit" value="Facturation">
+      <input class="accueil" type="submit" value="Facturation">
   </form>
   <form action="pages/AjoutAdherent.php">
-      <input type="submit" value="Report">
+      <input class="accueil" type="submit" value="Report">
   </form>
   </fieldset>
 </div>
-
+<div id="export">
+  <fieldset>
+    <legend>Export :</legend>
+    <form action="pages/AjoutAdherent.php">
+        <input class="accueil" type="submit" value="Impression des adhérents">
+    </form>
+    <form action="pages/AjoutAdherent.php">
+        <input class="accueil" type="submit" value="Publipostage ré-adhésion">
+    </form>
+  </fieldset>
+</div>
 </html>
