@@ -41,3 +41,26 @@ display:block;
 form{
 	margin-top: 8%;
 }
+
+#tableAdherent,tr,th,td{
+	border: 2px solid black;
+	border-collapse: collapse;
+	margin: 200px 250px;
+	text-decoration: none;
+	padding: 0px 20px;
+}
+
+th{
+	background-color: #C2C2C2;
+	font-size: 0.95em;
+}
+
+a{
+	text-decoration: none;
+	color: black;
+}
+
+a:hover{
+	background-color: #C2C2C2;
+	font-weight: bold;
+}
