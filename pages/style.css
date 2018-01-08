@@ -20,3 +20,20 @@
 input.accueil{
 	margin-bottom:10px;
 }
+
+h1
+{
+text-align: center;
+margin:0;
+}
+
+#logo
+{
+position: absolute;
+top:1px;
+display:block;
+}
+
+*{
+  font-family:'Roboto',Arial;
+}

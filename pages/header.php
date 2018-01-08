@@ -1,14 +1,7 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <link type="text/css" rel="stylesheet" href="pages/style.css"/>
-  <title>Transport CCAS</title>
-</head>
-
-<body>
-accueil testttt
-</body>
-
-
+<header>
+  <h1>Transport CCAS</h2>
+  <div id="logoTrnsport"><img src="img/logo-LCA.png" alt="Logo application" id="logo"/></div>
+</header>
 </html>

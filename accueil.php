@@ -5,47 +5,48 @@
   <link type="text/css" rel="stylesheet" href="pages/style.css"/>
   <title>Transport CCAS</title>
 </head>
-
+<?php
+include_once "pages/header.php";
+?>
 <body>
-
-</body>
-<div id="adherent">
-  <fieldset>
-    <legend>Adhérent :</legend>
-      <form  action="pages/AjoutAdherent.php">
-        <input class="accueil" type="submit" value="Ajout d'un adhérent">
-      </form>
-      <form  action="pages/ListeAdherents.php">
-        <input class="accueil" type="submit" value="Liste des adhérent">
-      </form>
-  </fieldset>
-</div>
-<div id="facturation">
-  <fieldset>
-    <legend>Facturation :</legend>
-  <form action="pages/AjoutAdherent.php">
-      <input class="accueil" type="submit" value="Tarifs">
-  </form>
-  <form action="pages/AjoutAdherent.php">
-      <input class="accueil" type="submit" value="Trimestre">
-  </form>
-  <form action="pages/AjoutAdherent.php">
-      <input class="accueil" type="submit" value="Facturation">
-  </form>
-  <form action="pages/AjoutAdherent.php">
-      <input class="accueil" type="submit" value="Report">
-  </form>
-  </fieldset>
-</div>
-<div id="export">
-  <fieldset>
-    <legend>Export :</legend>
+  <div id="adherent">
+    <fieldset>
+      <legend>Adhérent :</legend>
+        <form  action="pages/AjoutAdherent.php">
+          <input class="accueil" type="submit" value="Ajout d'un adhérent">
+        </form>
+        <form  action="pages/ListeAdherents.php">
+          <input class="accueil" type="submit" value="Liste des adhérent">
+        </form>
+    </fieldset>
+  </div>
+  <div id="facturation">
+    <fieldset>
+      <legend>Facturation :</legend>
     <form action="pages/AjoutAdherent.php">
-        <input class="accueil" type="submit" value="Impression des adhérents">
+        <input class="accueil" type="submit" value="Tarifs">
     </form>
     <form action="pages/AjoutAdherent.php">
-        <input class="accueil" type="submit" value="Publipostage ré-adhésion">
+        <input class="accueil" type="submit" value="Trimestre">
     </form>
-  </fieldset>
-</div>
+    <form action="pages/AjoutAdherent.php">
+        <input class="accueil" type="submit" value="Facturation">
+    </form>
+    <form action="pages/AjoutAdherent.php">
+        <input class="accueil" type="submit" value="Report">
+    </form>
+    </fieldset>
+  </div>
+  <div id="export">
+    <fieldset>
+      <legend>Export :</legend>
+      <form action="pages/AjoutAdherent.php">
+          <input class="accueil" type="submit" value="Impression des adhérents">
+      </form>
+      <form action="pages/AjoutAdherent.php">
+          <input class="accueil" type="submit" value="Publipostage ré-adhésion">
+      </form>
+    </fieldset>
+  </div>
+  </body>
 </html>
