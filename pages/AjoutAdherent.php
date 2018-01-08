@@ -33,13 +33,24 @@ dateFormat: 'yy-mm-dd'
 </script>
 
 <body>
-  <form method="POST" action="../fonctions/fonctions.php">
-    <label>Nom :</label><input type="text" name="nom"/></br>
-    <label>Prenom :</label><input type="text" name="nom"/></br>
+  <form id="ajoutadherent" method="POST">
+    <label>Nom :</label><input type="text" name="nom" /></br>
+    <label>Prenom :</label><input type="text" name="prenom" /></br>
     <label>Adresse :</label><input type="text" name="adresse"/></br>
-    <label>Date adhesion :</label><input type="text" id="datepicker"></br>
+    <label>Date adhesion :</label><input type="text" id="datepicker" name="date"></br>
     <label>Remarque :</label><input type="text" name="remarque"/></br>
     <p><input type="submit" value="Envoyer"/></p>
+  </form>
+  <?php
+    if(isset($_POST["nom"]) AND isset($_POST["prenom"]) AND isset($_POST["adresse"]) AND isset($_POST["date"]) AND isset($_POST["remarque"]))
+   {
+
+    AjoutAdherent(($_POST["nom"]),($_POST["prenom"]),($_POST["adresse"]),($_POST["date"]),($_POST["remarque"]));
+  };
+   ?>
+
+  <form action="accueil.php">
+      <input type="submit" value="Annuler" id="annulerajout">
   </form>
 </body>
 </html>

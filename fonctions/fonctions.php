@@ -8,7 +8,7 @@ function connexion(){
     try{
         $dbh=new PDO($dsn,$username,$passwd);
     } catch (Exception $e) {
-        echo 'Connexion �chou�e : '.$e->getMessage();
+        echo 'Connexion échouée : '.$e->getMessage();
     }
     return $dbh;
 }
