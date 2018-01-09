@@ -6,21 +6,46 @@
 </head>
 <?php
 include_once "header.php";
-include_once "../fonctions/fonctions.php"
+include_once "../fonctions/fonctions.php";
+$lestarifs = GetTarif();
 ?>
 
 <body>
   <form id="tarif" method="POST">
-    <label>Seuil du report du trimestre : </label><input type="number" name="seuil" step="0.1"/></br>
-    <label>Tarif trajet court : </label><input type="number" name="trajetcourt" step="0.1"/></br>
-    <label>Tarif trajet moyen : </label><input type="number" name="trajetmoyen" step="0.1"/></br>
-    <label>Tarif trajet long : </label><input type="number" name="trajetlong" step="0.1"/></br>
-    <label>Tarif de l'adhésion : </label><input type="number" name="tarifadhesion" step="0.1"/></br>
+    <label>Seuil du report du trimestre : </label><input type="number" name="seuil" step="0.1" id="seuil"/></br>
+    <label>Tarif trajet court : </label><input type="number" name="trajetcourt" step="0.1" id="court"/></br>
+    <label>Tarif trajet moyen : </label><input type="number" name="trajetmoyen" step="0.1" id="moyen"/></br>
+    <label>Tarif trajet long : </label><input type="number" name="trajetlong" step="0.1" id="long"/></br>
+    <label>Tarif de l'adhésion : </label><input type="number" name="tarifadhesion" step="0.1" id="adhesion"/></br>
     <p><input type="submit" value="Valider"/></p>
   </form>
   <form action="accueil.php">
       <input type="submit" value="Annuler">
   </form>
-</body>
+<?php
+$i=0;
+foreach ($lestarifs as $tarif)
+{
+  echo'<script>';
+  if($i==0){
+  echo"document.getElementById('seuil').value=".$tarif['prix'];
+  }
+  if($i==1){
+  echo"document.getElementById('court').value=".$tarif['prix'];
+  }
+  if($i==2){
+  echo"document.getElementById('moyen').value=".$tarif['prix'];
+  }
+  if($i==3){
+  echo"document.getElementById('long').value=".$tarif['prix'];
+  }
+  if($i==4){
+  echo"document.getElementById('adhesion').value=".$tarif['prix'];
+  }
+  echo'</script>';
+  $i++;
+}
+?>
 
+</body>
 </html>
