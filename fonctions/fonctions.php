@@ -30,6 +30,82 @@ function AjoutAdherent($nom,$prenom,$adresse,$dateadhesion,$remarque){
     }
 }
 
+function ModifTarifCourt($prix)
+{
+  $dbh = connexion();
+  $pdoStatement = $dbh ->prepare("update typetrajet set prix = :trajetcourt WHERE id='2'");
+  $pdoStatement->bindvalue("trajetcourt",$prix);
+  if($pdoStatement->execute())
+  {
+    $pdoStatement->closeCursor();
+    $dbh=null;
+  }
+    else
+  {
+    throw new Exception("Erreur modif prix trajet court");
+  }
+}
+function ModifTarifMoyen($prix)
+{
+  $dbh = connexion();
+  $pdoStatement = $dbh ->prepare("update typetrajet set prix = :trajetmoyen WHERE id='3'");
+  $pdoStatement->bindvalue("trajetmoyen",$prix);
+  if($pdoStatement->execute())
+  {
+    $pdoStatement->closeCursor();
+    $dbh=null;
+  }
+    else
+  {
+    throw new Exception("Erreur modif prix trajet moyen");
+  }
+}
+function ModifTarifLong($prix)
+{
+  $dbh = connexion();
+  $pdoStatement = $dbh ->prepare("update typetrajet set prix = :trajetlong WHERE id='4'");
+  $pdoStatement->bindvalue("trajetlong",$prix);
+  if($pdoStatement->execute())
+  {
+    $pdoStatement->closeCursor();
+    $dbh=null;
+  }
+    else
+  {
+    throw new Exception("Erreur modif prix trajet long");
+  }
+}
+function ModifTarifAdhesion($prix)
+{
+  $dbh = connexion();
+  $pdoStatement = $dbh ->prepare("update typetrajet set prix = :tarifadhesion WHERE id='5'");
+  $pdoStatement->bindvalue("tarifadhesion",$prix);
+  if($pdoStatement->execute())
+  {
+    $pdoStatement->closeCursor();
+    $dbh=null;
+  }
+    else
+  {
+    throw new Exception("Erreur modif prix adhésion");
+  }
+}
+function ModifSeuil($prix)
+{
+  $dbh = connexion();
+  $pdoStatement = $dbh ->prepare("update typetrajet set prix = :seuil WHERE id='1'");
+  $pdoStatement->bindvalue("seuil",$prix);
+  if($pdoStatement->execute())
+  {
+    $pdoStatement->closeCursor();
+    $dbh=null;
+  }
+    else
+  {
+    throw new Exception("Erreur modif prix du seuil");
+  }
+}
+
 function ListerAdherent(){
 
   $dbh = connexion();
