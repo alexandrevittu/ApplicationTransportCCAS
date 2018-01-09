@@ -11,11 +11,11 @@ include_once "../fonctions/fonctions.php"
 
 <body>
   <form id="tarif" method="POST">
-    <label>Seuil du report du trimestre : </label><input type="number" name="seuil" /></br>
-    <label>Tarif trajet court : </label><input type="number" name="trajetcourt" /></br>
-    <label>Tarif trajet moyen : </label><input type="number" name="trajetmoyen" /></br>
-    <label>Tarif trajet long : </label><input type="number" name="trajetlong" /></br>
-    <label>Tarif de l'adhésion : </label><input type="number" name="tarifadhesion" /></br>
+    <label>Seuil du report du trimestre : </label><input type="number" name="seuil" step="0.1"/></br>
+    <label>Tarif trajet court : </label><input type="number" name="trajetcourt" step="0.1"/></br>
+    <label>Tarif trajet moyen : </label><input type="number" name="trajetmoyen" step="0.1"/></br>
+    <label>Tarif trajet long : </label><input type="number" name="trajetlong" step="0.1"/></br>
+    <label>Tarif de l'adhésion : </label><input type="number" name="tarifadhesion" step="0.1"/></br>
     <p><input type="submit" value="Valider"/></p>
   </form>
   <form action="accueil.php">

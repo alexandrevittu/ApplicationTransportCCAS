@@ -24,10 +24,10 @@ function AjoutAdherent($nom,$prenom,$adresse,$dateadhesion,$remarque){
   if($PdoStatement->execute()){
     $PdoStatement->closeCursor();
     $dbh=null;
-}
-else{
+    }
+    else{
     throw new Exception("Erreur ajout d'adherent");
-}
+    }
 }
 
 function ListerAdherent(){
@@ -44,6 +44,25 @@ function ListerAdherent(){
 
     throw new Exception("erreur lors de la recuperation des adhérents " . $ex);
 
+  }
+
+}
+
+function GetTarif()
+{
+  $dbh = connexion();
+  try{
+
+    $pdoStatement = $dbh->prepare("select prix from typetrajet");
+    $pdoStatement->execute();
+
+    $result = $pdoStatement->fetchAll();
+    return $result;
+
+  }
+  catch(Exception $e)
+  {
+    throw new Exception("erreur lors de la recuperation des tarif ");
   }
 
 }
