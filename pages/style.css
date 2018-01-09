@@ -40,10 +40,9 @@ display:block;
 
 #ajoutadherent{
 	margin-top: 8%;
+	Line-Height: 2;
 }
-#annulerajout{
-	margin-left: 10%;
-}
+
 
 #tableAdherent,tr,th,td{
 	border: 2px solid black;

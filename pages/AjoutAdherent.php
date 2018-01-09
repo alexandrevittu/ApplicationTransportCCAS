@@ -42,15 +42,30 @@ dateFormat: 'yy-mm-dd'
     <p><input type="submit" value="Envoyer"/></p>
   </form>
   <?php
-    if(isset($_POST["nom"]) AND isset($_POST["prenom"]) AND isset($_POST["adresse"]) AND isset($_POST["date"]) AND isset($_POST["remarque"]))
-   {
 
-    AjoutAdherent(($_POST["nom"]),($_POST["prenom"]),($_POST["adresse"]),($_POST["date"]),($_POST["remarque"]));
+
+    if(isset($_POST["nom"]) && isset($_POST["prenom"]) && isset($_POST["adresse"]) && isset($_POST["date"]) &&  isset($_POST["remarque"]))
+   {
+     $dateactuel = date_create(date('Y-m-d'));
+     $datesaisie = date_create(($_POST["date"]));
+     $diff = date_diff($datesaisie,$dateactuel);
+     $nb= (int)$diff->format('%R%a');
+     if((int)$nb>0)
+     {
+
+       AjoutAdherent(($_POST["nom"]),($_POST["prenom"]),($_POST["adresse"]),($_POST["date"]),($_POST["remarque"]));
+    }
+    else{
+      echo 'erreur date';
+    }
   };
+
+
+
    ?>
 
   <form action="accueil.php">
-      <input type="submit" value="Annuler" id="annulerajout">
+      <input type="submit" value="Annuler" class="buttonadherent">
   </form>
 </body>
 </html>
