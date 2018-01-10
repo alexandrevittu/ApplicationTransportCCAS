@@ -143,4 +143,21 @@ function GetTarif()
 
 }
 
+function getDateDepasse(){
+  $dbh = connexion();
+  try{
+
+    $pdoStatement = $dbh->prepare("");
+    $pdoStatement->execute();
+
+    $result = $pdoStatement->fetch();
+    return $result;
+
+  }
+  catch(Exception $e)
+  {
+    throw new Exception("erreur lors de la recuperation des tarif ");
+  }
+}
+
 ?>
