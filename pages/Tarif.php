@@ -10,13 +10,14 @@ include_once "../fonctions/fonctions.php";
 ?>
 
 <body>
+  <div class="content-loader" style="width: 70%;margin:5% 20%;">
   <form id="tarif" method="POST">
-    <label>Seuil du report du trimestre : </label><input type="number" name="seuil" step="0.1" id="seuil"/></br>
-    <label>Tarif trajet court : </label><input type="number" name="trajetcourt" step="0.1" id="court"/></br>
-    <label>Tarif trajet moyen : </label><input type="number" name="trajetmoyen" step="0.1" id="moyen"/></br>
-    <label>Tarif trajet long : </label><input type="number" name="trajetlong" step="0.1" id="long"/></br>
-    <label>Tarif de l'adhésion : </label><input type="number" name="tarifadhesion" step="0.1" id="adhesion"/></br>
-    <p><input type="submit" value="Valider"/></p>
+    Seuil du report du trimestre :<input type="number" name="seuil" step="0.1" id="seuil"/></br>
+    Tarif trajet court :<input type="number" name="trajetcourt" step="0.1" id="court"/></br>
+    Tarif trajet moyen :<input type="number" name="trajetmoyen" step="0.1" id="moyen"/></br>
+    Tarif trajet long :<input type="number" name="trajetlong" step="0.1" id="long"/></br>
+    Tarif de l'adhésion :<input type="number" name="tarifadhesion" step="0.1" id="adhesion"/></br>
+    <p><input class="btn btn-default" type="submit" value="Valider"/></p>
   </form>
   <?php
   if(isset($_POST["trajetcourt"]))
@@ -53,7 +54,7 @@ include_once "../fonctions/fonctions.php";
 
   ?>
   <form action="accueil.php">
-      <input type="submit" value="Annuler">
+      <input class="btn btn-default" type="submit" value="Annuler">
   </form>
 <?php
 $i=0;
@@ -80,6 +81,6 @@ foreach ($lestarifs as $tarif)
   $i++;
 }
 ?>
-
+</div>
 </body>
 </html>

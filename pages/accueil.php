@@ -48,5 +48,28 @@ include_once "header.php";
       </form>
     </fieldset>
   </div>
+  <div id="trimestre">
+    <?php
+    //$mois = date('m');
+    $mois = 02;
+    if($mois>=01 && $mois<=03)
+    {
+      echo 'Trimestre en cours :Janvier/Fevrier/Mars';
+    }
+    elseif($mois>=04 && $mois<=06)
+    {
+      echo 'Trimestre en cours :Avril/Mai/Juin';
+    }
+    elseif($mois>=10 && $mois<=12)
+    {
+      echo 'Trimestre en cours :Octobre/Novembre/Decembre';
+    }
+    else
+    {
+      echo 'Trimestre en cours :Juillet/Aout/Septembre';
+    }
+
+    ?>
+  </div>
   </body>
 </html>
