@@ -38,12 +38,11 @@ display:block;
   font-family:'Roboto',Arial;
 }
 
-#ajoutadherent{
+#ajoutadherent,#tarif{
 	margin-top: 8%;
+	Line-Height: 2;
 }
-#annulerajout{
-	margin-left: 10%;
-}
+
 
 th{
 	background-color: #C2C2C2;

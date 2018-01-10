@@ -32,9 +32,10 @@ dateFormat: 'yy-mm-dd'
 });
 </script>
 
+
 <body>
   <form id="ajoutadherent" method="POST">
-    <label>Nom :</label><input type="text" name="nom" /></br>
+    <label>Nom :</label><input type="text" name="nom" id="nom" /></br>
     <label>Prenom :</label><input type="text" name="prenom" /></br>
     <label>Adresse :</label><input type="text" name="adresse"/></br>
     <label>Date adhesion :</label><input type="text" id="datepicker" name="date"></br>
@@ -42,15 +43,39 @@ dateFormat: 'yy-mm-dd'
     <p><input type="submit" value="Envoyer"/></p>
   </form>
   <?php
-    if(isset($_POST["nom"]) AND isset($_POST["prenom"]) AND isset($_POST["adresse"]) AND isset($_POST["date"]) AND isset($_POST["remarque"]))
+
+
+    if(isset($_POST["nom"]) && isset($_POST["prenom"]) && isset($_POST["adresse"]) && isset($_POST["date"]) &&  isset($_POST["remarque"]))
    {
 
-    AjoutAdherent(($_POST["nom"]),($_POST["prenom"]),($_POST["adresse"]),($_POST["date"]),($_POST["remarque"]));
-  };
+     if($_POST["nom"]==NULL || $_POST["prenom"]==NULL || $_POST["adresse"]==NULL)
+     {
+       echo"<script>alert('Saisir les champs obligatoire (Nom,prenom,adresse,date)')</script>";
+     }
+     else{
+     $dateactuel = date_create(date('Y-m-d'));
+     $datesaisie = date_create(($_POST["date"]));
+     $diff = date_diff($datesaisie,$dateactuel);
+     $nb= (int)$diff->format('%R%a');
+     if((int)$nb>0)
+     {
+       AjoutAdherent(($_POST["nom"]),($_POST["prenom"]),($_POST["adresse"]),($_POST["date"]),($_POST["remarque"]));
+       echo"<script>alert('Adherent ajouter !')</script>";
+     }
+     else
+     {
+      echo"<script>alert('Date supérieur a celle d\'aujourd\'hui')</script>";
+     }
+
+  }
+};
+
+
+
    ?>
 
   <form action="accueil.php">
-      <input type="submit" value="Annuler" id="annulerajout">
+      <input type="submit" value="Annuler" class="buttonadherent">
   </form>
 </body>
 </html>

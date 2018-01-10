@@ -23,7 +23,7 @@ include_once "header.php";
   <div id="facturation">
     <fieldset>
       <legend>Facturation :</legend>
-    <form action="AjoutAdherent.php">
+    <form action="Tarif.php">
         <input class="accueil" type="submit" value="Tarifs">
     </form>
     <form action="AjoutAdherent.php">
