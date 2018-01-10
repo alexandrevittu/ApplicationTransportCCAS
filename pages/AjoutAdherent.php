@@ -5,6 +5,8 @@
   <title>Ajout d'un adherent</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+
 </head>
 <?php
 include_once "header.php";
@@ -34,13 +36,14 @@ dateFormat: 'yy-mm-dd'
 
 
 <body>
+  <div class="content-loader" style="width: 70%;margin:5% 20%;">
   <form id="ajoutadherent" method="POST">
-    <label>Nom :</label><input type="text" name="nom" id="nom" /></br>
-    <label>Prenom :</label><input type="text" name="prenom" /></br>
-    <label>Adresse :</label><input type="text" name="adresse"/></br>
-    <label>Date adhesion :</label><input type="text" id="datepicker" name="date"></br>
-    <label>Remarque :</label><input type="text" name="remarque"/></br>
-    <p><input type="submit" value="Envoyer"/></p>
+    Nom :<input type="text" name="nom" id="nom" /></br>
+    Prenom :<input type="text" name="prenom" /></br>
+    Adresse :<input type="text" name="adresse"/></br>
+    Date adhesion :<input type="text" id="datepicker" name="date"></br>
+    Remarque :<input type="text" name="remarque"/></br>
+    <p><input class="btn btn-default" type="submit" value="Valider"/></p>
   </form>
   <?php
 
@@ -75,7 +78,8 @@ dateFormat: 'yy-mm-dd'
    ?>
 
   <form action="accueil.php">
-      <input type="submit" value="Annuler" class="buttonadherent">
+      <input class="btn btn-default" type="submit" value="Annuler" class="buttonadherent">
   </form>
+</div>
 </body>
 </html>
