@@ -54,7 +54,7 @@ include_once "header.php";
     $mois = 02;
     if($mois>=01 && $mois<=03)
     {
-      echo 'Trimestre en cours :Janvier/Fevrier/Mars';
+      echo '<label>Trimestre en cours :Janvier/Fevrier/Mars</label>';
     }
     elseif($mois>=04 && $mois<=06)
     {
