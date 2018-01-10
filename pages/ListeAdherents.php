@@ -115,7 +115,7 @@ $lesAdherents = ListerAdherent();
               echo '<td>'.$unAdherent['adresse'].'</td>';
               echo '<td>'.$unAdherent['dateAdhesion'].'</td>';
               echo '<td>'.$unAdherent['remarque'].'</td>';
-              echo '<td><a href="#">Ajouter</a>/<a href="#">Modifier</a>';
+              echo '<td><a href="AjoutAdherent.php">Ajouter</a>/<a href="#">Modifier</a>';
               echo '</tr>';   
 
             }else if ($difference < 305) {
@@ -126,7 +126,7 @@ $lesAdherents = ListerAdherent();
               echo '<td>'.$unAdherent['adresse'].'</td>';
               echo '<td>'.$unAdherent['dateAdhesion'].'</td>';
               echo '<td>'.$unAdherent['remarque'].'</td>';
-              echo '<td><a href="#">Ajouter</a>/<a href="#">Modifier</a>';
+              echo '<td><a href="AjoutAdherent.php">Ajouter</a>/<a href="#">Modifier</a>';
               echo '</tr>'; 
             }
             else{
@@ -136,7 +136,7 @@ $lesAdherents = ListerAdherent();
               echo '<td>'.$unAdherent['adresse'].'</td>';
               echo '<td>'.$unAdherent['dateAdhesion'].'</td>';
               echo '<td>'.$unAdherent['remarque'].'</td>';
-              echo '<td><a href="#">Ajouter</a>/<a href="#">Modifier</a>';
+              echo '<td><a href="AjoutAdherent.php">Ajouter</a>/<a href="#">Modifier</a>';
               echo '</tr>'; 
             }
             }
