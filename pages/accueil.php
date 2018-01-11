@@ -29,7 +29,7 @@ include_once "header.php";
     <form action="AjoutAdherent.php">
         <input class="accueil" type="submit" value="Trimestre">
     </form>
-    <form action="AjoutAdherent.php">
+    <form action="Facturation.php">
         <input class="accueil" type="submit" value="Facturation">
     </form>
     <form action="AjoutAdherent.php">

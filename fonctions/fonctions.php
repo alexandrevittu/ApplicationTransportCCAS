@@ -207,4 +207,23 @@ function pdfAdherent(){
   $pdf->addPage();
 
 }
+
+function Getnbtrajetcours($id)
+{
+  $dbh = connexion();
+  try
+  {
+    $pdoStatement = $dbh->prepare("select nbTrajet from tarifs where idTypetrajet = 2 AND idTrimestre=:id");
+    $pdoStatement->bindvalue("id",$id);
+    $pdoStatement->execute();
+    $result = $pdoStatement->fetch();
+    return $result;
+  }
+  catch(Exception $e)
+  {
+    throw new Exception("erreur lors de la recuperation de l'adherent ");
+  }
+}
+
+
 ?>
