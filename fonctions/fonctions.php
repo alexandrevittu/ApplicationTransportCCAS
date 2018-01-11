@@ -160,4 +160,23 @@ function getDateDepasse(){
   }
 }
 
+
+function encodeToExcel($tableau){
+
+
+}
+
+
+function pdfAdherent(){
+
+  $dbh = connexion();
+
+  $ListerAdherent = ListerAdherent();
+
+  $pdf = new PDF();
+  $pdf->addPage();
+  
+}
+
 ?>
+    

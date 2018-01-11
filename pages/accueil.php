@@ -40,10 +40,10 @@ include_once "header.php";
   <div id="export">
     <fieldset>
       <legend>Export :</legend>
-      <form action="AjoutAdherent.php">
+      <form action="fonctions.php">
           <input class="accueil" type="submit" value="Impression des adhérents">
       </form>
-      <form action="AjoutAdherent.php">
+      <form action="#">
           <input class="accueil" type="submit" value="Publipostage ré-adhésion">
       </form>
     </fieldset>
@@ -54,7 +54,7 @@ include_once "header.php";
     $mois = 02;
     if($mois>=01 && $mois<=03)
     {
-      echo 'Trimestre en cours :Janvier/Fevrier/Mars';
+      echo '<label>Trimestre en cours :Janvier/Fevrier/Mars</label>';
     }
     elseif($mois>=04 && $mois<=06)
     {
