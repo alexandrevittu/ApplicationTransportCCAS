@@ -33,11 +33,11 @@ function ModifAdherent($id,$nom,$prenom,$adresse,$date,$remarque)
 {
   $dbh = connexion();
   $pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
-  $pdoStatement = $dbh->prepare("update adherents set nom =:nom,prenom =:prenom,adresse =:adresse,dateAdhesion = :date,remarque = :remarque where id = :id ");
+  $pdoStatement = $dbh->prepare("update adherents set nom =:nom,prenom =:prenom,adresse =:adresse,dateAdhesion = :dateAdhesion,remarque = :remarque where id = :id ");
   $pdoStatement->bindvalue("nom",$nom);
   $pdoStatement->bindvalue("prenom",$prenom);
   $pdoStatement->bindvalue("adresse",$adresse);
-  $pdoStatement->bindvalue("date",$date);
+  $pdoStatement->bindvalue("dateAdhesion",$date);
   $pdoStatement->bindvalue("remarque",$remarque);
   $pdoStatement->bindvalue("id",$id);
   if($pdoStatement->execute())
@@ -205,6 +205,6 @@ function pdfAdherent(){
 
   $pdf = new PDF();
   $pdf->addPage();
-  
+
 }
 ?>
