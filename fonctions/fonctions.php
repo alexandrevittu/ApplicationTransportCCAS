@@ -29,6 +29,28 @@ function AjoutAdherent($nom,$prenom,$adresse,$dateadhesion,$remarque){
     throw new Exception("Erreur ajout d'adherent");
     }
 }
+function ModifAdherent($id,$nom,$prenom,$adresse,$date,$remarque)
+{
+  $dbh = connexion();
+  $pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
+  $pdoStatement = $dbh->prepare("update adherents set nom =:nom,prenom =:prenom,adresse =:adresse,dateAdhesion = :date,remarque = :remarque where id = :id ");
+  $pdoStatement->bindvalue("nom",$nom);
+  $pdoStatement->bindvalue("prenom",$prenom);
+  $pdoStatement->bindvalue("adresse",$adresse);
+  $pdoStatement->bindvalue("date",$date);
+  $pdoStatement->bindvalue("remarque",$remarque);
+  $pdoStatement->bindvalue("id",$id);
+  if($pdoStatement->execute())
+  {
+
+  $pdoStatement->closeCursor();
+  $dbh=null;
+  }
+  else
+  {
+  throw new Exception("Erreur modification d'adherent");
+  }
+}
 
 function ModifTarifCourt($prix)
 {
@@ -160,6 +182,7 @@ function getDateDepasse(){
   }
 }
 
+<<<<<<< HEAD
 
 function encodeToExcel($tableau){
 
@@ -178,5 +201,7 @@ function pdfAdherent(){
   
 }
 
+=======
+>>>>>>> 22ab68ec68084025402e6eb678eb037d34f26dd6
 ?>
     
