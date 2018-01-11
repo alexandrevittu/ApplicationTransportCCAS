@@ -6,10 +6,9 @@
 include_once "header.php";
 include_once "../fonctions/fonctions.php";
 
-if(isset($_POST['id']))  
-{
+
 $ladherent = GetAdherent($_POST['id']);
-}
+
 
 ?>
 

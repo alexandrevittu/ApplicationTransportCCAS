@@ -181,27 +181,19 @@ function getDateDepasse(){
     throw new Exception("erreur lors de la recuperation des tarif ");
   }
 }
-
-<<<<<<< HEAD
-
-function encodeToExcel($tableau){
-
-
-}
-
-
-function pdfAdherent(){
-
+function GetAdherent($id)
+{
   $dbh = connexion();
-
-  $ListerAdherent = ListerAdherent();
-
-  $pdf = new PDF();
-  $pdf->addPage();
-  
+  try{
+    $pdoStatement = $dbh->prepare("select * from adherents where id=:id");
+    $pdoStatement->bindvalue("id",$id);
+    $pdoStatement->execute();
+    $result = $pdoStatement->fetch();
+    return $result;
+  }
+  catch(Exception $e)
+  {
+    throw new Exception("erreur lors de la recuperation de l'adherent ");
+  }
 }
-
-=======
->>>>>>> 22ab68ec68084025402e6eb678eb037d34f26dd6
 ?>
-    

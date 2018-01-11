@@ -15,7 +15,6 @@
   $(document).ready(function() {
     $('#example').DataTable();
 
-    $("#btn-view").hide();
 
     $("#btn-add").click(function(){
     $(".content-loader").fadeOut('slow', function()
@@ -39,7 +38,7 @@
 } );
 
 
-  
+
 
 
   $('#example').DataTable( {
