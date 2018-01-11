@@ -7,7 +7,7 @@
 
   <link rel="stylesheet" href="style.css">
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"> <!-- ici-->
-  <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" media="screen"> 
+  <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
   <link href="assets/datatables.min.css" rel="stylesheet" type="text/css"> <!-- ici-->
   <script type="text/javascript" src="assets/datatables.min.js"></script> <!-- ici-->
   <script type="text/javascript">
@@ -16,9 +16,9 @@
     $('#example').DataTable();
 } );
 
-  
+
   $("#btn-view").hide();
-  
+
   $("#btn-add").click(function(){
     $(".content-loader").fadeOut('slow', function()
     {
@@ -28,9 +28,9 @@
       $("#btn-view").show();
     });
   });
-  
+
   $("#btn-view").click(function(){
-    
+
     $("body").fadeOut('slow', function()
     {
       $("body").load('accueil.php');
@@ -97,7 +97,7 @@ $lesAdherents = ListerAdherent();
       <tbody>
         <div>
           <?php
-           
+
             foreach($lesAdherents as $unAdherent){
 
             $dnow = $unAdherent['dateAdhesion'];
@@ -106,42 +106,43 @@ $lesAdherents = ListerAdherent();
             $date2=date_create($dafter);
             $diff=date_diff($date1,$date2);
             $difference = (int)$diff->format('%R%a');
+            $id = $unAdherent['id'];
 
             if ($difference > 365) {
 
-              echo '<tr id="couleur">';        
+              echo '<tr id="couleur">';
               echo '<td>'.$unAdherent['nom'].'</td>';
               echo '<td>'.$unAdherent['prenom'].'</td>';
               echo '<td>'.$unAdherent['adresse'].'</td>';
               echo '<td>'.$unAdherent['dateAdhesion'].'</td>';
               echo '<td>'.$unAdherent['remarque'].'</td>';
-              echo '<td><a href="AjoutAdherent.php">Ajouter</a>/<a href="#">Modifier</a>';
-              echo '</tr>';   
+              echo '<td><form action="ModifAdherent.php" id="modifadherent" method="POST"><input type="hidden" name="id" value='.$id.'><input class="btn btn-default" type="submit" value="Modifier"/> </form> / <a class="btn btn-default" href="#">Supprimer</a>';
+              echo '</tr>';
 
             }else if ($difference < 305) {
 
-              echo '<tr>';        
+              echo '<tr>';
               echo '<td>'.$unAdherent['nom'].'</td>';
               echo '<td>'.$unAdherent['prenom'].'</td>';
               echo '<td>'.$unAdherent['adresse'].'</td>';
               echo '<td>'.$unAdherent['dateAdhesion'].'</td>';
               echo '<td>'.$unAdherent['remarque'].'</td>';
-              echo '<td><a href="AjoutAdherent.php">Ajouter</a>/<a href="#">Modifier</a>';
-              echo '</tr>'; 
+              echo '<td><form action="ModifAdherent.php" id="modifadherent" method="POST"><input type="hidden" name="id" value='.$id.'><input class="btn btn-default" type="submit" value="Modifier"/> </form>  / <a class="btn btn-default" href="#">Supprimer</a>';
+              echo '</tr>';
             }
             else{
-              echo '<tr style=background-color:orange;>';        
+              echo '<tr style=background-color:orange;>';
               echo '<td>'.$unAdherent['nom'].'</td>';
               echo '<td>'.$unAdherent['prenom'].'</td>';
               echo '<td>'.$unAdherent['adresse'].'</td>';
               echo '<td>'.$unAdherent['dateAdhesion'].'</td>';
               echo '<td>'.$unAdherent['remarque'].'</td>';
-              echo '<td><a href="AjoutAdherent.php">Ajouter</a>/<a href="#">Modifier</a>';
-              echo '</tr>'; 
+              echo '<td><form action="ModifAdherent.php" id="modifadherent" method="POST"><input type="hidden" name="id" value='.$id.'><input class="btn btn-default" type="submit" value="Modifier"/> </form>  / <a class="btn btn-default" href="#">Supprimer</a>';
+              echo '</tr>';
             }
             }
           ?>
-        </div>   
+        </div>
       </tbody>
     </table>
   </div>
