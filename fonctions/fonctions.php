@@ -196,4 +196,15 @@ function GetAdherent($id)
     throw new Exception("erreur lors de la recuperation de l'adherent ");
   }
 }
+
+function pdfAdherent(){
+
+  $dbh = connexion();
+
+  $ListerAdherent = ListerAdherent();
+
+  $pdf = new PDF();
+  $pdf->addPage();
+  
+}
 ?>
