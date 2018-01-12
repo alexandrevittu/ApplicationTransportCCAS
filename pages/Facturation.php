@@ -26,60 +26,77 @@ $lesAdherents = ListerAdherent();
       </thead>
 <?php
   $trimestre = getTrimestre();
-  var_dump( $trimestre);
-
+  $prixtrajetcours = Getprixtrajetcours();
+  $prixtrajetmoyen = Getprixtrajetmoyen();
+  $prixtrajetlong = Getprixtrajetlong();
+  $prixadhesion = Getprixadhesion();
+  $prixglobal = 0;
   foreach($lesAdherents as $unAdherent)
   {
-
+    $prixtotal = 0;
     $nbtrajetcourt = Getnbtrajetcours($trimestre);
+    $nbtrajetmoyen = Getnbtrajetmoyen($trimestre);
+    $nbtrajetlong = Getnbtrajetlong($trimestre);
+    $adhesion = Getadhesion();
+
     echo '<td>'.$unAdherent['nom'].'</td>';
     echo '<td>'.$unAdherent['prenom'].'</td>';
     echo '<td>'.$unAdherent['adresse'].'</td>';
-    $i ='fjabj';
-    $j = null;
-    $fin = null;
+
+    foreach($adhesion as $nbadhesion)
+    {
+      if($nbadhesion['idAdherent'] == $unAdherent['id'])
+      {
+        if($nbadhesion['nbTrajet'] == 1)
+        {
+          $prixtotal += $prixadhesion['prix'];
+          echo '<td>x</td>';
+        }
+
+       else
+       {
+         echo'<td></td>';
+       }
+     }
+   }
     foreach($nbtrajetcourt as $nbtrajetcourtparadherent)
     {
-      //var_dump($nbtrajetcourtparadherent);
-
       if($nbtrajetcourtparadherent['idAdherent'] == $unAdherent['id'])
       {
-
-        var_dump($nbtrajetcourtparadherent);
+        $prixtotal += $nbtrajetcourtparadherent['nbTrajet']*$prixtrajetcours['prix'];
+        //echo '</br>'.$prixtotal = $nbtrajetcourtparadherent['nbTrajet'] * $prixtrajetcours['prix'];
         echo '<td>'.$nbtrajetcourtparadherent['nbTrajet'].'</td>';
-        $i = null;
-      }
-      elseif($nbtrajetcourtparadherent['idAdherent'] != $unAdherent['id'])
-      {
-        /*if($i == null && $j !=null)
-        {
-          echo '<td>0</td>';
-          $j = 'aze';
-        }
-        elseif($i != null && $j ==null && $fin == null)
-        {
-          $fin = 'aze';
-        }
-        elseif($i == null && $j ==null)
-        {
-        }
-        elseif ($fin != null)
-        {
-          echo '<td>1</td>';
-          $fin = null;
-        }
-        else
-        {
-        }*/
-      }
-      }
+       }
+     }
+     foreach($nbtrajetmoyen as $nbtrajetmoyenparadherent)
+     {
+       if($nbtrajetmoyenparadherent['idAdherent'] == $unAdherent['id'])
+       {
+         $prixtotal += $nbtrajetmoyenparadherent['nbTrajet']*$prixtrajetmoyen['prix'];
+         echo '<td>'.$nbtrajetmoyenparadherent['nbTrajet'].'</td>';
+       }
+     }
+     foreach($nbtrajetlong as $nbtrajetlongparadherent)
+     {
+       if($nbtrajetlongparadherent['idAdherent'] == $unAdherent['id'])
+       {
+         $prixtotal += $nbtrajetlongparadherent['nbTrajet']*$prixtrajetlong['prix'];
+         echo '<td>'.$nbtrajetlongparadherent['nbTrajet'].'</td>';
+         echo '<td>'.$prixtotal.' €</td>';
+         echo '</tr>';
+         $prixglobal += $prixtotal;
+       }
+     }
+
 
     }
-
-
-
+    echo'</table>';
+    echo "<p id='prixglobal'>Total global : $prixglobal €</p>";
 ?>
-
+<form action="accueil.php" id="annulerfacturation">
+    <input class="btn btn-default" type="submit" value="accueil">
+    <a class="btn btn-default" href="#" onclick="window.print(); return false;">Imprimer cette page</a>
+</form>
 </body>
 
 </html>

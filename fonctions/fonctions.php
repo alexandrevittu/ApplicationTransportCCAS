@@ -201,14 +201,56 @@ function ajouttrajetcourtparadherent($idadherent,$trimestre)
 {
   $dbh= connexion();
   $PdoStatement = $dbh ->prepare("insert into tarifs values (NULL,0,:idadherent,2,:idtrimestre)");
-  $PdoStatement->bindvalue("idadherent",$prenom);
-  $PdoStatement->bindvalue("idtrimestre",$adresse);
+  $PdoStatement->bindvalue("idadherent",$idadherent);
+  $PdoStatement->bindvalue("idtrimestre",$trimestre);
   if($PdoStatement->execute()){
     $PdoStatement->closeCursor();
     $dbh=null;
     }
     else{
-    throw new Exception("Erreur ajout d'adherent");
+    throw new Exception("Erreur ajout trajet cours d'adherent");
+    }
+}
+function ajoutadhesionparadherent($idadherent,$trimestre)
+{
+  $dbh= connexion();
+  $PdoStatement = $dbh ->prepare("insert into tarifs values (NULL,1,:idadherent,5,:idtrimestre)");
+  $PdoStatement->bindvalue("idadherent",$idadherent);
+  $PdoStatement->bindvalue("idtrimestre",$trimestre);
+  if($PdoStatement->execute()){
+    $PdoStatement->closeCursor();
+    $dbh=null;
+    }
+    else{
+    throw new Exception("Erreur ajout trajet cours d'adherent");
+    }
+}
+function ajouttrajetmoyenparadherent($idadherent,$trimestre)
+{
+  $dbh= connexion();
+  $PdoStatement = $dbh ->prepare("insert into tarifs values (NULL,0,:idadherent,3,:idtrimestre)");
+  $PdoStatement->bindvalue("idadherent",$idadherent);
+  $PdoStatement->bindvalue("idtrimestre",$trimestre);
+  if($PdoStatement->execute()){
+    $PdoStatement->closeCursor();
+    $dbh=null;
+    }
+    else{
+    throw new Exception("Erreur ajout trajet moyen d'adherent");
+    }
+}
+function ajouttrajetlongparadherent($idadherent,$trimestre)
+{
+  $dbh= connexion();
+  $PdoStatement = $dbh ->prepare("insert into tarifs values (NULL,0,:idadherent,4,:idtrimestre)");
+  $PdoStatement->bindvalue("idadherent",$idadherent);
+  $PdoStatement->bindvalue("idtrimestre",$trimestre);
+  if($PdoStatement->execute()){
+    $PdoStatement->closeCursor();
+    $dbh=null;
+    }
+    else{
+    throw new Exception("Erreur ajout trajet long d'adherent");
     }
 }
 function GetAdherent($id)
@@ -238,14 +280,14 @@ function pdfAdherent(){
 
 }
 
-<<<<<<< HEAD
+
 function SupprimerAdherent($idAdherentSupp){
     $pdo = connexion();
     $requete=$pdo->prepare("DELETE from adherents WHERE id= :idAdherentSupp ");
-    $requete->bindValue(":idAdherentSupp",$idAdherentSupp);     
+    $requete->bindValue(":idAdherentSupp",$idAdherentSupp);
     $requete->execute();
     }
-=======
+
 
 function Getnbtrajetcours($id)
 {
@@ -253,6 +295,60 @@ function Getnbtrajetcours($id)
   try
   {
     $pdoStatement = $dbh->prepare("select nbTrajet,idAdherent from tarifs inner join adherents on tarifs.idAdherent = adherents.id where idTypetrajet = 2 AND idTrimestre =:id");
+    $pdoStatement->bindvalue("id",$id);
+    $pdoStatement->execute();
+    $result = $pdoStatement->fetchAll();
+    return $result;
+    $dbh=null;
+
+  }
+  catch(Exception $e)
+  {
+    throw new Exception("erreur lors de la recuperation de l'adherent ");
+  }
+}
+function Getadhesion()
+{
+  $dbh = connexion();
+  try
+  {
+    $pdoStatement = $dbh->prepare("select nbTrajet,idAdherent from tarifs inner join adherents on tarifs.idAdherent = adherents.id where idTypetrajet = 5");
+    //$pdoStatement->bindvalue("id",$id);
+    $pdoStatement->execute();
+    $result = $pdoStatement->fetchAll();
+    return $result;
+    $dbh=null;
+
+  }
+  catch(Exception $e)
+  {
+    throw new Exception("erreur lors de la recuperation de l'adherent ");
+  }
+}
+function Getnbtrajetmoyen($id)
+{
+  $dbh = connexion();
+  try
+  {
+    $pdoStatement = $dbh->prepare("select nbTrajet,idAdherent from tarifs inner join adherents on tarifs.idAdherent = adherents.id where idTypetrajet = 3 AND idTrimestre =:id");
+    $pdoStatement->bindvalue("id",$id);
+    $pdoStatement->execute();
+    $result = $pdoStatement->fetchAll();
+    return $result;
+    $dbh=null;
+
+  }
+  catch(Exception $e)
+  {
+    throw new Exception("erreur lors de la recuperation de l'adherent ");
+  }
+}
+function Getnbtrajetlong($id)
+{
+  $dbh = connexion();
+  try
+  {
+    $pdoStatement = $dbh->prepare("select nbTrajet,idAdherent from tarifs inner join adherents on tarifs.idAdherent = adherents.id where idTypetrajet = 4 AND idTrimestre =:id");
     $pdoStatement->bindvalue("id",$id);
     $pdoStatement->execute();
     $result = $pdoStatement->fetchAll();
@@ -288,6 +384,70 @@ function getTrimestre()
   return $result;
 }
 
+function Getprixtrajetcours()
+{
+  $dbh = connexion();
+  try
+  {
+    $pdoStatement = $dbh->prepare("select prix from typetrajet where id =2");
+    $pdoStatement->execute();
+    $result = $pdoStatement->fetch();
+    return $result;
+    $dbh=null;
+  }
+  catch(Exception $e)
+  {
+    throw new Exception("erreur lors de la recuperation du prix d'un trajet cours");
+  }
+}
+function Getprixtrajetmoyen()
+{
+  $dbh = connexion();
+  try
+  {
+    $pdoStatement = $dbh->prepare("select prix from typetrajet where id =3");
+    $pdoStatement->execute();
+    $result = $pdoStatement->fetch();
+    return $result;
+    $dbh=null;
+  }
+  catch(Exception $e)
+  {
+    throw new Exception("erreur lors de la recuperation du prix d'un trajet moyen");
+  }
+}
+function Getprixtrajetlong()
+{
+  $dbh = connexion();
+  try
+  {
+    $pdoStatement = $dbh->prepare("select prix from typetrajet where id =4");
+    $pdoStatement->execute();
+    $result = $pdoStatement->fetch();
+    return $result;
+    $dbh=null;
+  }
+  catch(Exception $e)
+  {
+    throw new Exception("erreur lors de la recuperation du prix d'un trajet long");
+  }
+}
+function Getprixadhesion()
+{
+  $dbh = connexion();
+  try
+  {
+    $pdoStatement = $dbh->prepare("select prix from typetrajet where id =5");
+    $pdoStatement->execute();
+    $result = $pdoStatement->fetch();
+    return $result;
+    $dbh=null;
+  }
+  catch(Exception $e)
+  {
+    throw new Exception("erreur lors de la recuperation du prix d'une adhesion");
+  }
+}
 
->>>>>>> 9d1e949985d1303a77b84156140d92200f34e0cf
+
 ?>

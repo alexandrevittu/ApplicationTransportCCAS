@@ -72,3 +72,11 @@ a:hover{
 	display: block;
 	margin-top: 10px;
 }
+#prixglobal{
+	margin-left: 85%;
+	font-weight: bold;
+}
+#annulerfacturation{
+	margin-left: 40%;
+
+}

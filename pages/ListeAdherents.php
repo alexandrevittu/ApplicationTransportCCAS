@@ -13,7 +13,7 @@
 
     $(document).ready(function() {
       $('#example').DataTable();
-    } ); 
+    } );
 
     function verifAdh(id){
       if (confirm("Are youuu sure?")==true) {
@@ -24,7 +24,7 @@
     }
 
     function RedirectionJavascript(){
-      document.location.href="ModifAdherent.php"; 
+      document.location.href="ModifAdherent.php";
     }
 
 /*
@@ -127,6 +127,9 @@ $lesAdherents = ListerAdherent();
       </table>
     </div>
   </div>
+  <form action="accueil.php" id="annulerfacturation">
+      <input class="btn btn-default" type="submit" value="accueil">     
+  </form>
 
 </body>
 </html>
