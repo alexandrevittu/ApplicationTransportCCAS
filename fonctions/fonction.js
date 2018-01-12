@@ -1,14 +1,18 @@
+$(document).ready(function () {
+	$(document).on('submit', '#formSupp', function () {
 
-function pdfAdherent(){
-
-	var docDefinition = { content: 'exemple' };
-	// open the PDF in a new window
- 	pdfMake.createPdf(docDefinition).open();
-
- 	// print the PDF
- 	pdfMake.createPdf(docDefinition).print();
-
-	 // download the PDF
- 	pdfMake.createPdf(docDefinition).download('exemple.pdf');
-  
-}
+		$.post("validerSupp.php", $(this).serialize())
+		.done(function (data) {
+			$("#dis").fadeOut();
+			$("#dis").fadeIn('slow', function () {
+				if (data === "Erreur de suppression") {
+					$("#dis").html('<div class="alert alert-danger">' + data + '</div>');
+				} else {
+					$("#dis").html('<div class="alert alert-info">' + data + '</div>');grzgr
+				}
+				$("#formSupp")[0].reset();
+			});
+		});
+		return false;
+	});
+});

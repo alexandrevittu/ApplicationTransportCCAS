@@ -207,4 +207,11 @@ function pdfAdherent(){
   $pdf->addPage();
   
 }
+
+function SupprimerAdherent($idAdherentSupp){
+    $pdo = connexion();
+    $requete=$pdo->prepare("DELETE from adherents WHERE id= :idAdherentSupp ");
+    $requete->bindValue(":idAdherentSupp",$idAdherentSupp);     
+    $requete->execute();
+    }
 ?>
