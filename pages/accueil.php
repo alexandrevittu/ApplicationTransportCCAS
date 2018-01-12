@@ -29,7 +29,7 @@ include_once "header.php";
     <form action="AjoutAdherent.php">
         <input class="accueil" type="submit" value="Trimestre">
     </form>
-    <form action="AjoutAdherent.php">
+    <form action="Facturation.php">
         <input class="accueil" type="submit" value="Facturation">
     </form>
     <form action="AjoutAdherent.php">
@@ -50,8 +50,8 @@ include_once "header.php";
   </div>
   <div id="trimestre">
     <?php
-    //$mois = date('m');
-    $mois = 02;
+    $mois = date('m');
+    //$mois = 02;
     if($mois>=01 && $mois<=03)
     {
       echo '<label>Trimestre en cours :Janvier/Fevrier/Mars</label>';
