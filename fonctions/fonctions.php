@@ -181,6 +181,36 @@ function getDateDepasse(){
     throw new Exception("erreur lors de la recuperation des tarif ");
   }
 }
+function Getidadherent($nom,$prenom)
+{
+  $dbh = connexion();
+  try{
+    $pdoStatement = $dbh->prepare("select id from adherents where nom=:nom and prenom=:prenom");
+    $pdoStatement->bindvalue("nom",$nom);
+    $pdoStatement->bindvalue("prenom",$prenom);
+    $pdoStatement->execute();
+    $result = $pdoStatement->fetch();
+    return $result;
+  }
+  catch(Exception $e)
+  {
+    throw new Exception("erreur lors de la recuperation de l'id de l'adherent ");
+  }
+}
+function ajouttrajetcourtparadherent($idadherent,$trimestre)
+{
+  $dbh= connexion();
+  $PdoStatement = $dbh ->prepare("insert into tarifs values (NULL,0,:idadherent,2,:idtrimestre)");
+  $PdoStatement->bindvalue("idadherent",$prenom);
+  $PdoStatement->bindvalue("idtrimestre",$adresse);
+  if($PdoStatement->execute()){
+    $PdoStatement->closeCursor();
+    $dbh=null;
+    }
+    else{
+    throw new Exception("Erreur ajout d'adherent");
+    }
+}
 function GetAdherent($id)
 {
   $dbh = connexion();
@@ -208,21 +238,46 @@ function pdfAdherent(){
 
 }
 
+
 function Getnbtrajetcours($id)
 {
   $dbh = connexion();
   try
   {
-    $pdoStatement = $dbh->prepare("select nbTrajet from tarifs where idTypetrajet = 2 AND idTrimestre=:id");
+    $pdoStatement = $dbh->prepare("select nbTrajet,idAdherent from tarifs inner join adherents on tarifs.idAdherent = adherents.id where idTypetrajet = 2 AND idTrimestre =:id");
     $pdoStatement->bindvalue("id",$id);
     $pdoStatement->execute();
-    $result = $pdoStatement->fetch();
+    $result = $pdoStatement->fetchAll();
     return $result;
+    $dbh=null;
+
   }
   catch(Exception $e)
   {
     throw new Exception("erreur lors de la recuperation de l'adherent ");
   }
+}
+function getTrimestre()
+{
+  $mois = date('m');
+  $result;
+  if($mois>=01 && $mois<=03)
+  {
+    $result = 1;
+  }
+  elseif($mois>=04 && $mois<=06)
+  {
+    $result = 3;
+  }
+  elseif($mois>=10 && $mois<=12)
+  {
+    $result = 4;
+  }
+  else
+  {
+    $result = 5;
+  }
+  return $result;
 }
 
 

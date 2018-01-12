@@ -50,8 +50,8 @@ include_once "header.php";
   </div>
   <div id="trimestre">
     <?php
-    //$mois = date('m');
-    $mois = 02;
+    $mois = date('m');
+    //$mois = 02;
     if($mois>=01 && $mois<=03)
     {
       echo '<label>Trimestre en cours :Janvier/Fevrier/Mars</label>';
