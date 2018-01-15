@@ -65,11 +65,12 @@ dateFormat: 'yy-mm-dd'
        AjoutAdherent(($_POST["nom"]),($_POST["prenom"]),($_POST["adresse"]),($_POST["date"]),($_POST["remarque"]));
        $id = Getidadherent($_POST["nom"],$_POST["prenom"]);
        $trimestre = getTrimestre();
+       $nbtrajet =0;
        for($i=1;$i<=4;$i++)
        {
-       ajouttrajetcourtparadherent($id['id'],$i);
-       ajouttrajetmoyenparadherent($id['id'],$i);
-       ajouttrajetlongparadherent($id['id'],$i);
+       ajouttrajetcourtparadherent($id['id'],$i,$nbtrajet);
+       ajouttrajetmoyenparadherent($id['id'],$i,$nbtrajet);
+       ajouttrajetlongparadherent($id['id'],$i,$nbtrajet);
        }
        ajoutadhesionparadherent($id['id'],$trimestre);
        echo"<script>alert('Adherent ajouter !')</script>";

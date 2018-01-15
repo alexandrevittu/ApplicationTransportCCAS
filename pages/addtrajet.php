@@ -7,11 +7,10 @@
     include_once "header.php";
     include_once "../fonctions/fonctions.php";
 
-    echo $_POST['id'];
+    
     $ladherent = GetAdherent($_POST['id']);
-    var_dump($ladherent);
-    echo $_POST['trimestre'];
-    echo $ladherent['nom'];
+
+
     ?>
 </head>
 <body>
@@ -29,11 +28,10 @@
     echo $nbtrajetmoyen['nbTrajet'];
     echo $nbtrajetcourt['nbTrajet'];
     echo $nbtrajetlong['nbTrajet'];
-    echo'<script>';
-    echo"document.getElementById('trajetcourt').value=".$nbtrajetcourt['nbTrajet'];
-    echo"document.getElementById('trajetmoyen').value=".$nbtrajetmoyen['nbTrajet'];
-    echo"document.getElementById('trajetlong').value=".$nbtrajetlong['nbTrajet'];
-    echo'</script>';
+    echo"<script>document.getElementById('trajetcourt').value=".$nbtrajetcourt['nbTrajet']."</script>";
+    echo"<script>document.getElementById('trajetmoyen').value=".$nbtrajetmoyen['nbTrajet']."</script>";
+    echo"<script>document.getElementById('trajetlong').value=".$nbtrajetlong['nbTrajet']."</script>";
+
 
   ?>
 </body>

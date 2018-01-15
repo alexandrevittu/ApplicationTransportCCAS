@@ -198,12 +198,13 @@ function Getidadherent($nom,$prenom)
     throw new Exception("erreur lors de la recuperation de l'id de l'adherent ");
   }
 }
-function ajouttrajetcourtparadherent($idadherent,$trimestre)
+function ajouttrajetcourtparadherent($idadherent,$trimestre,$nbtrajet)
 {
   $dbh= connexion();
-  $PdoStatement = $dbh ->prepare("insert into tarifs values (NULL,0,:idadherent,2,:idtrimestre)");
+  $PdoStatement = $dbh ->prepare("insert into tarifs values (NULL,:nbtrajet,:idadherent,2,:idtrimestre)");
   $PdoStatement->bindvalue("idadherent",$idadherent);
   $PdoStatement->bindvalue("idtrimestre",$trimestre);
+  $PdoStatement->bindvalue("nbtrajet",$nbtrajet);
   if($PdoStatement->execute()){
     $PdoStatement->closeCursor();
     $dbh=null;
@@ -226,12 +227,13 @@ function ajoutadhesionparadherent($idadherent,$trimestre)
     throw new Exception("Erreur ajout trajet cours d'adherent");
     }
 }
-function ajouttrajetmoyenparadherent($idadherent,$trimestre)
+function ajouttrajetmoyenparadherent($idadherent,$trimestre,$nbtrajet)
 {
   $dbh= connexion();
-  $PdoStatement = $dbh ->prepare("insert into tarifs values (NULL,0,:idadherent,3,:idtrimestre)");
+  $PdoStatement = $dbh ->prepare("insert into tarifs values (NULL,:nbtrajet,:idadherent,3,:idtrimestre)");
   $PdoStatement->bindvalue("idadherent",$idadherent);
   $PdoStatement->bindvalue("idtrimestre",$trimestre);
+  $PdoStatement->bindvalue("nbtrajet",$nbtrajet);
   if($PdoStatement->execute()){
     $PdoStatement->closeCursor();
     $dbh=null;
@@ -240,12 +242,13 @@ function ajouttrajetmoyenparadherent($idadherent,$trimestre)
     throw new Exception("Erreur ajout trajet moyen d'adherent");
     }
 }
-function ajouttrajetlongparadherent($idadherent,$trimestre)
+function ajouttrajetlongparadherent($idadherent,$trimestre,$nbtrajet)
 {
   $dbh= connexion();
-  $PdoStatement = $dbh ->prepare("insert into tarifs values (NULL,0,:idadherent,4,:idtrimestre)");
+  $PdoStatement = $dbh ->prepare("insert into tarifs values (NULL,:nbtrajet,:idadherent,4,:idtrimestre)");
   $PdoStatement->bindvalue("idadherent",$idadherent);
   $PdoStatement->bindvalue("idtrimestre",$trimestre);
+  $PdoStatement->bindvalue("nbtrajet",$nbtrajet);
   if($PdoStatement->execute()){
     $PdoStatement->closeCursor();
     $dbh=null;
