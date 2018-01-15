@@ -22,7 +22,20 @@
     Nombre de trajet long :<input type="number" name="trajetlong" id="trajetlong"/></br>
     <input class="btn btn-default" type="submit" value="Valider"/>
   </form>
+  <?php
+    $nbtrajetmoyen = Getnbtrajetmoyenparadherent($_POST['id'],$_POST['trimestre']);
+    $nbtrajetcourt = Getnbtrajetcourtparadherent($_POST['id'],$_POST['trimestre']);
+    $nbtrajetlong = Getnbtrajetlongparadherent($_POST['id'],$_POST['trimestre']);
+    echo $nbtrajetmoyen['nbTrajet'];
+    echo $nbtrajetcourt['nbTrajet'];
+    echo $nbtrajetlong['nbTrajet'];
+    echo'<script>';
+    echo"document.getElementById('trajetcourt').value=".$nbtrajetcourt['nbTrajet'];
+    echo"document.getElementById('trajetmoyen').value=".$nbtrajetmoyen['nbTrajet'];
+    echo"document.getElementById('trajetlong').value=".$nbtrajetlong['nbTrajet'];
+    echo'</script>';
 
+  ?>
 </body>
 
 </html>

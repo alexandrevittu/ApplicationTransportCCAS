@@ -344,6 +344,63 @@ function Getnbtrajetmoyen($id)
     throw new Exception("erreur lors de la recuperation de l'adherent ");
   }
 }
+function Getnbtrajetmoyenparadherent($id,$trimestre)
+{
+  $dbh = connexion();
+  try
+  {
+    $pdoStatement = $dbh->prepare("select nbTrajet from tarifs where idTypetrajet = 3 AND idTrimestre =:trimestre AND idAdherent =:id");
+    $pdoStatement->bindvalue("trimestre",$trimestre);
+    $pdoStatement->bindvalue("id",$id);
+    $pdoStatement->execute();
+    $result = $pdoStatement->fetch();
+    return $result;
+    $dbh=null;
+
+  }
+  catch(Exception $e)
+  {
+    throw new Exception("erreur lors de la recuperation de l'adherent ");
+  }
+}
+function Getnbtrajetcourtparadherent($id,$trimestre)
+{
+  $dbh = connexion();
+  try
+  {
+    $pdoStatement = $dbh->prepare("select nbTrajet from tarifs where idTypetrajet = 2 AND idTrimestre =:trimestre AND idAdherent =:id");
+    $pdoStatement->bindvalue("trimestre",$trimestre);
+    $pdoStatement->bindvalue("id",$id);
+    $pdoStatement->execute();
+    $result = $pdoStatement->fetch();
+    return $result;
+    $dbh=null;
+
+  }
+  catch(Exception $e)
+  {
+    throw new Exception("erreur lors de la recuperation de l'adherent ");
+  }
+}
+function Getnbtrajetlongparadherent($id,$trimestre)
+{
+  $dbh = connexion();
+  try
+  {
+    $pdoStatement = $dbh->prepare("select nbTrajet from tarifs where idTypetrajet = 4 AND idTrimestre =:trimestre AND idAdherent =:id");
+    $pdoStatement->bindvalue("trimestre",$trimestre);
+    $pdoStatement->bindvalue("id",$id);
+    $pdoStatement->execute();
+    $result = $pdoStatement->fetch();
+    return $result;
+    $dbh=null;
+
+  }
+  catch(Exception $e)
+  {
+    throw new Exception("erreur lors de la recuperation de l'adherent ");
+  }
+}
 function Getnbtrajetlong($id)
 {
   $dbh = connexion();
@@ -462,7 +519,7 @@ function getNbTrajetAdherent($idAdherent){
   }
   catch(Exception $e)
   {
-    throw new Exception("Le nombre de trajet court n'a pas pu etre recuperer ...");  
+    throw new Exception("Le nombre de trajet court n'a pas pu etre recuperer ...");
   }
 }
 
