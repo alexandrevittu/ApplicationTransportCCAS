@@ -26,7 +26,7 @@ include_once "header.php";
     <form action="Tarif.php">
         <input class="accueil" type="submit" value="Tarifs">
     </form>
-    <form action="AjoutAdherent.php">
+    <form action="Trimestre.php">
         <input class="accueil" type="submit" value="Trimestre">
     </form>
     <form action="Facturation.php">

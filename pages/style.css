@@ -43,7 +43,7 @@ display:block;
   font-family:'Roboto',Arial;
 }
 
-#ajoutadherent,#tarif{
+#ajoutadherent,#tarif,#listetrimestre{
 	margin-top: 8%;
 	Line-Height: 2;
 }
@@ -78,5 +78,4 @@ a:hover{
 }
 #annulerfacturation{
 	margin-left: 40%;
-
 }

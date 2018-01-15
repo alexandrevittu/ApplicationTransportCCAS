@@ -371,7 +371,7 @@ function getTrimestre()
   }
   elseif($mois>=04 && $mois<=06)
   {
-    $result = 3;
+    $result = 2;
   }
   elseif($mois>=10 && $mois<=12)
   {
@@ -379,7 +379,7 @@ function getTrimestre()
   }
   else
   {
-    $result = 5;
+    $result = 3;
   }
   return $result;
 }
