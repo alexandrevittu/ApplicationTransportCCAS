@@ -8,7 +8,7 @@ $(document).ready(function () {
 				if (data === "Erreur de suppression") {
 					$("#dis").html('<div class="alert alert-danger">' + data + '</div>');
 				} else {
-					$("#dis").html('<div class="alert alert-info">' + data + '</div>');grzgr
+					$("#dis").html('<div class="alert alert-info">' + data + '</div>');
 				}
 				$("#formSupp")[0].reset();
 			});
