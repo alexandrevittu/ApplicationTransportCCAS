@@ -60,7 +60,7 @@ dateFormat: 'yy-mm-dd'
      $datesaisie = date_create(($_POST["date"]));
      $diff = date_diff($datesaisie,$dateactuel);
      $nb= (int)$diff->format('%R%a');
-     if((int)$nb>0)
+     if((int)$nb>=0)
      {
        AjoutAdherent(($_POST["nom"]),($_POST["prenom"]),($_POST["adresse"]),($_POST["date"]),($_POST["remarque"]));
        $id = Getidadherent($_POST["nom"],$_POST["prenom"]);

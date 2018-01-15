@@ -27,6 +27,9 @@ include_once "../fonctions/fonctions.php";
     ModifTarifMoyen($_POST["trajetmoyen"]);
     ModifTarifLong($_POST["trajetlong"]);
     ModifTarifAdhesion($_POST["tarifadhesion"]);
+    echo'<script>';
+    echo"window.setTimeout(location=('accueil.php'), 6)";
+    echo'</script>';
     $i=0;
     $lestarifs = GetTarif();
     foreach ($lestarifs as $tarif)

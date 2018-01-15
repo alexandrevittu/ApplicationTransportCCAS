@@ -27,7 +27,7 @@ if(isset($_POST['trimestre']))
     echo "<table cellpadding='0' cellspacing='0' border='0' class='table table-striped table-hover table-responsive no-footer table-bordered' id='example'>";
     echo "<thead>";
     echo "<tr><th>Nom</th><th>Prénom</th><th>Adresse</th><th>Ajout</th></tr></thead>";
-    
+
     $lesAdherents = ListerAdherent();
 
     foreach($lesAdherents as $unAdherent)
@@ -43,6 +43,9 @@ if(isset($_POST['trimestre']))
 
 
    ?>
+   <form action="accueil.php" id="annulerTrimestre">
+     <input class="btn btn-default" type="submit" value="accueil">
+   </form>
 </body>
 
 </html>
