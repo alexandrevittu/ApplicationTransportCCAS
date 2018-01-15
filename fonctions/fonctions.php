@@ -181,6 +181,7 @@ function getDateDepasse(){
     throw new Exception("erreur lors de la recuperation des tarif ");
   }
 }
+
 function Getidadherent($nom,$prenom)
 {
   $dbh = connexion();
@@ -446,6 +447,22 @@ function Getprixadhesion()
   catch(Exception $e)
   {
     throw new Exception("erreur lors de la recuperation du prix d'une adhesion");
+  }
+}
+
+
+function getNbTrajetAdherent($idAdherent){
+  $dbh = connexion();
+  try{
+    $pdoStatement = $dbh->prepare("select SUM(nbTrajet) AS nbTrajetCourt FROM tarifs WHERE idAdherent = 28 AND idTypetrajet = 2");
+    $pdoStatement->execute();
+    $result = $pdoStatement->fetch();
+    return $result;
+    $dbh = null;
+  }
+  catch(Exception $e)
+  {
+    throw new Exception("Le nombre de trajet court n'a pas pu etre recuperer ...");  
   }
 }
 
