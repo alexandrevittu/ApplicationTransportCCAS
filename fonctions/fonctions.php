@@ -523,5 +523,72 @@ function getNbTrajetAdherent($idAdherent){
   }
 }
 
+function getNbTrajetCourtAdherent($idAdherent){
+  $dbh = connexion();
+  try{
+    $pdoStatement = $dbh->prepare("select SUM(nbTrajet) AS nbTrajetCourt FROM tarifs WHERE idAdherent = :idAdherent AND idTypetrajet = 2");
+    $pdoStatement->bindvalue("idAdherent",$idAdherent);
+    $pdoStatement->execute();
+    $result = $pdoStatement->fetch();
+    return $result;
+    $dbh = null;
+  }
+  catch(Exception $e)
+  {
+    throw new Exception("Le nombre de trajet court n'a pas pu etre recuperer ...");
+  }
+}
+
+function getNbTrajetMoyenAdherent($idAdherent){
+  $dbh = connexion();
+  try{
+    $pdoStatement = $dbh->prepare("select SUM(nbTrajet) AS nbTrajetCourt FROM tarifs WHERE idAdherent = :idAdherent AND idTypetrajet = 3");
+    $pdoStatement->bindvalue("idAdherent",$idAdherent);
+    $pdoStatement->execute();
+    $result = $pdoStatement->fetch();
+    return $result;
+    $dbh = null;
+  }
+  catch(Exception $e)
+  {
+    throw new Exception("Le nombre de trajet moyen n'a pas pu etre recuperer ...");
+  }
+}
+
+function getNbTrajetLongAdherent($idAdherent){
+  $dbh = connexion();
+  try{
+    $pdoStatement = $dbh->prepare("select SUM(nbTrajet) AS nbTrajetCourt FROM tarifs WHERE idAdherent = :idAdherent AND idTypetrajet = 4");
+    $pdoStatement->bindvalue("idAdherent",$idAdherent);
+    $pdoStatement->execute();
+    $result = $pdoStatement->fetch();
+    return $result;
+    $dbh = null;
+  }
+  catch(Exception $e)
+  {
+    throw new Exception("Le nombre de trajet long n'a pas pu etre recuperer ...");
+  }
+}
+
+function adhesionPayee($idAdherent){
+  $dbh = connexion();
+  try{
+    $pdoStatement = $dbh->prepare("select nbTrajet FROM tarifs WHERE idAdherent = :idAdherent AND idTypetrajet = 5");
+    $pdoStatement->bindvalue("idAdherent",$idAdherent);
+    $pdoStatement->execute();
+    $result = $pdoStatement->fetch();
+    return $result;
+    $dbh = null;
+  }
+  catch(Exception $e)
+  {
+    throw new Exception("Le nombre de trajet long n'a pas pu etre recuperer ...");
+  }
+}
+
+
+
+
 
 ?>
