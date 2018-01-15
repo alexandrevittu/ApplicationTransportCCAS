@@ -16,7 +16,7 @@
     } );
 
     function verifAdh(id){
-      if (confirm("Are youuu sure?")==true) {
+      if (confirm("Are you sure?")==true) {
         window.setTimeout(RedirectionJavascript(),3000);
         return true;
       }
@@ -117,7 +117,7 @@ $lesAdherents = ListerAdherent();
                 echo '<td>'.$unAdherent['adresse'].'</td>';
                 echo '<td>'.$unAdherent['dateAdhesion'].'</td>';
                 echo '<td>'.$unAdherent['remarque'].'</td>';
-                echo '<td><form action="ModifAdherent.php" id="modifadherent" method="POST"><input type="hidden" name="id" value='.$id.'><input class="btn btn-default" id="btn-view" type="submit" value="Modifier"/></form><form action="" method="POST" id=suppAdherent action="validerSupp.php"><input type="hidden" name="id" value='.$id.'><button class="btn btn-default" type="submit" id="btn-view" onclick="verifAdh()">Supprimer</button></form></td>';
+                echo '<td><form action="ModifAdherent.php" id="modifadherent" method="POST"><input type="hidden" name="id" value='.$id.'><input class="btn btn-default" id="btn-view" type="submit" value="Modifier"/></form><form action="validerSupp.php" method="POST" id=suppAdherent action="validerSupp.php"><input type="hidden" name="id" value='.$id.'><button class="btn btn-default" type="submit" id="btn-view" onclick="verifAdh()">Supprimer</button></form></td>';
                 echo '</tr>';
               }
             }
