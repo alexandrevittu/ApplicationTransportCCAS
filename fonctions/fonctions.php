@@ -1,16 +1,16 @@
 <?php
 
 function connexion(){
-    $dsn='mysql:dbname=transport_ccas;host=localhost';
-    $username='root';
-    $passwd='';
+  $dsn='mysql:dbname=transport_ccas;host=localhost';
+  $username='root';
+  $passwd='';
 
-    try{
-        $dbh=new PDO($dsn,$username,$passwd);
-    } catch (Exception $e) {
-        echo 'Connexion échouée : '.$e->getMessage();
-    }
-    return $dbh;
+  try{
+    $dbh=new PDO($dsn,$username,$passwd);
+  } catch (Exception $e) {
+    echo 'Connexion échouée : '.$e->getMessage();
+  }
+  return $dbh;
 }
 
 function AjoutAdherent($nom,$prenom,$adresse,$dateadhesion,$remarque){
@@ -24,10 +24,10 @@ function AjoutAdherent($nom,$prenom,$adresse,$dateadhesion,$remarque){
   if($PdoStatement->execute()){
     $PdoStatement->closeCursor();
     $dbh=null;
-    }
-    else{
+  }
+  else{
     throw new Exception("Erreur ajout d'adherent");
-    }
+  }
 }
 function ModifAdherent($id,$nom,$prenom,$adresse,$date,$remarque)
 {
@@ -43,12 +43,12 @@ function ModifAdherent($id,$nom,$prenom,$adresse,$date,$remarque)
   if($pdoStatement->execute())
   {
 
-  $pdoStatement->closeCursor();
-  $dbh=null;
+    $pdoStatement->closeCursor();
+    $dbh=null;
   }
   else
   {
-  throw new Exception("Erreur modification d'adherent");
+    throw new Exception("Erreur modification d'adherent");
   }
 }
 
@@ -62,7 +62,7 @@ function ModifTarifCourt($prix)
     $pdoStatement->closeCursor();
     $dbh=null;
   }
-    else
+  else
   {
     throw new Exception("Erreur modif prix trajet court");
   }
@@ -77,7 +77,7 @@ function ModifTarifMoyen($prix)
     $pdoStatement->closeCursor();
     $dbh=null;
   }
-    else
+  else
   {
     throw new Exception("Erreur modif prix trajet moyen");
   }
@@ -92,7 +92,7 @@ function ModifTarifLong($prix)
     $pdoStatement->closeCursor();
     $dbh=null;
   }
-    else
+  else
   {
     throw new Exception("Erreur modif prix trajet long");
   }
@@ -107,7 +107,7 @@ function ModifTarifAdhesion($prix)
     $pdoStatement->closeCursor();
     $dbh=null;
   }
-    else
+  else
   {
     throw new Exception("Erreur modif prix adhésion");
   }
@@ -122,7 +122,7 @@ function ModifSeuil($prix)
     $pdoStatement->closeCursor();
     $dbh=null;
   }
-    else
+  else
   {
     throw new Exception("Erreur modif prix du seuil");
   }
@@ -133,11 +133,11 @@ function ListerAdherent(){
   $dbh = connexion();
   try {
 
-  $pdoStatement = $dbh->prepare("select * from adherents");
-  $pdoStatement->execute();
+    $pdoStatement = $dbh->prepare("select * from adherents");
+    $pdoStatement->execute();
 
-  $result = $pdoStatement->fetchAll();
-  return $result;
+    $result = $pdoStatement->fetchAll();
+    return $result;
   } catch (Exception $e) {
 
     throw new Exception("erreur lors de la recuperation des adhérents " . $ex);
@@ -208,10 +208,10 @@ function ajouttrajetcourtparadherent($idadherent,$trimestre,$nbtrajet)
   if($PdoStatement->execute()){
     $PdoStatement->closeCursor();
     $dbh=null;
-    }
-    else{
+  }
+  else{
     throw new Exception("Erreur ajout trajet cours d'adherent");
-    }
+  }
 }
 function ajoutadhesionparadherent($idadherent,$trimestre)
 {
@@ -222,10 +222,10 @@ function ajoutadhesionparadherent($idadherent,$trimestre)
   if($PdoStatement->execute()){
     $PdoStatement->closeCursor();
     $dbh=null;
-    }
-    else{
+  }
+  else{
     throw new Exception("Erreur ajout trajet cours d'adherent");
-    }
+  }
 }
 function ajouttrajetmoyenparadherent($idadherent,$trimestre,$nbtrajet)
 {
@@ -237,10 +237,10 @@ function ajouttrajetmoyenparadherent($idadherent,$trimestre,$nbtrajet)
   if($PdoStatement->execute()){
     $PdoStatement->closeCursor();
     $dbh=null;
-    }
-    else{
+  }
+  else{
     throw new Exception("Erreur ajout trajet moyen d'adherent");
-    }
+  }
 }
 function ajouttrajetlongparadherent($idadherent,$trimestre,$nbtrajet)
 {
@@ -252,10 +252,10 @@ function ajouttrajetlongparadherent($idadherent,$trimestre,$nbtrajet)
   if($PdoStatement->execute()){
     $PdoStatement->closeCursor();
     $dbh=null;
-    }
-    else{
+  }
+  else{
     throw new Exception("Erreur ajout trajet long d'adherent");
-    }
+  }
 }
 function GetAdherent($id)
 {
@@ -286,11 +286,11 @@ function pdfAdherent(){
 
 
 function SupprimerAdherent($idAdherentSupp){
-    $pdo = connexion();
-    $requete=$pdo->prepare("DELETE from adherents WHERE id= :idAdherentSupp ");
-    $requete->bindValue(":idAdherentSupp",$idAdherentSupp);
-    $requete->execute();
-    }
+  $pdo = connexion();
+  $requete=$pdo->prepare("DELETE from adherents WHERE id= :idAdherentSupp ");
+  $requete->bindValue(":idAdherentSupp",$idAdherentSupp);
+  $requete->execute();
+}
 
 
 function Getnbtrajetcours($id)
@@ -586,12 +586,23 @@ function adhesionPayee($idAdherent){
   }
   catch(Exception $e)
   {
-    throw new Exception("Le nombre de trajet long n'a pas pu etre recuperer ...");
+    throw new Exception("l'adhesion n'est pas récuperer erreur dans l");
   }
 }
 
-
-
-
-
+function getSeuil(){
+  $dbh = connexion();
+  try{
+    $pdoStatement = $dbh->prepare("select prix FROM typetrajet WHERE id = 1");
+    
+    $pdoStatement->execute();
+    $result = $pdoStatement->fetch();
+    return $result;
+    $dbh = null;
+  }
+  catch(Exception $e)
+  {
+    throw new Exception("Le nombre de trajet long n'a pas pu etre recuperer ...");
+  }
+}
 ?>
