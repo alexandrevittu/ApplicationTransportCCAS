@@ -11,40 +11,43 @@ include_once "header.php";
 <body>
   <div id="adherent">
     <fieldset>
-      <legend>Adhérent :</legend>
+      <legend><span class="glyphicon glyphicon-user"></span>&nbsp; Adhérent :</legend>
         <form  action="AjoutAdherent.php">
-          <input class="accueil" type="submit" value="Ajout d'un adhérent">
+          <!-- <input class="accueil" type="submit" value="Ajout d'un adhérent"> -->
+          <button class="btn btn-info" type="submit" id="accueil"> <span class="glyphicon glyphicon-plus"></span> &nbsp; Ajout d'un adhérent</button>
         </form>
         <form  action="ListeAdherents.php">
-          <input class="accueil" type="submit" value="Liste des adhérent">
+
+          <button class="btn btn-info" type="submit" id="accueil"> <span class="glyphicon glyphicon-th-list"></span> &nbsp; Liste des adhérents</button>
         </form>
     </fieldset>
   </div>
   <div id="facturation">
     <fieldset>
-      <legend>Facturation :</legend>
+      <legend><span class="glyphicon glyphicon-euro" ></span> &nbsp; Facturation :</legend>
     <form action="Tarif.php">
-        <input class="accueil" type="submit" value="Tarifs">
+        <button class="btn btn-info" type="submit" id="accueil"> <span class="glyphicon glyphicon-euro" ></span> &nbsp; Tarifs</button>
     </form>
+
     <form action="Trimestre.php">
-        <input class="accueil" type="submit" value="Trimestre">
+        <button class="btn btn-info" type="submit" id="accueil"> <span class=" glyphicon glyphicon-option-horizontal" ></span> &nbsp; Trimestre</button>
     </form>
     <form action="Facturation.php">
-        <input class="accueil" type="submit" value="Facturation">
+        <button class="btn btn-info" type="submit" id="accueil"> <span class="glyphicon glyphicon-shopping-cart" ></span> &nbsp; Facturation</button>
     </form>
     <form action="report.php">
-        <input class="accueil" type="submit" value="Report">
+        <button class="btn btn-info" type="submit" id="accueil"> <span class=" glyphicon glyphicon-option-horizontal" ></span> &nbsp; Report</button>
     </form>
     </fieldset>
   </div>
   <div id="export">
     <fieldset>
-      <legend>Export :</legend>
+      <legend><span class="glyphicon glyphicon-print" ></span> &nbsp; Export :</legend>
       <form action="ImpressionDesAdherents.php">
-          <input class="accueil" type="submit" value="Impression des adhérents">
+          <button class="btn btn-info" type="submit" id="accueil"> <span class="glyphicon glyphicon-print" ></span> &nbsp; Impression des adherents</button>
       </form>
       <form action="#">
-          <input class="accueil" type="submit" value="Publipostage ré-adhésion">
+          <button class="btn btn-info" type="submit" id="accueil"> <span class="glyphicon glyphicon-save-file" ></span> &nbsp; Publipostage ré-adhésion</button>
       </form>
     </fieldset>
   </div>
@@ -54,7 +57,7 @@ include_once "header.php";
     //$mois = 02;
     if($mois>=01 && $mois<=03)
     {
-      echo '<label>Trimestre en cours :Janvier/Fevrier/Mars</label>';
+      echo "<label>Trimestre en cours :Janvier/Fevrier/Mars</label>";
     }
     elseif($mois>=04 && $mois<=06)
     {
