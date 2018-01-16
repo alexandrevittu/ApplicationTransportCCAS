@@ -127,6 +127,23 @@ function ModifSeuil($prix)
     throw new Exception("Erreur modif prix du seuil");
   }
 }
+function ModifTrajetCourtParAdherent($idadherent,$trimestre,$nbtrajet)
+{
+  $dbh = connexion();
+  $pdoStatement = $dbh->prepare("update Tarifs set nbTrajet = :nbtrajet WHERE idAdherent=:idadherent AND idTrimestre=:trimestre AND idTypetrajet=2");
+  $pdoStatement->bindvalue("nbtrajet",$nbtrajet);
+  $pdoStatement->bindvalue("trimestre",$trimestre);
+  $pdoStatement->bindvalue("idadherent",$idadherent);
+  if($pdoStatement->execute())
+  {
+    $pdoStatement->closeCursor();
+    $dbh=null;
+  }
+    else
+  {
+    throw new Exception("Erreur modif trajet court par adherent");
+  }
+}
 
 function ListerAdherent(){
 

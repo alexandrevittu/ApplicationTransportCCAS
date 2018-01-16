@@ -58,15 +58,15 @@ include_once "header.php";
     }
     elseif($mois>=04 && $mois<=06)
     {
-      echo 'Trimestre en cours :Avril/Mai/Juin';
+      echo '<label>Trimestre en cours :Avril/Mai/Juin</label>';
     }
     elseif($mois>=10 && $mois<=12)
     {
-      echo 'Trimestre en cours :Octobre/Novembre/Decembre';
+      echo '<label>Trimestre en cours :Octobre/Novembre/Decembre</label>';
     }
     else
     {
-      echo 'Trimestre en cours :Juillet/Aout/Septembre';
+      echo '<label>Trimestre en cours :Juillet/Aout/Septembre</label>';
     }
 
     ?>
