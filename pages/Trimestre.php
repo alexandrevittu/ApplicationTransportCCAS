@@ -3,11 +3,21 @@
 <head>
   <meta charset="utf-8">
   <title>Trimestre</title>
+
+  <link href="assets/datatables.min.css" rel="stylesheet" type="text/css"> <!-- ici-->
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"> <!-- ici-->
+
+  <script type="text/javascript" src="assets/datatables.min.js"></script> <!-- ici-->
 <?php
 include_once "header.php";
 include_once "../fonctions/fonctions.php";
 
 ?>
+<script language="javascript" type="text/javascript">
+    $(document).ready(function() {
+      $('#example').DataTable();
+    } );
+</script>
 </head>
 <body>
   <form method="post" id="listetrimestre">
@@ -19,7 +29,9 @@ include_once "../fonctions/fonctions.php";
       <option value="4">Octobre/Novembre/Decembre
     </select>
   </form>
-
+<script>
+  //document.forms['listetrimestre'].elements['trimestre'].selectedIndex = 1;
+</script>
   <?php
 if(isset($_POST['trimestre']))
 {
@@ -43,9 +55,6 @@ if(isset($_POST['trimestre']))
 
 
    ?>
-   <form action="accueil.php" id="annulerTrimestre">
-     <input class="btn btn-default" type="submit" value="accueil">
-   </form>
 </body>
 
 </html>

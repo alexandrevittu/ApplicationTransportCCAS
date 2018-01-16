@@ -38,6 +38,8 @@
     if(isset($_POST['trajetcourt']))
     {
     ModifTrajetCourtParAdherent($_POST['id'],$_POST['trimestre'],$_POST['trajetcourt']);
+    ModifTrajetMoyenParAdherent($_POST['id'],$_POST['trimestre'],$_POST['trajetcourt']);
+    ModifTrajetLongParAdherent($_POST['id'],$_POST['trimestre'],$_POST['trajetcourt']);
     }
 
 

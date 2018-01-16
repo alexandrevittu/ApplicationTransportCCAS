@@ -144,6 +144,40 @@ function ModifTrajetCourtParAdherent($idadherent,$trimestre,$nbtrajet)
     throw new Exception("Erreur modif trajet court par adherent");
   }
 }
+function ModifTrajetMoyenParAdherent($idadherent,$trimestre,$nbtrajet)
+{
+  $dbh = connexion();
+  $pdoStatement = $dbh->prepare("update Tarifs set nbTrajet = :nbtrajet WHERE idAdherent=:idadherent AND idTrimestre=:trimestre AND idTypetrajet=3");
+  $pdoStatement->bindvalue("nbtrajet",$nbtrajet);
+  $pdoStatement->bindvalue("trimestre",$trimestre);
+  $pdoStatement->bindvalue("idadherent",$idadherent);
+  if($pdoStatement->execute())
+  {
+    $pdoStatement->closeCursor();
+    $dbh=null;
+  }
+    else
+  {
+    throw new Exception("Erreur modif trajet moyen par adherent");
+  }
+}
+function ModifTrajetLongParAdherent($idadherent,$trimestre,$nbtrajet)
+{
+  $dbh = connexion();
+  $pdoStatement = $dbh->prepare("update Tarifs set nbTrajet = :nbtrajet WHERE idAdherent=:idadherent AND idTrimestre=:trimestre AND idTypetrajet=4");
+  $pdoStatement->bindvalue("nbtrajet",$nbtrajet);
+  $pdoStatement->bindvalue("trimestre",$trimestre);
+  $pdoStatement->bindvalue("idadherent",$idadherent);
+  if($pdoStatement->execute())
+  {
+    $pdoStatement->closeCursor();
+    $dbh=null;
+  }
+    else
+  {
+    throw new Exception("Erreur modif trajet long par adherent");
+  }
+}
 
 function ListerAdherent(){
 
@@ -611,7 +645,7 @@ function getSeuil(){
   $dbh = connexion();
   try{
     $pdoStatement = $dbh->prepare("select prix FROM typetrajet WHERE id = 1");
-    
+
     $pdoStatement->execute();
     $result = $pdoStatement->fetch();
     return $result;
