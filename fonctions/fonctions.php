@@ -656,4 +656,20 @@ function getSeuil(){
     throw new Exception("Le nombre de trajet long n'a pas pu etre recuperer ...");
   }
 }
+
+function getTrimestreSuivant(){
+
+  $trimestreActuel = getTrimestre();
+  $trimestreSuivant = 0;
+  if ($trimestreActuel == 1) {
+    $trimestreSuivant = 2;
+  }else if ($trimestreActuel == 2) {
+    $trimestreSuivant = 3;
+  }else if ($trimestreActuel == 3) {
+    $trimestreSuivant = 4;
+  }else{
+    $trimestreSuivant == 1;
+  }
+  return $trimestreSuivant;
+}
 ?>
