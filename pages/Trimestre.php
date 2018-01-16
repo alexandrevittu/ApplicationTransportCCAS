@@ -55,14 +55,12 @@ if(isset($_POST['trimestre']))
 
 
    ?>
-<<<<<<< HEAD
+
    <form action="accueil.php" id="annulerTrimestre">
      <input class="btn btn-default" type="submit" value="Retour" onclick="history.go(-1)">
-=======
+
    </table>
-   <form action="accueil.php">
-       <input class="btn btn-default" type="submit" value="accueil">
->>>>>>> 3213b3b776eab15642c707e9dc4cd0c74bb88f73
+
    </form>
 </body>
 
