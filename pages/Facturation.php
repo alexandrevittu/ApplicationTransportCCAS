@@ -3,12 +3,20 @@
 <head>
   <meta charset="utf-8">
   <title>Facturation</title>
+  <link href="assets/datatables.min.css" rel="stylesheet" type="text/css"> <!-- ici-->
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"> <!-- ici-->
+  <script type="text/javascript" src="assets/datatables.min.js"></script> <!-- ici-->
 </head>
 <?php
 include_once "header.php";
 include_once "../fonctions/fonctions.php";
 $lesAdherents = ListerAdherent();
 ?>
+<script language="javascript" type="text/javascript">
+    $(document).ready(function() {
+      $('#example').DataTable();
+    } );
+</script>
 <body>
   <div class="content-loader" style="width: 70%;margin:10% 13%;">
     <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-hover table-responsive no-footer table-bordered" id="example">
@@ -39,9 +47,6 @@ $lesAdherents = ListerAdherent();
     $nbtrajetlong = Getnbtrajetlong($trimestre);
     $adhesion = Getadhesion();
 
-    echo '<td>'.$unAdherent['nom'].'</td>';
-    echo '<td>'.$unAdherent['prenom'].'</td>';
-    echo '<td>'.$unAdherent['adresse'].'</td>';
 
     foreach($adhesion as $nbadhesion)
     {
@@ -50,7 +55,6 @@ $lesAdherents = ListerAdherent();
         if($nbadhesion['nbTrajet'] == 1)
         {
           $prixtotal += $prixadhesion['prix'];
-          echo '<td>x</td>';
         }
 
        else
@@ -64,8 +68,6 @@ $lesAdherents = ListerAdherent();
       if($nbtrajetcourtparadherent['idAdherent'] == $unAdherent['id'])
       {
         $prixtotal += $nbtrajetcourtparadherent['nbTrajet']*$prixtrajetcours['prix'];
-        //echo '</br>'.$prixtotal = $nbtrajetcourtparadherent['nbTrajet'] * $prixtrajetcours['prix'];
-        echo '<td>'.$nbtrajetcourtparadherent['nbTrajet'].'</td>';
        }
      }
      foreach($nbtrajetmoyen as $nbtrajetmoyenparadherent)
@@ -73,7 +75,7 @@ $lesAdherents = ListerAdherent();
        if($nbtrajetmoyenparadherent['idAdherent'] == $unAdherent['id'])
        {
          $prixtotal += $nbtrajetmoyenparadherent['nbTrajet']*$prixtrajetmoyen['prix'];
-         echo '<td>'.$nbtrajetmoyenparadherent['nbTrajet'].'</td>';
+
        }
      }
      foreach($nbtrajetlong as $nbtrajetlongparadherent)
@@ -81,11 +83,43 @@ $lesAdherents = ListerAdherent();
        if($nbtrajetlongparadherent['idAdherent'] == $unAdherent['id'])
        {
          $prixtotal += $nbtrajetlongparadherent['nbTrajet']*$prixtrajetlong['prix'];
-         echo '<td>'.$nbtrajetlongparadherent['nbTrajet'].'</td>';
-         echo '<td>'.$prixtotal.' €</td>';
-         echo '</tr>';
-         $prixglobal += $prixtotal;
        }
+
+     }
+     if($prixtotal >= 15)
+     {
+       echo '<td>'.$unAdherent['nom'].'</td>';
+       echo '<td>'.$unAdherent['prenom'].'</td>';
+       echo '<td>'.$unAdherent['adresse'].'</td>';
+       echo '<td>x</td>';
+       foreach($nbtrajetcourt as $nbtrajetcourtparadherent)
+       {
+         if($nbtrajetcourtparadherent['idAdherent'] == $unAdherent['id'])
+         {
+           echo '<td>'.$nbtrajetcourtparadherent['nbTrajet'].'</td>';
+          }
+        }
+        foreach($nbtrajetmoyen as $nbtrajetmoyenparadherent)
+        {
+          if($nbtrajetmoyenparadherent['idAdherent'] == $unAdherent['id'])
+          {
+            echo '<td>'.$nbtrajetmoyenparadherent['nbTrajet'].'</td>';
+          }
+        }
+        foreach($nbtrajetlong as $nbtrajetlongparadherent)
+        {
+          if($nbtrajetlongparadherent['idAdherent'] == $unAdherent['id'])
+          {
+            echo '<td>'.$nbtrajetlongparadherent['nbTrajet'].'</td>';
+            echo '<td>'.$prixtotal.' €</td>';
+            echo '</tr>';
+            $prixglobal += $prixtotal;
+          }
+
+        }
+
+       $prixtotal = 0;
+
      }
 
 

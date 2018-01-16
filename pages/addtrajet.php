@@ -38,6 +38,11 @@
     if(isset($_POST['trajetcourt']))
     {
     ModifTrajetCourtParAdherent($_POST['id'],$_POST['trimestre'],$_POST['trajetcourt']);
+    ModifTrajetMoyenParAdherent($_POST['id'],$_POST['trimestre'],$_POST['trajetmoyen']);
+    ModifTrajetLongParAdherent($_POST['id'],$_POST['trimestre'],$_POST['trajetlong']);
+    echo'<script>';
+    echo"window.setTimeout(location=('Trimestre.php'), 10)";
+    echo'</script>';
     }
 
 

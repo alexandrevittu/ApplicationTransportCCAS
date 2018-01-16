@@ -57,7 +57,7 @@ dateFormat: 'yy-mm-dd'
         $datesaisie = date_create(($_POST["dateAdhesion"]));
         $diff = date_diff($datesaisie,$dateactuel);
         $nb= (int)$diff->format('%R%a');
-        if((int)$nb>0)
+        if((int)$nb>=0)
         {
           ModifAdherent($_POST["id"],($_POST["nom"]),($_POST["prenom"]),($_POST["adresse"]),($_POST["dateAdhesion"]),($_POST["remarque"]));
           echo'<script>';
