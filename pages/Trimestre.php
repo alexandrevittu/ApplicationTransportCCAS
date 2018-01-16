@@ -55,6 +55,10 @@ if(isset($_POST['trimestre']))
 
 
    ?>
+   </table>
+   <form action="accueil.php">
+       <input class="btn btn-default" type="submit" value="accueil">
+   </form>
 </body>
 
 </html>

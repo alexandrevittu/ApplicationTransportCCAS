@@ -40,7 +40,7 @@ include_once "header.php";
   <div id="export">
     <fieldset>
       <legend>Export :</legend>
-      <form action="fonctions.php">
+      <form action="ImpressionDesAdherents.php">
           <input class="accueil" type="submit" value="Impression des adhérents">
       </form>
       <form action="#">
