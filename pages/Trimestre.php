@@ -44,7 +44,7 @@ if(isset($_POST['trimestre']))
 
    ?>
    <form action="accueil.php" id="annulerTrimestre">
-     <input class="btn btn-default" type="submit" value="accueil">
+     <input class="btn btn-default" type="submit" value="Retour" onclick="history.go(-1)">
    </form>
 </body>
 

@@ -595,7 +595,7 @@ function adhesionPayee($idAdherent){
   $dbh = connexion();
   try{
     $pdoStatement = $dbh->prepare("select nbTrajet FROM tarifs WHERE idAdherent = :idAdherent AND idTypetrajet = 5");
-    $pdoStatement->bindvalue("idAdherent",$idAdherent);
+    $pdoStatement->bindvalue("idAdherent",$idAdherent); 
     $pdoStatement->execute();
     $result = $pdoStatement->fetch();
     return $result;

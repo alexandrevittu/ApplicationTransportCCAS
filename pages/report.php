@@ -8,7 +8,7 @@
   ?>
 </head>
 <body>
-  <div class="content-loader" style="width: 70%;margin:5% 13%;">
+  <div class="content-loader"  style="width: 70%;margin:10% 13%;">
     <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-hover table-responsive no-footer table-bordered" id="example">
       <thead>
         <tr>
@@ -25,10 +25,10 @@
           $lesAdherents = ListerAdherent();
 
           $seuil = getSeuil();
-
-          $prixCourt = Getprixtrajetlong();
+          $leSeuil = (double)$seuil['prix'];
+          $prixCourt = Getprixtrajetcours();
           $prixMoyen = Getprixtrajetmoyen();
-          $prixLong = Getprixtrajetcours();
+          $prixLong = Getprixtrajetlong();
 
           /*var_dump((double)$prixCourt['prix']);
           var_dump((double)$prixMoyen['prix']);
@@ -54,7 +54,21 @@
 
             $total = ($trCourt*$court)+($trMoy*$moyen)+($trLong*$long);
 
-            var_dump($total);
+            $adhesionPayee = adhesionPayee($unAdherent['id']);
+            $adhPay = (double)$adhesionPayee['nbTrajet'];
+            
+            if ($adhesionPayee == '1') {
+              $total = $total + $adhPay;
+            }
+
+            if ($total < $leSeuil) {
+              echo '<tr>';
+              echo '<td>'.$unAdherent['nom'].'</td>';
+              echo '<td>'.$unAdherent['prenom'].'</td>';
+              echo '<td>'.$unAdherent['adresse'].'</td>';
+              echo '<td>'.$total.'</td>';
+              echo '<td>En cours</td></tr>';
+            }
 
           }
           ?>
@@ -68,6 +82,10 @@
         <th>Date dernier trajet</th>  
       </tfoot>
     </table>
+    <form>
+      <input id="retourReport" class="btn btn-default" type="button" value="Retour" onclick="history.go(-1)">
+      <a class="btn btn-default" href="#" onclick="window.print(); return false;">Imprimer cette page</a>
+    </form>
   </div> 
 </body>
 </html>

@@ -28,25 +28,117 @@ input.accueil{
 
 h1
 {
-text-align: center;
-margin:0;
+	text-align: center;
+	margin:0;
 }
 
 #logo
 {
-position: absolute;
-top:1px;
-display:block;
+	position: absolute;
+	top:1px;
+	display:block;
 }
 
 *{
-  font-family:'Roboto',Arial;
+	font-family:'Roboto',Arial;
 }
 
-#ajoutadherent,#tarif,#listetrimestre{
+
+#listetrimestre{
 	margin-top: 8%;
-	Line-Height: 2;
+	line-height: 2;
 }
+
+#tarif input[type=number]{
+	width: 80%;
+	padding: 5px 20px;
+	margin: 2px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+#tarif input[type=submit]{
+	width: 80%;
+	background-color: grey;
+	color: white;
+	padding: 5px 20px;
+	margin: 8px 0;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+#tarif input[type=submit]:hover{
+	background-color: #D9D9D9;
+	color:grey;
+}
+#tarif{
+	width: 50%;
+	margin-left:35%;
+	line-height: 2;
+}
+
+#ajoutadherent{
+	width: 50%;
+	margin-top: 3%;
+	margin-left:35%;
+	line-height: 2;
+}
+
+#ajoutadherent input[type=text]{
+	width: 50%;
+	padding: 5px 20px;
+	margin: 4px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+#ajoutadherent input[type=submit]{
+	width: 50%;
+	background-color: grey;
+	color: white;
+	padding: 5px 20px;
+	margin: 8px 0;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+#btn_tarifRetour{
+	width: 40%;
+	background-color: grey;
+	color: white;
+	padding: 8px 20px;
+	margin: 8px 35%;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+#btn_ajout{
+	width: 25%;
+	background-color: grey;
+	color: white;
+	padding: 8px 20px;	
+	margin: 8px 35%;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+#ajoutadherent input[type=submit]:hover {
+	background-color: #D9D9D9;
+	color:grey;
+}
+
+#btn_ajout:hover {
+	background-color: #D9D9D9;
+	color:grey;
+}
+
 
 
 th{
@@ -79,3 +171,18 @@ a:hover{
 #annulerfacturation{
 	margin-left: 40%;
 }
+
+#retourReport{
+	margin-left: 40%;
+}
+
+#titre{
+	text-decoration: none;
+}
+
+#titre:hover{
+	background: transparent;
+	color:#337AB7;
+}
+
+hr.style-ligne { border: 0; height: 1px; background: #333; background-image: linear-gradient(to right, #ccc, #333, #ccc); }

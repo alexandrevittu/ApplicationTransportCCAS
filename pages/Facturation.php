@@ -10,7 +10,7 @@ include_once "../fonctions/fonctions.php";
 $lesAdherents = ListerAdherent();
 ?>
 <body>
-  <div class="content-loader" style="width: 70%;margin:5% 13%;">
+  <div class="content-loader" style="width: 70%;margin:10% 13%;">
     <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-hover table-responsive no-footer table-bordered" id="example">
       <thead>
         <tr>
@@ -94,7 +94,7 @@ $lesAdherents = ListerAdherent();
     echo "<p id='prixglobal'>Total global : $prixglobal €</p>";
 ?>
 <form action="accueil.php" id="annulerfacturation">
-    <input class="btn btn-default" type="submit" value="accueil">
+    <input type="button" value="Retour" class="btn btn-default" onclick="history.go(-1)">
     <a class="btn btn-default" href="#" onclick="window.print(); return false;">Imprimer cette page</a>
 </form>
 </body>

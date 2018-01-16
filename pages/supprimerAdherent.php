@@ -8,7 +8,7 @@
     {
       $("#supprimerA").click(function(event)
       {
-        
+        print(',lgflgflf'); 
         window.setTimeout("location=('accueil.php');",1500);
       });
 

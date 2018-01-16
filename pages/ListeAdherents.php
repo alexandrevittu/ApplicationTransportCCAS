@@ -147,7 +147,7 @@ $lesAdherents = ListerAdherent();
     </div>
   </div>
   <form action="accueil.php" id="annulerfacturation">
-    <input class="btn btn-default" type="submit" value="accueil">     
+    <input class="btn btn-default" onclick="history.go(-1)" type="submit" value="Retour">     
   </form>
 
 </body>
