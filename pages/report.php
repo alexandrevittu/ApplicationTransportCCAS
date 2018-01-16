@@ -23,20 +23,38 @@
         <div>
           <?php
           $lesAdherents = ListerAdherent();
+
           $seuil = getSeuil();
 
           $prixCourt = Getprixtrajetlong();
           $prixMoyen = Getprixtrajetmoyen();
           $prixLong = Getprixtrajetcours();
 
+          /*var_dump((double)$prixCourt['prix']);
+          var_dump((double)$prixMoyen['prix']);
+          var_dump((double)$prixLong['prix']);
+          var_dump((double)$seuil['prix']);*/
+
+          $court = (double)$prixCourt['prix'];
+          $long = (double)$prixLong['prix'];
+          $moyen = (double)$prixMoyen['prix'];
+
+
           foreach($lesAdherents as $unAdherent){
 
-            $getCourt = getNbTrajetCourtAdherent($unAdherent['id']);
-            $courtTotal = $getCourt * $prixCourt;
-            $moyenTotal = getNbTrajetMoyenAdherent($unAdherent['id'])*$prixMoyen;
-            $longTotal = getNbTrajetLongAdherent($unAdherent['id'])*$prixLong;
-            
-            var_dump($courtTotal+$moyenTotal+$longTotal);
+            $adhesion = 0;
+
+            $adTrajetCours = getNbTrajetCourtAdherent($unAdherent['id']);
+            $adTrajetMoyen = getNbTrajetMoyenAdherent($unAdherent['id']);
+            $adTrajetLong = getNbTrajetLongAdherent($unAdherent['id']);
+
+            $trCourt = (double)$adTrajetCours['nbTrajetCourt'];
+            $trMoy = (double)$adTrajetMoyen['nbTrajetCourt'];
+            $trLong = (double)$adTrajetLong['nbTrajetCourt'];
+
+            $total = ($trCourt*$court)+($trMoy*$moyen)+($trLong*$long);
+
+            var_dump($total);
 
           }
           ?>
