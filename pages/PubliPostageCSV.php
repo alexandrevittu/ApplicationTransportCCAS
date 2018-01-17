@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Publipostage des adhérents en format CSV</title>
+  <title>Renouvellement  des adherents pour le trimestre suivant</title>
   <?php
   include_once "header.php";
   include_once "../fonctions/fonctions.php";
@@ -32,11 +32,11 @@
 </head>
 <body>
   <div class="content-loader" style="width: 70%;margin:5% 13%;">
-    <marquee width="50">Zone de défilement étroite</marquee>
     <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-hover table-responsive no-footer table-bordered" id="example">
 
       <thead>
         <tr>
+          <th>Trimestre Prochain</th>
           <th>Nom</th>
           <th>Prénom</th>
           <th>Adresse</th>
@@ -45,6 +45,7 @@
       </thead>
       <tfoot>
         <tr>
+          <th>Trimestre Prochain</th>
           <th>Nom</th>
           <th>Prénom</th>
           <th>Adresse</th>
@@ -52,16 +53,18 @@
         </tr>
       </tfoot>
     </div>
-
     <?php
-    $lesAdherents = ListerAdherent();
-    foreach($lesAdherents as $unAdherent)
+    $trimestreSuivant = getTrimestreSuivant();
+    $lesAdherentsTrimestreSuivant = getAdherenTrimestre($trimestreSuivant);
+    
+    foreach($lesAdherentsTrimestreSuivant as $unAdherent)
     {
+      echo '<td>'.$trimestreSuivant.'</td>';
       echo '<td>'.$unAdherent['nom'].'</td>';
       echo '<td>'.$unAdherent['prenom'].'</td>';
       echo '<td>'.$unAdherent['adresse'].'</td>';
       echo '<td>Encours</td>';
-    echo '</tr>';
+      echo '</tr>';
   }
 
   ?>

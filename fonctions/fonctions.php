@@ -139,7 +139,7 @@ function ModifTrajetCourtParAdherent($idadherent,$trimestre,$nbtrajet)
     $pdoStatement->closeCursor();
     $dbh=null;
   }
-    else
+  else
   {
     throw new Exception("Erreur modif trajet court par adherent");
   }
@@ -156,7 +156,7 @@ function ModifTrajetMoyenParAdherent($idadherent,$trimestre,$nbtrajet)
     $pdoStatement->closeCursor();
     $dbh=null;
   }
-    else
+  else
   {
     throw new Exception("Erreur modif trajet moyen par adherent");
   }
@@ -173,7 +173,7 @@ function ModifTrajetLongParAdherent($idadherent,$trimestre,$nbtrajet)
     $pdoStatement->closeCursor();
     $dbh=null;
   }
-    else
+  else
   {
     throw new Exception("Erreur modif trajet long par adherent");
   }
@@ -671,5 +671,21 @@ function getTrimestreSuivant(){
     $trimestreSuivant == 1;
   }
   return $trimestreSuivant;
+}
+
+function getAdherenTrimestre($trimestre){
+  $dbh = connexion();
+  try{
+    $pdoStatement = $dbh->prepare("select DISTINCT idTrimestre,nom,prenom,adresse FROM tarifs INNER JOIN adherents ON tarifs.idAdherent=adherents.id WHERE tarifs.idTrimestre = :idTrimestre ");
+    $pdoStatement->bindvalue("idTrimestre",$trimestre);
+    $pdoStatement->execute();
+    $result = $pdoStatement->fetch();
+    return $result;
+    $dbh = null;
+  }
+  catch(Exception $e)
+  {
+    throw new Exception("Requete incorrecte ... !");
+  }
 }
 ?>

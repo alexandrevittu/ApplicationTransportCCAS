@@ -46,7 +46,7 @@ include_once "header.php";
       <form action="ImpressionDesAdherents.php">
           <button class="btn btn-info" type="submit" id="accueil"> <span class="glyphicon glyphicon-print" ></span> &nbsp; Impression des adherents</button>
       </form>
-      <form action="#">
+      <form action="PubliPostageCSV.php">
           <button class="btn btn-info" type="submit" id="accueil"> <span class="glyphicon glyphicon-save-file" ></span> &nbsp; Publipostage ré-adhésion</button>
       </form>
     </fieldset>
