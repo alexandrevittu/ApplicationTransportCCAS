@@ -29,9 +29,6 @@ include_once "../fonctions/fonctions.php";
       <option value="4">Octobre/Novembre/Decembre
     </select>
   </form>
-<script>
-  //document.forms['listetrimestre'].elements['trimestre'].selectedIndex = 1;
-</script>
   <?php
 if(isset($_POST['trimestre']))
 {
@@ -48,20 +45,17 @@ if(isset($_POST['trimestre']))
       echo '<td>'.$unAdherent['nom'].'</td>';
       echo '<td>'.$unAdherent['prenom'].'</td>';
       echo '<td>'.$unAdherent['adresse'].'</td>';
-      echo '<td><form action="addtrajet.php" id="addtrajet" method="POST"><input type="hidden" name="id" value='.$id.'><input type="hidden" name="trimestre" value='.$_POST["trimestre"].'><input class="btn btn-default" id="btn-view" type="submit" value="Ajout"/></form></td>';
+      echo '<td><form action="addtrajet.php" id="addtrajet" method="POST"><input type="hidden" name="id" value='.$id.'><input type="hidden" name="trimestre" value='.$_POST["trimestre"].'><button class="btn btn-info" id="btn-view" type="submit"><span class=" glyphicon glyphicon-plus" ></span> &nbsp;Ajout</form></td>';
       echo '</tr>';
     }
 }
 
 
    ?>
-
-   <form action="accueil.php" id="annulerTrimestre">
-     <input class="btn btn-default" type="submit" value="Retour" onclick="history.go(-1)">
-
-   </table>
-
-   </form>
+  </table>
+  <form action="accueil.php">
+      <input class="btn btn-info" type="submit" value="Annuler">
+  </form>
 </body>
 
 </html>

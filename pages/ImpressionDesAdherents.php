@@ -29,7 +29,7 @@
 
                 { extend: 'csv', text: '<span class=" glyphicon glyphicon-paperclip"></span> Sortie format csv', className: 'btn btn-info'}
               ],
-              "dom": '<"top"lf>rt<"bottom"Bp>',
+              "dom": '<"top"lfi>rt<"bottom"Bp>',
 
       });
 

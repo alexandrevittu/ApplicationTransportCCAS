@@ -73,7 +73,7 @@ dateFormat: 'yy-mm-dd'
     }
       ?>
       <form action="ListeAdherents.php">
-          <input class="btn btn-default" type="submit" value="Annuler" class="buttonannulmodif">
+          <input class="btn btn-info" type="submit" value="Annuler" class="buttonannulmodif">
       </form>
 </body>
 

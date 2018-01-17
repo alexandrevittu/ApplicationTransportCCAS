@@ -10,7 +10,6 @@ include_once "../fonctions/fonctions.php";
 ?>
 
 <body>
-<<<<<<< HEAD
   <div class="content-loader" style="width: 50%;margin:5% 20%;">
     <hr class="style-ligne">
     <form id="tarif" method="POST">

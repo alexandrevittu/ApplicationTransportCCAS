@@ -66,7 +66,7 @@ h1
 }
 #tarif input[type=submit]{
 	width: 80%;
-	background-color: grey;
+	background-color: #50BBDB;
 	color: white;
 	padding: 5px 20px;
 	margin: 8px 0;
@@ -77,7 +77,7 @@ h1
 
 #tarif input[type=submit]:hover{
 	background-color: #D9D9D9;
-	color:grey;
+	color: grey;
 }
 #tarif{
 	width: 50%;
@@ -104,7 +104,7 @@ h1
 
 #ajoutadherent input[type=submit]{
 	width: 50%;
-	background-color: grey;
+	background-color: #50BBDB;
 	color: white;
 	padding: 5px 20px;
 	margin: 8px 0;
@@ -115,7 +115,7 @@ h1
 
 #btn_tarifRetour{
 	width: 40%;
-	background-color: grey;
+	background-color: #50BBDB;
 	color: white;
 	padding: 8px 20px;
 	margin: 8px 35%;
@@ -126,7 +126,7 @@ h1
 
 #btn_ajout{
 	width: 25%;
-	background-color: grey;
+	background-color: #50BBDB;
 	color: white;
 	padding: 8px 20px;
 	margin: 8px 35%;
@@ -137,12 +137,12 @@ h1
 
 #ajoutadherent input[type=submit]:hover {
 	background-color: #D9D9D9;
-	color:grey;
+	color:white;
 }
 
 #btn_ajout:hover {
 	background-color: #D9D9D9;
-	color:grey;
+	color:white;
 }
 
 
@@ -171,7 +171,7 @@ a:hover{
 	margin-top: 10px;
 }
 #prixglobal{
-	margin-left: 85%;
+	margin-left: 75%;
 	font-weight: bold;
 }
 #annulerfacturation{

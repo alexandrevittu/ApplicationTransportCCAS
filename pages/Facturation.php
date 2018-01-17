@@ -6,6 +6,9 @@
   <link href="assets/datatables.min.css" rel="stylesheet" type="text/css"> <!-- ici-->
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"> <!-- ici-->
   <script type="text/javascript" src="assets/datatables.min.js"></script> <!-- ici-->
+  <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
+
 </head>
 <?php
 include_once "header.php";
@@ -13,9 +16,12 @@ include_once "../fonctions/fonctions.php";
 $lesAdherents = ListerAdherent();
 ?>
 <script language="javascript" type="text/javascript">
-    $(document).ready(function() {
-      $('#example').DataTable();
-    } );
+$(document).ready(function() {
+  $('#example').dataTable( {
+  "dom": 'lrtip'
+} );
+
+} );
 </script>
 <body>
   <div class="content-loader" style="width: 70%;margin:10% 13%;">
