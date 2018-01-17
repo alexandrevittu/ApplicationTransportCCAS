@@ -629,7 +629,7 @@ function adhesionPayee($idAdherent){
   $dbh = connexion();
   try{
     $pdoStatement = $dbh->prepare("select nbTrajet FROM tarifs WHERE idAdherent = :idAdherent AND idTypetrajet = 5");
-    $pdoStatement->bindvalue("idAdherent",$idAdherent); 
+    $pdoStatement->bindvalue("idAdherent",$idAdherent);
     $pdoStatement->execute();
     $result = $pdoStatement->fetch();
     return $result;
@@ -673,5 +673,36 @@ function getTrimestreSuivant(){
   return $trimestreSuivant;
 }
 
+function getTrimestreSuivantNb(){
+
+  $trimestreActuel = getTrimestre();
+  $trimestreSuivant = 0;
+  if ($trimestreActuel == 1) {
+    $trimestreSuivant = 2;
+  }else if ($trimestreActuel == 2) {
+    $trimestreSuivant = 3;
+  }else if ($trimestreActuel == 3) {
+    $trimestreSuivant = 4;
+  }else{
+    $trimestreSuivant == 1;
+  }
+  return $trimestreSuivant;
+}
+
+function getTrimestreLib($idTrimestre){
+  $dbh = connexion();
+  try{
+    $pdoStatement = $dbh->prepare("select libelle FROM trimestre WHERE id = :idTrimestre");
+    $pdoStatement->bindValue("idTrimestre",$idTrimestre);
+    $pdoStatement->execute();
+    $result = $pdoStatement->fetch();
+    return $result;
+    $dbh = null;
+  }
+  catch(Exception $e)
+  {
+    throw new Exception("Erreur...");
+  }
+}
 
 ?>

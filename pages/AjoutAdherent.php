@@ -91,7 +91,7 @@ include_once "../fonctions/fonctions.php"
   ?>
 
 
-  <input  id="btn_ajout" class="" onclick="history.go(-1)" type="submit" value="Retour" class="buttonadherent">
+  <input  id="btn_ajout" class="" onclick="window.location.href='accueil.php'" type="submit" value="Retour" class="buttonadherent">
 </div>
 </body>
 </html>

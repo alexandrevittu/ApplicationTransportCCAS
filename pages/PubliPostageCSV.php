@@ -36,17 +36,21 @@
 
       <thead>
         <tr>
+          <th>Trimestre</th>
           <th>Nom</th>
           <th>Prénom</th>
           <th>Adresse</th>
+          <th>Date d'adhesion</th>
           <th>Coût actuel des adhésions</th>
         </tr>
       </thead>
       <tfoot>
         <tr>
+          <th>Trimestre</th>
           <th>Nom</th>
           <th>Prénom</th>
           <th>Adresse</th>
+          <th>Date d'adhesion</th>
           <th>Coût actuel des adhésions</th>
         </tr>
       </tfoot>
@@ -69,14 +73,17 @@
 
     $anneeMaintenant = date('y');
     $anneeAdherent = date("y",strtotime($dateAdhesion));
-
+    $trimestreSuivantNb = getTrimestreSuivantNb();
     if($anneeAdherent < $anneeMaintenant)
     {
         $prixAdhesionActuel = Getprixadhesion();
+        $getTrimestreLibelle = getTrimestreLib($trimestreSuivantNb);
         echo '<tr>';
+        echo '<td>'.$getTrimestreLibelle['libelle'].'</td>';
         echo '<td>'.$unAdherent['nom'].'</td>';
         echo '<td>'.$unAdherent['prenom'].'</td>';
         echo '<td>'.$unAdherent['adresse'].'</td>';
+        echo '<td>'.$unAdherent['dateAdhesion'].'</td>';
         echo '<td style=font-weight:bold;>'.$prixAdhesionActuel['prix'].' €</td></tr>';
       }
     }
