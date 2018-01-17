@@ -36,7 +36,6 @@
 
       <thead>
         <tr>
-          <th>Trimestre Prochain</th>
           <th>Nom</th>
           <th>Prénom</th>
           <th>Adresse</th>
@@ -45,7 +44,6 @@
       </thead>
       <tfoot>
         <tr>
-          <th>Trimestre Prochain</th>
           <th>Nom</th>
           <th>Prénom</th>
           <th>Adresse</th>
@@ -55,24 +53,40 @@
     </div>
     <?php
     $trimestreSuivant = getTrimestreSuivant();
-    $lesAdherentsTrimestreSuivant = getAdherenTrimestre($trimestreSuivant);
-    
-    foreach($lesAdherentsTrimestreSuivant as $unAdherent)
+
+
+    $lesAdherents = ListerAdherent();
+
+    foreach($lesAdherents as $unAdherent){
+
+    $dateAdhesion = $unAdherent['dateAdhesion'];
+    $dateMois = date("m",strtotime($dateAdhesion));
+
+
+
+    if(in_array($dateMois,$trimestreSuivant)){
+
+
+    $anneeMaintenant = date('y');
+    $anneeAdherent = date("y",strtotime($dateAdhesion));
+
+    if($anneeAdherent < $anneeMaintenant)
     {
-      echo '<td>'.$trimestreSuivant.'</td>';
-      echo '<td>'.$unAdherent['nom'].'</td>';
-      echo '<td>'.$unAdherent['prenom'].'</td>';
-      echo '<td>'.$unAdherent['adresse'].'</td>';
-      echo '<td>Encours</td>';
-      echo '</tr>';
+        $prixAdhesionActuel = Getprixadhesion();
+        echo '<tr>';
+        echo '<td>'.$unAdherent['nom'].'</td>';
+        echo '<td>'.$unAdherent['prenom'].'</td>';
+        echo '<td>'.$unAdherent['adresse'].'</td>';
+        echo '<td style=font-weight:bold;>'.$prixAdhesionActuel['prix'].' €</td></tr>';
+      }
+    }
   }
 
   ?>
 
-</table>
-<form action="accueil.php" id="btnimpression">
+  </table>
+  <form action="accueil.php" id="btnimpression">
   <input class="btn btn-default" type="submit" value="accueil">
-
 </form>
 </body>
 

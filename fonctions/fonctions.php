@@ -662,30 +662,16 @@ function getTrimestreSuivant(){
   $trimestreActuel = getTrimestre();
   $trimestreSuivant = 0;
   if ($trimestreActuel == 1) {
-    $trimestreSuivant = 2;
+    $trimestreSuivant = array(4,5,6);
   }else if ($trimestreActuel == 2) {
-    $trimestreSuivant = 3;
+    $trimestreSuivant = array(7,8,9);
   }else if ($trimestreActuel == 3) {
-    $trimestreSuivant = 4;
+    $trimestreSuivant = array(10,11,12);
   }else{
-    $trimestreSuivant == 1;
+    $trimestreSuivant == array(1,2,3);
   }
   return $trimestreSuivant;
 }
 
-function getAdherenTrimestre($trimestre){
-  $dbh = connexion();
-  try{
-    $pdoStatement = $dbh->prepare("select DISTINCT idTrimestre,nom,prenom,adresse FROM tarifs INNER JOIN adherents ON tarifs.idAdherent=adherents.id WHERE tarifs.idTrimestre = :idTrimestre ");
-    $pdoStatement->bindvalue("idTrimestre",$trimestre);
-    $pdoStatement->execute();
-    $result = $pdoStatement->fetch();
-    return $result;
-    $dbh = null;
-  }
-  catch(Exception $e)
-  {
-    throw new Exception("Requete incorrecte ... !");
-  }
-}
+
 ?>
