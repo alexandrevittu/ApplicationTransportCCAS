@@ -22,12 +22,18 @@
   <script language="javascript" type="text/javascript">
   $(document).ready(function() {
       $('#example').DataTable({
+
               dom: 'Bfrtip',
               buttons: [
-                { extend: 'print', text: 'Impression des adherents'},
-                { extend: 'csv', text: 'Sortie format csv'}
-              ]
+                { extend: 'print', text: '<span class="glyphicon glyphicon-print"></span> Imprimer' , className: 'btn btn-info'},
+
+                { extend: 'csv', text: '<span class=" glyphicon glyphicon-paperclip"></span> Sortie format csv', className: 'btn btn-info'}
+              ],
+              "dom": '<"top"lf>rt<"bottom"Bp>',
+
       });
+
+
   });
   </script>
 </head>
@@ -71,8 +77,8 @@
   ?>
 
   </table>
-  <form action="accueil.php" id="btnimpression">
-      <input class="btn btn-default" type="submit" value="accueil">
+  <form action="accueil.php" id="btnimpression" class="testtest">
+      <input class="btn btn-info" type="submit" value="accueil">
 
   </form>
 </body>

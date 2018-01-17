@@ -128,8 +128,8 @@ $lesAdherents = ListerAdherent();
     echo "<p id='prixglobal'>Total global : $prixglobal €</p>";
 ?>
 <form action="accueil.php" id="annulerfacturation">
-    <input type="button" value="Retour" class="btn btn-default" onclick="history.go(-1)">
-    <a class="btn btn-default" href="#" onclick="window.print(); return false;">Imprimer cette page</a>
+    <input type="button" value="Retour" class="btn btn-info" onclick="history.go(-1)">
+    <a class="btn btn-info" href="#" onclick="window.print(); return false;">Imprimer cette page</a>
 </form>
 </body>
 
