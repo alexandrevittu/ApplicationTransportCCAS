@@ -24,7 +24,8 @@
       $('#example').DataTable({
               dom: 'Bfrtip',
               buttons: [
-                   'csv',  'print'
+                { extend: 'print', text: 'Impression des adherents'},
+                { extend: 'csv', text: 'Sortie format csv'}
               ]
       });
   });

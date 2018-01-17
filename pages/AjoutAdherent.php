@@ -35,7 +35,7 @@ include_once "../fonctions/fonctions.php"
 
 
 <body>
-  <div class="container">  
+  <div class="container">
     <form id="ajoutadherent" method="POST">
       <label for="fnom">Nom</label><br>
       <input type="text" name="nom" id="fnom" /><br>
@@ -57,7 +57,7 @@ include_once "../fonctions/fonctions.php"
 
      if($_POST["nom"]==NULL || $_POST["prenom"]==NULL || $_POST["adresse"]==NULL)
      {
-       echo"<script>alert('Saisir les champs obligatoire (Nom,prenom,adresse,date)')</script>";
+       echo"<script>alert('Saisir les champs obligatoire (Nom,prenom,adresse,date)');history.go(-1);</script>";
      }
      else{
        $dateactuel = date_create(date('Y-m-d'));
