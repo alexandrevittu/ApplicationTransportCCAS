@@ -83,7 +83,9 @@ include_once "header.php";   //inclut l'en-tete
     }
 
     ?>
+
   </div>
+
 
 <!--Button statistique -->
 
