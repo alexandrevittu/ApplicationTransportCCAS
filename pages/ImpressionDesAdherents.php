@@ -29,7 +29,7 @@
 
                 { extend: 'csv', text: '<span class=" glyphicon glyphicon-paperclip"></span> Sortie format csv', className: 'btn btn-info'}
               ],
-              "dom": '<"top"lfi>rt<"bottom"Bp>',  <!-- Positionnement des boutons en fonction du tableau -->
+              dom: '<"top"lf>rt<"bottom"iBp>',  <!-- Positionnement des boutons en fonction du tableau -->
 
       });
 
@@ -74,9 +74,9 @@
 
   ?>
 
-  </table>
+</table>
   <form action="accueil.php" id="btnimpression" class="testtest">
-    <input class="btn btn-info" type="submit" value="accueil">
+    <input class="btn btn-info" type="submit" value="Accueil">
   </form>
 </body>
 

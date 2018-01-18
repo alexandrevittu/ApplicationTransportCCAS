@@ -35,15 +35,21 @@ dateFormat: 'yy-mm-dd'
 </script>
 
 <body>
-  <div class="content-loader" style="width: 70%;margin:5% 20%;">
-    <form id="modifadherent" method="POST">
+  <div id="conteneur">
+    <hr class="style-ligne">
+    <form id="ajoutadherent" method="POST">
       <input type="hidden" name="id" id="id" value="<?php echo$ladherent['id']?>"/></br>
-      nom :<input type="text" name="nom" id="nom" value="<?php echo$ladherent['nom']?>"/></br>
-      prenom :<input type="text" name="prenom" id="prenom" value="<?php echo$ladherent['prenom']?>"/></br>
-      adresse :<input type="text" name="adresse" id="adresse" value="<?php echo$ladherent['adresse']?>"/></br>
-      date adhesion :<input type="text" name="dateAdhesion" id="datepicker" value="<?php echo$ladherent['dateAdhesion']?>"/></br>
-      remarque :<input type="text" name="remarque" id="remarque" value="<?php echo$ladherent['remarque']?>"/></br>
-      <input class="btn btn-info" type="submit" value="Modifier"/>
+      <label for="fnom">Nom</label><br>
+      <input type="text" name="nom" id="fnom" value="<?php echo$ladherent['nom']?>"/></br>
+      <label for="fprenom">Prénom</label></br>
+      <input type="text" name="prenom" id="fprenom" value="<?php echo$ladherent['prenom']?>"/></br>
+      <label for="fadresse">Adresse</label></br>
+      <input type="text" name="adresse" id="fadresse" value="<?php echo$ladherent['adresse']?>"/></br>
+      <label for="datepicker">Date d'adhésion</label></br>
+      <input type="text" name="dateAdhesion" id="datepicker" value="<?php echo$ladherent['dateAdhesion']?>"/></br>
+      <label for="fremarque">Remarque</label></br>
+      <input type="text" name="remarque" id="fremarque" value="<?php echo$ladherent['remarque']?>"/></br>
+      <input class="" type="submit" value="Modifier"/></br>
     </form>
       <?php
       if(isset($_POST["nom"]) && isset($_POST["prenom"]) && isset($_POST["adresse"]) && isset($_POST["dateAdhesion"]) && isset($_POST["remarque"]))
@@ -73,8 +79,10 @@ dateFormat: 'yy-mm-dd'
     }
       ?>
       <form action="ListeAdherents.php">
-        <input class="btn btn-info" type="submit" value="Annuler" class="buttonannulmodif">
+        <input id="btn_ajout" type="submit" value="Annuler" class="buttonannulmodif">
+        <hr class="style-ligne">
       </form>
+  </div>
 </body>
 
 </html>

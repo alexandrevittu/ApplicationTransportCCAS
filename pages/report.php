@@ -56,7 +56,7 @@
 
             $adhesionPayee = adhesionPayee($unAdherent['id']);
             $adhPay = (double)$adhesionPayee['nbTrajet'];
-            
+
             if ($adhesionPayee == '1') {
               $total = $total + $adhPay;
             }
@@ -79,13 +79,13 @@
         <th>Prénom</th>
         <th>Adresse</th>
         <th>Somme</th>
-        <th>Date dernier trajet</th>  
+        <th>Date dernier trajet</th>
       </tfoot>
     </table>
     <form>
-      <input id="retourReport" class="btn btn-default" type="button" value="Retour" onclick="history.go(-1)">
-      <a class="btn btn-default" href="#" onclick="window.print(); return false;">Imprimer cette page</a>
+      <input id="retourReport" class="btn btn-info" type="button" value="Retour" onclick="history.go(-1)">
+      <a class="btn btn-info" href="#" onclick="window.print(); return false;">Imprimer cette page</a>
     </form>
-  </div> 
+  </div>
 </body>
 </html>
