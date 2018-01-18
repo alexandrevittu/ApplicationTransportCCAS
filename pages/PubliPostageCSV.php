@@ -7,7 +7,9 @@
   <?php
   include_once "header.php";
   include_once "../fonctions/fonctions.php";
-
+  if (isset($_POST['id'])) {
+    header("Location: ListeAdherents.php");
+  }
   ?>
   <link href="assets/datatables.min.css" rel="stylesheet" type="text/css"> <!-- ici-->
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"> <!-- ici-->

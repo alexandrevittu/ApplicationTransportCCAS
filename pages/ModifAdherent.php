@@ -32,12 +32,13 @@ weekHeader: 'Sem.',
 dateFormat: 'yy-mm-dd'
 });
 });
+
 </script>
 
 <body>
   <div id="conteneur">
     <hr class="style-ligne">
-    <form id="ajoutadherent" method="POST">
+    <form id="ajoutadherent" method="POST" action="PubliPostageCSV.php">
       <input type="hidden" name="id" id="id" value="<?php echo$ladherent['id']?>"/></br>
       <label for="fnom">Nom</label><br>
       <input type="text" name="nom" id="fnom" value="<?php echo$ladherent['nom']?>"/></br>
@@ -67,7 +68,7 @@ dateFormat: 'yy-mm-dd'
         {
           ModifAdherent($_POST["id"],($_POST["nom"]),($_POST["prenom"]),($_POST["adresse"]),($_POST["dateAdhesion"]),($_POST["remarque"]));
           echo'<script>';
-          echo"window.setTimeout(location=('ListeAdherents.php'), 10)";
+          echo"window.setTimeout(location=('PublipostageCSV.php'), 10);location.reload;";
           echo'</script>';
         }
         else
