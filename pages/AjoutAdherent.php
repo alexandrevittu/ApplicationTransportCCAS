@@ -80,6 +80,7 @@ include_once "../fonctions/fonctions.php"
          }
          ajoutadhesionparadherent($id['id'],$trimestre);
          echo"<script>alert('Adherent ajouter !')</script>";
+         echo '<script type="text/javascript">Confirm();</script>';
        }
        else
        {
@@ -98,3 +99,18 @@ include_once "../fonctions/fonctions.php"
 </div>
 </body>
 </html>
+
+
+<script type="text/javascript">
+  function Confirm()
+  {
+    if(confirm("Voulez-vous ajouter d'autre adherent ?"))
+    {
+
+    }
+    else
+    {
+      history.go(-1);
+    }
+  }
+</script>

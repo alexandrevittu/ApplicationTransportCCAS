@@ -13,8 +13,6 @@
   <script type="text/javascript" src="assets/datatables.min.js"></script> <!-- ici-->
   <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
   <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
   <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
 
   <script language="javascript" type="text/javascript">  <!-- affichage du tableau avec DataTable et des boutons imprimer et sortie format csv -->
@@ -27,11 +25,9 @@
 
                 { extend: 'csv', text: '<span class=" glyphicon glyphicon-paperclip"></span> Sortie format csv', className: 'btn btn-info'}
               ],
-<<<<<<< HEAD
+
               "dom": '<"top"lf>rt<"bottom"iBp>',  <!-- Positionnement des boutons en fonction du tableau -->
-=======
-              dom: '<"top"lf>rt<"bottom"iBp>',  <!-- Positionnement des boutons en fonction du tableau -->
->>>>>>> fe6eec3d74d632289fd0a049b95bae4a44ac764d
+
 
       });
 
