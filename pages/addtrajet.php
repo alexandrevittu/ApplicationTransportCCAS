@@ -14,13 +14,17 @@
 </head>
 <body>
   <div class="content-loader" style="width: 70%;margin:5% 20%;">    <!--Creation du formulaire -->
-    <form id="ajouttrajet" method="POST">
+    <form action="Trimestre.php" id="ajouttrajet" method="POST">
       <input type="hidden" name="id" id="id" value="<?php echo$idadherent?>"/></br>
       <input type="hidden" name="trimestre" id="trimestre" value="<?php echo$trimestre?>"/></br>
       Nombre de trajet court :<input type="number" name="trajetcourt" id="trajetcourt"/></br>
       Nombre de trajet moyen :<input type="number" name="trajetmoyen" id="trajetmoyen"/></br>
       Nombre de trajet long :<input type="number" name="trajetlong" id="trajetlong"/></br>
-      <input class="btn btn-default" type="submit" value="Valider"/>
+      <?php
+      echo $_POST['trimestre'];
+      echo '<input type="hidden" name="trimestre" value='.$_POST['trimestre'].'>';
+      ?>
+      <input class="btn btn-info" type="submit" value="Valider"/>
     </form>
     <?php
       $nbtrajetmoyen = Getnbtrajetmoyenparadherent($idadherent,$trimestre); //recuperation des nombre de trajet de l'adherent

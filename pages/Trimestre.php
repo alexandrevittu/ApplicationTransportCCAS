@@ -17,7 +17,7 @@
   <div id="conteneur">
     <div id="debut">
       <form method="post" id="listetrimestre">  <!--liste déroulante des trimestre-->
-        <select name="trimestre" onchange="submit();">
+        <select id="selecttrimestre" name="trimestre" onchange="submit();">
           <option value="0">Choisir trimestre
           <option value="1">Janvier/Fevrier/Mars
           <option value="2">Avril/Mai/Juin
@@ -52,9 +52,27 @@
           echo '</tr>';
         }
       }
+      echo "<script>";
+      if($_POST['trimestre']==1)
+      {
+        echo"document.getElementById('selecttrimestre').value='1'";
+      }
+      elseif($_POST['trimestre']==2)
+      {
+        echo"document.getElementById('selecttrimestre').value='2'";
+      }
+      elseif($_POST['trimestre']==3)
+      {
+        echo"document.getElementById('selecttrimestre').value='3'";
+      }
+      elseif($_POST['trimestre']==4)
+      {
+        echo"document.getElementById('selecttrimestre').value='4'";
+      }
+      echo'</script>';
+
     ?>
     </table>
-
   </div>
 </body>
 </html>
