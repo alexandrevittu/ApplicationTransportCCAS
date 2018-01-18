@@ -129,6 +129,7 @@ $lesAdherents = ListerAdherent();
                 echo '<td>'.$unAdherent['remarque'].'</td>';
                 echo '<td>'.'<div id=conteneurBtn><form action="ModifAdherent.php" id="modifadherent" method="POST"><input type="hidden" name="id" value='.$id.'><input class="btn btn-info" id="btn-view" type="submit" value="Modifier"/></form><form id="formSupp" method="POST" ><input type="hidden" name="id" value='.$id.'><button class="btn btn-danger" type="submit" id="btn-view" onclick="">Supprimer</button></form></td>';
                 echo '</tr>';
+
               }
               else{
                 echo '<tr style=background-color:orange;>';

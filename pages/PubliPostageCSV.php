@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Renouvellement  des adherents pour le trimestre suivant</title>
+  <meta http-equiv=”refresh” content="5" />
   <?php
   include_once "header.php";
   include_once "../fonctions/fonctions.php";
@@ -24,7 +25,7 @@
           { extend: 'csv', text: '<span class=" glyphicon glyphicon-paperclip"></span> Sortie format csv', className: 'btn btn-info'}
         ]
       });
-      
+
       nbLigne = table.rows('.selected').count();
 
     });
