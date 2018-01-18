@@ -16,7 +16,7 @@
   <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
   <script language="javascript" type="text/javascript">
     $(document).ready(function() {
-      $('#example').DataTable({
+    var table =  $('#example').DataTable({
         dom: 'Bfrtip',
         buttons: [
           { extend: 'print', text: '<span class="glyphicon glyphicon-print"></span> Imprimer' , className: 'btn btn-info'},
@@ -24,6 +24,8 @@
           { extend: 'csv', text: '<span class=" glyphicon glyphicon-paperclip"></span> Sortie format csv', className: 'btn btn-info'}
         ]
       });
+      nbLigne = table.rows('.selected').count();
+
     });
   </script>
 </head>
@@ -55,7 +57,7 @@
     <?php
     $trimestreSuivant = getTrimestreSuivant();
 
-
+    $Nbligne = 0;
     $lesAdherents = ListerAdherent();
 
     foreach($lesAdherents as $unAdherent){
@@ -75,7 +77,8 @@
     {
         $prixAdhesionActuel = Getprixadhesion();
         $getTrimestreLibelle = getTrimestreLib($trimestreSuivantNb);
-        echo '<tr>';
+        $Nbligne++;
+        echo '<tr class="selected">';
         echo '<td>'.$getTrimestreLibelle['libelle'].'</td>';
         echo '<td>'.$unAdherent['nom'].'</td>';
         echo '<td>'.$unAdherent['prenom'].'</td>';
@@ -85,8 +88,8 @@
       }
     }
   }
-
-
+  session_start();
+  $_SESSION['nbLigne'] = $Nbligne;
   ?>
 
   </table>
