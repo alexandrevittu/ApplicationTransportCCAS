@@ -14,8 +14,6 @@
   <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
   <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
   <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
-
-
   <script language="javascript" type="text/javascript">
     $(document).ready(function() {
       $('#example').DataTable({
@@ -88,11 +86,12 @@
     }
   }
 
+
   ?>
 
   </table>
   <form action="accueil.php" id="btnimpression">
-  <input class="btn btn-info" type="submit" value="accueil">
+  <input class="btn btn-info" type="submit" value="Accueil">
 </form>
 </body>
 

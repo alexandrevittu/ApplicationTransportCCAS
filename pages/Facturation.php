@@ -48,7 +48,7 @@
   });
 </script>
 <body>
-  <div class="content-loader" style="width: 70%;margin:10% 13%;">   <!--creation du tableau -->
+  <div id="conteneur">   <!--creation du tableau -->
     <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-hover table-responsive no-footer table-bordered" id="example">
       <thead>
         <tr>
@@ -156,11 +156,9 @@
         $prixtotal = 0;
         }
       }
-      echo'</table>';
-
     ?>
-    <form action="accueil.php" id="annulerfacturation">
-      <input type="button" value="Retour" class="btn btn-info" onclick="history.go(-1)">
-    </form>
+    </table>
+    <input class="btn btn-info" onclick="window.location.href='accueil.php'" type="submit" value="Retour" class="buttonadherent">
+  </div>
 </body>
 </html>
