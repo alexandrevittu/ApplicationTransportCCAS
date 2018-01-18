@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <link type="text/css" rel="stylesheet" href="style.css"/>
   <title>Transport CCAS</title>
-
+  <meta http-equiv=”refresh” content="5"/>
 </head>
 <?php
 include_once "header.php";   //inclut l'en-tete
