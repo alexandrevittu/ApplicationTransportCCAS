@@ -21,7 +21,7 @@
       Nombre de trajet moyen :<input type="number" name="trajetmoyen" id="trajetmoyen"/></br>
       Nombre de trajet long :<input type="number" name="trajetlong" id="trajetlong"/></br>
       <?php
-      echo $_POST['trimestre'];
+
       echo '<input type="hidden" name="trimestre" value='.$_POST['trimestre'].'>';
       ?>
       <input class="btn btn-info" type="submit" value="Valider"/>

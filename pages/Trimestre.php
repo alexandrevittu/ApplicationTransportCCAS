@@ -18,7 +18,6 @@
     <div id="debut">
       <form method="post" id="listetrimestre">  <!--liste déroulante des trimestre-->
         <select id="selecttrimestre" name="trimestre" onchange="submit();">
-          <option value="0">Choisir trimestre
           <option value="1">Janvier/Fevrier/Mars
           <option value="2">Avril/Mai/Juin
           <option value="3">Juillet/Aout/Septembre
