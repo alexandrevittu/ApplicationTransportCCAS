@@ -13,9 +13,6 @@
   <script type="text/javascript" src="assets/datatables.min.js"></script> <!-- ici-->
   <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
   <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
-  <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
   <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
 
 
@@ -24,7 +21,9 @@
       $('#example').DataTable({
         dom: 'Bfrtip',
         buttons: [
-        'csv'
+          { extend: 'print', text: '<span class="glyphicon glyphicon-print"></span> Imprimer' , className: 'btn btn-info'},
+
+          { extend: 'csv', text: '<span class=" glyphicon glyphicon-paperclip"></span> Sortie format csv', className: 'btn btn-info'}
         ]
       });
     });
@@ -93,7 +92,7 @@
 
   </table>
   <form action="accueil.php" id="btnimpression">
-  <input class="btn btn-default" type="submit" value="accueil">
+  <input class="btn btn-info" type="submit" value="accueil">
 </form>
 </body>
 
