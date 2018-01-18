@@ -35,7 +35,8 @@ include_once "../fonctions/fonctions.php"
 
 
 <body>
-  <div class="container">
+  <div id="conteneur">
+    <hr class="style-ligne">
     <form id="ajoutadherent" method="POST">
       <label for="fnom">Nom</label><br>
       <input type="text" name="nom" id="fnom" /><br>
@@ -48,6 +49,7 @@ include_once "../fonctions/fonctions.php"
       <label for="fnom">Remarques</label><br>
       <input type="text" name="remarque" id="fremarque" /><br>
       <p><input class="" type="submit" value="Valider"/><br>
+
     </form>
 
     <?php
@@ -92,6 +94,7 @@ include_once "../fonctions/fonctions.php"
 
 
   <input  id="btn_ajout" class="" onclick="window.location.href='accueil.php'" type="submit" value="Retour" class="buttonadherent">
+  <hr class="style-ligne">
 </div>
 </body>
 </html>

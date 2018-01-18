@@ -18,6 +18,7 @@
 
   $(document).ready(function() {
     $('#example').DataTable();
+
     $( "#formSupp" ).submit(function( event ) {
       if (confirm("Etes vous sur de vouloir supprimmer cet adherent ?")==true) {
         window.location = 'validerSupp.php';
@@ -68,8 +69,7 @@ include_once "../fonctions/fonctions.php";
 $lesAdherents = ListerAdherent();
 ?>
 <body>
-  <div class="content-loader" style="width: 70%;margin:5% 13%;">
-    <div class="col-sm-12">
+  <div class="content-loader">
       <div id="dis"></div>
       <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-hover table-responsive no-footer table-bordered" id="example">
         <thead>
@@ -127,7 +127,7 @@ $lesAdherents = ListerAdherent();
                 echo '<td>'.$unAdherent['adresse'].'</td>';
                 echo '<td>'.$unAdherent['dateAdhesion'].'</td>';
                 echo '<td>'.$unAdherent['remarque'].'</td>';
-                echo '<td>'.'<form action="ModifAdherent.php" id="modifadherent" method="POST"><input type="hidden" name="id" value='.$id.'><input class="btn btn-info" id="btn-view" type="submit" value="Modifier"/></form><form id="formSupp" method="POST" ><input type="hidden" name="id" value='.$id.'><button class="btn btn-danger" type="submit" id="btn-view" onclick="">Supprimer</button></form></td>';
+                echo '<td>'.'<div id=conteneurBtn><form action="ModifAdherent.php" id="modifadherent" method="POST"><input type="hidden" name="id" value='.$id.'><input class="btn btn-info" id="btn-view" type="submit" value="Modifier"/></form><form id="formSupp" method="POST" ><input type="hidden" name="id" value='.$id.'><button class="btn btn-danger" type="submit" id="btn-view" onclick="">Supprimer</button></form></td>';
                 echo '</tr>';
               }
               else{
@@ -145,11 +145,11 @@ $lesAdherents = ListerAdherent();
           </div>
         </tbody>
       </table>
-    </div>
+      <form action="accueil.php" id="annulerfacturation">
+        <input class="btn btn-info" onclick="history.go(-1)" type="submit" value="Retour">
+      </form>
+
   </div>
-  <form action="accueil.php" id="annulerfacturation">
-    <input class="btn btn-info" onclick="history.go(-1)" type="submit" value="Retour">
-  </form>
 
 </body>
 </html>
