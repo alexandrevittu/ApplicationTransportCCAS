@@ -14,46 +14,47 @@
   ?>
 </head>
 <body>
-
-  <form method="post" id="listetrimestre">  <!--liste déroulante des trimestre-->
-    <select name="trimestre" onchange="submit();">
-      <option value="0">Choisir trimestre
-      <option value="1">Janvier/Fevrier/Mars
-      <option value="2">Avril/Mai/Juin
-      <option value="3">Juillet/Aout/Septembre
-      <option value="4">Octobre/Novembre/Decembre
-    </select>
-  </form>
-
-  <script language="javascript" type="text/javascript"> <!--affichage du tableau avec DataTable -->
-      $(document).ready(function() {
-        $('#example').DataTable();
-      } );
-  </script>
-  <?php
-    if(isset($_POST['trimestre']))  //creation du tableau
-    {
-      echo"<div class='content-loader' style='width: 70%;margin:5% 13%;'>";
-      echo "<table cellpadding='0' cellspacing='0' border='0' class='table table-striped table-hover table-responsive no-footer table-bordered' id='example'>";
-      echo "<thead>";
-      echo "<tr><th>Nom</th><th>Prénom</th><th>Adresse</th><th>Ajout</th></tr></thead>";
-
-      $lesAdherents = ListerAdherent();
-
-      foreach($lesAdherents as $unAdherent)
+  <div id="conteneur">
+    <div id="debut">
+      <form method="post" id="listetrimestre">  <!--liste déroulante des trimestre-->
+        <select name="trimestre" onchange="submit();">
+          <option value="0">Choisir trimestre
+          <option value="1">Janvier/Fevrier/Mars
+          <option value="2">Avril/Mai/Juin
+          <option value="3">Juillet/Aout/Septembre
+          <option value="4">Octobre/Novembre/Decembre
+        </select>
+      </form>
+      <input  class="btn btn-info" onclick="window.location.href='accueil.php'" type="submit" value="Retour" class="buttonadherent"> <!-- Boutton annuler -->
+  </div>
+    <script language="javascript" type="text/javascript"> <!--affichage du tableau avec DataTable -->
+        $(document).ready(function() {
+          $('#example').DataTable();
+        } );
+    </script>
+    <?php
+      if(isset($_POST['trimestre']))  //creation du tableau
       {
-        $id=$unAdherent['id'];
-        echo '<td>'.$unAdherent['nom'].'</td>';
-        echo '<td>'.$unAdherent['prenom'].'</td>';
-        echo '<td>'.$unAdherent['adresse'].'</td>';
-        echo '<td><form action="addtrajet.php" id="addtrajet" method="POST"><input type="hidden" name="id" value='.$id.'><input type="hidden" name="trimestre" value='.$_POST["trimestre"].'><button class="btn btn-info" id="btn-view" type="submit"><span class=" glyphicon glyphicon-plus" ></span> &nbsp;Ajout</form></td>';
-        echo '</tr>';
+        echo"<div class='content-loader' style='width: 70%;margin:5% 13%;'>";
+        echo "<table cellpadding='0' cellspacing='0' border='0' class='table table-striped table-hover table-responsive no-footer table-bordered' id='example'>";
+        echo "<thead>";
+        echo "<tr><th>Nom</th><th>Prénom</th><th>Adresse</th><th>Ajout</th></tr></thead>";
+
+        $lesAdherents = ListerAdherent();
+
+        foreach($lesAdherents as $unAdherent)
+        {
+          $id=$unAdherent['id'];
+          echo '<td>'.$unAdherent['nom'].'</td>';
+          echo '<td>'.$unAdherent['prenom'].'</td>';
+          echo '<td>'.$unAdherent['adresse'].'</td>';
+          echo '<td><form action="addtrajet.php" id="addtrajet" method="POST"><input type="hidden" name="id" value='.$id.'><input type="hidden" name="trimestre" value='.$_POST["trimestre"].'><button class="btn btn-info" id="btn-view" type="submit"><span class=" glyphicon glyphicon-plus" ></span> &nbsp;Ajout</form></td>';
+          echo '</tr>';
+        }
       }
-    }
-  ?>
-  </table>
-  <form action="accueil.php">
-      <input class="btn btn-info" type="submit" value="Annuler">  <!-- btn annuler -->
-  </form>
+    ?>
+    </table>
+
+  </div>
 </body>
 </html>

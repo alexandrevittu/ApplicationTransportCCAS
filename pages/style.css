@@ -86,10 +86,24 @@ h1
 }
 
 #ajoutadherent{
-	width: 50%;
-	margin-top: 3%;
-	margin-left:35%;
+	/*width: 360px;*/
+	margin-left:auto;
+	margin-left: auto;
+	padding-right: 25%;
+	padding-left: 25%;
 	line-height: 2;
+	text-align: center;
+}
+
+
+#conteneur{
+	width: 1170px;
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 10%;
+
 }
 
 #ajoutadherent input[type=text]{
@@ -128,8 +142,8 @@ h1
 	width: 25%;
 	background-color: #50BBDB;
 	color: white;
-	padding: 8px 20px;
-	margin: 8px 35%;
+	padding: 8px 15px;
+	margin: auto 37.25%;
 	border: none;
 	border-radius: 4px;
 	cursor: pointer;
@@ -175,7 +189,7 @@ a:hover{
 	font-weight: bold;
 }
 #annulerfacturation{
-	margin-left: 40%;
+margin-top: 10px;
 }
 
 #retourReport{
@@ -195,8 +209,45 @@ hr.style-ligne { border: 0; height: 1px; background: #333; background-image: lin
 
 #statistique{
 	text-align: center;
+	margin-top: 30px;
 }
 
 #statistique form{
 	display: inline-block;
+}
+
+#statistique button{
+	margin-right: 100px;
+	margin-top: 40px;
+}
+
+#statistique legend{
+	width: 50%;
+	margin-left: 25%;
+}
+
+
+.content-loader{
+	width: 70%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 15%;
+}
+
+#conteneurBtn{
+	display: flex;
+	justify-content: space-between;
+}
+
+#debut{
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+	display: flex;
+	align-content: center;
+	justify-content: center;
+}
+
+#debut select{
+	margin-right: 10px;
 }
