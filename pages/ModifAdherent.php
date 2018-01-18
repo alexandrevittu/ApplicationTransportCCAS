@@ -9,13 +9,13 @@
 include_once "header.php";
 include_once "../fonctions/fonctions.php";
 
-
+#recuperation de l'adherent
 $ladherent = GetAdherent($_POST['id']);
 
 ?>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script>
+<script>      <!-- traduction du calendrier -->
 $( function() {
   $( "#datepicker" ).datepicker({
 altField: "#datepicker",
@@ -43,7 +43,7 @@ dateFormat: 'yy-mm-dd'
       adresse :<input type="text" name="adresse" id="adresse" value="<?php echo$ladherent['adresse']?>"/></br>
       date adhesion :<input type="text" name="dateAdhesion" id="datepicker" value="<?php echo$ladherent['dateAdhesion']?>"/></br>
       remarque :<input type="text" name="remarque" id="remarque" value="<?php echo$ladherent['remarque']?>"/></br>
-      <input class="btn btn-default" type="submit" value="Modifier"/>
+      <input class="btn btn-info" type="submit" value="Modifier"/>
     </form>
       <?php
       if(isset($_POST["nom"]) && isset($_POST["prenom"]) && isset($_POST["adresse"]) && isset($_POST["dateAdhesion"]) && isset($_POST["remarque"]))
@@ -73,7 +73,7 @@ dateFormat: 'yy-mm-dd'
     }
       ?>
       <form action="ListeAdherents.php">
-          <input class="btn btn-info" type="submit" value="Annuler" class="buttonannulmodif">
+        <input class="btn btn-info" type="submit" value="Annuler" class="buttonannulmodif">
       </form>
 </body>
 
