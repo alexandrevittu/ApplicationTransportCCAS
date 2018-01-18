@@ -7,7 +7,8 @@
 
 </head>
 <?php
-include_once "header.php";   //inclut l'en-tete
+include_once "header.php";
+include_once "../fonctions/fonctions.php";  //inclut l'en-tete
 ?>
 <script type="text/javascript">
 
@@ -41,7 +42,11 @@ include_once "header.php";   //inclut l'en-tete
         <form action="Tarif.php">
           <button class="btn btn-info" type="submit" id="accueil"> <span class="glyphicon glyphicon-euro" ></span> &nbsp; Tarifs</button>
         </form>
-        <form action="Trimestre.php">
+        <form action="Trimestre.php"  method="POST">
+          <?php
+            $trimestre = getTrimestre();
+            echo '<input type="hidden" name="trimestre" value='.$trimestre.'>';
+          ?>
           <button class="btn btn-info" type="submit" id="accueil"> <span class=" glyphicon glyphicon-option-horizontal" ></span> &nbsp; Trimestre</button>
         </form>
         <form action="Facturation.php">
@@ -73,6 +78,7 @@ include_once "header.php";   //inclut l'en-tete
     <?php
     $mois = date('m');
     //$mois = 02;
+
     if($mois>=01 && $mois<=03)
     {
       echo "<label>Trimestre en cours :Janvier/Fevrier/Mars</label>";
