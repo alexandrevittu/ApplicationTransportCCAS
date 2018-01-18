@@ -4,10 +4,18 @@
   <meta charset="utf-8">
   <link type="text/css" rel="stylesheet" href="style.css"/>
   <title>Transport CCAS</title>
+
 </head>
 <?php
 include_once "header.php";   //inclut l'en-tete
 ?>
+<script type="text/javascript">
+
+    $(document).ready(function(){
+      location.reload(true);
+    });
+
+</script>
 <body>
 
 <!--Button adherent -->
@@ -82,6 +90,9 @@ include_once "header.php";   //inclut l'en-tete
       echo '<label>Trimestre en cours :Juillet/Aout/Septembre</label>';
     }
 
+    $Nbligne = file_get_contents('store');
+    $recupLigne = unserialize($Nbligne);
+    var_dump($recupLigne);
     ?>
 
   </div>

@@ -24,6 +24,7 @@
           { extend: 'csv', text: '<span class=" glyphicon glyphicon-paperclip"></span> Sortie format csv', className: 'btn btn-info'}
         ]
       });
+      
       nbLigne = table.rows('.selected').count();
 
     });
@@ -88,8 +89,8 @@
       }
     }
   }
-  session_start();
-  $_SESSION['nbLigne'] = $Nbligne;
+  $recupLigne = serialize($Nbligne);
+  file_put_contents('store',$recupLigne);
   ?>
 
   </table>
