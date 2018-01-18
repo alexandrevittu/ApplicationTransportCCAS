@@ -32,6 +32,12 @@
         } );
     </script>
     <?php
+    if(isset($_POST['trajetcourt']))
+    {
+      ModifTrajetCourtParAdherent($_POST['id'],$_POST['trimestre'],$_POST['trajetcourt']); //envoie a la bdd
+      ModifTrajetMoyenParAdherent($_POST['id'],$_POST['trimestre'],$_POST['trajetmoyen']);
+      ModifTrajetLongParAdherent($_POST['id'],$_POST['trimestre'],$_POST['trajetlong']);
+    }
       if(isset($_POST['trimestre']))  //creation du tableau
       {
         echo"<div class='content-loader' style='width: 70%;margin:5% 13%;'>";

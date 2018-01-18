@@ -42,7 +42,7 @@ include_once "../fonctions/fonctions.php";  //inclut l'en-tete
         <form action="Tarif.php">
           <button class="btn btn-info" type="submit" id="accueil"> <span class="glyphicon glyphicon-euro" ></span> &nbsp; Tarifs</button>
         </form>
-        <form action="Trimestre.php"  method="POST">
+        <form action="Trimestre.php" method="POST">
           <?php
             $trimestre = getTrimestre();
             echo '<input type="hidden" name="trimestre" value='.$trimestre.'>';
