@@ -704,5 +704,9 @@ function getTrimestreLib($idTrimestre){
     throw new Exception("Erreur...");
   }
 }
+function dateFr($date)
+{
+  return strftime('%d-%m-%Y',strtotime($date));
+}
 
 ?>

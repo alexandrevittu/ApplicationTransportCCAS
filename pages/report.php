@@ -74,13 +74,6 @@
           ?>
         </div>
       </tbody>
-      <tfoot>
-        <th>Nom</th>
-        <th>Prénom</th>
-        <th>Adresse</th>
-        <th>Somme</th>
-        <th>Date dernier trajet</th>
-      </tfoot>
     </table>
     <form>
       <input id="retourReport" class="btn btn-info" type="button" value="Retour" onclick="history.go(-1)">

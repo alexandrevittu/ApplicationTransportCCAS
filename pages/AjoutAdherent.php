@@ -76,7 +76,7 @@ include_once "../fonctions/fonctions.php"
          ajoutadhesionparadherent($id['id'],$trimestre);
          ?>
          <script type="text/javascript">          //fenetre de dialogue continuer a ajouté ou pas
-         if(confirm("Adherent ajouter ! \nvouez-vous continuer ?"))
+         if(confirm("Adherent ajouté ! \nvoulez-vous continuer ?"))
          {
 
          }
