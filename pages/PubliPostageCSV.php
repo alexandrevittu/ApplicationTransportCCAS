@@ -47,16 +47,6 @@
           <th>Coût actuel des adhésions</th>
         </tr>
       </thead>
-      <tfoot>
-        <tr>
-          <th>Trimestre</th>
-          <th>Nom</th>
-          <th>Prénom</th>
-          <th>Adresse</th>
-          <th>Date d'adhesion</th>
-          <th>Coût actuel des adhésions</th>
-        </tr>
-      </tfoot>
     </div>
     <?php
     $trimestreSuivant = getTrimestreSuivant();
@@ -87,7 +77,7 @@
         echo '<td>'.$unAdherent['nom'].'</td>';
         echo '<td>'.$unAdherent['prenom'].'</td>';
         echo '<td>'.$unAdherent['adresse'].'</td>';
-        echo '<td>'.$unAdherent['dateAdhesion'].'</td>';
+        echo '<td>'.DateFr($unAdherent['dateAdhesion']).'</td>';
         echo '<td style=font-weight:bold;>'.$prixAdhesionActuel['prix'].' €</td></tr>';
       }
     }

@@ -21,12 +21,22 @@
 
 
               buttons: [
-                { extend: 'print', text: '<span class="glyphicon glyphicon-print"></span> Imprimer' , className: 'btn btn-info'},
-
-                { extend: 'csv', text: '<span class=" glyphicon glyphicon-paperclip"></span> Sortie format csv', className: 'btn btn-info'}
+                {
+                  extend: 'print',
+                  text: '<span class="glyphicon glyphicon-print"></span> Imprimer',
+                  className: 'btn btn-info'
+                },
+                { extend: 'csv',
+                  text: '<span class=" glyphicon glyphicon-paperclip"></span> Sortie format csv',
+                  className: 'btn btn-info'
+                }
               ],
 
-              "dom": '<"top"lf>rt<"bottom"iBp>',  <!-- Positionnement des boutons en fonction du tableau -->
+
+              pagingType: "simple_numbers",
+              lengthMenu:[5,10,15,20,25],
+              pageLength: 20,
+              dom: '<"top"lf>rt<"bottom"iBp>',  <!-- Positionnement des boutons en fonction du tableau -->
 
 
       });
@@ -47,15 +57,6 @@
           <th>Remarques</th>
         </tr>
       </thead>
-      <tfoot>
-        <tr>
-          <th>Nom</th>
-          <th>Prénom</th>
-          <th>Adresse</th>
-          <th>Date d'adhésion</th>
-          <th>Remarques</th>
-        </tr>
-      </tfoot>
   </div>
 
   <?php
@@ -65,7 +66,7 @@
     echo '<td>'.$unAdherent['nom'].'</td>';
     echo '<td>'.$unAdherent['prenom'].'</td>';
     echo '<td>'.$unAdherent['adresse'].'</td>';
-    echo '<td>'.$unAdherent['dateAdhesion'].'</td>';
+    echo '<td>'.DateFr($unAdherent['dateAdhesion']).'</td>';
     echo '<td>'.$unAdherent['remarque'].'</td>';
     echo '</tr>';
   }

@@ -82,21 +82,9 @@ $lesAdherents = ListerAdherent();
             <th>Modifier/Supprimer</th>
           </tr>
         </thead>
-        <tfoot>
-          <tr>
-            <th>Nom</th>
-            <th>Prénom</th>
-            <th>Adresse</th>
-            <th>Date d'adhésion</th>
-            <th>Remarques</th>
-            <th>Modifier/Supprimer</th>
-          </tr>
-        </tfoot>
         <tbody>
           <div>
             <?php
-
-
             foreach($lesAdherents as $unAdherent){
 
               $dnow = $unAdherent['dateAdhesion'];
@@ -106,6 +94,9 @@ $lesAdherents = ListerAdherent();
               $diff=date_diff($date1,$date2);
               $difference = (int)$diff->format('%R%a');
               $id=$unAdherent['id'];
+              
+
+
 
               if ($difference > 365) {
 
@@ -113,7 +104,7 @@ $lesAdherents = ListerAdherent();
                 echo '<td>'.$unAdherent['nom'].'</td>';
                 echo '<td>'.$unAdherent['prenom'].'</td>';
                 echo '<td>'.$unAdherent['adresse'].'</td>';
-                echo '<td>'.$unAdherent['dateAdhesion'].'</td>';
+                echo '<td>'.dateFr($unAdherent['dateAdhesion']).'</td>';
                 echo '<td>'.$unAdherent['remarque'].'</td>';
                 //echo '<td><form action="ModifAdherent.php" id="modifadherent" method="POST"><input type="hidden" name="id" value='.$id.'><input class="btn btn-info" id="btn-view" type="submit" value="Modifier"/></form><form id="formSupp" method="POST"><input type="hidden" name="id" value='.$id.'><button class="btn btn-danger" type="submit" id="btn-view" onclick=">Supprimer</button></form></td>';
                 echo '<td>'.'<form action="ModifAdherent.php" id="modifadherent" method="POST"><input type="hidden" name="id" value='.$id.'><input class="btn btn-info" id="btn-view" type="submit" value="Modifier"/></form><form id="formSupp" method="POST" ><input type="hidden" name="id" value='.$id.'><button class="btn btn-danger" type="submit" id="btn-view" onclick="">Supprimer</button></form></td>';
@@ -125,7 +116,7 @@ $lesAdherents = ListerAdherent();
                 echo '<td>'.$unAdherent['nom'].'</td>';
                 echo '<td>'.$unAdherent['prenom'].'</td>';
                 echo '<td>'.$unAdherent['adresse'].'</td>';
-                echo '<td>'.$unAdherent['dateAdhesion'].'</td>';
+                echo '<td>'.dateFr($unAdherent['dateAdhesion']).'</td>';
                 echo '<td>'.$unAdherent['remarque'].'</td>';
                 echo '<td>'.'<div id=conteneurBtn><form action="ModifAdherent.php" id="modifadherent" method="POST"><input type="hidden" name="id" value='.$id.'><input class="btn btn-info" id="btn-view" type="submit" value="Modifier"/></form><form id="formSupp" method="POST" ><input type="hidden" name="id" value='.$id.'><button class="btn btn-danger" type="submit" id="btn-view" onclick="">Supprimer</button></form></td>';
                 echo '</tr>';
@@ -136,7 +127,7 @@ $lesAdherents = ListerAdherent();
                 echo '<td>'.$unAdherent['nom'].'</td>';
                 echo '<td>'.$unAdherent['prenom'].'</td>';
                 echo '<td>'.$unAdherent['adresse'].'</td>';
-                echo '<td>'.$unAdherent['dateAdhesion'].'</td>';
+                echo '<td>'.dateFr($unAdherent['dateAdhesion']).'</td>';
                 echo '<td>'.$unAdherent['remarque'].'</td>';
                 echo '<td><form action="ModifAdherent.php" id="modifadherent" method="POST"><input type="hidden" name="id" value='.$id.'><input class="btn btn-info" id="btn-view" type="submit" value="Modifier"/></form><form id="formSupp" method="POST" id=suppAdherent ><input type="hidden" name="id" value='.$id.'><button class="btn btn-danger" type="submit" id="btn-view" onclick="">Supprimer</button></form></td>';
                 echo '</tr>';
