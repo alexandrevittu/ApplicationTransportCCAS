@@ -7,6 +7,9 @@
   <link href="assets/datatables.min.css" rel="stylesheet" type="text/css"> <!-- ici-->
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"> <!-- ici-->
   <script type="text/javascript" src="assets/datatables.min.js"></script> <!-- ici-->
+  <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
 
   <?php
     include_once "header.php";
@@ -28,7 +31,13 @@
   </div>
     <script language="javascript" type="text/javascript"> <!--affichage du tableau avec DataTable -->
         $(document).ready(function() {
-          $('#example').DataTable();
+          $('#example').DataTable({
+
+          pagingType: "simple_numbers",
+          lengthMenu:[5,10,15,20,25],
+          pageLength: 20,
+
+          });
         } );
     </script>
     <?php

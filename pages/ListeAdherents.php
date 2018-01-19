@@ -17,7 +17,11 @@
 <script language="javascript" type="text/javascript">
 
   $(document).ready(function() {
-    $('#example').DataTable();
+    $('#example').DataTable({
+      pagingType: "simple_numbers",
+      lengthMenu:[5,10,15,20,25],
+      pageLength: 20,
+    });
 
     $( "#formSupp" ).submit(function( event ) {
       if (confirm("Etes vous sur de vouloir supprimmer cet adherent ?")==true) {
@@ -94,7 +98,7 @@ $lesAdherents = ListerAdherent();
               $diff=date_diff($date1,$date2);
               $difference = (int)$diff->format('%R%a');
               $id=$unAdherent['id'];
-              
+
 
 
 
