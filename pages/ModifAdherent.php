@@ -38,52 +38,120 @@ dateFormat: 'yy-mm-dd'
 <body>
   <div id="conteneur">
     <hr class="style-ligne">
-    <form id="ajoutadherent" method="POST" action="PubliPostageCSV.php">
+    <form id="ajoutadherent" method="POST" action="PubliPostageCSV.php" onsubmit="return verifForm(this)">
       <input type="hidden" name="id" id="id" value="<?php echo$ladherent['id']?>"/></br>
       <label for="fnom">Nom</label><br>
-      <input type="text" name="nom" id="fnom" value="<?php echo$ladherent['nom']?>"/></br>
+      <input type="text" name="nom" id="fnom" onblur="verifNom(this)" value="<?php echo$ladherent['nom']?>"/></br>
       <label for="fprenom">Prénom</label></br>
-      <input type="text" name="prenom" id="fprenom" value="<?php echo$ladherent['prenom']?>"/></br>
+      <input type="text" name="prenom" id="fprenom" onblur="verifPrenom(this)" value="<?php echo$ladherent['prenom']?>"/></br>
       <label for="fadresse">Adresse</label></br>
-      <input type="text" name="adresse" id="fadresse" value="<?php echo$ladherent['adresse']?>"/></br>
+      <input type="text" name="adresse" id="fadresse" onblur="verifChamp(this)" value="<?php echo$ladherent['adresse']?>"/></br>
       <label for="datepicker">Date d'adhésion</label></br>
-      <input type="text" name="dateAdhesion" id="datepicker" value="<?php echo$ladherent['dateAdhesion']?>"/></br>
+      <input type="text" name="dateAdhesion" id="datepicker" onblur="verifDate(this)" value="<?php echo$ladherent['dateAdhesion']?>"/></br>
       <label for="fremarque">Remarque</label></br>
       <input type="text" name="remarque" id="fremarque" value="<?php echo$ladherent['remarque']?>"/></br>
       <input class="" type="submit" value="Modifier"/></br>
     </form>
       <?php
-      if(isset($_POST["nom"]) && isset($_POST["prenom"]) && isset($_POST["adresse"]) && isset($_POST["dateAdhesion"]) && isset($_POST["remarque"]))
-      {
-        if($_POST["nom"]==NULL || $_POST["prenom"]==NULL || $_POST["adresse"]==NULL)
-        {
-          echo"<script>alert('Saisir les champs obligatoire (Nom,prenom,adresse,date)')</script>";
-        }
-        else{
-        $dateactuel = date_create(date('Y-m-d'));
-        $datesaisie = date_create(($_POST["dateAdhesion"]));
-        $diff = date_diff($datesaisie,$dateactuel);
-        $nb= (int)$diff->format('%R%a');
-        if((int)$nb>=0)
-        {
-          ModifAdherent($_POST["id"],($_POST["nom"]),($_POST["prenom"]),($_POST["adresse"]),($_POST["dateAdhesion"]),($_POST["remarque"]));
-          echo'<script>';
-          echo"window.setTimeout(location=('PublipostageCSV.php'), 10);location.reload;";
-          echo'</script>';
-        }
-        else
-        {
-         echo"<script>alert('Date supérieur a celle d\'aujourd\'hui')</script>";
-        }
 
-      }
-    }
       ?>
       <form action="ListeAdherents.php">
         <input id="btn_ajout" type="submit" value="Annuler" class="buttonannulmodif">
         <hr class="style-ligne">
       </form>
   </div>
-</body>
+  <script>
+  function surligne(champ, erreur)
 
+  {
+     if(erreur){
+
+        champ.style.backgroundColor = "#fba";
+
+     }else{
+
+        champ.style.backgroundColor = "";}
+  }
+
+  function verifDate(champ){
+  	var dateSaisie = new Date(champ.value);
+    console.log(dateSaisie);
+  	var dateNow = new Date();
+
+  	var day = dateNow.getDate();
+
+  	var month = dateNow.getMonth();
+  	var year = dateNow.getFullYear();
+    console.log('jour :');
+    console.log(day);
+    console.log('mois :');
+    console.log(month);
+    console.log('annne :');
+    console.log(year);
+
+    var jourSaisie = dateSaisie.getDate();
+  //  console.log(jourSaisie);
+    var moisSaisie = dateSaisie.getMonth();
+
+    var anneeSaisie = dateSaisie.getFullYear();
+    console.log(jourSaisie);
+    console.log(moisSaisie);
+    console.log(anneeSaisie);
+    //console.log(anneeSaisie);
+
+    if (((jourSaisie<=day) && (moisSaisie<=month) && (anneeSaisie<=year))) {
+
+      console.log("lsjflsfjs");
+      surligne(champ,false);
+      return true;
+    }else {
+      surligne(champ,true);
+      return false;
+  }
+}
+
+  function verifNom(champ){
+    if (champ.value == "" || isNaN(champ.value) == false ) {
+      surligne(champ,true);
+      return false;
+    }else {
+      surligne(champ,false);
+      return true;
+    }
+  }
+
+  function verifPrenom(champ){
+    if (champ.value == "" || isNaN(champ.value) == false ) {
+      surligne(champ,true);
+      return false;
+    }else {
+      surligne(champ,false);
+      return true;
+    }
+  }
+
+  function verifChamp(champ){
+    if (champ.value == "") {
+      surligne(champ,true);
+      return false;
+    }else {
+      surligne(champ,false);
+      return true;
+    }
+  }
+
+  function verifForm(f){
+      var nomOk = verifNom(f.nom);
+      var prenomOk = verifPrenom(f.prenom);
+      var dateOk = verifDate(f.dateAdhesion);
+      var adresseOk = verifChamp(f.adresse);
+      if (nomOk && prenomOk && dateOk && adresseOk) {
+        return true;
+      }else {
+        alert("Veuillez remplir correctement tous les champs ...");
+        return false;
+      }
+  }
+  </script> <!-- ici-->
+</body>
 </html>

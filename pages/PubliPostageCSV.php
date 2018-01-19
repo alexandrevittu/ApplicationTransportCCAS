@@ -7,9 +7,33 @@
   <?php
   include_once "header.php";
   include_once "../fonctions/fonctions.php";
-  if (isset($_POST['id'])) {
-    header("Location: ListeAdherents.php");
+  if(isset($_POST['id'])){
+    if(isset($_POST["nom"]) && isset($_POST["prenom"]) && isset($_POST["adresse"]) && isset($_POST["dateAdhesion"]) && isset($_POST["remarque"]))
+    {
+      if($_POST["nom"]==NULL || $_POST["prenom"]==NULL || $_POST["adresse"]==NULL)
+      {
+        echo"<script>alert('Saisir les champs obligatoire (Nom,prenom,adresse,date)')</script>";
+      }
+      else{
+      $dateactuel = date_create(date('Y-m-d'));
+      $datesaisie = date_create(($_POST["dateAdhesion"]));
+      $diff = date_diff($datesaisie,$dateactuel);
+      $nb= (int)$diff->format('%R%a');
+      if((int)$nb>=0)
+      {
+        ModifAdherent($_POST["id"],($_POST["nom"]),($_POST["prenom"]),($_POST["adresse"]),($_POST["dateAdhesion"]),($_POST["remarque"]));
+        header("Refresh:0; url=ListeAdherents.php");
+      }
+      else
+      {
+       echo"<script>alert('Date supérieur a celle d\'aujourd\'hui')</script>";
+
+      }
+
+    }
   }
+}
+
   ?>
   <link href="assets/datatables.min.css" rel="stylesheet" type="text/css"> <!-- ici-->
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"> <!-- ici-->

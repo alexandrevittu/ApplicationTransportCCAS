@@ -1,4 +1,4 @@
-$(document).ready(function () {
+/*$(document).ready(function () {
 	$(document).on('submit', '#formSupp', function () {
 
 		$.post("validerSupp.php", $(this).serialize())
@@ -15,4 +15,4 @@ $(document).ready(function () {
 		});
 		return false;
 	});
-});
+});*/
