@@ -34,7 +34,7 @@
               ],
 
               pagingType: "simple_numbers",
-              lengthMenu:[5,10,15,20,25],
+              lengthMenu:[5,10,15,20,25],          //affichage par default a 20 puis selection possible a 5,10,15,20,25
               pageLength: 20,
               dom: '<"top"lf>rt<"bottom"iBp>',  <!-- Positionnement des boutons en fonction du tableau -->
 
