@@ -74,7 +74,7 @@ dateFormat: 'yy-mm-dd'
   }
 
   function verifDate(champ){
-  	var dateSaisie = new Date(champ.value);
+  	/*var dateSaisie = new Date(champ.value);
 
   	var dateNow = new Date();
 
@@ -97,6 +97,14 @@ dateFormat: 'yy-mm-dd'
       surligne(champ,true);
       console.log("Ca  ne passe pas quelque chose ne va pas dedans!!!");
       return false;
+  }*/
+  var dateSaisie = new Date(champ.value);
+  if (dateSaisie != "") {
+    surligne(champ,false);
+    return true;
+  }else {
+    surligne(champ,true);
+    return false;
   }
 }
 
@@ -135,7 +143,7 @@ dateFormat: 'yy-mm-dd'
       var prenomOk = verifPrenom(f.prenom);
       var dateOk = verifDate(f.dateAdhesion);
       var adresseOk = verifChamp(f.adresse);
-      if (nomOk && prenomOk && dateOk && adresseOk) {
+      if (nomOk && prenomOk && adresseOk && dateOk) {
         return true;
       }else {
         alert("Veuillez remplir correctement tous les champs ...");
