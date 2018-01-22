@@ -26,7 +26,11 @@
       }
       else
       {
-       echo"<script>alert('Date supérieur a celle d\'aujourd\'hui')</script>";
+        echo '<form method="POST" id="formmodif" action="ModifAdherent.php"><input type="hidden" name="id" id="id" value="'.$_POST['id'].'"></form>';
+        header("Refresh:0; url=ModifAdherent.php");
+        echo"<script>alert('Date supérieur a celle d\'aujourd\'hui')</script>";
+        echo "<script>document.getElementById('formmodif').submit();</script>";
+
 
       }
 
