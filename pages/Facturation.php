@@ -43,6 +43,9 @@
           buttons: [
             { extend: 'print', text: '<span class="glyphicon glyphicon-print"></span> Imprimer' , className: 'btn btn-info', footer:true},
           ],
+          pagingType: "simple_numbers",
+          lengthMenu:[5,10,15,20,25],
+          pageLength: 20,
           "dom": '<"top"lfi>rt<"bottom"Bp>',  <!-- Positionnement des boutons en fonction du tableau -->
     });
   });

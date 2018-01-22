@@ -15,6 +15,7 @@
   <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
   <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
 
+
   <script language="javascript" type="text/javascript">  <!-- affichage du tableau avec DataTable et des boutons imprimer et sortie format csv -->
   $(document).ready(function() {
       $('#example').DataTable({
@@ -31,7 +32,6 @@
                   className: 'btn btn-info'
                 }
               ],
-
 
               pagingType: "simple_numbers",
               lengthMenu:[5,10,15,20,25],

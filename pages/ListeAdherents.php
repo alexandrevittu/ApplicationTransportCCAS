@@ -9,6 +9,7 @@
   <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
   <link href="assets/datatables.min.css" rel="stylesheet" type="text/css"> <!-- ici-->
   <script type="text/javascript" src="assets/datatables.min.js"></script> <!-- ici-->
+  <script type="text/javascript" src="https://cdn.datatables.net/fixedheader/3.1.3/js/dataTables.fixedHeader.min.js"></script>
   <style type="text/css">
   #dis{
     display:none;
@@ -17,7 +18,12 @@
 <script language="javascript" type="text/javascript">
 
   $(document).ready(function() {
-    $('#example').DataTable();
+    $('#example').DataTable({
+      pagingType: "simple_numbers",
+      lengthMenu:[5,10,15,20,25],
+      pageLength: 20,
+      fixedHeader: true,
+    });
 
     $( "#formSupp" ).submit(function( event ) {
       if (confirm("Etes vous sur de vouloir supprimmer cet adherent ?")==true) {
@@ -94,7 +100,7 @@ $lesAdherents = ListerAdherent();
               $diff=date_diff($date1,$date2);
               $difference = (int)$diff->format('%R%a');
               $id=$unAdherent['id'];
-              
+
 
 
 
