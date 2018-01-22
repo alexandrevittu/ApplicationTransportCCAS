@@ -75,37 +75,27 @@ dateFormat: 'yy-mm-dd'
 
   function verifDate(champ){
   	var dateSaisie = new Date(champ.value);
-    console.log(dateSaisie);
+
   	var dateNow = new Date();
 
   	var day = dateNow.getDate();
-
   	var month = dateNow.getMonth();
   	var year = dateNow.getFullYear();
-    console.log('jour :');
-    console.log(day);
-    console.log('mois :');
-    console.log(month);
-    console.log('annne :');
-    console.log(year);
+    var dateMtn = new Date(day,month,year);
 
     var jourSaisie = dateSaisie.getDate();
-  //  console.log(jourSaisie);
     var moisSaisie = dateSaisie.getMonth();
-
     var anneeSaisie = dateSaisie.getFullYear();
-    console.log(jourSaisie);
-    console.log(moisSaisie);
-    console.log(anneeSaisie);
-    //console.log(anneeSaisie);
+    var dateGet = new Date(jourSaisie,moisSaisie ,anneeSaisie);
 
-    if (((jourSaisie<=day) && (moisSaisie<=month) && (anneeSaisie<=year))) {
+    if (dateGet.getTime() < dateMtn.getTime()) {
 
-      console.log("lsjflsfjs");
+      console.log("Ca passe!!!");
       surligne(champ,false);
       return true;
     }else {
       surligne(champ,true);
+      console.log("Ca  ne passe pas quelque chose ne va pas dedans!!!");
       return false;
   }
 }
