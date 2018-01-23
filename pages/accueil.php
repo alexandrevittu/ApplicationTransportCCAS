@@ -116,7 +116,7 @@ include_once "../fonctions/fonctions.php";  //inclut l'en-tete
         <form action="RequeteFixeFacture.php">
           <button class="btn btn-info" type="submit" id="accueil"> <span class="glyphicon glyphicon-print" ></span> &nbsp; Total facturation depuis un an</button>
         </form>
-        <form action="#">
+        <form action="requetesMulticriteres.php">
           <button class="btn btn-info" type="submit" id="accueil"> <span class="glyphicon glyphicon-print" ></span> &nbsp; Requêtes multicritères</button>
         </form>
     </fieldset>
