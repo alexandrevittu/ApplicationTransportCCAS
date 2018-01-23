@@ -748,5 +748,21 @@ function getNbTrajetParAn($date1,$date2)
   }
 }
 
+function getTotalFactureAnneEnCours($dateDeb,$dateFin){
+  $dbh = connexion();
+  try{
+    $pdoStatement = $dbh->prepare("select sum(nbTrajet*prix) AS produit from tarifs INNER JOIN typetrajet on tarifs.idTypetrajet=typetrajet.id WHERE dateDernierTrajet is null OR dateDernierTrajet BETWEEN :dateDeb AND :dateFin");
+    $pdoStatement->bindvalue('dateDeb',$dateDeb);
+    $pdoStatement->bindvalue('dateFin',$dateFin);
+    $pdoStatement->execute();
+    $result = $pdoStatement->fetch();
+    return $result;
+    $dbh = null;
+  }
+  catch(Exception $e)
+  {
+    throw new Exception("Erreur lors de la recuperation du totale...");
+  }
+}
 
 ?>
