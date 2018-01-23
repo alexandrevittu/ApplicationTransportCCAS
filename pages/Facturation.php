@@ -79,6 +79,22 @@
       </tfoot>
     <?php
       $trimestre = getTrimestre();
+      if($trimestre == 1)
+      {
+        echo 'Trimestre actuel : Janvier/Fevrier/Mars';
+      }
+      elseif($trimestre == 2)
+      {
+        echo 'Trimestre actuel : Avril/Mai/Juin';
+      }
+      elseif($trimestre == 3)
+      {
+        echo 'Trimestre actuel : Juillet/Aout/Septembre';
+      }
+      elseif($trimestre == 4)
+      {
+        echo 'Trimestre actuel : Octobre/Novembre/Décembre';
+      }
       $prixtrajetcours = Getprixtrajetcours();
       $prixtrajetmoyen = Getprixtrajetmoyen();
       $prixtrajetlong = Getprixtrajetlong();

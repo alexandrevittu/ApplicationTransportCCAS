@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Impression des adhérents</title>
+  <title>Liste adherents</title>
   <?php
   include_once "header.php";
   include_once "../fonctions/fonctions.php";
@@ -25,7 +25,7 @@
                 {
                   extend: 'print',                                                  //btn impression
                   text: '<span class="glyphicon glyphicon-print"></span> Imprimer',
-                  className: 'btn btn-info'
+                  className: 'btn btn-info',
                 },
                 { extend: 'csv',                                                    //btn format CSV
                   text: '<span class=" glyphicon glyphicon-paperclip"></span> Sortie format csv',
