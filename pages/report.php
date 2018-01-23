@@ -30,11 +30,6 @@
           $prixMoyen = Getprixtrajetmoyen();
           $prixLong = Getprixtrajetlong();
 
-          /*var_dump((double)$prixCourt['prix']);
-          var_dump((double)$prixMoyen['prix']);
-          var_dump((double)$prixLong['prix']);
-          var_dump((double)$seuil['prix']);*/
-
           $court = (double)$prixCourt['prix'];
           $long = (double)$prixLong['prix'];
           $moyen = (double)$prixMoyen['prix'];
@@ -67,7 +62,12 @@
               echo '<td>'.$unAdherent['prenom'].'</td>';
               echo '<td>'.$unAdherent['adresse'].'</td>';
               echo '<td>'.$total.'</td>';
-              echo '<td>En cours</td></tr>';
+              $datederniertrajet = getDateDernierTrajet($unAdherent['id']);
+              if (!empty($datederniertrajet['dateDernierTrajet'])) {
+              echo '<td>'.$datederniertrajet['dateDernierTrajet'].'</td>';
+              } else {
+              echo '<td>Aucune date saisie</td>';
+              }
             }
 
           }

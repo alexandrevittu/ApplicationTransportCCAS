@@ -707,9 +707,27 @@ function getTrimestreLib($idTrimestre){
     throw new Exception("Erreur...");
   }
 }
+
 function dateFr($date)
 {
   return strftime('%d-%m-%Y',strtotime($date));
 }
+
+function getDateDernierTrajet($idAdherent){
+  $dbh = connexion();
+  try{
+    $pdoStatement = $dbh->prepare("select DISTINCT idAdherent,dateDernierTrajet FROM tarifs where dateDernierTrajet != '' and idAdherent = :idAdherent");
+    $pdoStatement->bindvalue("idAdherent",$idAdherent);
+    $pdoStatement->execute();
+    $result = $pdoStatement->fetch();
+    return $result;
+    $dbh = null;
+  }
+  catch(Exception $e)
+  {
+    throw new Exception("erreur lors de la recuperation de la date du dernier trajet");
+  }
+}
+
 
 ?>
