@@ -127,11 +127,12 @@ function ModifSeuil($prix)
     throw new Exception("Erreur modif prix du seuil");
   }
 }
-function ModifTrajetCourtParAdherent($idadherent,$trimestre,$nbtrajet)
+function ModifTrajetCourtParAdherent($idadherent,$trimestre,$nbtrajet,$datederniertrajet)
 {
   $dbh = connexion();
-  $pdoStatement = $dbh->prepare("update Tarifs set nbTrajet = :nbtrajet WHERE idAdherent=:idadherent AND idTrimestre=:trimestre AND idTypetrajet=2");
+  $pdoStatement = $dbh->prepare("update Tarifs set nbTrajet = :nbtrajet, dateDernierTrajet = :datederniertrajet WHERE idAdherent=:idadherent AND idTrimestre=:trimestre AND idTypetrajet=2");
   $pdoStatement->bindvalue("nbtrajet",$nbtrajet);
+  $pdoStatement->bindvalue("datederniertrajet",$datederniertrajet);
   $pdoStatement->bindvalue("trimestre",$trimestre);
   $pdoStatement->bindvalue("idadherent",$idadherent);
   if($pdoStatement->execute())
@@ -144,11 +145,12 @@ function ModifTrajetCourtParAdherent($idadherent,$trimestre,$nbtrajet)
     throw new Exception("Erreur modif trajet court par adherent");
   }
 }
-function ModifTrajetMoyenParAdherent($idadherent,$trimestre,$nbtrajet)
+function ModifTrajetMoyenParAdherent($idadherent,$trimestre,$nbtrajet,$datederniertrajet)
 {
   $dbh = connexion();
-  $pdoStatement = $dbh->prepare("update Tarifs set nbTrajet = :nbtrajet WHERE idAdherent=:idadherent AND idTrimestre=:trimestre AND idTypetrajet=3");
+  $pdoStatement = $dbh->prepare("update Tarifs set nbTrajet = :nbtrajet, dateDernierTrajet = :datederniertrajet WHERE idAdherent=:idadherent AND idTrimestre=:trimestre AND idTypetrajet=3");
   $pdoStatement->bindvalue("nbtrajet",$nbtrajet);
+  $pdoStatement->bindvalue("datederniertrajet",$datederniertrajet);
   $pdoStatement->bindvalue("trimestre",$trimestre);
   $pdoStatement->bindvalue("idadherent",$idadherent);
   if($pdoStatement->execute())
@@ -161,11 +163,12 @@ function ModifTrajetMoyenParAdherent($idadherent,$trimestre,$nbtrajet)
     throw new Exception("Erreur modif trajet moyen par adherent");
   }
 }
-function ModifTrajetLongParAdherent($idadherent,$trimestre,$nbtrajet)
+function ModifTrajetLongParAdherent($idadherent,$trimestre,$nbtrajet,$datederniertrajet)
 {
   $dbh = connexion();
-  $pdoStatement = $dbh->prepare("update Tarifs set nbTrajet = :nbtrajet WHERE idAdherent=:idadherent AND idTrimestre=:trimestre AND idTypetrajet=4");
+  $pdoStatement = $dbh->prepare("update Tarifs set nbTrajet = :nbtrajet, dateDernierTrajet = :datederniertrajet WHERE idAdherent=:idadherent AND idTrimestre=:trimestre AND idTypetrajet=4");
   $pdoStatement->bindvalue("nbtrajet",$nbtrajet);
+  $pdoStatement->bindvalue("datederniertrajet",$datederniertrajet);
   $pdoStatement->bindvalue("trimestre",$trimestre);
   $pdoStatement->bindvalue("idadherent",$idadherent);
   if($pdoStatement->execute())
