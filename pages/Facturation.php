@@ -19,7 +19,7 @@
   $(document).ready(function() {
     $('#example').dataTable( {
       "footerCallback": function ( tfoot, data, start, end, display ) {
-          var api = this.api(), data;
+          var api = this.api(), data;           <!--fonction calcul le total de tout les adherents -->
 
           var intVal = function ( i ) {
             return typeof i === 'string' ?        <!--test du type + convertion en int -->

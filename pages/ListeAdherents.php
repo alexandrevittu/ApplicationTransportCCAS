@@ -26,7 +26,7 @@
     });
 
     $( "#formSupp" ).submit(function( event ) {
-      if (confirm("Etes vous sur de vouloir supprimmer cet adherent ?")==true) {
+      if (confirm("Etes vous sur de vouloir supprimmer cet adherent ?")==true) {    //confirmation de suppresion de l'adherent
         window.location = 'validerSupp.php';
         $(document).on('submit', '#formSupp', function () {
 
@@ -75,7 +75,7 @@ include_once "../fonctions/fonctions.php";
 $lesAdherents = ListerAdherent();
 ?>
 <body>
-  <div class="content-loader">
+  <div class="content-loader">          <!--Creation du tableau-->
       <div id="dis"></div>
       <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-hover table-responsive no-footer table-bordered" id="example">
         <thead>
@@ -99,11 +99,11 @@ $lesAdherents = ListerAdherent();
               $date2=date_create($dafter);
               $diff=date_diff($date1,$date2);
               $difference = (int)$diff->format('%R%a');
-              $id=$unAdherent['id'];
+              $id=$unAdherent['id'];                        //recuperation des adhrents + calcul leur date
 
 
 
-
+              //affichage des adherents avec une couleur particuliére selon leur date d'adhesion
               if ($difference > 365) {
 
                 echo '<tr id="couleur">';

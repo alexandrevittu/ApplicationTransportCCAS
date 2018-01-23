@@ -7,7 +7,7 @@
   <?php
   include_once "header.php";
   include_once "../fonctions/fonctions.php";
-  if(isset($_POST['id'])){
+  if(isset($_POST['id'])){        //ajout dans la BDD aprés la modification de l'adherents (ici pour serialize)
     if(isset($_POST["nom"]) && isset($_POST["prenom"]) && isset($_POST["adresse"]) && isset($_POST["dateAdhesion"]) && isset($_POST["remarque"]))
     {
       if($_POST["nom"]==NULL || $_POST["prenom"]==NULL || $_POST["adresse"]==NULL)
@@ -46,7 +46,7 @@
   <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
   <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
   <script language="javascript" type="text/javascript">
-    $(document).ready(function() {
+    $(document).ready(function() {                    //btn impression et format csv
     var table =  $('#example').DataTable({
         dom: 'Bfrtip',
         buttons: [
@@ -56,13 +56,13 @@
         ]
       });
 
-      nbLigne = table.rows('.selected').count();
+      nbLigne = table.rows('.selected').count();          //compte le nombre de ligne
 
     });
   </script>
 </head>
 <body>
-  <div class="content-loader" style="width: 70%;margin:5% 13%;">
+  <div class="content-loader" style="width: 70%;margin:5% 13%;">          <!--Création du tableau -->
     <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-hover table-responsive no-footer table-bordered" id="example">
 
       <thead>
