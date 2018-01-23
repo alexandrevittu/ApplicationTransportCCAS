@@ -2,11 +2,26 @@
 <html>
 <head>
   <title>Report</title>
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"> <!-- ici-->
+  <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
+  <link href="assets/datatables.min.css" rel="stylesheet" type="text/css"> <!-- ici-->
+  <script type="text/javascript" src="assets/datatables.min.js"></script> <!-- ici-->
+  <script type="text/javascript" src="https://cdn.datatables.net/fixedheader/3.1.3/js/dataTables.fixedHeader.min.js"></script>
   <?php
   include_once "header.php";
   include_once "../fonctions/fonctions.php";
   ?>
 </head>
+<script>
+$(document).ready(function() {
+  $('#example').DataTable({
+    pagingType: "simple_numbers",
+    lengthMenu:[5,10,15,20,25],       //affichage par default a 20 puis selection possible a 5,10,15,20,25
+    pageLength: 20,
+    fixedHeader: true,
+  });
+});
+</script>
 <body>
   <div class="content-loader"  style="width: 70%;margin:10% 13%;">
     <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-hover table-responsive no-footer table-bordered" id="example">
@@ -56,7 +71,7 @@
               $total = $total + $adhPay;
             }
 
-            if ($total < $leSeuil) {
+            if ($total < $leSeuil && $total != 0) {
               echo '<tr>';
               echo '<td>'.$unAdherent['nom'].'</td>';
               echo '<td>'.$unAdherent['prenom'].'</td>';
@@ -75,9 +90,8 @@
         </div>
       </tbody>
     </table>
-    <form>
-      <input id="retourReport" class="btn btn-info" type="button" value="Retour" onclick="history.go(-1)">
-      <a class="btn btn-info" href="#" onclick="window.print(); return false;">Imprimer cette page</a>
+    <form action="accueil.php" id="annulerfacturation">
+      <input class="btn btn-info" onclick="history.go(-1)" type="submit" value="Retour">
     </form>
   </div>
 </body>
