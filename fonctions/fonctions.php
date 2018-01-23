@@ -729,5 +729,24 @@ function getDateDernierTrajet($idAdherent){
   }
 }
 
+function getNbTrajetParAn($date1,$date2)
+{
+  $dbh = connexion();
+  try
+  {
+      $pdoStatement = $dbh->prepare("select SUM(nbTrajet) as nb FROM tarifs WHERE dateDernierTrajet BETWEEN :date1 AND :date2");
+      $pdoStatement->bindvalue("date1",$date1);
+      $pdoStatement->bindvalue("date2",$date2);
+      $pdoStatement->execute();
+      $result = $pdoStatement->fetch();
+      return $result;
+      $dbh = null;
+  }
+  catch(Exception $e)
+  {
+    throw new Exception("erreur lors de la recuperation de la date du dernier trajet");
+  }
+}
+
 
 ?>
