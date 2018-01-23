@@ -16,9 +16,9 @@
       $datefinannée = date('Y-m-d');
       $nb = getNbTrajetParAn($datedebut,$datefinannée);
   ?>
-  <div id="nbtrajetparan" style="width: 70%;margin:5% 20%;">
+  <div id="nbtrajetparan"  style="text-align:center;margin-top:25%;border:1px solid black;width:50%;margin-left:auto;margin-right:auto;">
     <?php
-    echo '<label>Nombre de trajet depuis un an : '.$nb['nb'].'</label>';
+    echo '<p style="font-weight:bold;font-size:1.5em;">Nombre de trajet depuis un an : '.$nb['nb'].'</p>';
     ?>
   </div>
 </body>

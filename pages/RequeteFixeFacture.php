@@ -15,8 +15,8 @@
       $datedebut = $annéedebut.'-'.$moisjournow;
       $datefinannée = date('Y-m-d');
       $nb = getTotalFactureAnneEnCours($datedebut,$datefinannée);
-      var_dump($nb);
   ?>
+  <div style="text-align:center;margin-top:25%;border:1px solid black;width:50%;margin-left:auto;margin-right:auto;"><p style="font-weight:bold;font-size:1.5em;">Le totale de la facturation de cette année s'éléve à <?php echo $nb['produit'] ?></div>
 
 </body>
 
