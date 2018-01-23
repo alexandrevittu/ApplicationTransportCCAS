@@ -110,7 +110,7 @@ include_once "../fonctions/fonctions.php";  //inclut l'en-tete
   <div id="statistique">
     <fieldset>
       <legend><span class="glyphicon glyphicon-eye-open" ></span> &nbsp; Statistique :</legend>
-        <form action="nbtrajetdepuisunan.php">
+        <form action="requeteFixeNbTrajet.php">
           <button class="btn btn-info" type="submit" id="accueil"> <span class="glyphicon glyphicon-print" ></span> &nbsp; Nombre de trajets depuis un an</button>
         </form>
         <form action="#">
