@@ -23,11 +23,11 @@
 
               buttons: [
                 {
-                  extend: 'print',
+                  extend: 'print',                                                  //btn impression
                   text: '<span class="glyphicon glyphicon-print"></span> Imprimer',
                   className: 'btn btn-info'
                 },
-                { extend: 'csv',
+                { extend: 'csv',                                                    //btn format CSV
                   text: '<span class=" glyphicon glyphicon-paperclip"></span> Sortie format csv',
                   className: 'btn btn-info'
                 }
