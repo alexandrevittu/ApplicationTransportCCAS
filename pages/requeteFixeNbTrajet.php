@@ -9,14 +9,18 @@
 </head>
 <body>
   <?php
-      $datenow = date('Y');                     //gestion de année passer a l'année suivante automatiquement
-      $datedebutannée = $datenow.'-01-01';
-      $datefinannée = $datenow.'-12-31';
-      $nb = getNbTrajetParAn($datedebutannée,$datefinannée);
-      echo $nb['nb'];
-
-      
+      $annéenow = date('Y');
+      $moisjournow = date('m-d');
+      $annéedebut = $annéenow -1 ;
+      $datedebut = $annéedebut.'-'.$moisjournow;
+      $datefinannée = date('Y-m-d');
+      $nb = getNbTrajetParAn($datedebut,$datefinannée);
   ?>
+  <div id="nbtrajetparan" style="width: 70%;margin:5% 20%;">
+    <?php
+    echo '<label>Nombre de trajet depuis un an : '.$nb['nb'].'</label>';
+    ?>
+  </div>
 </body>
 
 </html>
