@@ -21,6 +21,9 @@
     echo '<p style="font-weight:bold;font-size:1.5em;">Nombre de trajet depuis un an : '.$nb['nb'].'</p>';
     ?>
   </div>
+  <form action="accueil.php"  id="annulerfacturation">
+      <input style="margin-left:45%;margin-top:10px;" class="btn btn-info" onclick="history.go(-1)" type="submit" value="Retour">
+  </form>
 </body>
 
 </html>
