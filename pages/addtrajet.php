@@ -19,12 +19,12 @@
       <hr class="style-ligne">
       <input type="hidden" name="id" id="id" value="<?php echo$idadherent?>"/></br>
       <input type="hidden" name="trimestre" id="trimestre" value="<?php echo$trimestre?>"/></br>
-      <label for="ttrajetcourt">Nombre de trajet court : </label></br>
-      <input type="number" name="trajetcourt" id="ttrajetcourt"/></br>
-      <label for="ttrajetmoyen">Nombre de trajet moyen : </label></br>
-      <input type="number" name="trajetmoyen" id="ttrajetmoyen"/></br>
-      <label for="ttrajetlong">Nombre de trajet long : </label></br>
-      <input type="number" name="trajetlong" id="ttrajetlong"/></br>
+      <label for="trajetcourt">Nombre de trajet court : </label></br>
+      <input type="number" name="trajetcourt" id="trajetcourt"/></br>
+      <label for="trajetmoyen">Nombre de trajet moyen : </label></br>
+      <input type="number" name="trajetmoyen" id="trajetmoyen"/></br>
+      <label for="trajetlong">Nombre de trajet long : </label></br>
+      <input type="number" name="trajetlong" id="trajetlong"/></br>
       <?php
       //echo '<input type="hidden" name="trimestre" value='.$_POST['trimestre'].'>';
       ?>
