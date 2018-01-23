@@ -252,7 +252,7 @@ function Getidadherent($nom,$prenom)
 function ajouttrajetcourtparadherent($idadherent,$trimestre,$nbtrajet)
 {
   $dbh= connexion();
-  $PdoStatement = $dbh ->prepare("insert into tarifs values (NULL,:nbtrajet,:idadherent,2,:idtrimestre)");
+  $PdoStatement = $dbh ->prepare("insert into tarifs values (NULL,:nbtrajet,:idadherent,2,:idtrimestre,NULL)");
   $PdoStatement->bindvalue("idadherent",$idadherent);
   $PdoStatement->bindvalue("idtrimestre",$trimestre);
   $PdoStatement->bindvalue("nbtrajet",$nbtrajet);
@@ -267,7 +267,7 @@ function ajouttrajetcourtparadherent($idadherent,$trimestre,$nbtrajet)
 function ajoutadhesionparadherent($idadherent,$trimestre)
 {
   $dbh= connexion();
-  $PdoStatement = $dbh ->prepare("insert into tarifs values (NULL,1,:idadherent,5,:idtrimestre)");
+  $PdoStatement = $dbh ->prepare("insert into tarifs values (NULL,1,:idadherent,5,:idtrimestre,NULL)");
   $PdoStatement->bindvalue("idadherent",$idadherent);
   $PdoStatement->bindvalue("idtrimestre",$trimestre);
   if($PdoStatement->execute()){
@@ -281,7 +281,7 @@ function ajoutadhesionparadherent($idadherent,$trimestre)
 function ajouttrajetmoyenparadherent($idadherent,$trimestre,$nbtrajet)
 {
   $dbh= connexion();
-  $PdoStatement = $dbh ->prepare("insert into tarifs values (NULL,:nbtrajet,:idadherent,3,:idtrimestre)");
+  $PdoStatement = $dbh ->prepare("insert into tarifs values (NULL,:nbtrajet,:idadherent,3,:idtrimestre,NULL)");
   $PdoStatement->bindvalue("idadherent",$idadherent);
   $PdoStatement->bindvalue("idtrimestre",$trimestre);
   $PdoStatement->bindvalue("nbtrajet",$nbtrajet);
@@ -296,7 +296,7 @@ function ajouttrajetmoyenparadherent($idadherent,$trimestre,$nbtrajet)
 function ajouttrajetlongparadherent($idadherent,$trimestre,$nbtrajet)
 {
   $dbh= connexion();
-  $PdoStatement = $dbh ->prepare("insert into tarifs values (NULL,:nbtrajet,:idadherent,4,:idtrimestre)");
+  $PdoStatement = $dbh ->prepare("insert into tarifs values (NULL,:nbtrajet,:idadherent,4,:idtrimestre,NULL)");
   $PdoStatement->bindvalue("idadherent",$idadherent);
   $PdoStatement->bindvalue("idtrimestre",$trimestre);
   $PdoStatement->bindvalue("nbtrajet",$nbtrajet);
