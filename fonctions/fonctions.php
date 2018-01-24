@@ -267,10 +267,11 @@ function ajouttrajetcourtparadherent($idadherent,$trimestre,$nbtrajet)
     throw new Exception("Erreur ajout trajet cours d'adherent");
   }
 }
-function ajoutadhesionparadherent($idadherent,$trimestre)
+function ajoutadhesionparadherent($idadherent,$trimestre,$date)
 {
   $dbh= connexion();
-  $PdoStatement = $dbh ->prepare("insert into tarifs values (NULL,1,:idadherent,5,:idtrimestre,NULL)");
+  $PdoStatement = $dbh ->prepare("insert into tarifs values (NULL,1,:idadherent,5,:idtrimestre,:date)");
+  $PdoStatement->bindvalue("date",$date);
   $PdoStatement->bindvalue("idadherent",$idadherent);
   $PdoStatement->bindvalue("idtrimestre",$trimestre);
   if($PdoStatement->execute()){
@@ -278,7 +279,7 @@ function ajoutadhesionparadherent($idadherent,$trimestre)
     $dbh=null;
   }
   else{
-    throw new Exception("Erreur ajout trajet cours d'adherent");
+    throw new Exception("Erreur ajout adhesion de l'adherent");
   }
 }
 function ajouttrajetmoyenparadherent($idadherent,$trimestre,$nbtrajet)
@@ -656,7 +657,7 @@ function getSeuil(){
   }
   catch(Exception $e)
   {
-    throw new Exception("Le nombre de trajet long n'a pas pu etre recuperer ...");
+    throw new Exception("Le seuil n'a pas pu etre recuperer ...");
   }
 }
 

@@ -12,7 +12,8 @@
   <?php
   include_once "header.php";
   include_once "../fonctions/fonctions.php";
-  $lesAdherents = ListerAdherent();         //recuperation des adherents
+  $lesAdherents = ListerAdherent();
+  $seuil = getSeuil();
   ?>
 </head>
 <script language="javascript" type="text/javascript">    <!--configuration du tableau -->
@@ -142,7 +143,7 @@
             $prixtotal += $nbtrajetlongparadherent['nbTrajet']*$prixtrajetlong['prix'];
           }
         }
-        if($prixtotal >= 15)  //affichage seulement si pris supérieur a 15
+        if($prixtotal >= $seuil['prix'])  //affichage seulement si pris supérieur a 15
         {
           echo '<td>'.$unAdherent['nom'].'</td>';
           echo '<td>'.$unAdherent['prenom'].'</td>';

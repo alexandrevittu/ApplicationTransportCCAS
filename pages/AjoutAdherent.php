@@ -73,7 +73,7 @@ include_once "../fonctions/fonctions.php"
            ajouttrajetmoyenparadherent($id['id'],$i,$nbtrajet);
            ajouttrajetlongparadherent($id['id'],$i,$nbtrajet);
          }
-         ajoutadhesionparadherent($id['id'],$trimestre);
+         ajoutadhesionparadherent($id['id'],$trimestre,date('y-m-d'));
          ?>
          <script type="text/javascript">          //fenetre de dialogue continuer a ajouté ou pas
          if(confirm("Adherent ajouté ! \nvoulez-vous continuer ?"))

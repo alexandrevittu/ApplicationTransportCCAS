@@ -33,20 +33,39 @@
       $datedebut = $_POST['année'].'-01-01';
       $datefin = $_POST['année'].'-12-31';
       $trajetentableau = getTrajetMulticriteres($_POST['type'],$datedebut,$datefin);
-      echo $trajetentableau['nb'];
+      ?>
+      <div style="text-align:center;margin-top:10%;border:1px solid black;width:50%;margin-left:auto;margin-right:auto;"><p style="font-weight:bold;font-size:1.5em;">
+      <?php
+      if($trajetentableau['nb']==0)
+      {
+        echo 'il n\'y a aucun trajet de se type pour cette année.';
+      }
+      if($_POST['type']==2 && $trajetentableau['nb']!=0)
+      {
+      echo 'Le nombre de trajet courts pour l\'année '.$_POST['année'].' est de : '.$trajetentableau['nb'];
+      }
+      if($_POST['type']==3 && $trajetentableau['nb']!=0)
+      {
+      echo 'Le nombre de trajet moyens pour l\'année '.$_POST['année'].' est de : '.$trajetentableau['nb'];
+      }
+      if($_POST['type']==4 && $trajetentableau['nb']!=0)
+      {
+      echo 'Le nombre de trajet longs pour l\'année '.$_POST['année'].' est de : '.$trajetentableau['nb'];
+      }
+      echo '</div>';
     }
+
     elseif(isset($_POST['type']))
     {
       $datedebut = $_POST['année'].'-01-01';
       $datefin = $_POST['année'].'-12-31';
       $sommefactuentableau = getTotalFactureAnneEnCours($datedebut,$datefin);
-      if($sommefactuentableau['produit'] != 0)
+      if($sommefactuentableau['produit'])
       {
-        echo $sommefactuentableau['produit'];
-      }
-      else
-      {
-        echo '0';
+        ?>
+        <div style="text-align:center;margin-top:10%;border:1px solid black;width:50%;margin-left:auto;margin-right:auto;"><p style="font-weight:bold;font-size:1.5em;">
+        <?php
+        echo 'La somme des facturations pour l\'année '.$_POST['année'].' est de : '.$sommefactuentableau['produit'].'</div>';
       }
     }
    ?>
