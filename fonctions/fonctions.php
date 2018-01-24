@@ -766,6 +766,22 @@ function getTotalFactureAnneEnCours($dateDeb,$dateFin){
   }
 }
 
+function inscription($identifiant,$mdp,$mail)
+{
+  $dbh = connexion();
+    $pdoStatement = $dbh->prepare("insert into user (Pseudo,Mdp,Mail) VALUES (:identifiant,PASSWORD(:mdp),:mail)");
+    $pdoStatement->bindvalue('identifiant',$identifiant);
+    $pdoStatement->bindvalue('mdp',$mdp);
+    $pdoStatement->bindvalue('mail',$mail);
+    if($pdoStatement->execute()){
+      $pdoStatement->closeCursor();
+      $dbh=null;
+    }
+    else{
+      throw new Exception("Erreur inscription");
+    }
+}
+
 function getTotalFactureAnneEnCourstest($dateDeb,$dateFin){
   $dbh = connexion();
   try{
@@ -911,5 +927,6 @@ $lesTrimestres = array();
   return $lesTrimestres;
 
 }
+
 
 ?>
