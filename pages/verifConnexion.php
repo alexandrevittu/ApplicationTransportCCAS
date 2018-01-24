@@ -1,11 +1,12 @@
 <?php
 include_once '../fonctions/fonctions.php';
 // Hachage du mot de passe
-$pass_hache = password_hash($_POST['pass'], PASSWORD_DEFAULT);
+$pass_hache = hash('sha256',$_POST['mdp']);
+$pseudo = $_POST['pseudo'];
+echo $pass_hache;
+$checkCompte = getCompte($pseudo,$pass_hache);
 
-$checkCompte
-
-if (!$resultat)
+if (!$checkCompte)
 
 {
 
@@ -19,9 +20,9 @@ else
 
     session_start();
 
-    $_SESSION['id'] = $resultat['id'];
+    $_SESSION['id'] = $checkCompte['id'];
 
     $_SESSION['pseudo'] = $pseudo;
 
-    echo 'Vous êtes connecté !';
+    echo 'Vous êtes connecté !';}
  ?>

@@ -928,5 +928,15 @@ $lesTrimestres = array();
 
 }
 
+function getCompte($pseudo,$mdp){
+    $dbh = connexion();
+    $pdoStatement = $dbh->prepare("select id from user where Pseudo = :pseudo and Mdp = :mdp");
+    $pdoStatement->bindvalue('pseudo',$pseudo);
+    $pdoStatement->bindvalue('mdp',$mdp);
+    $pdoStatement->execute();
+    $result = $pdoStatement->fetch();
+    return $result;
+    $dbh = null;
+  }
 
 ?>

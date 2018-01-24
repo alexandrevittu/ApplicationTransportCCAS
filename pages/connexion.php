@@ -9,10 +9,12 @@
 <?php
 include_once "header.php";
 include_once "../fonctions/fonctions.php";  //inclut l'en-tete
+
 ?>
 <body>
-  <h2>Connexion</h2>
+
     <form id=connexionForm method="POST" action="verifConnexion.php">
+      <h2 style="text-align:center;">Connexion</h2>
       <div class="logoUser">
         <img src="../img/logoUser.png" alt="logo" class="logo">
       </div>
