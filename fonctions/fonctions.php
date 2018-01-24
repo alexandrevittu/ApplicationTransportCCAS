@@ -802,4 +802,114 @@ function getTrajetMulticriteres($typetrajet,$datedeb,$datefin)
   }
 }
 
+function orderTrimestre(){
+
+  $trimestre = getTrimestre();
+  $libelleTrimestre = getTrimestreLib($trimestre);
+  $libelleTr = utf8_encode($libelleTrimestre['libelle']);
+  $date = date('Y');
+
+$lesTrimestres = array();
+
+  if ($libelleTr == "Janvier/Février/Mars") {
+
+    $lesTrimestres = array(
+      1 => array(
+        "libelle" => "Avril/Mai/Juin",
+        "annee" => strval($date-1),
+        "idTrimestre" => 2,
+      ),
+      2 => array(
+        "libelle" => "Juillet/Aout/Septembre",
+        "annee" => strval($date-1),
+        "idTrimestre" => 3,
+      ),
+      3 => array(
+        "libelle" => "Octobre/Novembre/Decembre",
+        "annee" => strval($date-1),
+        "idTrimestre" => 4,
+      ),
+      4 => array(
+        "libelle" => $libelleTr,
+        "annee" => $date,
+        "idTrimestre" => $trimestre,
+      )
+    );
+  }elseif ($libelleTr == "Avril/Mai/Juin") {
+
+    $lesTrimestres = array(
+      1 => array(
+        "libelle" => "Juillet/Aout/Septembre",
+        "annee" => strval($date-1),
+        "idTrimestre" => 3,
+      ),
+      2 => array(
+        "libelle" => "Octobre/Novembre/Decembre",
+        "annee" => strval($date-1),
+        "idTrimestre" => 4,
+      ),
+      3 => array(
+        "libelle" => "Janvier/Février/Mars",
+        "annee" => $date,
+        "idTrimestre" => 1,
+      ),
+      4 => array(
+        "libelle" => $libelleTr,
+        "annee" => $date,
+        "idTrimestre" => 2,
+      )
+    );
+  }elseif ($libelleTr == "Juillet/Aout/Septembre") {
+
+        $lesTrimestres = array(
+          1 => array(
+            "libelle" => "Octobre/Novembre/Decembre",
+            "annee" => strval($date-1),
+            "idTrimestre" => 4,
+          ),
+          2 => array(
+            "libelle" => "Janvier/Février/Mars",
+            "annee" => $date,
+            "idTrimestre" => 1,
+          ),
+          3 => array(
+            "libelle" => "Avril/Mai/Juin",
+            "annee" => $date,
+            "idTrimestre" => 2,
+          ),
+          4 => array(
+            "libelle" => $libelleTr,
+            "annee" => $date,
+            "idTrimestre" => 3,
+          )
+        );
+  }elseif ($libelleTr == "Octobre/Novembre/Décembre") {
+    $lesTrimestres = array(
+      1 => array(
+        "libelle" => "Janvier/Février/Mars",
+        "annee" => $date,
+        "idTrimestre" => 1,
+      ),
+      2 => array(
+        "libelle" => "Avril/Mai/Juin",
+        "annee" => $date,
+        "idTrimestre" => 2,
+      ),
+      3 => array(
+        "libelle" => "Juillet/Aout/Septembre",
+        "annee" => $date,
+        "idTrimestre" => 3,
+      ),
+      4 => array(
+        "libelle" => $libelleTr,
+        "annee" => $date,
+        "idTrimestre" => 4,
+      )
+    );
+  }
+
+  return $lesTrimestres;
+
+}
+
 ?>

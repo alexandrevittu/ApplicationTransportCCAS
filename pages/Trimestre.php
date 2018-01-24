@@ -14,6 +14,17 @@
   <?php
     include_once "header.php";
     include_once "../fonctions/fonctions.php";
+
+    $trimestre = getTrimestre();
+    $libelleTrimestre = getTrimestreLib($trimestre);
+    $libelleTr = utf8_encode($libelleTrimestre['libelle']);
+
+    $triTrimestre = orderTrimestre();
+    $n1 = $triTrimestre[1]['idTrimestre'];
+    $n2 = $triTrimestre[2]['idTrimestre'];
+    $n3 = $triTrimestre[3]['idTrimestre'];
+    $n4 = $triTrimestre[4]['idTrimestre'];
+
   ?>
 </head>
 <body>
@@ -21,10 +32,10 @@
     <div id="debut">
       <form method="post" id="listetrimestre">  <!--liste déroulante des trimestre-->
         <select id="selecttrimestre" name="trimestre" onchange="submit();">
-          <option value="1">Janvier/Fevrier/Mars
-          <option value="2">Avril/Mai/Juin
-          <option value="3">Juillet/Aout/Septembre
-          <option value="4">Octobre/Novembre/Decembre
+          <option value=<?php echo $n1; ?>><?php echo $triTrimestre[1]['libelle'].' '.$triTrimestre[1]['annee'] ?>
+          <option value=<?php echo $n2; ?>><?php echo $triTrimestre[2]['libelle'].' '.$triTrimestre[2]['annee'] ?>
+          <option value=<?php echo $n3; ?>><?php echo $triTrimestre[3]['libelle'].' '.$triTrimestre[3]['annee'] ?>
+          <option value=<?php echo $n4; ?>><?php echo $triTrimestre[4]['libelle'].' '.$triTrimestre[4]['annee'] ?>
         </select>
       </form>
       <input  class="btn btn-info" onclick="window.location.href='accueil.php'" type="submit" value="Retour" class="buttonadherent"> <!-- Boutton annuler -->
