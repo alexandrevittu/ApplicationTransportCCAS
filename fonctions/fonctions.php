@@ -768,10 +768,11 @@ function getTotalFactureAnneEnCours($dateDeb,$dateFin){
 
 function inscription($identifiant,$mdp,$mail)
 {
-  $dbh = connexion();
-    $pdoStatement = $dbh->prepare("insert into user (Pseudo,Mdp,Mail) VALUES (:identifiant,PASSWORD(:mdp),:mail)");
+    $dbh = connexion();
+    $passhache= password_hash($mdp,PASSWORD_DEFAULT);
+    $pdoStatement = $dbh->prepare("insert into user (Pseudo,Mdp,Mail) VALUES (:identifiant,:passhache,:mail)");
     $pdoStatement->bindvalue('identifiant',$identifiant);
-    $pdoStatement->bindvalue('mdp',$mdp);
+    $pdoStatement->bindvalue('passhache',$passhache);
     $pdoStatement->bindvalue('mail',$mail);
     if($pdoStatement->execute()){
       $pdoStatement->closeCursor();
