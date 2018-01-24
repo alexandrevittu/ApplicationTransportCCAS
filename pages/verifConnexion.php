@@ -1,7 +1,7 @@
 <?php
 include_once '../fonctions/fonctions.php';
 // Hachage du mot de passe
-$pass_hache = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
+$pass_hache = hash('sha256',$_POST['mdp']);
 $pseudo = $_POST['pseudo'];
 echo $pass_hache;
 $checkCompte = getCompte($pseudo,$pass_hache);
