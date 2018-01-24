@@ -111,13 +111,13 @@ include_once "../fonctions/fonctions.php";  //inclut l'en-tete
     <fieldset>
       <legend><span class="glyphicon glyphicon-eye-open" ></span> &nbsp; Statistique :</legend>
         <form action="requeteFixeNbTrajet.php">
-          <button class="btn btn-info" type="submit" id="accueil"> <span class="glyphicon glyphicon-print" ></span> &nbsp; Nombre de trajets depuis un an</button>
+          <button class="btn btn-info" type="submit" id="accueil"> <span class="glyphicon glyphicon-stats" ></span> &nbsp; Nombre de trajets depuis un an</button>
         </form>
         <form action="RequeteFixeFacture.php">
-          <button class="btn btn-info" type="submit" id="accueil"> <span class="glyphicon glyphicon-print" ></span> &nbsp; Total facturation depuis un an</button>
+          <button class="btn btn-info" type="submit" id="accueil"> <span class="glyphicon glyphicon-stats" ></span> &nbsp; Total facturation depuis un an</button>
         </form>
         <form action="requetesMulticriteres.php">
-          <button class="btn btn-info" type="submit" id="accueil"> <span class="glyphicon glyphicon-print" ></span> &nbsp; Requêtes multicritères</button>
+          <button class="btn btn-info" type="submit" id="accueil"> <span class="glyphicon glyphicon-stats" ></span> &nbsp; Requêtes multicritères</button>
         </form>
     </fieldset>
   </div>

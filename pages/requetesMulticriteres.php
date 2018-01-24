@@ -11,7 +11,7 @@
  <?php
   $annéeencours = date('Y');
  ?>
- <form method="POST" style='width: 70%;margin:5% 13%'>
+ <form method="POST" style='width: 70%;margin:5% 35%'>        <!--selection de l'année et du type-->
    <select name="année" id="année" >
      <option value="0">sélectionner une année
      <option value="<?php echo $annéeencours;?>"><?php echo $annéeencours; ?>
@@ -28,7 +28,7 @@
     <input class="btn btn-info" type='submit' value="Valider"/>
   </form>
   <?php
-    if(isset($_POST['type']) && $_POST['type']<=4)
+    if(isset($_POST['type']) && $_POST['type']<=4)    //recuperation des nombre de trajet
     {
       $datedebut = $_POST['année'].'-01-01';
       $datefin = $_POST['année'].'-12-31';
@@ -55,17 +55,21 @@
       echo '</div>';
     }
 
-    elseif(isset($_POST['type']))
+    elseif(isset($_POST['type']))   //recuperation de la facture
     {
       $datedebut = $_POST['année'].'-01-01';
       $datefin = $_POST['année'].'-12-31';
       $sommefactuentableau = getTotalFactureAnneEnCours($datedebut,$datefin);
-      if($sommefactuentableau['produit'])
+      ?>
+      <div style="text-align:center;margin-top:10%;border:1px solid black;width:50%;margin-left:auto;margin-right:auto;"><p style="font-weight:bold;font-size:1.5em;">
+      <?php
+      if($sommefactuentableau['produit']!=0)
       {
-        ?>
-        <div style="text-align:center;margin-top:10%;border:1px solid black;width:50%;margin-left:auto;margin-right:auto;"><p style="font-weight:bold;font-size:1.5em;">
-        <?php
         echo 'La somme des facturations pour l\'année '.$_POST['année'].' est de : '.$sommefactuentableau['produit'].'</div>';
+      }
+      else
+      {
+        echo 'il n\'y a aucune facture pour cette année</div>';
       }
     }
    ?>

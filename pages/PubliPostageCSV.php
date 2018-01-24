@@ -48,7 +48,7 @@
   <script language="javascript" type="text/javascript">
     $(document).ready(function() {                    //btn impression et format csv
     var table =  $('#example').DataTable({
-        dom: 'Bfrtip',
+        dom: '<"top"f>rt<"bottom"Bp>',
         buttons: [
           { extend: 'print', text: '<span class="glyphicon glyphicon-print"></span> Imprimer' , className: 'btn btn-info'},
 
