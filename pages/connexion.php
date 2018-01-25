@@ -36,7 +36,7 @@ include_once "../fonctions/fonctions.php";
 
     </form>
     <form id=inscription action="inscription.php">
-      <button class="btn btn-info">Inscription</button>
+      <button >Inscription</button>
     </form>
     </div>
     <?php
