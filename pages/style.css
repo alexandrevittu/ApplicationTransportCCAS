@@ -389,3 +389,23 @@ img.logo{
 #ligne{
 	width: 50%;
 }
+
+#bienvenuCompte{
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 50%;
+	color: #4BB9DA;
+}
+
+#deconnexion{
+	position:absolute;
+	top:0;
+	right:0;
+	background-color: #D04642;
+	color: white;
+	padding: 10px 16px;
+	border: none;
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+	cursor: pointer;
+}
