@@ -409,3 +409,34 @@ img.logo{
 	border-bottom-left-radius: 3px;
 	cursor: pointer;
 }
+
+#inscriptionForm input[type=text], input[type=password]{
+	width: 50%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+}
+
+#inscriptionForm button{
+	background-color: #4BB9DA;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;
+	width: 50%;
+}
+
+#inscriptionForm button:hover{
+	opacity: 0.8;
+}
+
+#inscriptionForm{
+	border: 3px solid #f1f1f1;
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 6%;
+}
