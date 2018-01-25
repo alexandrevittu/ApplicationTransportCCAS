@@ -164,7 +164,7 @@ function ModifSeuil($prix)
 function ModifTrajetCourtParAdherent($idadherent,$trimestre,$nbtrajet,$datederniertrajet)
 {
   $dbh = connexion();
-  $pdoStatement = $dbh->prepare("update Tarifs set nbTrajet = :nbtrajet, dateDernierTrajet = :datederniertrajet WHERE idAdherent=:idadherent AND idTrimestre=:trimestre AND idTypetrajet=2");
+  $pdoStatement = $dbh->prepare("update tarifs set nbTrajet = :nbtrajet, dateDernierTrajet = :datederniertrajet WHERE idAdherent=:idadherent AND idTrimestre=:trimestre AND idTypetrajet=2");
   $pdoStatement->bindvalue("nbtrajet",$nbtrajet);
   $pdoStatement->bindvalue("datederniertrajet",$datederniertrajet);
   $pdoStatement->bindvalue("trimestre",$trimestre);
@@ -182,7 +182,7 @@ function ModifTrajetCourtParAdherent($idadherent,$trimestre,$nbtrajet,$datederni
 function ModifTrajetMoyenParAdherent($idadherent,$trimestre,$nbtrajet,$datederniertrajet)
 {
   $dbh = connexion();
-  $pdoStatement = $dbh->prepare("update Tarifs set nbTrajet = :nbtrajet, dateDernierTrajet = :datederniertrajet WHERE idAdherent=:idadherent AND idTrimestre=:trimestre AND idTypetrajet=3");
+  $pdoStatement = $dbh->prepare("update tarifs set nbTrajet = :nbtrajet, dateDernierTrajet = :datederniertrajet WHERE idAdherent=:idadherent AND idTrimestre=:trimestre AND idTypetrajet=3");
   $pdoStatement->bindvalue("nbtrajet",$nbtrajet);
   $pdoStatement->bindvalue("datederniertrajet",$datederniertrajet);
   $pdoStatement->bindvalue("trimestre",$trimestre);
@@ -200,7 +200,7 @@ function ModifTrajetMoyenParAdherent($idadherent,$trimestre,$nbtrajet,$datederni
 function ModifTrajetLongParAdherent($idadherent,$trimestre,$nbtrajet,$datederniertrajet)
 {
   $dbh = connexion();
-  $pdoStatement = $dbh->prepare("update Tarifs set nbTrajet = :nbtrajet, dateDernierTrajet = :datederniertrajet WHERE idAdherent=:idadherent AND idTrimestre=:trimestre AND idTypetrajet=4");
+  $pdoStatement = $dbh->prepare("update tarifs set nbTrajet = :nbtrajet, dateDernierTrajet = :datederniertrajet WHERE idAdherent=:idadherent AND idTrimestre=:trimestre AND idTypetrajet=4");
   $pdoStatement->bindvalue("nbtrajet",$nbtrajet);
   $pdoStatement->bindvalue("datederniertrajet",$datederniertrajet);
   $pdoStatement->bindvalue("trimestre",$trimestre);
