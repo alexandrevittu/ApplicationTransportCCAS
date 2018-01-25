@@ -7,6 +7,9 @@
   <form  id="deconnexionForm" method="POST" action="deconnexion.php">
   <input type="submit" id="deconnexion" value="Se déconnecter">
   </form>
+  <form action="gestionCompte.php" action="POST">
+  <button id="gestioncompte"  type="submit">Gestion du compte</button>
+  </form>
   <div id="logoTrnsport"><a href="accueil.php"><img src="../img/logo-LCA.png" alt="Logo application" id="logo"/></a></div>
   <?php
 
