@@ -5,8 +5,9 @@
   <link type="text/css" rel="stylesheet" href="style.css"/>
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
   <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
-  <h1><a href="accueil.php" id="titre">Transport CCAS</a></h1>
+  <title>Transport CCAS</title>
   <div id="logoTrnsport"><a href="accueil.php"><img src="../img/logo-LCA.png" alt="Logo application" id="logo"/></a></div>
+  <meta http-equiv=”refresh” content="5"/>
   <style>
     #erreur{
       display: none;
@@ -15,7 +16,7 @@
 </head>
 <?php
 
-include_once "../fonctions/fonctions.php";
+include_once "../fonctions/fonctions.php";  //inclut l'en-tete
 ?>
 
 <body>
@@ -33,9 +34,11 @@ include_once "../fonctions/fonctions.php";
         <input type="password" placeholder="Entrer le mot de passe" name="mdp" required><br>
         <div class="alert alert-danger" id="erreur"></div>
         <button type="submit">Se connecter</button>
-
+        <input
+      </div>
     </form>
-
+    <div class="saisieUser">
+    <button type="button" class="btn btn-danger" onclick="history.go(-1);">retour</button>
     </div>
     <?php
     if (isset($_POST['pseudo']) && isset($_POST['mdp'])) {
