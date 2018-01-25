@@ -452,3 +452,16 @@ img.logo{
 	margin-right: auto;
 	margin-top: 6%;
 }
+
+#gestioncompte{
+	position:absolute;
+	top:43px;
+	right:0;
+	background-color: #4BB9DA;
+	color: white;
+	padding: 10px 7px;
+	border: none;
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+	cursor: pointer;
+}

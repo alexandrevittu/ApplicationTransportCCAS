@@ -31,9 +31,8 @@
       <input type="text" name="mail" placeholder="Ex: exemple@exemple.fr" required /></br>
       <div class="alert alert-danger" id="erreur"></div>
       <button type="submit"/>Validez</button>
-
       </form>
-      <form id=inscription action="accueil.php">
+      <form action="accueil.php">
         <button >Retour</button>
       </form>
     </div>

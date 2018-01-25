@@ -19,7 +19,10 @@ include_once "../fonctions/fonctions.php";  //inclut l'en-tete
 
 </script>
 <body>
-
+    <form action="gestionCompte.php" action="POST">
+    <button id="gestioncompte"  type="submit">Gestion du compte</button>
+    </form>
+  <body>
 <!--Button adherent -->
 
   <div id="adherent">
