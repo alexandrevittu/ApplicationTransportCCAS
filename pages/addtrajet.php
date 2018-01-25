@@ -29,8 +29,13 @@
       //echo '<input type="hidden" name="trimestre" value='.$_POST['trimestre'].'>';
       ?>
       <input class="btn btn-info" type="submit" value="Valider"/>
-      <button class="btn btn-danger" type="button" onclick="history.go(-1);"/>Retour</button>
       <hr class="style-ligne">
+    </form>
+    <form action="Trimestre.php" method="POST">
+      <?php
+        echo '<input type="hidden" name="trimestre" value='.$trimestre.'>';
+      ?>
+      <button class="btn btn-info" type="submit"> retour</button>
     </form>
     <?php
       $nbtrajetmoyen = Getnbtrajetmoyenparadherent($idadherent,$trimestre); //recuperation des nombre de trajet de l'adherent

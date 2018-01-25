@@ -52,6 +52,40 @@ function ModifAdherent($id,$nom,$prenom,$adresse,$date,$remarque)
   }
 }
 
+function Modifpseudo($pseudo,$id)
+{
+  $dbh = connexion();
+  $pdoStatement = $dbh ->prepare("update user set Pseudo = :pseudo WHERE id = :id");
+  $pdoStatement->bindvalue("pseudo",$pseudo);
+  $pdoStatement->bindvalue("id",$id);
+  if($pdoStatement->execute())
+  {
+    $pdoStatement->closeCursor();
+    $dbh=null;
+    return true;
+  }
+  else
+  {
+    return false;
+  }
+}
+function Modifmdp($mdp,$id)
+{
+    $dbh = connexion();
+    $passhache= hash('sha256',$mdp);
+    $pdoStatement = $dbh->prepare("update user set Mdp = :passhache WHERE id = :id");
+    $pdoStatement->bindvalue('passhache',$passhache);
+    $pdoStatement->bindvalue('id',$id);
+    if($pdoStatement->execute()){
+      $pdoStatement->closeCursor();
+      $dbh=null;
+      return true;
+    }
+    else{
+      return false;
+    }
+}
+
 function ModifTarifCourt($prix)
 {
   $dbh = connexion();
@@ -748,6 +782,25 @@ function getNbTrajetParAn($date1,$date2)
     throw new Exception("erreur lors de la recuperation de la date du dernier trajet");
   }
 }
+
+function getcompteutilisateur($id)
+{
+  $dbh = connexion();
+  try
+  {
+      $pdoStatement = $dbh->prepare("select * from user where id = :id");
+      $pdoStatement->bindvalue("id",$id);
+      $pdoStatement->execute();
+      $result = $pdoStatement->fetch();
+      return $result;
+      $dbh = null;
+  }
+  catch(Exception $e)
+  {
+    throw new Exception("erreur lors de la recuperation des informations compte");
+  }
+}
+
 
 function getTotalFactureAnneEnCours($dateDeb,$dateFin){
   $dbh = connexion();
