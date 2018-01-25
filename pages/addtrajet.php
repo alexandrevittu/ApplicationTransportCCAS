@@ -29,14 +29,16 @@
       //echo '<input type="hidden" name="trimestre" value='.$_POST['trimestre'].'>';
       ?>
       <input class="btn btn-info" type="submit" value="Valider"/>
-      <hr class="style-ligne">
+
     </form>
-    <form action="Trimestre.php" method="POST">
+    <form action="Trimestre.php" id="ajouttrajet" method="POST">
       <?php
         echo '<input type="hidden" name="trimestre" value='.$trimestre.'>';
       ?>
       <button class="btn btn-info" type="submit"> retour</button>
     </form>
+    <hr class="style-ligne">
+  </div>
     <?php
       $nbtrajetmoyen = Getnbtrajetmoyenparadherent($idadherent,$trimestre); //recuperation des nombre de trajet de l'adherent
       $nbtrajetcourt = Getnbtrajetcourtparadherent($idadherent,$trimestre);
