@@ -777,9 +777,10 @@ function inscription($identifiant,$mdp,$mail)
     if($pdoStatement->execute()){
       $pdoStatement->closeCursor();
       $dbh=null;
+      return true;
     }
     else{
-      throw new Exception("Erreur inscription");
+      return false;
     }
 }
 

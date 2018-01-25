@@ -409,6 +409,18 @@ img.logo{
 	border-bottom-left-radius: 3px;
 	cursor: pointer;
 }
+#inscription{
+	position:absolute;
+	top:auto;
+	right:0;
+	background-color: #4BB9DA;
+	color: white;
+	padding: 10px 34px;
+	border: none;
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+	cursor: pointer;
+}
 
 #inscriptionForm input[type=text], input[type=password]{
 	width: 50%;

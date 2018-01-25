@@ -7,6 +7,7 @@
   <meta http-equiv=”refresh” content="5"/>
 </head>
 <?php
+
 include_once "header.php";
 include_once "../fonctions/fonctions.php";  //inclut l'en-tete
 ?>

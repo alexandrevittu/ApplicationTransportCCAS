@@ -35,9 +35,7 @@ include_once "../fonctions/fonctions.php";
         <button type="submit">Se connecter</button>
 
     </form>
-    <form id=inscription action="inscription.php">
-      <button >Inscription</button>
-    </form>
+
     </div>
     <?php
     if (isset($_POST['pseudo']) && isset($_POST['mdp'])) {

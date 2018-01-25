@@ -2,17 +2,14 @@
 <html>
 <head>
   <title>inscription</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
-  <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
-  <h1><a href="accueil.php" id="titre">Transport CCAS</a></h1>
-  <div id="logoTrnsport"><a href="accueil.php"><img src="../img/logo-LCA.png" alt="Logo application" id="logo"/></a></div>
   <style>
     #erreur{
       display: none;
     }
   </style>
   <?php
+  include_once "header.php";
+
   include_once "../fonctions/fonctions.php";
   ?>
 </head>
@@ -36,7 +33,7 @@
       <button type="submit"/>Validez</button>
 
       </form>
-      <form id=inscription action="connexion.php">
+      <form id=inscription action="accueil.php">
         <button >Retour</button>
       </form>
     </div>
@@ -45,8 +42,16 @@
     {
       if($_POST['mdp']==$_POST['mdp2'])
       {
-      inscription($_POST['nom'],$_POST['mdp'],$_POST['mail']);
-      header('Location: connexion.php');
+        if(inscription($_POST['nom'],$_POST['mdp'],$_POST['mail']))
+          {
+            header('Location: accueil.php');
+            var_dump(inscription($_POST['nom'],$_POST['mdp'],$_POST['mail']));
+          }
+          else
+          {
+            echo '<style>#erreur{display:block;}</style>';
+            echo '<script>document.getElementById("erreur").innerHTML = "Identifiant ou mail deja existant.";</script>';
+          }
       }
       else
       {
