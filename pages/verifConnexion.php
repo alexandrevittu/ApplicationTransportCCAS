@@ -10,7 +10,7 @@ if (isset($_POST['pseudo']) && isset($_POST['mdp'])) {
 
   if (!$checkCompte)
   {
-      echo 'Mauvais identifiant ou mot de passe !';
+      echo '<script>document.getElementById("")';
   }
   else
   {

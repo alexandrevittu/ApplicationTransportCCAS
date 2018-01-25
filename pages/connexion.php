@@ -12,7 +12,7 @@
   </style>
 </head>
 <?php
-include_once "header.php";
+
 include_once "../fonctions/fonctions.php";  //inclut l'en-tete
 ?>
 
