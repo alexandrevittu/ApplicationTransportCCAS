@@ -3,8 +3,10 @@
 <head>
   <meta charset="utf-8">
   <link type="text/css" rel="stylesheet" href="style.css"/>
-  <title>Transport CCAS</title>
-  <meta http-equiv=”refresh” content="5"/>
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+  <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
+  <h1><a href="accueil.php" id="titre">Transport CCAS</a></h1>
+  <div id="logoTrnsport"><a href="accueil.php"><img src="../img/logo-LCA.png" alt="Logo application" id="logo"/></a></div>
   <style>
     #erreur{
       display: none;
@@ -13,7 +15,7 @@
 </head>
 <?php
 
-include_once "../fonctions/fonctions.php";  //inclut l'en-tete
+include_once "../fonctions/fonctions.php";
 ?>
 
 <body>
@@ -31,10 +33,11 @@ include_once "../fonctions/fonctions.php";  //inclut l'en-tete
         <input type="password" placeholder="Entrer le mot de passe" name="mdp" required><br>
         <div class="alert alert-danger" id="erreur"></div>
         <button type="submit">Se connecter</button>
-      </div>
+
     </form>
-    <div class="saisieUser">
-    <button type="button" class="btn btn-danger" onclick="history.go(-1);">Retour</button>
+    <form id=inscription action="inscription.php">
+      <button class="btn btn-info">Inscription</button>
+    </form>
     </div>
     <?php
     if (isset($_POST['pseudo']) && isset($_POST['mdp'])) {
