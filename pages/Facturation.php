@@ -1,3 +1,9 @@
+<?php
+include_once "header.php";
+include_once "../fonctions/fonctions.php";
+$lesAdherents = ListerAdherent();
+$seuil = getSeuil();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,12 +15,7 @@
   <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
   <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
 
-  <?php
-  include_once "header.php";
-  include_once "../fonctions/fonctions.php";
-  $lesAdherents = ListerAdherent();
-  $seuil = getSeuil();
-  ?>
+
 </head>
 <script language="javascript" type="text/javascript">    <!--configuration du tableau -->
   $(document).ready(function() {

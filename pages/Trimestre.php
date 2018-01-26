@@ -1,3 +1,6 @@
+<?php
+  include_once "header.php"; 
+ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +15,7 @@
   <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
 
   <?php
-    include_once "header.php";
+
     include_once "../fonctions/fonctions.php";
 
     $trimestre = getTrimestre();
