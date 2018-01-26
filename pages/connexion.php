@@ -53,7 +53,9 @@
           session_start();
           $_SESSION['id'] = $checkCompte['id'];
           $_SESSION['pseudo'] = $pseudo;
-          header('Location: accueil.php');
+          $_SESSION['nbLigne'] = 0;
+          header('Location: PubliPostageCSV.php');
+
         }
     }
     ?>

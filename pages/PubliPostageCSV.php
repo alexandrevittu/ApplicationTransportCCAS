@@ -110,8 +110,13 @@
       }
     }
   }
-  $recupLigne = serialize($Nbligne);
-  file_put_contents('store',$recupLigne);
+  //$recupLigne = serialize($Nbligne);
+  //file_put_contents('store',$recupLigne);
+  if($_SESSION['nbLigne']!=$Nbligne)
+  {
+  $_SESSION['nbLigne'] = $Nbligne;
+  header('Location: accueil.php');
+  }
   ?>
 
   </table>

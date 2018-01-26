@@ -94,9 +94,12 @@ include_once "../fonctions/fonctions.php";  //inclut l'en-tete
       echo '<label>Trimestre en cours :Juillet/Aout/Septembre</label>';
     }
 
-    $Nbligne = file_get_contents('store');
-    $recupLigne = unserialize($Nbligne);
-    echo '<a id="renouvellementAccueil"href="PubliPostageCSV.php">Il y a '.$recupLigne.' renouvellement d\'adhesion.</a>';
+    /*$Nbligne = file_get_contents('store');
+    $recupLigne = unserialize($Nbligne);*/
+    if (isset($_SESSION['nbLigne'])) {
+
+      echo '<a id="renouvellementAccueil"href="PubliPostageCSV.php">Il y a '.$_SESSION['nbLigne'].' renouvellement d\'adhesion.</a>';
+    }
     ?>
 
   </div>

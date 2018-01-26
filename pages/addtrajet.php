@@ -35,7 +35,7 @@
       <?php
         echo '<input type="hidden" name="trimestre" value='.$trimestre.'>';
       ?>
-      <button class="btn btn-info" type="submit"> retour</button>
+      <button class="btn btn-info" type="submit">Retour</button>
     </form>
     <hr class="style-ligne">
   </div>
