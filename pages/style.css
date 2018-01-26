@@ -465,3 +465,28 @@ img.logo{
 	border-bottom-left-radius: 3px;
 	cursor: pointer;
 }
+
+#boutonGestion{
+	display: flex;
+	align-items:center;
+	padding-left: 35%;
+	margin-top: 5%;
+}
+
+#boutonGestion form{
+margin-right: 30px;
+}
+
+#afficheGestion{
+	text-align: center;
+}
+
+#afficheGestion form input[type=password]{
+	padding: 5px 10px;
+	margin-bottom: 15px;
+}
+
+#afficheGestion form input[type=text]{
+	padding: 5px 30px;
+	margin-bottom: 15px;
+}

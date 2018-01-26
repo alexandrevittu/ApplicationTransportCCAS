@@ -9,24 +9,27 @@
 ?>
 </head>
 <body>
+  <div id="boutonGestion">
           <form  method="GET">
             <input type="hidden" name="modif" value="1">
             <button class="btn btn-info" type="submit" id="accueil"> <span class="glyphicon glyphicon-pencil"></span> &nbsp; Modifier identifiant</button>
           </form>
-
           <form  method="GET">
             <input type="hidden" name="modif" value="2">
             <button class="btn btn-info" type="submit" id="accueil"> <span class="glyphicon glyphicon-pencil"></span> &nbsp; Modifier mot de passe</button>
           </form>
+    </div>
 <?php
   if(isset($_GET['modif']) && $_GET['modif']==1)
   {
     ?>
+    <div id="afficheGestion">
     <form method="POST" style="width: 50%;margin:5% 20%;">
-      <label>nouvelle identifiant : </label><br>
-      <input type="text" name="pseudo"/></br>
+      <label>Nouvel identifiant : </label><br>
+      <input type="text" name="pseudo"  required/></br>
       <input class="btn btn-info" type="submit" value="valider"/>
     </form>
+  </div>
     <?php
       if(isset($_POST['pseudo']))
       {
@@ -48,11 +51,13 @@
   elseif(isset($_GET['modif']) && $_GET['modif']==2)
   {
     ?>
+    <div id="afficheGestion">
     <form method="POST" style="width: 50%;margin:5% 20%;">
-      <label>nouveau mot de passe : </label><br>
-      <input type="text" name="mdp"/></br>
-      <input class="btn btn-info" type="submit" value="valider"/>
+      <label>Nouveau mot de passe : </label><br>
+      <input type="password" name="mdp" required/></br>
+      <input class="btn btn-info" type="submit" value="Valider"/>
     </form>
+  </div>
     <?php
     if(isset($_POST['mdp']))
     {
