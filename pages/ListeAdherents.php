@@ -1,4 +1,8 @@
-
+<?php
+include_once "header.php";
+include_once "../fonctions/fonctions.php";
+$lesAdherents = ListerAdherent();
+?>
 <!doctype html>
 <html>
 <head>
@@ -69,11 +73,7 @@
 
   </script>
 </head>
-<?php
-include_once "header.php";
-include_once "../fonctions/fonctions.php";
-$lesAdherents = ListerAdherent();
-?>
+
 <body>
   <div class="content-loader">          <!--Creation du tableau-->
       <div id="dis"></div>
