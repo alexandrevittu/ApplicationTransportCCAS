@@ -73,6 +73,7 @@
       }
     }
    ?>
+   <input style="position:absolute;right:350px;top:166px;" class="btn btn-info" onclick="history.go(-1)" type="submit" value="Retour">
 </body>
 
 </html>

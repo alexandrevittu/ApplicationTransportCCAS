@@ -97,8 +97,9 @@ include_once "../fonctions/fonctions.php";  //inclut l'en-tete
     /*$Nbligne = file_get_contents('store');
     $recupLigne = unserialize($Nbligne);*/
     if (isset($_SESSION['nbLigne'])) {
-
-      echo '<a id="renouvellementAccueil"href="PubliPostageCSV.php">Il y a '.$_SESSION['nbLigne'].' renouvellement d\'adhesion.</a>';
+      if ($_SESSION['nbLigne'] != 0) {
+        echo '<a id="renouvellementAccueil"href="PubliPostageCSV.php">Il y a '.$_SESSION['nbLigne'].' renouvellement d\'adhesion.</a>';
+      }
     }
     ?>
 
