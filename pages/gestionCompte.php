@@ -18,6 +18,7 @@
             <input type="hidden" name="modif" value="2">
             <button class="btn btn-info" type="submit" id="accueil"> <span class="glyphicon glyphicon-pencil"></span> &nbsp; Modifier mot de passe</button>
           </form>
+          <input style="margin-bottom:10px;"class="btn btn-info" onclick="window.location.href='accueil.php'" type="submit" value="Retour" class="buttonadherent">
     </div>
 <?php
   if(isset($_GET['modif']) && $_GET['modif']==1)
