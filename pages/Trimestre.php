@@ -1,5 +1,5 @@
 <?php
-  include_once "header.php"; 
+  include_once "header.php";
  ?>
 <!DOCTYPE html>
 <html>
@@ -33,15 +33,19 @@
 <body>
   <div id="conteneur">
     <div id="debut">
-      <form method="post" id="listetrimestre">  <!--liste déroulante des trimestre-->
-        <select id="selecttrimestre" name="trimestre" onchange="submit();">
+      <form method="POST" id="listetrimestre">  <!--liste déroulante des trimestre-->
+        <select id="selecttrimestre" name="trimestre" >
           <option value=<?php echo $n1; ?>><?php echo $triTrimestre[1]['libelle'].' '.$triTrimestre[1]['annee'] ?>
           <option value=<?php echo $n2; ?>><?php echo $triTrimestre[2]['libelle'].' '.$triTrimestre[2]['annee'] ?>
           <option value=<?php echo $n3; ?>><?php echo $triTrimestre[3]['libelle'].' '.$triTrimestre[3]['annee'] ?>
           <option value=<?php echo $n4; ?>><?php echo $triTrimestre[4]['libelle'].' '.$triTrimestre[4]['annee'] ?>
         </select>
+        <input class="btn btn-info" id="btnenvoyer" type="submit" value="Envoyer">
       </form>
-      <input  class="btn btn-info" onclick="window.location.href='accueil.php'" type="submit" value="Retour" class="buttonadherent"> <!-- Boutton annuler -->
+      <form style="margin-left:5px;">
+      <input   class="btn btn-info" onclick="window.location.href='trimestre.php'" type="submit" value="Retour"> <!-- Boutton annuler -->
+      <input  class="btn btn-info" onclick="window.location.href='accueil.php'" type="button"  value="Accueil">
+    </form>
   </div>
     <script language="javascript" type="text/javascript"> <!--affichage du tableau avec DataTable -->
         $(document).ready(function() {
@@ -64,6 +68,7 @@
     }
       if(isset($_POST['trimestre']))  //creation du tableau
       {
+
         echo"<div class='content-loader' style='width: 70%;margin:5% 13%;'>";
         echo "<table cellpadding='0' cellspacing='0' border='0' class='table table-striped table-hover table-responsive no-footer table-bordered' id='example'>";
         echo "<thead>";
@@ -81,24 +86,47 @@
           echo '</tr>';
         }
       }
-      echo "<script>";
-      if($_POST['trimestre']==1)
+      if(isset($_POST['trimestre']) && $_POST['trimestre']==1)
       {
-        echo"document.getElementById('selecttrimestre').value='1'";
+        $libelleTrimestre = getTrimestreLib($_POST['trimestre']);
+        $libelleTr = utf8_encode($libelleTrimestre['libelle']);
+        echo"trimestre selectionner : ".$libelleTr." ";
+        echo "<script>";
+        echo "document.getElementById('selecttrimestre').style.display = 'none';";
+        echo "document.getElementById('btnenvoyer').style.display = 'none';";
+        echo'</script>';
+
       }
-      elseif($_POST['trimestre']==2)
+      elseif(isset($_POST['trimestre']) && $_POST['trimestre']==2)
       {
-        echo"document.getElementById('selecttrimestre').value='2'";
+        $libelleTrimestre = getTrimestreLib($_POST['trimestre']);
+        $libelleTr = utf8_encode($libelleTrimestre['libelle']);
+        echo"trimestre selectionner : ".$libelleTr." ";
+        echo "<script>";
+        echo "document.getElementById('selecttrimestre').style.display = 'none';";
+        echo "document.getElementById('btnenvoyer').style.display = 'none';";
+        echo'</script>';
       }
-      elseif($_POST['trimestre']==3)
+      elseif(isset($_POST['trimestre']) && $_POST['trimestre']==3)
       {
-        echo"document.getElementById('selecttrimestre').value='3'";
+        $libelleTrimestre = getTrimestreLib($_POST['trimestre']);
+        $libelleTr = utf8_encode($libelleTrimestre['libelle']);
+        echo"trimestre selectionner : ".$libelleTr." ";
+        echo "<script>";
+        echo "document.getElementById('selecttrimestre').style.display = 'none';";
+        echo "document.getElementById('btnenvoyer').style.display = 'none';";
+        echo'</script>';
       }
-      elseif($_POST['trimestre']==4)
+      elseif(isset($_POST['trimestre']) && $_POST['trimestre']==4)
       {
-        echo"document.getElementById('selecttrimestre').value='4'";
+        $libelleTrimestre = getTrimestreLib($_POST['trimestre']);
+        $libelleTr = utf8_encode($libelleTrimestre['libelle']);
+        echo"trimestre selectionner : ".$libelleTr." ";
+        echo "<script>";
+        echo "document.getElementById('selecttrimestre').style.display = 'none';";
+        echo "document.getElementById('btnenvoyer').style.display = 'none';";
+        echo'</script>';
       }
-      echo'</script>';
 
     ?>
     </table>
