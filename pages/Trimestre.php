@@ -43,7 +43,7 @@
         <input class="btn btn-info" id="btnenvoyer" type="submit" value="Envoyer">
       </form>
       <form style="margin-left:5px;">
-      <input   class="btn btn-info" onclick="window.location.href='trimestre.php'" type="submit" value="Retour"> <!-- Boutton annuler -->
+      <input   class="btn btn-info" onclick="window.location.href='trimestre.php'" type="submit" value="Retour" id="btnretoureee" style="display: none;"> <!-- Boutton annuler -->
       <input  class="btn btn-info" onclick="window.location.href='accueil.php'" type="button"  value="Accueil">
     </form>
   </div>
@@ -93,6 +93,7 @@
         echo"trimestre selectionner : ".$libelleTr." ";
         echo "<script>";
         echo "document.getElementById('selecttrimestre').style.display = 'none';";
+        echo "document.getElementById('btnretoureee').style.display = 'inline-block';";
         echo "document.getElementById('btnenvoyer').style.display = 'none';";
         echo'</script>';
 
@@ -104,6 +105,7 @@
         echo"trimestre selectionner : ".$libelleTr." ";
         echo "<script>";
         echo "document.getElementById('selecttrimestre').style.display = 'none';";
+        echo "document.getElementById('btnretoureee').style.display = 'inline-block';";
         echo "document.getElementById('btnenvoyer').style.display = 'none';";
         echo'</script>';
       }
@@ -114,6 +116,7 @@
         echo"trimestre selectionner : ".$libelleTr." ";
         echo "<script>";
         echo "document.getElementById('selecttrimestre').style.display = 'none';";
+        echo "document.getElementById('btnretoureee').style.display = 'inline-block';";
         echo "document.getElementById('btnenvoyer').style.display = 'none';";
         echo'</script>';
       }
@@ -124,6 +127,7 @@
         echo"trimestre selectionner : ".$libelleTr." ";
         echo "<script>";
         echo "document.getElementById('selecttrimestre').style.display = 'none';";
+        echo "document.getElementById('btnretoureee').style.display = 'inline-block';";
         echo "document.getElementById('btnenvoyer').style.display = 'none';";
         echo'</script>';
       }

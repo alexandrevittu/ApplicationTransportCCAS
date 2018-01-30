@@ -1,4 +1,5 @@
-<?php session_start(); ?>
+<?php session_start();
+ ?>
 <header>
   <link rel="stylesheet" href="style.css">
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">

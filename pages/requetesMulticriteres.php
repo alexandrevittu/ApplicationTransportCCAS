@@ -26,6 +26,7 @@
      <option value="5">Somme facturation
     </select>
     <input class="btn btn-info" type='submit' value="Valider"/>
+    <input  class="btn btn-info" onclick="window.location.href='accueil.php'" type="button"  value="Accueil">
   </form>
   <?php
     if(isset($_POST['type']) && $_POST['type']<=4)    //recuperation des nombre de trajet
@@ -73,7 +74,6 @@
       }
     }
    ?>
-   <input style="position:absolute;right:350px;top:166px;" class="btn btn-info" onclick="history.go(-1)" type="submit" value="Retour">
 </body>
 
 </html>
