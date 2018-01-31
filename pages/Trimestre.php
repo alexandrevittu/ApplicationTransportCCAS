@@ -27,7 +27,6 @@
     $n2 = $triTrimestre[2]['idTrimestre'];
     $n3 = $triTrimestre[3]['idTrimestre'];
     $n4 = $triTrimestre[4]['idTrimestre'];
-
   ?>
 </head>
 <body>
@@ -42,7 +41,7 @@
         </select>
         <input class="btn btn-info" id="btnenvoyer" type="submit" value="Envoyer">
       </form>
-      <form style="margin-left:5px;">
+      <form style="margin-top:8%; margin-left:2%;">
       <input   class="btn btn-info" onclick="window.location.href='trimestre.php'" type="submit" value="Retour" id="btnretoureee" style="display: none;"> <!-- Boutton annuler -->
       <input  class="btn btn-info" onclick="window.location.href='accueil.php'" type="button"  value="Accueil">
     </form>
@@ -57,6 +56,7 @@
 
           });
         } );
+         document.getElementById("selecttrimestre").selectedIndex = "3"; 
     </script>
     <?php
     if(isset($_POST['trajetcourt']))

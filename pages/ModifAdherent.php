@@ -11,7 +11,7 @@ include_once "../fonctions/fonctions.php";
 
 #recuperation de l'adherent
 $ladherent = GetAdherent($_POST['id']);
-$remarque=$ladherent['remarque'];
+$remarque=htmlspecialchars($ladherent['remarque']);
 ?>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
