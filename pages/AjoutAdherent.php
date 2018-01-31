@@ -30,22 +30,90 @@ include_once "../fonctions/fonctions.php"
     });
   });
 </script>
+<script>
+function surligne(champ, erreur)
+
+{
+   if(erreur){
+
+      champ.style.backgroundColor = "#fba";
+
+   }else{
+
+      champ.style.backgroundColor = "";}
+}
+
+function verifDate(champ){
+
+var dateSaisie = new Date(champ.value);
+if (dateSaisie != "") {
+  surligne(champ,false);
+  return true;
+}else {
+  surligne(champ,true);
+  return false;
+}
+}
+
+function verifNom(champ){
+  if (champ.value == "" || isNaN(champ.value) == false ) {
+    surligne(champ,true);
+    return false;
+  }else {
+    surligne(champ,false);
+    return true;
+  }
+}
+
+function verifPrenom(champ){
+  if (champ.value == "" || isNaN(champ.value) == false ) {
+    surligne(champ,true);
+    return false;
+  }else {
+    surligne(champ,false);
+    return true;
+  }
+}
+
+function verifChamp(champ){
+  if (champ.value == "") {
+    surligne(champ,true);
+    return false;
+  }else {
+    surligne(champ,false);
+    return true;
+  }
+}
+
+function verifForm(f){
+    var nomOk = verifNom(f.nom);
+    var prenomOk = verifPrenom(f.prenom);
+    var dateOk = verifDate(f.date);
+    var adresseOk = verifChamp(f.adresse);
+    if (nomOk && prenomOk && adresseOk && dateOk) {
+      return true;
+    }else {
+      alert("Veuillez remplir correctement tous les champs ...");
+      return false;
+    }
+}
+</script> <!-- ici-->
 
 
 <body>
   <div id="conteneur">                    <!--formulaire d'ajout d'adherent -->
     <hr class="style-ligne">
-    <form id="ajoutadherent" method="POST">
+    <form id="ajoutadherent" method="POST" onsubmit="return verifForm(this)">
       <label for="fnom">Nom</label><br>
-      <input type="text" name="nom" id="fnom" required /><br>
+      <input type="text" name="nom" id="fnom" onblur="verifNom(this)" required /><br>
       <label for="fprenom">Prénom</label><br>
-      <input type="text" name="prenom" id="fprenom" required /><br>
+      <input type="text" name="prenom" id="fprenom" onblur="verifPrenom(this)" required /><br>
       <label for="fnom">Adresse</label><br>
-      <input type="text" name="adresse" id="fadresse" required /><br>
+      <input type="text" name="adresse" id="fadresse" onblur="verifChamp(this)" required /><br>
       <label for="fnom">Date d'adhésion</label><br>
-      <input type="text" id="datepicker" name="date" required><br>
+      <input type="text" id="datepicker" name="date" onblur="verifDate(this)" required><br>
       <label for="fnom">Remarques</label><br>
-      <input type="text" name="remarque" id="fremarque" required /><br>
+      <input type="text" name="remarque" id="fremarque" /><br>
       <p><input class="" type="submit" value="Valider" id="test"/><br>
     </form>
     <?php
