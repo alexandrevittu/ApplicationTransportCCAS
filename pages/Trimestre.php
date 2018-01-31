@@ -82,7 +82,7 @@
           echo '<td>'.$unAdherent['nom'].'</td>';
           echo '<td>'.$unAdherent['prenom'].'</td>';
           echo '<td>'.$unAdherent['adresse'].'</td>';
-          echo '<td><form action="addtrajet.php" id="addtrajet" method="POST"><input type="hidden" name="id" value='.$id.'><input type="hidden" name="trimestre" value='.$_POST["trimestre"].'><button class="btn btn-info" id="btn-view" type="submit"><span class=" glyphicon glyphicon-plus" ></span> &nbsp;Ajout</form></td>';
+          echo '<td><form action="addtrajet.php" id="addtrajet" method="POST"><input type="hidden" name="prenom" value='.$unAdherent['prenom'].'><input type="hidden" name="nom" value='.$unAdherent['nom'].'><input type="hidden" name="id" value='.$id.'><input type="hidden" name="trimestre" value='.$_POST["trimestre"].'><button class="btn btn-info" id="btn-view" type="submit"><span class=" glyphicon glyphicon-plus" ></span> &nbsp;Ajout</form></td>';
           echo '</tr>';
         }
       }
@@ -90,7 +90,7 @@
       {
         $libelleTrimestre = getTrimestreLib($_POST['trimestre']);
         $libelleTr = utf8_encode($libelleTrimestre['libelle']);
-        echo"trimestre selectionner : ".$libelleTr." ";
+        echo"<h4>Trimestre selectionner : ".$libelleTr." </h4>";
         echo "<script>";
         echo "document.getElementById('selecttrimestre').style.display = 'none';";
         echo "document.getElementById('btnretoureee').style.display = 'inline-block';";
@@ -102,7 +102,7 @@
       {
         $libelleTrimestre = getTrimestreLib($_POST['trimestre']);
         $libelleTr = utf8_encode($libelleTrimestre['libelle']);
-        echo"trimestre selectionner : ".$libelleTr." ";
+        echo"<h4>Trimestre selectionner : ".$libelleTr." </h4>";
         echo "<script>";
         echo "document.getElementById('selecttrimestre').style.display = 'none';";
         echo "document.getElementById('btnretoureee').style.display = 'inline-block';";
@@ -113,7 +113,7 @@
       {
         $libelleTrimestre = getTrimestreLib($_POST['trimestre']);
         $libelleTr = utf8_encode($libelleTrimestre['libelle']);
-        echo"trimestre selectionner : ".$libelleTr." ";
+        echo"<h4>Trimestre selectionner : ".$libelleTr." </h4>";
         echo "<script>";
         echo "document.getElementById('selecttrimestre').style.display = 'none';";
         echo "document.getElementById('btnretoureee').style.display = 'inline-block';";
@@ -124,7 +124,7 @@
       {
         $libelleTrimestre = getTrimestreLib($_POST['trimestre']);
         $libelleTr = utf8_encode($libelleTrimestre['libelle']);
-        echo"trimestre selectionner : ".$libelleTr." ";
+        echo"<h4>Trimestre selectionner : ".$libelleTr." </h4>";
         echo "<script>";
         echo "document.getElementById('selecttrimestre').style.display = 'none';";
         echo "document.getElementById('btnretoureee').style.display = 'inline-block';";

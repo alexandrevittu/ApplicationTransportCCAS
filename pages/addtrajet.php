@@ -10,6 +10,8 @@
     $ladherent = GetAdherent($_POST['id']);   //recuperation de l'adherent et du trimestre
     $idadherent =$_POST['id'];
     $trimestre =$_POST['trimestre'];
+    $libelleTrimestre = getTrimestreLib($_POST['trimestre']);
+    var_dump($libelleTrimestre);
   ?>
 </head>
 <body>
@@ -17,6 +19,7 @@
     <!--Creation du formulaire -->
     <form action="Trimestre.php" id="ajouttrajet" method="POST">
       <hr class="style-ligne">
+      <h4><?php echo $_POST['nom']." ".$_POST['prenom']."<br>".utf8_encode($libelleTrimestre['libelle']); ?> </h4>
       <input type="hidden" name="id" id="id" value="<?php echo$idadherent?>"/></br>
       <input type="hidden" name="trimestre" id="trimestre" value="<?php echo$trimestre?>"/></br>
       <label for="trajetcourt">Nombre de trajet court : </label></br>
