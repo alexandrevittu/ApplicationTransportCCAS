@@ -74,30 +74,7 @@ $( function() {
   }
 
   function verifDate(champ){
-  	/*var dateSaisie = new Date(champ.value);
-
-  	var dateNow = new Date();
-
-  	var day = dateNow.getDate();
-  	var month = dateNow.getMonth();
-  	var year = dateNow.getFullYear();
-    var dateMtn = new Date(day,month,year);
-
-    var jourSaisie = dateSaisie.getDate();
-    var moisSaisie = dateSaisie.getMonth();
-    var anneeSaisie = dateSaisie.getFullYear();
-    var dateGet = new Date(jourSaisie,moisSaisie ,anneeSaisie);
-
-    if (dateGet.getTime() < dateMtn.getTime()) {
-
-      console.log("Ca passe!!!");
-      surligne(champ,false);
-      return true;
-    }else {
-      surligne(champ,true);
-      console.log("Ca  ne passe pas quelque chose ne va pas dedans!!!");
-      return false;
-  }*/
+    
   var dateSaisie = new Date(champ.value);
   if (dateSaisie != "") {
     surligne(champ,false);
