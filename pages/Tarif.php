@@ -1,28 +1,29 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
   <meta charset="utf-8">
   <title>Tarifs</title>
 </head>
+<body>
+
 <?php
 include_once "header.php";
 include_once "../fonctions/fonctions.php";
 ?>
 
-<body>
   <div class="content-loader" style="width: 50%;margin:5% 20%;">    <!--creation du Formulaire des tarifs-->
     <hr class="style-ligne">
       <form id="tarif" method="POST">
-        <label for="fseuil">Seuil du report du trimestre</label><br>
-        <input type="number" name="seuil" step="0.1" id="seuil"/></br>
-        <label for="fcourt">Tarif trajet court</label><br>
-        <input type="number" name="trajetcourt" step="0.1" id="court"/></br>
-        <label for="fmoyen">Tarif trajet moyen</label><br>
-        <input type="number" name="trajetmoyen" step="0.1" id="moyen"/></br>
-        <label for="flong">Tarif trajet long</label><br>
-        <input type="number" name="trajetlong" step="0.1" id="long"/></br>
-        <label for="fadhesion">Tarif de l'adhésion</label><br>
-        <input type="number" name="tarifadhesion" step="0.1" id="adhesion"/></br>
+        <label>Seuil du report du trimestre</label><br>
+        <input type="number" name="seuil" step="0.1" id="seuil"/><br>
+        <label>Tarif trajet court</label><br>
+        <input type="number" name="trajetcourt" step="0.1" id="court"/><br>
+        <label>Tarif trajet moyen</label><br>
+        <input type="number" name="trajetmoyen" step="0.1" id="moyen"/><br>
+        <label>Tarif trajet long</label><br>
+        <input type="number" name="trajetlong" step="0.1" id="long"/><br>
+        <label>Tarif de l'adhésion</label><br>
+        <input type="number" name="tarifadhesion" step="0.1" id="adhesion"/><br>
         <p><input class="" type="submit" value="Valider"/></p>
       </form>
     <?php
