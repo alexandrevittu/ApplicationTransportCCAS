@@ -1,32 +1,24 @@
-#adherent
-{
-	float: left;
+#centrerAccueil{
+	display: flex;
+	margin-left: auto;
+	margin-right: auto;
+	justify-content: space-around;
+	align-items:flex-start;
+	width: 70%;
 	margin-top: 8%;
-	margin-left: 15%;
+}
 
-}
-#facturation
-{
-	margin-top: 8%;
-	float: left;
-	margin-left:10%;
-
-}
-#export
-{
-	margin-top: 8%;
-	float: left;
-	margin-left:10%;
-}
 #accueil
 {
 	margin-bottom: 6%;
 }
 #trimestre
 {
-	margin-top: 30%;
-	margin-left:32%;
-	font-size: 150%;
+	margin-top:5%;
+	margin-left:auto;
+	margin-right: auto;
+	width: 70%;
+	text-align: center;
 }
 input.accueil{
 	margin-bottom:10px;
@@ -216,24 +208,18 @@ a:hover{
 hr.style-ligne { border: 0; height: 1px; background: #333; background-image: linear-gradient(to right, #ccc, #333, #ccc); }
 
 #statistique{
-	text-align: center;
-	margin-top: 30px;
+width: 70%;
+margin-left: auto;
+margin-right: auto;
+margin-top: 3%;
+text-align: center;
 }
 
-#statistique form{
+ #statistique form{
 	display: inline-block;
+	margin-left: 10px;
+	margin-right: 10px;
 }
-
-#statistique button{
-	margin-right: 100px;
-	margin-top: 40px;
-}
-
-#statistique legend{
-	width: 50%;
-	margin-left: 25%;
-}
-
 
 .content-loader{
 	width: 70%;
@@ -262,10 +248,10 @@ hr.style-ligne { border: 0; height: 1px; background: #333; background-image: lin
 
 
 #renouvellementAccueil{
-	font-size:15px;
+	font-size:1.5rem;
 	text-decoration: none;
-	display:block;
-	margin-left: 11%;
+	display:flex;
+	flex-direction: column;
 }
 
 #renouvellementAccueil:hover{

@@ -37,15 +37,15 @@ include_once "../fonctions/fonctions.php"
     <hr class="style-ligne">
     <form id="ajoutadherent" method="POST">
       <label for="fnom">Nom</label><br>
-      <input type="text" name="nom" id="fnom" /><br>
+      <input type="text" name="nom" id="fnom" required /><br>
       <label for="fprenom">Prénom</label><br>
-      <input type="text" name="prenom" id="fprenom" /><br>
+      <input type="text" name="prenom" id="fprenom" required /><br>
       <label for="fnom">Adresse</label><br>
-      <input type="text" name="adresse" id="fadresse" /><br>
+      <input type="text" name="adresse" id="fadresse" required /><br>
       <label for="fnom">Date d'adhésion</label><br>
-      <input type="text" id="datepicker" name="date"><br>
+      <input type="text" id="datepicker" name="date" required><br>
       <label for="fnom">Remarques</label><br>
-      <input type="text" name="remarque" id="fremarque" /><br>
+      <input type="text" name="remarque" id="fremarque" required /><br>
       <p><input class="" type="submit" value="Valider" id="test"/><br>
     </form>
     <?php

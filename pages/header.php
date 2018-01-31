@@ -8,7 +8,7 @@
 
   <button type="submit" id="deconnexion" onclick="window.location='deconnexion.php';">Se déconnecter</button>
 
-  <button id="gestioncompte" type="submit" onclick="window.location='gestioncompte.php';">Gestion du compte</button>
+  <button id="gestioncompte" type="submit" onclick="window.location='gestionCompte.php';">Gestion du compte</button>
 
   <div id="logoTrnsport"><a href="accueil.php"><img src="../img/logo-LCA.png" alt="Logo application" id="logo"/></a></div>
   <?php

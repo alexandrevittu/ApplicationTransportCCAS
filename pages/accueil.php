@@ -17,61 +17,55 @@ include_once "../fonctions/fonctions.php";  //inclut l'en-tete
 
 </script>
 <body>
+  <div id="centrerAccueil">
 <!--Button adherent -->
-
-  <div id="adherent">
-    <fieldset>
-      <legend><span class="glyphicon glyphicon-user"></span>&nbsp; Adhérent :</legend>
-        <form  action="AjoutAdherent.php">
-          <button class="btn btn-info" type="submit" id="accueil"> <span class="glyphicon glyphicon-plus"></span> &nbsp; Ajout d'un adhérent</button>
-        </form>
-        <form  action="ListeAdherents.php">
-          <button class="btn btn-info" type="submit" id="accueil"> <span class="glyphicon glyphicon-th-list"></span> &nbsp; Liste des adhérents</button>
-        </form>
-    </fieldset>
+    <div id="adherent">
+      <fieldset>
+        <legend><span class="glyphicon glyphicon-user"></span>&nbsp; Adhérent :</legend>
+          <form  action="AjoutAdherent.php">
+            <button class="btn btn-info" type="submit" id="accueil"> <span class="glyphicon glyphicon-plus"></span> &nbsp; Ajout d'un adhérent</button>
+          </form>
+          <form  action="ListeAdherents.php">
+            <button class="btn btn-info" type="submit" id="accueil"> <span class="glyphicon glyphicon-th-list"></span> &nbsp; Liste des adhérents</button>
+          </form>
+      </fieldset>
+    </div>
+  <!--Button facturation -->
+    <div id="facturation">
+      <fieldset>
+        <legend><span class="glyphicon glyphicon-euro" ></span> &nbsp; Facturation :</legend>
+          <form action="Tarif.php">
+            <button class="btn btn-info" type="submit" id="accueil"> <span class="glyphicon glyphicon-euro" ></span> &nbsp; Tarifs</button>
+          </form>
+          <form action="Trimestre.php" method="POST">
+            <?php
+              $trimestre = getTrimestre();
+              //echo '<input type="hidden" name="trimestre" value='.$trimestre.'>';
+            ?>
+            <button class="btn btn-info" type="submit" id="accueil"> <span class=" glyphicon glyphicon-option-horizontal" ></span> &nbsp; Trimestre</button>
+          </form>
+          <form action="Facturation.php">
+            <button class="btn btn-info" type="submit" id="accueil"> <span class="glyphicon glyphicon-shopping-cart" ></span> &nbsp; Facturation</button>
+          </form>
+          <form action="report.php">
+            <button class="btn btn-info" type="submit" id="accueil"> <span class=" glyphicon glyphicon-option-horizontal" ></span> &nbsp; Report</button>
+          </form>
+      </fieldset>
+    </div>
+  <!--Button export -->
+    <div id="export">
+      <fieldset>
+        <legend><span class="glyphicon glyphicon-print" ></span> &nbsp; Export :</legend>
+          <form action="ImpressionDesAdherents.php">
+            <button class="btn btn-info" type="submit" id="accueil"> <span class="glyphicon glyphicon-print" ></span> &nbsp; Impression des adherents</button>
+          </form>
+          <form action="PubliPostageCSV.php">
+            <button class="btn btn-info" type="submit" id="accueil"> <span class="glyphicon glyphicon-save-file" ></span> &nbsp; Publipostage ré-adhésion</button>
+          </form>
+      </fieldset>
+    </div>
   </div>
-
-<!--Button facturation -->
-
-
-  <div id="facturation">
-    <fieldset>
-      <legend><span class="glyphicon glyphicon-euro" ></span> &nbsp; Facturation :</legend>
-        <form action="Tarif.php">
-          <button class="btn btn-info" type="submit" id="accueil"> <span class="glyphicon glyphicon-euro" ></span> &nbsp; Tarifs</button>
-        </form>
-        <form action="Trimestre.php" method="POST">
-          <?php
-            $trimestre = getTrimestre();
-            //echo '<input type="hidden" name="trimestre" value='.$trimestre.'>';
-          ?>
-          <button class="btn btn-info" type="submit" id="accueil"> <span class=" glyphicon glyphicon-option-horizontal" ></span> &nbsp; Trimestre</button>
-        </form>
-        <form action="Facturation.php">
-          <button class="btn btn-info" type="submit" id="accueil"> <span class="glyphicon glyphicon-shopping-cart" ></span> &nbsp; Facturation</button>
-        </form>
-        <form action="report.php">
-          <button class="btn btn-info" type="submit" id="accueil"> <span class=" glyphicon glyphicon-option-horizontal" ></span> &nbsp; Report</button>
-        </form>
-    </fieldset>
-  </div>
-
-<!--Button export -->
-
-  <div id="export">
-    <fieldset>
-      <legend><span class="glyphicon glyphicon-print" ></span> &nbsp; Export :</legend>
-        <form action="ImpressionDesAdherents.php">
-          <button class="btn btn-info" type="submit" id="accueil"> <span class="glyphicon glyphicon-print" ></span> &nbsp; Impression des adherents</button>
-        </form>
-        <form action="PubliPostageCSV.php">
-          <button class="btn btn-info" type="submit" id="accueil"> <span class="glyphicon glyphicon-save-file" ></span> &nbsp; Publipostage ré-adhésion</button>
-        </form>
-    </fieldset>
-  </div>
-
 <!--recupération du trimestre avec la date du jour -->
-
   <div id="trimestre">
     <?php
     $mois = date('m');
@@ -98,28 +92,24 @@ include_once "../fonctions/fonctions.php";  //inclut l'en-tete
     $recupLigne = unserialize($Nbligne);*/
     if (isset($_SESSION['nbLigne'])) {
       if ($_SESSION['nbLigne'] != 0) {
-        echo '<a id="renouvellementAccueil"href="PubliPostageCSV.php">Il y a '.$_SESSION['nbLigne'].' renouvellement d\'adhesion.</a>';
+        echo '<a id="renouvellementAccueil" href="PubliPostageCSV.php">Il y a '.$_SESSION['nbLigne'].' renouvellement d\'adhesion.</a>';
       }
     }
     ?>
 
   </div>
-
-
 <!--Button statistique -->
-
-
   <div id="statistique">
     <fieldset>
       <legend><span class="glyphicon glyphicon-eye-open" ></span> &nbsp; Statistique :</legend>
         <form action="requeteFixeNbTrajet.php">
-          <button class="btn btn-info" type="submit" id="accueil"> <span class="glyphicon glyphicon-stats" ></span> &nbsp; Nombre de trajets depuis un an</button>
+          <button class="btn btn-info" type="submit"> <span class="glyphicon glyphicon-stats" ></span> &nbsp; Nombre de trajets depuis un an</button>
         </form>
         <form action="RequeteFixeFacture.php">
-          <button class="btn btn-info" type="submit" id="accueil"> <span class="glyphicon glyphicon-stats" ></span> &nbsp; Total facturation depuis un an</button>
+          <button class="btn btn-info" type="submit"> <span class="glyphicon glyphicon-stats" ></span> &nbsp; Total facturation depuis un an</button>
         </form>
         <form action="requetesMulticriteres.php">
-          <button class="btn btn-info" type="submit" id="accueil"> <span class="glyphicon glyphicon-stats" ></span> &nbsp; Requêtes multicritères</button>
+          <button class="btn btn-info" type="submit"> <span class="glyphicon glyphicon-stats" ></span> &nbsp; Requêtes multicritères</button>
         </form>
     </fieldset>
   </div>
