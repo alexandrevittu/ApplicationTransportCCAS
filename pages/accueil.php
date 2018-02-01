@@ -5,6 +5,8 @@
   <link type="text/css" rel="stylesheet" href="style.css"/>
   <title>Transport CCAS</title>
 </head>
+<body>
+
 <?php
 include_once "header.php";
 include_once "../fonctions/fonctions.php";  //inclut l'en-tete
@@ -16,7 +18,6 @@ include_once "../fonctions/fonctions.php";  //inclut l'en-tete
     });
 
 </script>
-<body>
   <div id="centrerAccueil">
 <!--Button adherent -->
     <div id="adherent">
