@@ -258,7 +258,47 @@ text-align: center;
 	background-color: transparent;
 	color:#2EADD3;}
 
-@media print {
+	@media print {
+		table{
+			font:13px/1.5 'Helvetica Neue', Arial, 'Liberation Sans', FreeSans, sans-serif;
+
+		}
+		table,
+		table th,
+		table td {
+			border-width: 0.5px 1px 0 0;
+			border-style:solid;
+			border-color:black;
+			text-align: center;
+			border-spacing: 0;
+
+		}
+		table th:before,
+		table td:before {
+				padding: 0;
+				height: 1px;
+				line-height: 1px;
+				width: 1px;
+				margin: 10px -994px -996px -2px;
+				display: block;
+				border: 0;
+				z-index: -1;
+				position:relative;
+				top: -6px;
+		}
+
+			table th:before {
+			    border-top: 999px solid #D6D6D6;
+			    border-left: 999px solid #D6D6D6;
+			}
+
+			table td:before {
+			    border-top: 999px solid #F9F9F9;
+			    border-left: 999px solid #F9F9F9;
+			}
+	}
+
+/* @media print {
 
 	table {
 	    margin-top: 20px;
@@ -310,7 +350,7 @@ text-align: center;
 	    border-bottom: #d6d6d6 1px solid;
 	    width: 110px;
 	}
-}
+} */
 
 #connexionForm input[type=text], input[type=password]{
 	width: 50%;

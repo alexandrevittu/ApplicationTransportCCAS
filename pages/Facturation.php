@@ -43,7 +43,7 @@ $seuil = getSeuil();
           },
 
           buttons: [
-            { extend: 'print', text: '<span class="glyphicon glyphicon-print"></span> Imprimer' , className: 'btn btn-info', footer:true},
+            { extend: 'print', text: '<span class="glyphicon glyphicon-print"></span> Imprimer' , className: 'btn btn-info', footer:true,title: 'Facturation'},
           ],
           pagingType: "simple_numbers",
           lengthMenu:[5,10,15,20,25],
