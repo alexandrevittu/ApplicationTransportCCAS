@@ -23,6 +23,7 @@ $(document).ready(function() {
 });
 </script>
 <body>
+  <h2 style="text-align:center">Report</h2>
   <div class="content-loader"  style="width: 70%;margin:10% 13%;">
     <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-hover table-responsive no-footer table-bordered" id="example">
       <thead>

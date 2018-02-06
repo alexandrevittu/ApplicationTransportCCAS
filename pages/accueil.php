@@ -43,7 +43,7 @@ include_once "../fonctions/fonctions.php";  //inclut l'en-tete
               $trimestre = getTrimestre();
               //echo '<input type="hidden" name="trimestre" value='.$trimestre.'>';
             ?>
-            <button class="btn btn-info" type="submit" id="accueil"> <span class=" glyphicon glyphicon-option-horizontal" ></span> &nbsp; Trimestre</button>
+            <button class="btn btn-info" type="submit" id="accueil"> <span class=" glyphicon glyphicon-option-horizontal" ></span> &nbsp; Trimestres</button>
           </form>
           <form action="Facturation.php">
             <button class="btn btn-info" type="submit" id="accueil"> <span class="glyphicon glyphicon-shopping-cart" ></span> &nbsp; Facturation</button>
@@ -102,7 +102,7 @@ include_once "../fonctions/fonctions.php";  //inclut l'en-tete
 <!--Button statistique -->
   <div id="statistique">
     <fieldset>
-      <legend><span class="glyphicon glyphicon-eye-open" ></span> &nbsp; Statistique :</legend>
+      <legend><span class="glyphicon glyphicon-eye-open" ></span> &nbsp; Statistiques :</legend>
         <form action="requeteFixeNbTrajet.php">
           <button class="btn btn-info" type="submit"> <span class="glyphicon glyphicon-stats" ></span> &nbsp; Nombre de trajets depuis un an</button>
         </form>

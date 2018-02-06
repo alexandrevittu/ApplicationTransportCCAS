@@ -53,28 +53,11 @@ $lesAdherents = ListerAdherent();
     });
   } );
 
-
-
-    /*
-      $('#example').DataTable( {
-        buttons: [
-            {
-                extend: 'pdf',
-                text: 'Save current page',
-                exportOptions: {
-                    modifier: {
-                        page: 'current'
-                    }
-                }
-            }
-        ]
-    } );
-    */
-
   </script>
 </head>
 
 <body>
+  <h2 style="text-align:center;">Liste des adhérents</h2>
   <div class="content-loader">          <!--Creation du tableau-->
       <div id="dis"></div>
       <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-hover table-responsive no-footer table-bordered" id="example">
