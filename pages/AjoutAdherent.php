@@ -102,6 +102,7 @@ function verifForm(f){
 
 <body>
   <div id="conteneur">                    <!--formulaire d'ajout d'adherent -->
+    <h2 style="text-align:center;">Ajout d'adherents</h2>
     <hr class="style-ligne">
     <form id="ajoutadherent" method="POST" onsubmit="return verifForm(this)">
       <label for="fnom">Nom</label><br>

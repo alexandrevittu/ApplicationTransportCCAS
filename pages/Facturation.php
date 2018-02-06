@@ -17,6 +17,7 @@ $seuil = getSeuil();
 
 
 </head>
+<h2 style="text-align:center;">Facturation</h2>
 <script language="javascript" type="text/javascript">    <!--configuration du tableau -->
   $(document).ready(function() {
     $('#example').dataTable( {
@@ -144,7 +145,7 @@ $seuil = getSeuil();
             $prixtotal += $nbtrajetlongparadherent['nbTrajet']*$prixtrajetlong['prix'];
           }
         }
-        if($prixtotal >= $seuil['prix'])  //affichage seulement si pris supérieur a 15
+        if($prixtotal >= $seuil['prix'])  //affichage seulement si pris supérieur a seuil
         {
           echo '<td>'.$unAdherent['nom'].'</td>';
           echo '<td>'.$unAdherent['prenom'].'</td>';
