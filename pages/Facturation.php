@@ -82,6 +82,7 @@ $seuil = getSeuil();
       </tfoot>
     <?php
       $trimestre = getTrimestre();
+
       if($trimestre == 1)
       {
         echo 'Trimestre actuel : Janvier/Fevrier/Mars';
@@ -105,6 +106,10 @@ $seuil = getSeuil();
       $prixglobal = 0;
       foreach($lesAdherents as $unAdherent)
       {
+        $test = false;
+
+        $année=date('Y');
+
         $prixtotal = 0;
         $nbtrajetcourt = Getnbtrajetcours($trimestre);
         $nbtrajetmoyen = Getnbtrajetmoyen($trimestre);
@@ -150,7 +155,31 @@ $seuil = getSeuil();
           echo '<td>'.$unAdherent['nom'].'</td>';
           echo '<td>'.$unAdherent['prenom'].'</td>';
           echo '<td>'.$unAdherent['adresse'].'</td>';
-          echo '<td>x</td>';
+
+          foreach($lesAdherents as $unadherent)
+          {
+          if($unAdherent['id'] == $unadherent['id'] && $unadherent['dateAdhesion'] > $année."-01-01" && $unadherent['dateAdhesion'] < $année."-03-31")
+          {
+            echo '<td>x</td>';
+          }
+          elseif($unAdherent['id'] == $unadherent['id'] && $unadherent['dateAdhesion'] > $année."-04-01" && $unadherent['dateAdhesion'] < $année."-06-30")
+          {
+            echo '<td>x</td>';
+          }
+          elseif($unAdherent['id'] == $unadherent['id'] && $unadherent['dateAdhesion'] > $année."07-01" && $unadherent['dateAdhesion'] < $année."-09-30")
+          {
+            echo '<td>x</td>';
+          }
+          elseif($unAdherent['id'] == $unadherent['id'] && $unadherent['dateAdhesion'] > $année."-10-01" && $unadherent['dateAdhesion'] < $année."-12-31")
+          {
+            echo '<td>x</td>';
+          }
+          elseif($unAdherent['id'] == $unadherent['id'] && $test == false )
+          {
+              echo'<td></td>';
+              $test = true;
+          }
+          }
           foreach($nbtrajetcourt as $nbtrajetcourtparadherent)
           {                                                           //affichage nombre de trajet court
             if($nbtrajetcourtparadherent['idAdherent'] == $unAdherent['id'])
@@ -176,7 +205,7 @@ $seuil = getSeuil();
             }
           }
         $prixtotal = 0;
-        }
+      }
       }
     ?>
     </table>
