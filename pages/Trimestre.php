@@ -88,10 +88,9 @@
       {
         $libelleTrimestre = getTrimestreLib($_POST['trimestre']);
         $libelleTr = utf8_encode($libelleTrimestre['libelle']);
-        echo"<h4>Trimestre selectionner : ".$libelleTr." </h4>";
+        echo"<h4>Trimestre selectionné : ".$libelleTr." </h4>";
         echo "<script>";
         echo "document.getElementById('selecttrimestre').style.display = 'none';";
-        echo "document.getElementById('btnretoureee').style.display = 'inline-block';";
         echo "document.getElementById('btnenvoyer').style.display = 'none';";
         echo'</script>';
 
@@ -100,10 +99,9 @@
       {
         $libelleTrimestre = getTrimestreLib($_POST['trimestre']);
         $libelleTr = utf8_encode($libelleTrimestre['libelle']);
-        echo"<h4>Trimestre selectionner : ".$libelleTr." </h4>";
+        echo"<h4>Trimestre selectionné : ".$libelleTr." </h4>";
         echo "<script>";
         echo "document.getElementById('selecttrimestre').style.display = 'none';";
-        echo "document.getElementById('btnretoureee').style.display = 'inline-block';";
         echo "document.getElementById('btnenvoyer').style.display = 'none';";
         echo'</script>';
       }
@@ -111,10 +109,9 @@
       {
         $libelleTrimestre = getTrimestreLib($_POST['trimestre']);
         $libelleTr = utf8_encode($libelleTrimestre['libelle']);
-        echo"<h4>Trimestre selectionner : ".$libelleTr." </h4>";
+        echo"<h4>Trimestre selectionné : ".$libelleTr." </h4>";
         echo "<script>";
         echo "document.getElementById('selecttrimestre').style.display = 'none';";
-        echo "document.getElementById('btnretoureee').style.display = 'inline-block';";
         echo "document.getElementById('btnenvoyer').style.display = 'none';";
         echo'</script>';
       }
@@ -122,10 +119,9 @@
       {
         $libelleTrimestre = getTrimestreLib($_POST['trimestre']);
         $libelleTr = utf8_encode($libelleTrimestre['libelle']);
-        echo"<h4>Trimestre selectionner : ".$libelleTr." </h4>";
+        echo"<h4>Trimestre selectionné : ".$libelleTr." </h4>";
         echo "<script>";
         echo "document.getElementById('selecttrimestre').style.display = 'none';";
-        echo "document.getElementById('btnretoureee').style.display = 'inline-block';";
         echo "document.getElementById('btnenvoyer').style.display = 'none';";
         echo'</script>';
       }
