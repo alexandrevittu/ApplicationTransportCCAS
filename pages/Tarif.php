@@ -12,6 +12,7 @@ include_once "../fonctions/fonctions.php";
 ?>
 
   <div class="content-loader" style="width: 50%;margin:5% 20%;">    <!--creation du Formulaire des tarifs-->
+    <h2 style="text-align:center;">Tarifs</h2>
     <hr class="style-ligne">
       <form id="tarif" method="POST">
         <label>Seuil du report du trimestre</label><br>

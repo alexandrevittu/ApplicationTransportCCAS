@@ -273,29 +273,7 @@ text-align: center;
 			border-spacing: 0;
 
 		}
-		table th:before,
-		table td:before {
-				padding: 0;
-				height: 1px;
-				line-height: 1px;
-				width: 1px;
-				margin: 10px -994px -996px -2px;
-				display: block;
-				border: 0;
-				z-index: -1;
-				position:relative;
-				top: -6px;
-		}
 
-			table th:before {
-			    border-top: 999px solid #D6D6D6;
-			    border-left: 999px solid #D6D6D6;
-			}
-
-			table td:before {
-			    border-top: 999px solid #F9F9F9;
-			    border-left: 999px solid #F9F9F9;
-			}
 	}
 
 /* @media print {

@@ -11,15 +11,17 @@
     $idadherent =$_POST['id'];
     $trimestre =$_POST['trimestre'];
     $libelleTrimestre = getTrimestreLib($_POST['trimestre']);
-    var_dump($libelleTrimestre);
   ?>
 </head>
 <body>
+  <h2 style="text-align:center;">Ajout trajets</h2>
+
   <div id="conteneur">
     <!--Creation du formulaire -->
     <form action="Trimestre.php" id="ajouttrajet" method="POST">
+      <h4><strong><?php echo "Nom : ".$_POST['nom']."<br> Prenom : ".$_POST['prenom'] ?><strong></h4>
       <hr class="style-ligne">
-      <h4><?php echo $_POST['nom']." ".$_POST['prenom']."<br>".utf8_encode($libelleTrimestre['libelle']); ?> </h4>
+      <h4><?php echo utf8_encode($libelleTrimestre['libelle']); ?> </h4>
       <input type="hidden" name="id" id="id" value="<?php echo$idadherent?>"/></br>
       <input type="hidden" name="trimestre" id="trimestre" value="<?php echo$trimestre?>"/></br>
       <label for="trajetcourt">Nombre de trajet court : </label></br>
