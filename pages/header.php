@@ -4,7 +4,7 @@
   <link rel="stylesheet" href="style.css">
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
   <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
-  <h1><a href="accueil.php" id="titre">Transport personne agée</a></h1>
+  <h1><a href="accueil.php" id="titre">Transport Personne Agée</a></h1>
 
   <button type="submit" id="deconnexion" onclick="window.location='deconnexion.php';">Se déconnecter</button>
 
