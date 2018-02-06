@@ -8,6 +8,30 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <script src=".../fonctions/fonction.js"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#dialog-confirm" ).dialog({
+      resizable: false,
+      closeOnEscape: false,
+      dialogClass: "noclose",
+      draggable:false,
+      height: "auto",
+      width: 400,
+      modal: true,
+      buttons: {
+        "Oui": function() {
+          $( this ).dialog( "close" );
+        },
+        "Non": function() {
+          $( this ).dialog( "close" );
+          window.location.replace("accueil.php");
+        }
+      }
+    }).prev(".ui-dialog-titlebar").css("background","#66C2E2");;
+  } );
+  </script>
 </head>
 <?php
 include_once "header.php";
@@ -157,17 +181,9 @@ $(function()
          }
          ajoutadhesionparadherent($id['id'],$trimestre,date('y-m-d'));
          ?>
-         <script type="text/javascript">          //fenetre de dialogue continuer a ajouté ou pas
-         if(confirm("Adherent ajouté ! \nvoulez-vous continuer ?"))
-         {
-
-         }
-         else
-         {
-           window.location.href='accueil.php'
-         }
-
-         </script>
+         <div id="dialog-confirm" title="Ajout d'adherents">
+           <p><span class="ui-icon ui-icon-check" style="margin-right:15px;"></span>L'adherent <?php echo $_POST['nom'].' '.$_POST['prenom']?> a été ajouté.</br> Voulez-vous continuer ?</p>
+         </div>
          <?php
        }
        else
