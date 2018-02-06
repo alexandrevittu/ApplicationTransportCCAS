@@ -25,7 +25,7 @@
   {
     ?>
     <div id="afficheGestion">
-    <form method="POST" style="width: 50%;margin:5% 20%;">
+    <form method="POST" style=";margin:0 auto;padding-top:15px;">
       <label>Nouvel identifiant : </label><br>
       <input type="text" name="pseudo"  required/></br>
       <input class="btn btn-info" type="submit" value="valider"/>
@@ -53,7 +53,7 @@
   {
     ?>
     <div id="afficheGestion">
-    <form method="POST" style="width: 50%;margin:5% 20%;">
+    <form method="POST" style="width: 25%;margin:0 auto;padding-top:15px;">
       <label>Nouveau mot de passe : </label><br>
       <input type="password" name="mdp" required/></br>
       <input class="btn btn-info" type="submit" value="Valider"/>

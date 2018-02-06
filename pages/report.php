@@ -77,7 +77,7 @@ $(document).ready(function() {
               echo '<td>'.$unAdherent['nom'].'</td>';
               echo '<td>'.$unAdherent['prenom'].'</td>';
               echo '<td>'.$unAdherent['adresse'].'</td>';
-              echo '<td>'.$total.'</td>';
+              echo '<td>'.$total.' €</td>';
               $datederniertrajet = getDateDernierTrajet($unAdherent['id']);
               if (!empty($datederniertrajet['dateDernierTrajet'])) {
               echo '<td>'.$datederniertrajet['dateDernierTrajet'].'</td>';
