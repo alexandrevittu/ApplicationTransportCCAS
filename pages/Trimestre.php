@@ -17,7 +17,6 @@
   <?php
 
     include_once "../fonctions/fonctions.php";
-    var_dump($_SESSION);
     $trimestre = getTrimestre();
     $libelleTrimestre = getTrimestreLib($trimestre);
     $libelleTr = utf8_encode($libelleTrimestre['libelle']);
