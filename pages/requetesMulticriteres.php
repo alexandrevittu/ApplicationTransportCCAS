@@ -11,6 +11,7 @@
  <?php
   $annéeencours = date('Y');
  ?>
+ <h2 style="text-align:center;">Statistique</h2>
  <form method="POST" style='width: 70%;margin:5% 35%'>        <!--selection de l'année et du type-->
    <select name="année" id="année" >
      <option value="0">sélectionner une année
