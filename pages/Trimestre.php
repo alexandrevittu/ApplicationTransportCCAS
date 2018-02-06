@@ -31,6 +31,7 @@
 </head>
 <body>
   <div id="conteneur">
+    <h2 style="text-align:center;">Trimestre</h2>
     <div id="debut">
       <form method="POST" id="listetrimestre">  <!--liste déroulante des trimestre-->
         <select id="selecttrimestre" name="trimestre" >
@@ -41,10 +42,6 @@
         </select>
         <input class="btn btn-info" id="btnenvoyer" type="submit" value="Envoyer">
       </form>
-      <form style="margin-top:8%; margin-left:2%;">
-      <input   class="btn btn-info" onclick="window.location.href='trimestre.php'" type="submit" value="Retour" id="btnretoureee" style="display: none;"> <!-- Boutton annuler -->
-      <input  class="btn btn-info" onclick="window.location.href='accueil.php'" type="button"  value="Accueil">
-    </form>
   </div>
     <script language="javascript" type="text/javascript"> <!--affichage du tableau avec DataTable -->
         $(document).ready(function() {
@@ -56,8 +53,9 @@
 
           });
         } );
-         document.getElementById("selecttrimestre").selectedIndex = "3"; 
+         document.getElementById("selecttrimestre").selectedIndex = "3";
     </script>
+
     <?php
     if(isset($_POST['trajetcourt']))
     {
@@ -134,6 +132,10 @@
 
     ?>
     </table>
+    <form style="text-align:center;">
+    <input   class="btn btn-info" onclick="window.location.href='trimestre.php'" type="submit" value="Retour" id="btnretoureee"> <!-- Boutton annuler -->
+    <input  class="btn btn-info" onclick="window.location.href='accueil.php'" type="button"  value="Accueil">
+  </form>
   </div>
 </body>
 </html>
