@@ -3,6 +3,11 @@
 <head>
   <meta charset="utf-8">
   <title>add trajet</title>
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"> <!-- ici-->
+<link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
+<link href="assets/datatables.min.css" rel="stylesheet" type="text/css"> <!-- ici-->
+<script type="text/javascript" src="assets/datatables.min.js"></script> <!-- ici-->
+<script type="text/javascript" src="https://cdn.datatables.net/fixedheader/3.1.3/js/dataTables.fixedHeader.min.js"></script>
   <?php
     include_once "header.php";
     include_once "../fonctions/fonctions.php";
@@ -12,6 +17,37 @@
     $trimestre =$_POST['trimestre'];
     $libelleTrimestre = getTrimestreLib($_POST['trimestre']);
   ?>
+  <script language="javascript" type="text/javascript">
+
+  $(document).ready(function() {
+
+
+  $( "#ajouttrajet" ).submit(function( event ) {
+  if (confirm("Etes vous sur de vouloir ajouter ces trajets ?")==true) {    //confirmation de l'ajout de trajet
+    window.location = 'Trimestre.php';
+    $(document).on('submit', '#ajouttrajet', function () {
+
+      $.post("Trimestre.php", $(this).serialize())
+      .done(function (data) {
+        $("#dis").fadeOut();
+        $("#dis").fadeIn('slow', function () {
+          if (data === "Ajout reussie") {
+            $("#dis").html('<div class="alert alert-info">' + data + '</div>');
+          } else {
+            $("#dis").html('<div class="alert alert-danger">' + data + '</div>');
+          }
+          $("#ajouttrajet")[0].reset();
+        });
+      });
+      return false;
+    });
+  }
+  event.preventDefault();
+});
+} );
+
+
+</script>
 </head>
 <body>
   <h2 style="text-align:center;">Ajout trajets</h2>
@@ -33,14 +69,14 @@
       <?php
       //echo '<input type="hidden" name="trimestre" value='.$_POST['trimestre'].'>';
       ?>
-      <input class="btn btn-info" type="submit" value="Valider"/>
+      <button class="btn btn-info" type="submit" >Valider</button>
 
     </form>
-    <form action="Trimestre.php" id="ajouttrajet" method="POST">
+    <form action="Trimestre.php" method="POST">
       <?php
         echo '<input type="hidden" name="trimestre" value='.$trimestre.'>';
       ?>
-      <button class="btn btn-info" type="submit">Retour</button>
+      <br><button class="btn btn-info" type="submit">Retour</button>
     </form>
     <hr class="style-ligne">
   </div>
