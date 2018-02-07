@@ -24,14 +24,14 @@
 
 
         ModifAdherent($_POST["id"],($_POST["nom"]),($_POST["prenom"]),($_POST["adresse"]),($_POST["dateAdhesion"]),($_POST["remarque"]));
-        if(isset($_POST['publi']))
+        if(isset($_POST['test']))
         {
-
           header("Refresh:0; url=PubliPostageCSV.php");
+
         }
-        else {
-          
+        else{
           header("Refresh:0; url=ListeAdherents.php");
+
         }
       }
       else
@@ -120,7 +120,7 @@
         echo '<td>'.$unAdherent['adresse'].'</td>';
         echo '<td>'.DateFr($unAdherent['dateAdhesion']).'</td>';
         echo '<td style=font-weight:bold;>'.$prixAdhesionActuel['prix'].' €</td>';
-        echo '<td><div id=conteneurBtn><form action="ModifAdherent.php" id="modifadherent" method="POST"><input type="hidden" name="id" value='.$id.'><input type="hidden" name="publi" value="3"><input class="btn btn-info" id="btn-view" type="submit" value="Modifier"/></form></td></tr>';
+        echo '<td><div id=conteneurBtn><form action="modifRead.php" id="modifadherent" method="POST"><input type="hidden" name="id" value='.$id.'><input type="hidden" name="publi" value="3"><input class="btn btn-info" id="btn-view" type="submit" value="Modifier"/></form></td></tr>';
       }
     }
   }
