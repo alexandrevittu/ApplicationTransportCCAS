@@ -29,6 +29,8 @@ $lesAdherents = ListerAdherent();
       fixedHeader: true,
     });
 
+
+
     $( "#formSupp" ).submit(function( event ) {
       if (confirm("Etes vous sur de vouloir supprimmer cet adherent ?")==true) {    //confirmation de suppresion de l'adherent
         window.location = 'validerSupp.php';
@@ -60,7 +62,7 @@ $lesAdherents = ListerAdherent();
   <h2 style="text-align:center;">Liste des adhérents</h2>
   <div class="content-loader">          <!--Creation du tableau-->
       <div id="dis"></div>
-      <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-hover table-responsive no-footer table-bordered" id="example">
+      <table onload="location.reload();" cellpadding="0" cellspacing="0" border="0" class="table table-striped table-hover table-responsive no-footer table-bordered" id="example">
         <thead>
           <tr>
             <th>Nom</th>
