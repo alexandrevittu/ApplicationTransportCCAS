@@ -50,15 +50,24 @@ $( function() {
       <input type="text" name="dateAdhesion" id="datepicker" onblur="verifDate(this)" value="<?php echo$ladherent['dateAdhesion']?>"/></br>
       <label for="fremarque">Remarque</label></br>
       <input type="text" name="remarque" id="fremarque" value="<?php echo $remarque?>"/></br>
+      <input type="hidden" name="publi" value="3"/>
       <input class="" type="submit" value="Modifier"/></br>
     </form>
       <?php
-
+      if (isset($_POST['publi'])) {
+       echo '<form action="PubliPostageCSV.php">';
+       var_dump($_POST['publi']);
+       echo '<input type="hidden" name="publi" value="3"/>';
+       echo '<input id="btn_ajout" type="submit" value="Annuler" class="buttonannulmodif"/>';
+       echo '<hr class="style-ligne">';
+       echo '</form>';}
+       else{
       ?>
       <form action="ListeAdherents.php">
-        <input id="btn_ajout" type="submit" value="Annuler" class="buttonannulmodif">
-        <hr class="style-ligne">
+        <input id="btn_ajout" type="submit" value="Annuler" class="buttonannulmodif"/>
+        <hr class="style-ligne"/>
       </form>
+    <?php } ?>
   </div>
   <script>
   function surligne(champ, erreur)
@@ -74,7 +83,7 @@ $( function() {
   }
 
   function verifDate(champ){
-    
+
   var dateSaisie = new Date(champ.value);
   if (dateSaisie != "") {
     surligne(champ,false);

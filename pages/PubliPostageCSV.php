@@ -21,8 +21,18 @@
       $nb= (int)$diff->format('%R%a');
       if((int)$nb>=0)
       {
+
+
         ModifAdherent($_POST["id"],($_POST["nom"]),($_POST["prenom"]),($_POST["adresse"]),($_POST["dateAdhesion"]),($_POST["remarque"]));
-        header("Refresh:0; url=ListeAdherents.php");
+        if(isset($_POST['publi']))
+        {
+
+          header("Refresh:0; url=PubliPostageCSV.php");
+        }
+        else {
+          
+          header("Refresh:0; url=ListeAdherents.php");
+        }
       }
       else
       {
@@ -74,6 +84,7 @@
           <th>Adresse</th>
           <th>Date d'adhesion</th>
           <th>Coût actuel des adhésions</th>
+          <th>Modifier</th>
         </tr>
       </thead>
     </div>
@@ -88,6 +99,7 @@
     $dateAdhesion = $unAdherent['dateAdhesion'];
     $dateMois = date("m",strtotime($dateAdhesion));
 
+    $id=$unAdherent['id'];
 
 
     if(in_array($dateMois,$trimestreSuivant)){
@@ -107,12 +119,12 @@
         echo '<td>'.$unAdherent['prenom'].'</td>';
         echo '<td>'.$unAdherent['adresse'].'</td>';
         echo '<td>'.DateFr($unAdherent['dateAdhesion']).'</td>';
-        echo '<td style=font-weight:bold;>'.$prixAdhesionActuel['prix'].' €</td></tr>';
+        echo '<td style=font-weight:bold;>'.$prixAdhesionActuel['prix'].' €</td>';
+        echo '<td><div id=conteneurBtn><form action="ModifAdherent.php" id="modifadherent" method="POST"><input type="hidden" name="id" value='.$id.'><input type="hidden" name="publi" value="3"><input class="btn btn-info" id="btn-view" type="submit" value="Modifier"/></form></td></tr>';
       }
     }
   }
-  //$recupLigne = serialize($Nbligne);
-  //file_put_contents('store',$recupLigne);
+
   if($_SESSION['nbLigne']!=$Nbligne)
   {
   $_SESSION['nbLigne'] = $Nbligne;
