@@ -14,7 +14,7 @@
       $annéedebut = $annéenow -1 ;
       $datedebut = $annéedebut.'-'.$moisjournow;
       $datefinannée = date('Y-m-d');
-      $nb = getNbTrajetParAn($datedebut,$datefinannée); nombre de trajet par an
+      $nb = getNbTrajetParAn($datedebut,$datefinannée); /*nombre de trajet par an*/
   ?>
   <h2 style="text-align:center;">Statistique</h2>
   <div id="nbtrajetparan"  style="text-align:center;margin-top:15%;border:1px solid black;width:50%;margin-left:auto;margin-right:auto;">
