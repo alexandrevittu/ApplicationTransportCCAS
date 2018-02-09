@@ -121,11 +121,37 @@ $seuil = getSeuil();
           {
             if($nbadhesion['nbTrajet'] == 1)
             {
-              $prixtotal += $prixadhesion['prix'];
+              if($trimestre == 1)
+              {
+                if($unAdherent['dateAdhesion'] > $année."-01-01" && $unAdherent['dateAdhesion'] < $année."-03-31")
+                {
+                  $prixtotal += $prixadhesion['prix'];
+                }
+              }
+              if($trimestre == 2)
+              {
+                if($unadherent['dateAdhesion'] > $année."-04-01" && $unadherent['dateAdhesion'] < $année."-06-30")
+                {
+                  $prixtotal += $prixadhesion['prix'];
+                }
+              }
+              if($trimestre == 3)
+              {
+                if($unadherent['dateAdhesion'] > $année."07-01" && $unadherent['dateAdhesion'] < $année."-09-30")
+                {
+                  $prixtotal += $prixadhesion['prix'];
+                }
+              }
+              if($trimestre == 4)
+              {
+                if($unadherent['dateAdhesion'] > $année."-10-01" && $unadherent['dateAdhesion'] < $année."-12-31")
+                {
+                  $prixtotal += $prixadhesion['prix'];
+                }
+              }
             }
             else
             {
-              echo'<td></td>';
             }
           }
         }
@@ -161,18 +187,26 @@ $seuil = getSeuil();
           if($unAdherent['id'] == $unadherent['id'] && $unadherent['dateAdhesion'] > $année."-01-01" && $unadherent['dateAdhesion'] < $année."-03-31")
           {
             echo '<td>x</td>';
+
+
           }
           elseif($unAdherent['id'] == $unadherent['id'] && $unadherent['dateAdhesion'] > $année."-04-01" && $unadherent['dateAdhesion'] < $année."-06-30")
           {
             echo '<td>x</td>';
+
+
           }
           elseif($unAdherent['id'] == $unadherent['id'] && $unadherent['dateAdhesion'] > $année."07-01" && $unadherent['dateAdhesion'] < $année."-09-30")
           {
             echo '<td>x</td>';
+
+
           }
           elseif($unAdherent['id'] == $unadherent['id'] && $unadherent['dateAdhesion'] > $année."-10-01" && $unadherent['dateAdhesion'] < $année."-12-31")
           {
             echo '<td>x</td>';
+
+
           }
           elseif($unAdherent['id'] == $unadherent['id'] && $test == false )
           {
