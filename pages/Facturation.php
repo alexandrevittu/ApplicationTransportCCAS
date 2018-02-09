@@ -39,7 +39,7 @@ $seuil = getSeuil();
             }, 0 );
 
             $( api.column( 7 ).footer() ).html(       <!--affichage dans le footer -->
-              total+'€'
+              total.toFixed(2)+'€'
             );
           },
 
@@ -117,7 +117,7 @@ $seuil = getSeuil();
         $adhesion = Getadhesion();
         foreach($adhesion as $nbadhesion)
         {
-          if($nbadhesion['idAdherent'] == $unAdherent['id'])
+          if($nbadhesion['idAdherent'] == $unAdherent['id'])  //ajout du prix de l'adhesion seulement si elle est pour le trimestre en cours
           {
             if($nbadhesion['nbTrajet'] == 1)
             {
