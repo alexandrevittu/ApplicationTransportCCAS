@@ -39,7 +39,7 @@ $seuil = getSeuil();
             }, 0 );
 
             $( api.column( 7 ).footer() ).html(       <!--affichage dans le footer -->
-              total+'€'
+              total.toFixed(2)+'€'
             );
           },
 
@@ -117,15 +117,41 @@ $seuil = getSeuil();
         $adhesion = Getadhesion();
         foreach($adhesion as $nbadhesion)
         {
-          if($nbadhesion['idAdherent'] == $unAdherent['id'])
+          if($nbadhesion['idAdherent'] == $unAdherent['id'])  //ajout du prix de l'adhesion seulement si elle est pour le trimestre en cours
           {
             if($nbadhesion['nbTrajet'] == 1)
             {
-              $prixtotal += $prixadhesion['prix'];
+              if($trimestre == 1)
+              {
+                if($unAdherent['dateAdhesion'] > $année."-01-01" && $unAdherent['dateAdhesion'] < $année."-03-31")
+                {
+                  $prixtotal += $prixadhesion['prix'];
+                }
+              }
+              if($trimestre == 2)
+              {
+                if($unadherent['dateAdhesion'] > $année."-04-01" && $unadherent['dateAdhesion'] < $année."-06-30")
+                {
+                  $prixtotal += $prixadhesion['prix'];
+                }
+              }
+              if($trimestre == 3)
+              {
+                if($unadherent['dateAdhesion'] > $année."07-01" && $unadherent['dateAdhesion'] < $année."-09-30")
+                {
+                  $prixtotal += $prixadhesion['prix'];
+                }
+              }
+              if($trimestre == 4)
+              {
+                if($unadherent['dateAdhesion'] > $année."-10-01" && $unadherent['dateAdhesion'] < $année."-12-31")
+                {
+                  $prixtotal += $prixadhesion['prix'];
+                }
+              }
             }
             else
             {
-              echo'<td></td>';
             }
           }
         }
@@ -161,18 +187,26 @@ $seuil = getSeuil();
           if($unAdherent['id'] == $unadherent['id'] && $unadherent['dateAdhesion'] > $année."-01-01" && $unadherent['dateAdhesion'] < $année."-03-31")
           {
             echo '<td>x</td>';
+
+
           }
           elseif($unAdherent['id'] == $unadherent['id'] && $unadherent['dateAdhesion'] > $année."-04-01" && $unadherent['dateAdhesion'] < $année."-06-30")
           {
             echo '<td>x</td>';
+
+
           }
           elseif($unAdherent['id'] == $unadherent['id'] && $unadherent['dateAdhesion'] > $année."07-01" && $unadherent['dateAdhesion'] < $année."-09-30")
           {
             echo '<td>x</td>';
+
+
           }
           elseif($unAdherent['id'] == $unadherent['id'] && $unadherent['dateAdhesion'] > $année."-10-01" && $unadherent['dateAdhesion'] < $année."-12-31")
           {
             echo '<td>x</td>';
+
+
           }
           elseif($unAdherent['id'] == $unadherent['id'] && $test == false )
           {
