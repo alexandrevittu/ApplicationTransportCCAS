@@ -12,7 +12,7 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
   $( function() {
-    $( "#dialog-confirm" ).dialog({
+    $( "#dialog-confirm" ).dialog({  //Popup customisé qui s'affiche lors de la validation
       resizable: false,
       closeOnEscape: false,
       dialogClass: "noclose",
@@ -40,7 +40,7 @@ include_once "../fonctions/fonctions.php";
 
 <script>
   $( function() {
-    $( "#datepicker" ).datepicker({               //traduction du datapicker
+    $( "#datepicker" ).datepicker({               //traduction du datapicker(calendrier)
       altField: "#datepicker",
       closeText: 'Fermer',
       prevText: 'Précédent',
@@ -57,7 +57,7 @@ include_once "../fonctions/fonctions.php";
   });
 </script>
 <script>
-function surligne(champ, erreur)
+function surligne(champ, erreur)                /***Ces fonctions permettent de verifier les données saisies dans le formulaire en javascript***/
 
 {
    if(erreur){
@@ -126,7 +126,7 @@ function verifForm(f){
 
 $(function()
 {
-  $('#ajoutadherent').submit(function(){
+  $('#ajoutadherent').submit(function(){  //fonction permmettant d'eviter d'appuyer plusieurs fois sur valider afin d'eviter d'ajouter la bdd plusieurs adherents qui ont les memes données
     $("input[type='submit']", this)
       .val("Please Wait...")
       .attr('disabled', 'disabled');

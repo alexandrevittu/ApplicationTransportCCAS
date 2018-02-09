@@ -14,17 +14,17 @@
  <h2 style="text-align:center;">Statistique</h2>
  <form method="POST" style='width: 70%;margin:5% 35%'>        <!--selection de l'année et du type-->
    <select name="année" id="année" >
-     <option value="0">sélectionner une année
+     <option value="0">Sélectionner une année
      <option value="<?php echo $annéeencours;?>"><?php echo $annéeencours; ?>
      <option value="<?php echo $annéeencours-1; ?>"><?php echo $annéeencours-1; ?>
      <option value="<?php echo $annéeencours-2; ?>"><?php echo $annéeencours-2; ?>
    </select>
    <select name="type" id="type" >
-     <option value="0">sélectioner type
-     <option value="2">courts
-     <option value="3">moyens
-     <option value="4">longs
-     <option value="5">Somme facturation
+     <option value="0">Sélectioner type
+     <option value="2">Court
+     <option value="3">Moyen
+     <option value="4">Long
+     <option value="5">Somme Facturation
     </select>
     <input class="btn btn-info" type='submit' value="Valider"/>
     <input  class="btn btn-info" onclick="window.location.href='accueil.php'" type="button"  value="Accueil">

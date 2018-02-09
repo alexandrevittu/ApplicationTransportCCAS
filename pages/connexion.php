@@ -41,17 +41,17 @@
 
       $pass_hache = hash('sha256',$_POST['mdp']); // Hachage du mot de passe
       $pseudo = $_POST['pseudo'];
-      $checkCompte = getCompte($pseudo,$pass_hache);
+      $checkCompte = getCompte($pseudo,$pass_hache); //retourne booleen
 
-      if (!$checkCompte)
+      if (!$checkCompte) //check si le compte existe
       {
         echo '<style>#erreur{display:block;}</style>';
-        echo '<script>document.getElementById("erreur").innerHTML = "Login ou mot de passe incorrecte.";</script>';
+        echo '<script>document.getElementById("erreur").innerHTML = "Login ou mot de passe incorrecte.";</script>'; //retourne message d'erreur si jamais le compte est associé  a personne
       }
       else
       {
           session_start();
-          $_SESSION['id'] = $checkCompte['id'];
+          $_SESSION['id'] = $checkCompte['id'];  //ouvre une session grace a session_start() 
           $_SESSION['pseudo'] = $pseudo;
           $_SESSION['nbLigne'] = 0;
           header('Location: PubliPostageCSV.php');

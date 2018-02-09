@@ -41,7 +41,6 @@ include_once "../fonctions/fonctions.php";  //inclut l'en-tete
           <form action="Trimestre.php" method="POST">
             <?php
               $trimestre = getTrimestre();
-              //echo '<input type="hidden" name="trimestre" value='.$trimestre.'>';
             ?>
             <button class="btn btn-info" type="submit" id="accueil"> <span class=" glyphicon glyphicon-option-horizontal" ></span> &nbsp; Trimestres</button>
           </form>
@@ -89,8 +88,8 @@ include_once "../fonctions/fonctions.php";  //inclut l'en-tete
       echo '<label>Trimestre en cours :Juillet/Aout/Septembre</label>';
     }
 
-    /*$Nbligne = file_get_contents('store');
-    $recupLigne = unserialize($Nbligne);*/
+/***** Pour recepurer le nombre de renouvellement d'adhesion passée dans la variable $_SESSIOn, ainsi on recuperer de page en page.******/
+
     if (isset($_SESSION['nbLigne'])) {
       if ($_SESSION['nbLigne'] != 0) {
         if ($_SESSION['nbLigne'] == 1) {

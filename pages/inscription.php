@@ -44,7 +44,6 @@
         if(inscription($_POST['nom'],$_POST['mdp'],$_POST['mail']))
           {
             header('Location: accueil.php');
-            var_dump(inscription($_POST['nom'],$_POST['mdp'],$_POST['mail']));
           }
           else
           {

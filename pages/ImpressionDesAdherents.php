@@ -67,7 +67,7 @@
     echo '<td>'.$unAdherent['nom'].'</td>';
     echo '<td>'.$unAdherent['prenom'].'</td>';
     echo '<td>'.$unAdherent['adresse'].'</td>';
-    echo '<td>'.DateFr($unAdherent['dateAdhesion']).'</td>';
+    echo '<td>'.DateFr($unAdherent['dateAdhesion']).'</td>';  //dateFr est une fonction qui permet de retourner les dates en dates francaises 
     echo '<td>'.$unAdherent['remarque'].'</td>';
     echo '</tr>';
   }
