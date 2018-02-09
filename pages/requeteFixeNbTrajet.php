@@ -2,12 +2,12 @@
 <html>
 <head>
   <title>nombre de trajet depuis un an</title>
+</head>
+<body>
   <?php
   include_once "header.php";
   include_once "../fonctions/fonctions.php";
   ?>
-</head>
-<body>
   <?php
       $annéenow = date('Y');
       $moisjournow = date('m-d');
@@ -26,5 +26,4 @@
       <input style="margin-left:45%;margin-top:10px;" class="btn btn-info" onclick="history.go(-1)" type="submit" value="Retour">
   </form>
 </body>
-
 </html>
