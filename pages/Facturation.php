@@ -1,24 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Facturation</title>
+</head>
+<body>
+
 <?php
 include_once "header.php";
 include_once "../fonctions/fonctions.php";
 $lesAdherents = ListerAdherent();
 $seuil = getSeuil();
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>Facturation</title>
+
   <link href="assets/datatables.min.css" rel="stylesheet" type="text/css"> <!-- ici-->
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"> <!-- ici-->
-  <script type="text/javascript" src="assets/datatables.min.js"></script> <!-- ici-->
-  <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
-  <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
+  <script  src="assets/datatables.min.js"></script> <!-- ici-->
+  <script  src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
+  <script  src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
 
-
-</head>
 <h2 style="text-align:center;">Facturation</h2>
-<script language="javascript" type="text/javascript">    <!--configuration du tableau -->
+<script>    <!--configuration du tableau -->
   $(document).ready(function() {
     $('#example').dataTable( {
       "footerCallback": function ( tfoot, data, start, end, display ) {
@@ -53,9 +55,9 @@ $seuil = getSeuil();
     });
   });
 </script>
-<body>
+
   <div id="conteneur">   <!--creation du tableau -->
-    <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-hover table-responsive no-footer table-bordered" id="example">
+    <table   class="table table-striped table-hover table-responsive no-footer table-bordered" id="example">
       <thead>
         <tr>
           <th>Nom</th>
@@ -80,30 +82,34 @@ $seuil = getSeuil();
           <th></th>
         </tr>
       </tfoot>
-    <?php
-      $trimestre = getTrimestre();
-
-      if($trimestre == 1)
-      {
-        echo 'Trimestre actuel : Janvier/Fevrier/Mars';
-      }
-      elseif($trimestre == 2)
-      {
-        echo 'Trimestre actuel : Avril/Mai/Juin';
-      }
-      elseif($trimestre == 3)
-      {
-        echo 'Trimestre actuel : Juillet/Aout/Septembre';
-      }
-      elseif($trimestre == 4)
-      {
-        echo 'Trimestre actuel : Octobre/Novembre/Décembre';
-      }
+      <tbody>
+        <tr>
+      <?php
       $prixtrajetcours = Getprixtrajetcours();
       $prixtrajetmoyen = Getprixtrajetmoyen();
       $prixtrajetlong = Getprixtrajetlong();
       $prixadhesion = Getprixadhesion();    //recuperation dans la bdd des prix actuel
       $prixglobal = 0;
+      
+        $trimestre = getTrimestre();
+
+        if($trimestre == 1)         //affiche le trimestre en cours
+        {
+          echo 'Trimestre actuel : Janvier/Fevrier/Mars';
+        }
+        elseif($trimestre == 2)
+        {
+          echo 'Trimestre actuel : Avril/Mai/Juin';
+        }
+        elseif($trimestre == 3)
+        {
+          echo 'Trimestre actuel : Juillet/Aout/Septembre';
+        }
+        elseif($trimestre == 4)
+        {
+          echo 'Trimestre actuel : Octobre/Novembre/Décembre';
+        }
+
       foreach($lesAdherents as $unAdherent)
       {
         $test = false;
@@ -117,7 +123,7 @@ $seuil = getSeuil();
         $adhesion = Getadhesion();
         foreach($adhesion as $nbadhesion)
         {
-          if($nbadhesion['idAdherent'] == $unAdherent['id'])  //ajout du prix de l'adhesion seulement si elle est pour le trimestre en cours
+          if($nbadhesion['idAdherent'] == $unAdherent['id'])  //ajout du prix de l'adhesion seulement si l'adhesion a eu lieux pendant ce trimestre
           {
             if($nbadhesion['nbTrajet'] == 1)
             {
@@ -182,31 +188,23 @@ $seuil = getSeuil();
           echo '<td>'.$unAdherent['prenom'].'</td>';
           echo '<td>'.$unAdherent['adresse'].'</td>';
 
-          foreach($lesAdherents as $unadherent)
+          foreach($lesAdherents as $unadherent) //affiche de "x" si adhesion est a paye ce mois ci
           {
           if($unAdherent['id'] == $unadherent['id'] && $unadherent['dateAdhesion'] > $année."-01-01" && $unadherent['dateAdhesion'] < $année."-03-31")
           {
             echo '<td>x</td>';
-
-
           }
           elseif($unAdherent['id'] == $unadherent['id'] && $unadherent['dateAdhesion'] > $année."-04-01" && $unadherent['dateAdhesion'] < $année."-06-30")
           {
             echo '<td>x</td>';
-
-
           }
           elseif($unAdherent['id'] == $unadherent['id'] && $unadherent['dateAdhesion'] > $année."07-01" && $unadherent['dateAdhesion'] < $année."-09-30")
           {
             echo '<td>x</td>';
-
-
           }
           elseif($unAdherent['id'] == $unadherent['id'] && $unadherent['dateAdhesion'] > $année."-10-01" && $unadherent['dateAdhesion'] < $année."-12-31")
           {
             echo '<td>x</td>';
-
-
           }
           elseif($unAdherent['id'] == $unadherent['id'] && $test == false )
           {
@@ -242,6 +240,8 @@ $seuil = getSeuil();
       }
       }
     ?>
+
+  </tbody>
     </table>
     <input class="btn btn-info" onclick="window.location.href='accueil.php'" type="submit" value="Retour" class="buttonadherent">
   </div>
