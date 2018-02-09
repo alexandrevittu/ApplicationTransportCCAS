@@ -2,12 +2,12 @@
 <html>
 <head>
   <title>Requêtes multicritères</title>
+</head>
+<body>
   <?php
   include_once "header.php";
   include_once "../fonctions/fonctions.php";
   ?>
-</head>
-<body>
  <?php
   $annéeencours = date('Y');
  ?>
