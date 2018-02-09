@@ -247,14 +247,14 @@ text-align: center;
 }
 
 
-#renouvellementAccueil{
+.renouvellementAccueil{
 	font-size:1.5rem;
 	text-decoration: none;
 	display:flex;
 	flex-direction: column;
 }
 
-#renouvellementAccueil:hover{
+.renouvellementAccueil:hover{
 	background-color: transparent;
 	color:#2EADD3;}
 

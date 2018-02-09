@@ -94,10 +94,10 @@ include_once "../fonctions/fonctions.php";  //inclut l'en-tete
     if (isset($_SESSION['nbLigne'])) {
       if ($_SESSION['nbLigne'] != 0) {
         if ($_SESSION['nbLigne'] == 1) {
-            echo '<a id="renouvellementAccueil" href="PubliPostageCSV.php">Il y a '.$_SESSION['nbLigne'].' renouvellement d\'adhesion.</a>';
+            echo '<a class="renouvellementAccueil" href="PubliPostageCSV.php">Il y a '.$_SESSION['nbLigne'].' renouvellement d\'adhesion.</a>';
         }
         else {
-          echo '<a id="renouvellementAccueil" href="PubliPostageCSV.php">Il y a '.$_SESSION['nbLigne'].' renouvellements d\'adhesion.</a>';
+          echo '<a class="renouvellementAccueil" href="PubliPostageCSV.php">Il y a '.$_SESSION['nbLigne'].' renouvellements d\'adhesion.</a>';
         }
       }
     }

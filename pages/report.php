@@ -65,12 +65,17 @@ $(document).ready(function() {
 
             $total = ($trCourt*$court)+($trMoy*$moyen)+($trLong*$long);
 
-            $adhesionPayee = adhesionPayee($unAdherent['id']);
-            $adhPay = (double)$adhesionPayee['nbTrajet'];
 
-            if ($adhesionPayee == '1') {
-              $total = $total + $adhPay;
-            }
+            $dateAdhesion = getDateAdhesion($unAdherent['id']);
+
+            $dateAdhesionTrimestre = getTrimestreDate($dateAdhesion);
+            $trimestreActuel = getTrimestre();
+            $prixAdhe = Getprixadhesion();
+
+            $prixDouble = (double)$prixAdhe['prix'];
+              if($dateAdhesionTrimestre == $trimestreActuel){
+                $total += $prixDouble;
+              }
 
             if ($total < $leSeuil && $total != 0) {
               echo '<tr>';
@@ -85,7 +90,6 @@ $(document).ready(function() {
               echo '<td>Aucune date saisie</td>';
               }
             }
-
           }
           ?>
         </div>
