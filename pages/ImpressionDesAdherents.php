@@ -37,7 +37,9 @@
               lengthMenu:[5,10,15,20,25],          //affichage par default a 20 puis selection possible a 5,10,15,20,25
               pageLength: 20,
               dom: '<"top"lf>rt<"bottom"iBp>',  <!-- Positionnement des boutons en fonction du tableau -->
-
+              "oLanguage": {
+          "sInfo": "Il y a un total de  _TOTAL_ adhérents (_START_ à _END_)"
+            },
 
       });
 
@@ -67,7 +69,7 @@
     echo '<td>'.$unAdherent['nom'].'</td>';
     echo '<td>'.$unAdherent['prenom'].'</td>';
     echo '<td>'.$unAdherent['adresse'].'</td>';
-    echo '<td>'.DateFr($unAdherent['dateAdhesion']).'</td>';  //dateFr est une fonction qui permet de retourner les dates en dates francaises 
+    echo '<td>'.DateFr($unAdherent['dateAdhesion']).'</td>';  //dateFr est une fonction qui permet de retourner les dates en dates francaises
     echo '<td>'.$unAdherent['remarque'].'</td>';
     echo '</tr>';
   }
