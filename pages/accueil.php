@@ -62,6 +62,9 @@ include_once "../fonctions/fonctions.php";  //inclut l'en-tete
           <form action="PubliPostageCSV.php">
             <button class="btn btn-info" type="submit" id="accueil"> <span class="glyphicon glyphicon-save-file" ></span> &nbsp; Publipostage ré-adhésion</button>
           </form>
+          <form action="importCSV.php">
+            <button class="btn btn-info" type="submit" id="accueil"> <span class="glyphicon glyphicon-save-file" ></span> &nbsp; Importer des adhérents</button>
+          </form>
       </fieldset>
     </div>
   </div>
