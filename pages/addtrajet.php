@@ -23,7 +23,7 @@
 
 
   $( "#ajouttrajet" ).submit(function( event ) {
-  if (confirm("Etes vous sur de vouloir ajouter ces trajets ?")==true) {    //confirmation de l'ajout de trajet
+  if (confirm("Êtes vous sûr de vouloir ajouter ces trajets ?")==true) {    //confirmation de l'ajout de trajet
     window.location = 'Trimestre.php';
     $(document).on('submit', '#ajouttrajet', function () {
 

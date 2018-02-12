@@ -139,7 +139,7 @@ $(function()
 
 <body>
   <div id="conteneur">                    <!--formulaire d'ajout d'adherent -->
-    <h2 style="text-align:center;">Ajout d'adherents</h2>
+    <h2 style="text-align:center;">Ajout d'adhérents</h2>
     <hr class="style-ligne">
     <form id="ajoutadherent" method="POST" onsubmit="return verifForm(this)" autocomplete="off">
       <label for="fnom">Nom</label><br>
@@ -181,14 +181,14 @@ $(function()
          }
          ajoutadhesionparadherent($id['id'],$trimestre,date('y-m-d'));
          ?>
-         <div id="dialog-confirm" title="Ajout d'adherents">
-           <p><span class="ui-icon ui-icon-check" style="margin-right:15px;"></span>L'adherent <?php echo $_POST['nom'].' '.$_POST['prenom']?> a été ajouté.</br> Voulez-vous continuer ?</p>
+         <div id="dialog-confirm" title="Ajout d'adhérents">
+           <p><span class="ui-icon ui-icon-check" style="margin-right:15px;"></span>L'adherent <?php echo $_POST['nom'].' '.$_POST['prenom']?> a été ajouté.</br> Voulez-vous ajouter un autre adhérent ?</p>
          </div>
          <?php
        }
        else
        {
-        echo"<script>alert('Date supérieur a celle d\'aujourd\'hui');history.go(-1);</script>";
+        echo"<script>alert('Date supérieure à celle d\'aujourd\'hui');history.go(-1);</script>";
        }
      }
     };

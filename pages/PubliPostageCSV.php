@@ -72,7 +72,7 @@
   </script>
 </head>
 <body>
-  <h2 style="text-align:center;">Liste des réadhesion</h2>
+  <h2 style="text-align:center;">Liste des réadhesions</h2>
   <div class="content-loader" style="width: 70%;margin:5% 13%;">          <!--Création du tableau -->
     <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-hover table-responsive no-footer table-bordered" id="example">
 
