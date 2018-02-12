@@ -51,12 +51,17 @@
     </script>
 
     <?php
+    if(isset($_POST['tri']))
+    {
+      var_dump('esfqsfdsfqsfdsqfdsqfqs');
+    }
     if(isset($_POST['trajetcourt']))
     {
       $datemtn = date('Y-m-d');
       ModifTrajetCourtParAdherent($_POST['id'],$_POST['trimestre'],$_POST['trajetcourt'],$datemtn); //envoie a la bdd
       ModifTrajetMoyenParAdherent($_POST['id'],$_POST['trimestre'],$_POST['trajetmoyen'],$datemtn);
       ModifTrajetLongParAdherent($_POST['id'],$_POST['trimestre'],$_POST['trajetlong'],$datemtn);
+      var_dump('trajte pppppppp');
     }
       if(isset($_POST['trimestre']))  //creation du tableau
       {
@@ -78,7 +83,6 @@
           echo '<td><form action="addtrajet.php"  method="POST"><input type="hidden" name="prenom" value='.$unAdherent['prenom'].'><input type="hidden" name="nom" value='.$unAdherent['nom'].'><input type="hidden" name="id" value='.$id.'><input type="hidden" name="trimestre" value='.$_POST["trimestre"].'><button class="btn btn-info" id="btn-view" type="submit"><span class=" glyphicon glyphicon-plus" ></span> &nbsp;Ajout</button></form></td>';
 
         }
-        echo '</table>';
       }
       if(isset($_POST['trimestre']) && $_POST['trimestre']==1)
       {
@@ -121,6 +125,8 @@
         echo "document.getElementById('btnenvoyer').style.display = 'none';";
         echo'</script>';
       }
+      echo '</table>';
+
 
     ?>
     <form style="text-align:center;">

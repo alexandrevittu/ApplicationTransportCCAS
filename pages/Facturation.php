@@ -52,6 +52,9 @@ $seuil = getSeuil();
           lengthMenu:[5,10,15,20,25],
           pageLength: 20,
           "dom": '<"top"lfi>rt<"bottom"Bp>',  <!-- Positionnement des boutons en fonction du tableau -->
+          "oLanguage": {
+      "sInfo": "Il y a un total de  _TOTAL_ adhérents (_START_ à _END_)"
+        },
     });
   });
 </script>
@@ -90,7 +93,7 @@ $seuil = getSeuil();
       $prixtrajetlong = Getprixtrajetlong();
       $prixadhesion = Getprixadhesion();    //recuperation dans la bdd des prix actuel
       $prixglobal = 0;
-      
+
         $trimestre = getTrimestre();
 
         if($trimestre == 1)         //affiche le trimestre en cours
