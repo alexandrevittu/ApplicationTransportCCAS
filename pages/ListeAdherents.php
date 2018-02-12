@@ -91,6 +91,9 @@ $lesAdherents = ListerAdherent();
 
               $d = date_parse_from_format("Y-m-d", $dnow);
               $mois = $d["month"];
+              $annee = $d["year"];
+              $anneMtn = date("Y");
+              $anneeMtnint = (int)$anneMtn;
               $result;
               if($mois>=01 && $mois<=03)
               {
@@ -123,7 +126,7 @@ $lesAdherents = ListerAdherent();
                 echo '<td>'.'<div id=conteneurBtn><form action="ModifAdherent.php" id="modifadherent" method="POST"><input type="hidden" name="id" value='.$id.'><input class="btn btn-info" id="btn-view" type="submit" value="Modifier"/></form><form id="formSupp" method="POST" ><input type="hidden" name="id" value='.$id.'><button class="btn btn-danger" type="submit" id="btn-view" onclick="">Supprimer</button></form></td>';
                 echo '</tr>';
 
-              }else if ($result == $leTrimestre) {
+              }else if (($result == $leTrimestre) && ($annee < $anneeMtnint)) {
 
                 echo '<tr style=background-color:#f0ad4e;>';
                 echo '<td>'.$unAdherent['nom'].'</td>';
