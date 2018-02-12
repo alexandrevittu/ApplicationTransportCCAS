@@ -51,17 +51,13 @@
     </script>
 
     <?php
-    if(isset($_POST['tri']))
-    {
-      var_dump('esfqsfdsfqsfdsqfdsqfqs');
-    }
+
     if(isset($_POST['trajetcourt']))
     {
       $datemtn = date('Y-m-d');
       ModifTrajetCourtParAdherent($_POST['id'],$_POST['trimestre'],$_POST['trajetcourt'],$datemtn); //envoie a la bdd
       ModifTrajetMoyenParAdherent($_POST['id'],$_POST['trimestre'],$_POST['trajetmoyen'],$datemtn);
       ModifTrajetLongParAdherent($_POST['id'],$_POST['trimestre'],$_POST['trajetlong'],$datemtn);
-      var_dump('trajte pppppppp');
     }
       if(isset($_POST['trimestre']))  //creation du tableau
       {

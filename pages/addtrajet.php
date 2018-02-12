@@ -17,38 +17,23 @@
     $trimestre =$_POST['trimestre'];
     $libelleTrimestre = getTrimestreLib($_POST['trimestre']);
   ?>
-  <script language="javascript" type="text/javascript">
-
-  $(document).ready(function() {
-
-
-  $( "#ajouttrajet" ).submit(function( event ) {
-  if (confirm("Êtes vous sûr de vouloir ajouter ces trajets ?")==true) {    //confirmation de l'ajout de trajet
-    window.location = 'Trimestre.php';
-    $(document).on('submit', '#ajouttrajet', function () {
-
-      $.post("Trimestre.php", $(this).serialize())
-      .done(function (data) {
-        $("#dis").fadeOut();
-        $("#dis").fadeIn('slow', function () {
-          if (data === "Ajout reussie") {
-            $("#dis").html('<div class="alert alert-info">' + data + '</div>');
-          } else {
-            $("#dis").html('<div class="alert alert-danger">' + data + '</div>');
-          }
-          $("#ajouttrajet")[0];
-        });
-      });
-      return false;
+  <script>
+    $(function() {
+     $("#testbtn").click(function(){
+       if(confirm("Etes vous sur de vouloir ajouter ces trajets ?")==true)
+       {
+          $("#ajouttrajet").submit();
+       }
+       else {
+       }
+     });
     });
-  }
-  event.preventDefault();
-});
-} );
-</script>
+    </script>
 </head>
 <body>
   <h2 style="text-align:center;">Ajout trajets</h2>
+  <div id="dis"></div>
+
 
   <div id="conteneur">
     <!--Creation du formulaire -->
@@ -68,8 +53,10 @@
       <?php
       //echo '<input type="hidden" name="trimestre" value='.$trimestre.'>';
       ?>
-      <button class="btn btn-info" type="submit" >Valider</button>
+      <input  id="testbtn" class="btn btn-info" type="button" value="Valider">
+      <!--    <button id="testbtn" class="btn btn-info" >Valider</button>     -->
     </form>
+
     <form action="Trimestre.php" method="POST">
       <?php
         echo '<input type="hidden" name="trimestre" value='.$trimestre.'>';
