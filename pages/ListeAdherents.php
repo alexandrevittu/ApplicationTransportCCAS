@@ -27,6 +27,9 @@ $lesAdherents = ListerAdherent();
       lengthMenu:[5,10,15,20,25],       //affichage par default a 20 puis selection possible a 5,10,15,20,25
       pageLength: 20,
       fixedHeader: true,
+      "oLanguage": {
+  "sInfo": "Il y a un total de  _TOTAL_ adhérents (_START_ à _END_)"
+    },
     });
 
 
@@ -86,12 +89,32 @@ $lesAdherents = ListerAdherent();
               $difference = (int)$diff->format('%R%a');
               $id=$unAdherent['id'];                        //recuperation des adhrents + calcul leur date
 
+              $d = date_parse_from_format("Y-m-d", $dnow);
+              $mois = $d["month"];
+              $result;
+              if($mois>=01 && $mois<=03)
+              {
+                $result = 1;
+              }
+              elseif($mois>=04 && $mois<=06)
+              {
+                $result = 2;
+              }
+              elseif($mois>=10 && $mois<=12)
+              {
+                $result = 4;
+              }
+              else
+              {
+                $result = 3;
+              }
 
+              $leTrimestre = getTrimestre();
 
               //affichage des adherents avec une couleur particuliére selon leur date d'adhesion
               if ($difference > 365) {
 
-                echo '<tr id="couleur">';
+                echo '<tr style=background-color:#C63632;>';
                 echo '<td>'.$unAdherent['nom'].'</td>';
                 echo '<td>'.$unAdherent['prenom'].'</td>';
                 echo '<td>'.$unAdherent['adresse'].'</td>';
@@ -100,9 +123,9 @@ $lesAdherents = ListerAdherent();
                 echo '<td>'.'<div id=conteneurBtn><form action="ModifAdherent.php" id="modifadherent" method="POST"><input type="hidden" name="id" value='.$id.'><input class="btn btn-info" id="btn-view" type="submit" value="Modifier"/></form><form id="formSupp" method="POST" ><input type="hidden" name="id" value='.$id.'><button class="btn btn-danger" type="submit" id="btn-view" onclick="">Supprimer</button></form></td>';
                 echo '</tr>';
 
-              }else if ($difference < 305) {
+              }else if ($result == $leTrimestre) {
 
-                echo '<tr>';
+                echo '<tr style=background-color:#f0ad4e;>';
                 echo '<td>'.$unAdherent['nom'].'</td>';
                 echo '<td>'.$unAdherent['prenom'].'</td>';
                 echo '<td>'.$unAdherent['adresse'].'</td>';
@@ -113,7 +136,7 @@ $lesAdherents = ListerAdherent();
 
               }
               else{
-                echo '<tr style=background-color:#D04642;>';
+                echo '<tr>';
                 echo '<td>'.$unAdherent['nom'].'</td>';
                 echo '<td>'.$unAdherent['prenom'].'</td>';
                 echo '<td>'.$unAdherent['adresse'].'</td>';
