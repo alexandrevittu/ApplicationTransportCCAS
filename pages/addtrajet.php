@@ -36,7 +36,7 @@
           } else {
             $("#dis").html('<div class="alert alert-danger">' + data + '</div>');
           }
-          $("#ajouttrajet")[0].reset();
+          $("#ajouttrajet")[0];
         });
       });
       return false;
@@ -45,8 +45,6 @@
   event.preventDefault();
 });
 } );
-
-
 </script>
 </head>
 <body>
@@ -66,11 +64,11 @@
       <input type="number" name="trajetmoyen" id="trajetmoyen"/></br>
       <label for="trajetlong">Nombre de trajet long : </label></br>
       <input type="number" name="trajetlong" id="trajetlong"/></br>
+      <input type="hidden" name="tri" value="1"/>
       <?php
-      //echo '<input type="hidden" name="trimestre" value='.$_POST['trimestre'].'>';
+      //echo '<input type="hidden" name="trimestre" value='.$trimestre.'>';
       ?>
       <button class="btn btn-info" type="submit" >Valider</button>
-
     </form>
     <form action="Trimestre.php" method="POST">
       <?php
