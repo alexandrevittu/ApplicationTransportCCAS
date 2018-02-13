@@ -51,7 +51,7 @@
       else
       {
           session_start();
-          $_SESSION['id'] = $checkCompte['id'];  //ouvre une session grace a session_start() 
+          $_SESSION['id'] = $checkCompte['id'];  //ouvre une session grace a session_start()
           $_SESSION['pseudo'] = $pseudo;
           $_SESSION['nbLigne'] = 0;
           header('Location: PubliPostageCSV.php');
