@@ -12,7 +12,7 @@
   ?>
   <div id="conteneur">
     <form id="ajoutadherent" method="POST" enctype="multipart/form-data">
-      <label for="fichier">Veuillez importer la base de donnée (sous format <strong>.xls</strong>)</label><br><br>
+      <label for="fichier">Veuillez importer la base de donnée (sous format <strong>.csv</strong>)</label><br><br>
       <input type="file" name="fichier" id="fichier" style="border:1px solid black;display:inline;"><br><br>
       <input type="submit" name="envoie" value="Envoyez"/><br>
     </form>
