@@ -19,7 +19,7 @@
   ?>
   <script>
     $(function() {
-     $("#testbtn").click(function(){
+     $("#testbtn").click(function(){              //fenetre de dialog
        if(confirm("Etes vous sur de vouloir ajouter ces trajets ?")==true)
        {
           $("#ajouttrajet").submit();
@@ -54,7 +54,7 @@
       //echo '<input type="hidden" name="trimestre" value='.$trimestre.'>';
       ?>
       <input  id="testbtn" class="btn btn-info" type="button" value="Valider">
-      <!--    <button id="testbtn" class="btn btn-info" >Valider</button>     -->
+
     </form>
 
     <form action="Trimestre.php" method="POST">
