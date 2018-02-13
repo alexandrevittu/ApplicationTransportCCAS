@@ -1,9 +1,9 @@
 <?php
 
 function connexion(){
-  $dsn='mysql:dbname=transport_ccas;host=localhost';
-  $username='root';
-  $passwd='';
+  $dsn='mysql:dbname=bddccas;host=192.168.20.7';
+  $username='salihalexandre';
+  $passwd='a';
 
   try{
     $dbh=new PDO($dsn,$username,$passwd);
@@ -253,13 +253,13 @@ function GetTarif()
 
 }
 
-function getDateDepasse(){
+function getDateAdhesion($idAdherent){
   $dbh = connexion();
   try{
 
-    $pdoStatement = $dbh->prepare("");
+    $pdoStatement = $dbh->prepare("SELECT dateAdhesion from adherents  where id=:idAdherent");
+    $pdoStatement->bindvalue("idAdherent",$idAdherent);
     $pdoStatement->execute();
-
     $result = $pdoStatement->fetch();
     return $result;
 
@@ -994,4 +994,28 @@ function getCompte($pseudo,$mdp){
     $dbh = null;
   }
 
+
+  function getTrimestreDate($date)
+  {
+    $d = date_parse_from_format("Y-m-d", implode($date));
+    $mois = $d["month"];
+    $result;
+    if($mois>=01 && $mois<=03)
+    {
+      $result = 1;
+    }
+    elseif($mois>=04 && $mois<=06)
+    {
+      $result = 2;
+    }
+    elseif($mois>=10 && $mois<=12)
+    {
+      $result = 4;
+    }
+    else
+    {
+      $result = 3;
+    }
+    return $result;
+  }
 ?>
