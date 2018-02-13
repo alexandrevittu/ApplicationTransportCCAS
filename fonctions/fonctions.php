@@ -1,12 +1,5 @@
 <?php
 
-<<<<<<< HEAD
-function connexion(){
-  $dsn='mysql:dbname=bddccas;host=192.168.20.7';
-  $username='salihalexandre';
-  $passwd='a';
-=======
->>>>>>> ef7c0bcaaa884624413adb76117fa0029f4d8c43
 
 
 function AjoutAdherent($nom,$prenom,$adresse,$dateadhesion,$remarque){
