@@ -6,21 +6,21 @@
 </head>
 <body>
 
-<?php
-include_once "header.php";
-include_once "../fonctions/fonctions.php";
-$lesAdherents = ListerAdherent();
-$seuil = getSeuil();
-?>
+  <?php
+  include_once "header.php";
+  include_once "../fonctions/fonctions.php";
+  $lesAdherents = ListerAdherent();
+  $seuil = getSeuil();
+  ?>
 
-  <link href="assets/datatables.min.css" rel="stylesheet" type="text/css"> <!-- ici-->
-  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"> <!-- ici-->
-  <script  src="assets/datatables.min.js"></script> <!-- ici-->
+  <link href="assets/datatables.min.css" rel="stylesheet" type="text/css">
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+  <script  src="assets/datatables.min.js"></script>
   <script  src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
   <script  src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
 
-<h2 style="text-align:center;">Facturation</h2>
-<script>    <!--configuration du tableau -->
+  <h2 style="text-align:center;">Facturation</h2>
+<script>                                                  <!--configuration du tableau -->
   $(document).ready(function() {
     $('#example').dataTable( {
       "footerCallback": function ( tfoot, data, start, end, display ) {
@@ -40,7 +40,7 @@ $seuil = getSeuil();
               return intVal(a) + intVal(b);
             }, 0 );
 
-            $( api.column( 7 ).footer() ).html(       <!--affichage dans le footer -->
+            $( api.column( 7 ).footer() ).html(       <!--affichage dans le footer a la collone numero 7 -->
               total.toFixed(2)+'€'
             );
           },
@@ -49,8 +49,8 @@ $seuil = getSeuil();
             { extend: 'print', text: '<span class="glyphicon glyphicon-print"></span> Imprimer' , className: 'btn btn-info', footer:true,title: 'Facturation'},
           ],
           pagingType: "simple_numbers",
-          lengthMenu:[5,10,15,20,25],
-          pageLength: 20,
+          lengthMenu:[5,10,15,20,25],         <!-- affichage possible a 5,10,15,20 et 25 par pages -->
+          pageLength: 20,                     <!-- par default afficher a 20 ligne -->
           "dom": '<"top"lfi>rt<"bottom"Bp>',  <!-- Positionnement des boutons en fonction du tableau -->
           "oLanguage": {
       "sInfo": "Il y a un total de  _TOTAL_ adhérents (_START_ à _END_)"
@@ -92,9 +92,9 @@ $seuil = getSeuil();
       $prixtrajetmoyen = Getprixtrajetmoyen();
       $prixtrajetlong = Getprixtrajetlong();
       $prixadhesion = Getprixadhesion();    //recuperation dans la bdd des prix actuel
-      $prixglobal = 0;
+      $prixglobal = 0;                      //initialisation variable prix global a zero
 
-        $trimestre = getTrimestre();
+        $trimestre = getTrimestre();    //recupere le trimestre en cours
 
         if($trimestre == 1)         //affiche le trimestre en cours
         {
@@ -113,14 +113,14 @@ $seuil = getSeuil();
           echo 'Trimestre actuel : Octobre/Novembre/Décembre';
         }
 
-      foreach($lesAdherents as $unAdherent)
+      foreach($lesAdherents as $unAdherent)       //parcours des adherents
       {
         $test = false;
 
         $année=date('Y');
 
         $prixtotal = 0;
-        $nbtrajetcourt = Getnbtrajetcours($trimestre);
+        $nbtrajetcourt = Getnbtrajetcours($trimestre);            //recuperation du nombre de trajet (court,moyen,long) et si il est adheret
         $nbtrajetmoyen = Getnbtrajetmoyen($trimestre);
         $nbtrajetlong = Getnbtrajetlong($trimestre);
         $adhesion = Getadhesion();
@@ -128,13 +128,13 @@ $seuil = getSeuil();
         {
           if($nbadhesion['idAdherent'] == $unAdherent['id'])  //ajout du prix de l'adhesion seulement si l'adhesion a eu lieux pendant ce trimestre
           {
-            if($nbadhesion['nbTrajet'] == 1)
+            if($nbadhesion['nbTrajet'] == 1)    //regarde si il est adheret
             {
               if($trimestre == 1)
               {
-                if($unAdherent['dateAdhesion'] > $année."-01-01" && $unAdherent['dateAdhesion'] < $année."-03-31")
+                if($unAdherent['dateAdhesion'] > $année."-01-01" && $unAdherent['dateAdhesion'] < $année."-03-31")    //verifie si c'est bien pour le trimestre actuel
                 {
-                  $prixtotal += $prixadhesion['prix'];
+                  $prixtotal += $prixadhesion['prix'];    //ajout prix
                 }
               }
               if($trimestre == 2)

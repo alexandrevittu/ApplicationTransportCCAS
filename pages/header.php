@@ -27,4 +27,7 @@
       header('Location: connexion.php');
     }
    ?>
+<script>
+    setTimeout("window.location='deconnexion.php'",7200000);
+</script>
 </header>
