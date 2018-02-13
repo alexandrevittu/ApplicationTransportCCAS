@@ -12,6 +12,7 @@ include_once "header.php";
 include_once "../fonctions/fonctions.php";  //inclut l'en-tete
 ?>
 <script>
+    setTimeout("window.location='deconnexion.php'",7200000);
 
     $(document).ready(function(){
       location.reload(true);

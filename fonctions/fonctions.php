@@ -1,17 +1,13 @@
 <?php
 
+<<<<<<< HEAD
 function connexion(){
   $dsn='mysql:dbname=bddccas;host=192.168.20.7';
   $username='salihalexandre';
   $passwd='a';
+=======
+>>>>>>> ef7c0bcaaa884624413adb76117fa0029f4d8c43
 
-  try{
-    $dbh=new PDO($dsn,$username,$passwd);
-  } catch (Exception $e) {
-    echo 'Connexion échouée : '.$e->getMessage();
-  }
-  return $dbh;
-}
 
 function AjoutAdherent($nom,$prenom,$adresse,$dateadhesion,$remarque){
   $dbh= connexion();
@@ -52,6 +48,45 @@ function ModifAdherent($id,$nom,$prenom,$adresse,$date,$remarque)
   }
 }
 
+function getTrimestreDate($date)
+  {
+    $d = date_parse_from_format("Y-m-d", implode($date));
+    $mois = $d["month"];
+    $result;
+    if($mois>=01 && $mois<=03)
+    {
+      $result = 1;
+    }
+    elseif($mois>=04 && $mois<=06)
+    {
+      $result = 2;
+    }
+    elseif($mois>=10 && $mois<=12)
+    {
+      $result = 4;
+    }
+    else
+    {
+      $result = 3;
+    }
+    return $result;
+  }
+  function getDateAdhesion($idAdherent){
+  $dbh = connexion();
+  try{
+
+    $pdoStatement = $dbh->prepare("SELECT dateAdhesion from adherents  where id=:idAdherent");
+    $pdoStatement->bindvalue("idAdherent",$idAdherent);
+    $pdoStatement->execute();
+    $result = $pdoStatement->fetch();
+    return $result;
+
+  }
+  catch(Exception $e)
+  {
+    throw new Exception("erreur lors de la recuperation des tarif ");
+  }
+}
 function Modifpseudo($pseudo,$id)
 {
   $dbh = connexion();
