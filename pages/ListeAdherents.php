@@ -26,7 +26,7 @@ $lesAdherents = ListerAdherent();
       pagingType: "simple_numbers",
       lengthMenu:[5,10,15,20,25],       //affichage par default a 20 puis selection possible a 5,10,15,20,25
       pageLength: 20,
-      fixedHeader: true,
+      // fixedHeader: true,
       "oLanguage": {
   "sInfo": "Il y a un total de  _TOTAL_ adhérents (_START_ à _END_)"
     },
