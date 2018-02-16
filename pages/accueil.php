@@ -58,7 +58,7 @@ include_once "../fonctions/fonctions.php";  //inclut l'en-tete
       <fieldset>
         <legend><span class="glyphicon glyphicon-print" ></span> &nbsp; Export :</legend>
           <form action="ImpressionDesAdherents.php">
-            <button class="btn btn-info" type="submit" id="accueil"> <span class="glyphicon glyphicon-print" ></span> &nbsp; Impression des adherents</button>
+            <button class="btn btn-info" type="submit" id="accueil"> <span class="glyphicon glyphicon-print" ></span> &nbsp; Impression des adhérents</button>
           </form>
           <form action="PubliPostageCSV.php">
             <button class="btn btn-info" type="submit" id="accueil"> <span class="glyphicon glyphicon-save-file" ></span> &nbsp; Publipostage ré-adhésion</button>

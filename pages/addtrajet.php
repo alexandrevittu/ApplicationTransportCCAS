@@ -20,7 +20,7 @@
   <script>
     $(function() {
      $("#testbtn").click(function(){              //fenetre de dialog
-       if(confirm("Etes vous sur de vouloir ajouter ces trajets ?")==true)
+       if(confirm("Êtes vous sûr de vouloir ajouter ces trajets ?")==true)
        {
           $("#ajouttrajet").submit();
        }

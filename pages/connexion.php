@@ -5,7 +5,7 @@
   <link type="text/css" rel="stylesheet" href="style.css"/>
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
   <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
-  <h1><a href="accueil.php" id="titre">Transport CCAS</a></h1>
+  <h1><a href="accueil.php" id="titre">Transport PA CCAS</a></h1>
   <div id="logoTrnsport"><a href="accueil.php"><img src="../img/logo-LCA.png" alt="Logo application" id="logo"/></a></div>
   <style>
     #erreur{
@@ -46,14 +46,14 @@
       if (!$checkCompte) //check si le compte existe
       {
         echo '<style>#erreur{display:block;}</style>';
-        echo '<script>document.getElementById("erreur").innerHTML = "Login ou mot de passe incorrecte.";</script>'; //retourne message d'erreur si jamais le compte est associé  a personne
+        echo '<script>document.getElementById("erreur").innerHTML = "Login ou mot de passe incorrect.";</script>'; //retourne message d'erreur si jamais le compte est associé  a personne
       }
       else
       {
           session_start();
           $_SESSION['id'] = $checkCompte['id'];  //ouvre une session grace a session_start()
           $_SESSION['pseudo'] = $pseudo;
-          $_SESSION['nbLigne'] = 0;
+          $_SESSION['nbLigne'] = -1;
           header('Location: PubliPostageCSV.php');
 
         }
