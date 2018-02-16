@@ -55,6 +55,8 @@
 ?>
     </tbody>
   </table>
+  <input class="btn btn-info" onclick="window.location.href='accueil.php'" type="submit" value="Retour" class="buttonadherent">
+
 </div>
 </body>
 </html>
