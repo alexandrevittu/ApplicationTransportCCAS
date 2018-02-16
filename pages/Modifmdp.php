@@ -10,16 +10,18 @@
 ?>
 </head>
 <body>
+  <div id="conteneur">
   <h2 style="text-align:center;">Modification mot de passe</h2>
-  <form method="POST" style=";margin:0 auto;padding-top:15px;text-align:center;">
+  <form method="POST" style=";margin:0 auto;padding-top:15px;text-align:center;" id="ajoutadherent">
     <?php
     echo '<label>Utilisateur selectionné : '.$uti['Pseudo'].'</label><br>';
     echo '<label>Nouveau mot de passe : </label><br>';
     echo '<input type="hidden" name="id" value='.$id.'/>';
      ?>
-     <input type="password" name="mdp" required/></br>
-     <input class="btn btn-info" type="submit" value="Valider"/>
+     <input type="password" size="10px;" style="padding:5px;" name="mdp" required/></br>
+     <input type="submit" value="Valider"/>
   </form>
+</div>
   <?php
   if(isset($_POST['mdp']))
   {
@@ -40,7 +42,7 @@
     }
 ?>
   <form action="gestionCompte.php" style="text-align:center;">
-    <input type="submit" value="Annuler" class="btn btn-info"/>
+    <input type="submit" value="Annuler" id="btn_ajout2"/>
   </form>
 </body>
 

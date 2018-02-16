@@ -31,7 +31,7 @@
 </head>
 <body>
   <h2 style="text-align:center;">Gestion des utilisateurs</h2>
-  <div id="conteneur">
+  <div class="content-loader2">
     <table class="table table-striped table-hover table-responsive no-footer table-bordered" id="example">
       <thead>
         <tr>
@@ -49,7 +49,7 @@
     echo '<tr>';
     echo '<td>'.$unUtilisateur['Pseudo'].'</td>';
     echo '<td>'.$unUtilisateur['Mail'].'</td>';
-    echo '<td><form action="Modifpseudo.php" id="modifpseudo" method="POST"><input type="hidden" name="id" value='.$unUtilisateur['id'].'><input class="btn btn-info" type="submit" value="Modifier identifiant"/></form><form action="Modifmdp.php" id="modifmdp" method="POST"><input type="hidden" name="id" value='.$unUtilisateur['id'].'><input class="btn btn-info" type="submit" value="Modifier mot de passe"/></form></td>';
+    echo '<td><div id=conteneurBtn2><form action="Modifpseudo.php" id="modifpseudo" method="POST"><input type="hidden" name="id" value='.$unUtilisateur['id'].'><input id="btnModifId" class="btn btn-info" type="submit" value="Modifier identifiant"/></form><form action="Modifmdp.php" id="modifmdp" method="POST"><input type="hidden" name="id" value='.$unUtilisateur['id'].'><input class="btn btn-info" type="submit" value="Modifier mot de passe"/></form></td>';
     echo '</tr>';
   }
 ?>
