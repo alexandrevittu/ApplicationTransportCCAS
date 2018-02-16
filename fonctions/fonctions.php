@@ -1,17 +1,5 @@
 <?php
 
-function connexion(){
-  $dsn='mysql:dbname=bddccas;host=192.168.20.7';
-  $username='salihalexandre';
-  $passwd='a';
-
-  try{
-    $dbh=new PDO($dsn,$username,$passwd);
-  } catch (Exception $e) {
-    echo 'Connexion échouée : '.$e->getMessage();
-  }
-  return $dbh;
-}
 
 
 function AjoutAdherent($nom,$prenom,$adresse,$dateadhesion,$remarque){
