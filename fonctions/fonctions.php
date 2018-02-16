@@ -41,45 +41,7 @@ function ModifAdherent($id,$nom,$prenom,$adresse,$date,$remarque)
   }
 }
 
-function getTrimestreDate($date)
-  {
-    $d = date_parse_from_format("Y-m-d", implode($date));
-    $mois = $d["month"];
-    $result;
-    if($mois>=01 && $mois<=03)
-    {
-      $result = 1;
-    }
-    elseif($mois>=04 && $mois<=06)
-    {
-      $result = 2;
-    }
-    elseif($mois>=10 && $mois<=12)
-    {
-      $result = 4;
-    }
-    else
-    {
-      $result = 3;
-    }
-    return $result;
-  }
-  function getDateAdhesion($idAdherent){
-  $dbh = connexion();
-  try{
 
-    $pdoStatement = $dbh->prepare("SELECT dateAdhesion from adherents  where id=:idAdherent");
-    $pdoStatement->bindvalue("idAdherent",$idAdherent);
-    $pdoStatement->execute();
-    $result = $pdoStatement->fetch();
-    return $result;
-
-  }
-  catch(Exception $e)
-  {
-    throw new Exception("erreur lors de la recuperation des tarif ");
-  }
-}
 function Modifpseudo($pseudo,$id)
 {
   $dbh = connexion();
@@ -1045,5 +1007,15 @@ function getCompte($pseudo,$mdp){
       $result = 3;
     }
     return $result;
+  }
+
+  function getUtilisateur()
+  {
+    $dbh = connexion();
+    $pdoStatement = $dbh->prepare("select * from user");
+    $pdoStatement->execute();
+    $result = $pdoStatement->fetchAll();
+    return $result;
+    $dbh = null;
   }
 ?>
