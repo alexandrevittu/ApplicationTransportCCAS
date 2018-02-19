@@ -149,6 +149,11 @@ $lesAdherents = ListerAdherent();
                 echo '</tr>';
               }
             }
+
+            if (isset($_SESSION['retour'])) {
+              $_SESSION['retour'] = -2;
+            }
+
             ?>
           </div>
         </tbody>

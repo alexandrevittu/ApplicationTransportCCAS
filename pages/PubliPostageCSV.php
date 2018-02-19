@@ -21,9 +21,8 @@
       $nb= (int)$diff->format('%R%a');
       if((int)$nb>=0)
       {
-
-
         ModifAdherent($_POST["id"],($_POST["nom"]),($_POST["prenom"]),($_POST["adresse"]),($_POST["dateAdhesion"]),($_POST["remarque"]));
+
         if(isset($_POST['test']))
         {
           header("Refresh:0; url=PubliPostageCSV.php");
@@ -120,11 +119,15 @@
 
    if(isset($_SESSION['nbLigne']))
    {
-   $_SESSION['nbLigne'] = $Nbligne;
-   $nb = $_SESSION['nbLigne'];
-   //unset($_SESSION['nbLigne']);
-   echo '<form id="formLigne" action="accueil.php" method="post"><input type="hidden" name="ligne" value='.$nb.'></form>';
-   echo '<script>document.forms["formLigne].submit();</script>';
+     if ($_SESSION['nbLigne'] == -1) {
+       $_SESSION['nbLigne'] = $Nbligne;
+       header('Location: accueil.php');
+    }
+    elseif ($_SESSION['nbLigne'] == -2) {
+      $_SESSION['nbLigne'] = $Nbligne;
+      $_SESSION['retour'] = -1;
+      header('Location: accueil.php');
+    }
    }
 
   ?>
