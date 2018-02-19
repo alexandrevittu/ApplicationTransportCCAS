@@ -49,10 +49,11 @@ $( function() {
       <label for="datepicker">Date d'adhésion</label></br>
       <input type="text" name="dateAdhesion" id="datepicker" onblur="verifDate(this)" value="<?php echo$ladherent['dateAdhesion']?>"/></br>
       <label for="fremarque">Remarque</label></br>
-      <input type="text" name="remarque" id="fremarque" value="<?php echo $remarque?>"/></br>
+      <!-- <input type="text" name="remarque" id="fremarque" value=""/></br> -->
+      <textarea name="remarque" id="fremarque" form="ajoutadherent" rows="4" cols="50"/><?php echo $remarque?></textarea><br>
       <input class="" type="submit" value="Modifier"/></br>
     </form>
-      
+
 
       <form action="ListeAdherents.php">
         <input id="btn_ajout" type="submit" value="Annuler" class="buttonannulmodif"/>
