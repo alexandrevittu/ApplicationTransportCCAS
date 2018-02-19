@@ -535,3 +535,14 @@ margin-top: 10px;
 {
     display:none;
 }
+
+#example td{
+	word-break: break-all;
+}
+
+#fremarque{
+	resize: none;
+	width: 50%;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}

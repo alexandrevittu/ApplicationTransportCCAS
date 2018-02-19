@@ -94,13 +94,13 @@ include_once "../fonctions/fonctions.php";  //inclut l'en-tete
 
 /***** Pour recepurer le nombre de renouvellement d'adhesion passée dans la variable $_SESSIOn, ainsi on recuperer de page en page.******/
 
-    if (isset($_SESSION['nbLigne'])) {
-      if ($_SESSION['nbLigne'] != 0) {
-        if ($_SESSION['nbLigne'] == 1) {
-            echo '<a class="renouvellementAccueil" href="PubliPostageCSV.php">Il y a '.$_SESSION['nbLigne'].' renouvellement d\'adhesion.</a>';
+    if (isset($_POST['ligne'])) {
+      if ($_POST['ligne'] != 0) {
+        if ($_POST['ligne'] == 1) {
+            echo '<a class="renouvellementAccueil" href="PubliPostageCSV.php">Il y a '.$_POST['ligne'].' renouvellement d\'adhesion.</a>';
         }
         else {
-          echo '<a class="renouvellementAccueil" href="PubliPostageCSV.php">Il y a '.$_SESSION['nbLigne'].' renouvellements d\'adhesion.</a>';
+          echo '<a class="renouvellementAccueil" href="PubliPostageCSV.php">Il y a '.$_POST['ligne'].' renouvellements d\'adhesion.</a>';
         }
       }
     }
