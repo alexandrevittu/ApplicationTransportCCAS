@@ -1,16 +1,13 @@
 <?php
+<<<<<<< HEAD
 function connexion(){
   $dsn='mysql:dbname=bddccas;host=192.168.20.7';
   $username='salihalexandre';
   $passwd='a';
+=======
 
-  try{
-    $dbh=new PDO($dsn,$username,$passwd);
-  } catch (Exception $e) {
-    echo 'Connexion échouée : '.$e->getMessage();
-  }
-  return $dbh;
-}
+>>>>>>> b0b03a85d7fb8aa6dab07c2d03f1066c9c696286
+
 
 function AjoutAdherent($nom,$prenom,$adresse,$dateadhesion,$remarque){
   $dbh= connexion();
@@ -51,15 +48,6 @@ function ModifAdherent($id,$nom,$prenom,$adresse,$date,$remarque)
   }
 }
 
-function getUtilisateur()
-{
-  $dbh = connexion();
-  $pdoStatement = $dbh->prepare("select * from user");
-  $pdoStatement->execute();
-  $result = $pdoStatement->fetchAll();
-  return $result;
-  $dbh = null;
-}
 
 function Modifpseudo($pseudo,$id)
 {
@@ -1026,5 +1014,15 @@ function getCompte($pseudo,$mdp){
       $result = 3;
     }
     return $result;
+  }
+
+  function getUtilisateur()
+  {
+    $dbh = connexion();
+    $pdoStatement = $dbh->prepare("select * from user");
+    $pdoStatement->execute();
+    $result = $pdoStatement->fetchAll();
+    return $result;
+    $dbh = null;
   }
 ?>
