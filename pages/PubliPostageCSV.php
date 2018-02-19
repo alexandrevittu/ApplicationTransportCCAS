@@ -78,7 +78,6 @@
 
       <thead>
         <tr>
-          <th>Trimestre</th>
           <th>Nom</th>
           <th>Prénom</th>
           <th>Adresse</th>
@@ -89,32 +88,26 @@
       </thead>
     </div>
     <?php
-    $trimestreSuivant = getTrimestreSuivant();
-
+    //$trimestreSuivant = getTrimestreSuivant();
     $Nbligne = 0;
     $lesAdherents = ListerAdherent();
 
     foreach($lesAdherents as $unAdherent){
 
-    $dateAdhesion = $unAdherent['dateAdhesion'];
-    $dateMois = date("m",strtotime($dateAdhesion));
+      $dnow = $unAdherent['dateAdhesion'];
+      $dafter = date("Y-m-d");
+      $date1=date_create($dnow);
+      $date2=date_create($dafter);
+      $diff=date_diff($date1,$date2);
+      $difference = (int)$diff->format('%R%a');
+      $id=$unAdherent['id'];
 
-    $id=$unAdherent['id'];
 
-
-    if(in_array($dateMois,$trimestreSuivant)){
-
-
-    $anneeMaintenant = date('y');
-    $anneeAdherent = date("y",strtotime($dateAdhesion));
-    $trimestreSuivantNb = getTrimestreSuivantNb();
-    if($anneeAdherent < $anneeMaintenant)
+    if($difference>365)
     {
         $prixAdhesionActuel = Getprixadhesion();
-        $getTrimestreLibelle = getTrimestreLib($trimestreSuivantNb);
         $Nbligne++;
         echo '<tr class="selected">';
-        echo '<td>'.$getTrimestreLibelle['libelle'].'</td>';
         echo '<td>'.$unAdherent['nom'].'</td>';
         echo '<td>'.$unAdherent['prenom'].'</td>';
         echo '<td>'.$unAdherent['adresse'].'</td>';
@@ -122,14 +115,18 @@
         echo '<td style=font-weight:bold;>'.$prixAdhesionActuel['prix'].' €</td>';
         echo '<td><div id=conteneurBtn><form action="modifRead.php" id="modifadherent" method="POST"><input type="hidden" name="id" value='.$id.'><input type="hidden" name="publi" value="3"><input class="btn btn-info" id="btn-view" type="submit" value="Modifier"/></form></td></tr>';
       }
-    }
+
   }
 
-  if($_SESSION['nbLigne']!=$Nbligne)
-  {
-  $_SESSION['nbLigne'] = $Nbligne;
-  header('Location: accueil.php');
-  }
+   if(isset($_SESSION['nbLigne']))
+   {
+   $_SESSION['nbLigne'] = $Nbligne;
+   $nb = $_SESSION['nbLigne'];
+   //unset($_SESSION['nbLigne']);
+   echo '<form id="formLigne" action="accueil.php" method="post"><input type="hidden" name="ligne" value='.$nb.'></form>';
+   echo '<script>document.forms["formLigne].submit();</script>';
+   }
+
   ?>
 
   </table>

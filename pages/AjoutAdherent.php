@@ -139,7 +139,8 @@ $(function()
       <label for="fnom">Date d'adhésion</label><br>
       <input type="text" id="datepicker" name="date" onblur="verifDate(this)" required><br>
       <label for="fnom">Remarques</label><br>
-      <input type="text" name="remarque" id="fremarque" /><br>
+      <!-- <input type="text" name="remarque" id="fremarque" /><br> -->
+      <textarea name="remarque" id="fremarque" form="ajoutadherent" rows="4" cols="50"/></textarea><br>
       <p><input class="" type="submit" value="Valider" id="test"/><br>
     </form>
     <?php
