@@ -158,7 +158,16 @@ $(function()
        $nb= (int)$diff->format('%R%a');
        if((int)$nb>=0)                        //verifie si la date n'est pas suppérieur a celle du jour
        {
-         AjoutAdherent(($_POST["nom"]),($_POST["prenom"]),($_POST["adresse"]),($_POST["date"]),($_POST["remarque"]));   //ajoute l'adherent
+         if(AjoutAdherent(($_POST["nom"]),($_POST["prenom"]),($_POST["adresse"]),($_POST["date"]),($_POST["remarque"])) == false)
+         {
+           echo"<script>alert('L\'adhérent que vous voulez ajouter existe dêja !');</script>";
+         }
+         else {
+
+
+
+
+           //ajoute l'adherent
          $id = Getidadherent($_POST["nom"],$_POST["prenom"]);
          $trimestre = getTrimestre();
          $nbtrajet =0;
@@ -175,12 +184,19 @@ $(function()
          </div>
          <?php
        }
+       }
        else
        {
-        echo"<script>alert('Date supérieure à celle d\'aujourd\'hui');history.go(-1);</script>";
+         $nom = $_POST['nom'];
+         $prenom = $_POST['prenom'];
+         $adresse = $_POST['adresse'];
+         $remarques = $_POST['remarque'];
+        echo"<script>alert('Date supérieure à celle d\'aujourd\'hui');document.getElementById('fnom').value='".$nom."';document.getElementById('fprenom').value='".$prenom."';document.getElementById('fadresse').value='".$adresse."';document.getElementById('fremarque').value='".$remarques."';</script>";
        }
      }
-    };
+    }
+  ;
+
   ?>
 
 
