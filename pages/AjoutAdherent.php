@@ -58,19 +58,13 @@ include_once "../fonctions/fonctions.php";
 </script>
 <script>
 function surligne(champ, erreur)                /***Ces fonctions permettent de verifier les données saisies dans le formulaire en javascript***/
-
 {
    if(erreur){
-
       champ.style.backgroundColor = "#fba";
-
    }else{
-
       champ.style.backgroundColor = "";}
 }
-
 function verifDate(champ){
-
 var dateSaisie = new Date(champ.value);
 if (dateSaisie != "") {
   surligne(champ,false);
@@ -80,7 +74,6 @@ if (dateSaisie != "") {
   return false;
 }
 }
-
 function verifNom(champ){
   if (champ.value == "" || isNaN(champ.value) == false ) {
     surligne(champ,true);
@@ -90,7 +83,6 @@ function verifNom(champ){
     return true;
   }
 }
-
 function verifPrenom(champ){
   if (champ.value == "" || isNaN(champ.value) == false ) {
     surligne(champ,true);
@@ -100,7 +92,6 @@ function verifPrenom(champ){
     return true;
   }
 }
-
 function verifChamp(champ){
   if (champ.value == "") {
     surligne(champ,true);
@@ -110,7 +101,6 @@ function verifChamp(champ){
     return true;
   }
 }
-
 function verifForm(f){
     var nomOk = verifNom(f.nom);
     var prenomOk = verifPrenom(f.prenom);
@@ -123,7 +113,6 @@ function verifForm(f){
       return false;
     }
 }
-
 $(function()
 {
   $('#ajoutadherent').submit(function(){  //fonction permmettant d'eviter d'appuyer plusieurs fois sur valider afin d'eviter d'ajouter la bdd plusieurs adherents qui ont les memes données
@@ -133,7 +122,6 @@ $(function()
     return true;
   });
 });
-
 </script> <!-- ici-->
 
 
@@ -192,7 +180,6 @@ $(function()
        }
      }
     };
-
   ?>
 
 
