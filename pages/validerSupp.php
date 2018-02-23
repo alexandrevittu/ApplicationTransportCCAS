@@ -5,10 +5,9 @@ include_once('../fonctions/fonctions.php');
 $id = $_POST['id'];
 try {
     SupprimerAdherent($id);
-    $_SESSION['nbLigne'] = -2;
     echo 'Suppression Réussie';
     echo '<script>location.reload()</script>';
-    header('Location: PubliPostageCSV.php');
+    header('Location: ListeAdherents.php');
     exit();
 
 } catch (Exception $e) {

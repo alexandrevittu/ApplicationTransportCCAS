@@ -150,9 +150,6 @@ $lesAdherents = ListerAdherent();
               }
             }
 
-            if (isset($_SESSION['retour'])) {
-              $_SESSION['retour'] = -2;
-            }
 
             ?>
           </div>

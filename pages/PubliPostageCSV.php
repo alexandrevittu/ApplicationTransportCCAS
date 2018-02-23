@@ -117,18 +117,7 @@
 
   }
 
-   if(isset($_SESSION['nbLigne']))
-   {
-     if ($_SESSION['nbLigne'] == -1) {
-       $_SESSION['nbLigne'] = $Nbligne;
-       header('Location: accueil.php');
-    }
-    elseif ($_SESSION['nbLigne'] == -2) {
-      $_SESSION['nbLigne'] = $Nbligne;
-      $_SESSION['retour'] = -1;
-      header('Location: accueil.php');
-    }
-   }
+  
 
   ?>
 

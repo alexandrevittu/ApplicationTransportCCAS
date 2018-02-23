@@ -105,12 +105,6 @@ include_once "../fonctions/fonctions.php";  //inclut l'en-tete
       }
     }
 
-    if (isset($_SESSION['retour'])) {
-      if ($_SESSION['retour'] == -1) {
-        header('Location: ListeAdherents.php');
-      }
-    }
-    
     ?>
 
   </div>
