@@ -1,7 +1,10 @@
 <?php
 session_start();
 include_once('../fonctions/fonctions.php');
-$id = $_POST['id'];
+if(isset($_POST['id'])){
+  $id = $_POST['id'];
+}
+
 try {
     SupprimerAdherent($id);
     echo 'Suppression Réussie';
