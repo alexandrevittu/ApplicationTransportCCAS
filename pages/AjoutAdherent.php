@@ -160,7 +160,7 @@ $(function()
        {
          if(AjoutAdherent(($_POST["nom"]),($_POST["prenom"]),($_POST["adresse"]),($_POST["date"]),($_POST["remarque"])) == false)
          {
-           echo"<script>alert('L\'adhérent que vous voulez ajouter existe dêja !');</script>";
+           echo"<script>alert('L\'adhérent que vous voulez ajouter existe déjà !');</script>";
          }
          else {
 
