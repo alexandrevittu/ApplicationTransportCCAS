@@ -53,8 +53,8 @@
           session_start();
           $_SESSION['id'] = $checkCompte['id'];  //ouvre une session grace a session_start()
           $_SESSION['pseudo'] = $pseudo;
-          $_POST['nbLigne'] = 0;
-          header('Location: accueil.php');
+          echo '<form id="formLigne" action="PubliPostageCSV.php" method="POST"><input type="hidden" id="nbLigne" name="nbLigne" value="0"></form>';
+          echo '<script>document.getElementById("formLigne").submit(); </script>';
 
         }
     }

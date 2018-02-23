@@ -1,12 +1,15 @@
 <?php
-<<<<<<< HEAD
 function connexion(){
   $dsn='mysql:dbname=bddccas;host=192.168.20.7';
   $username='salihalexandre';
   $passwd='a';
-=======
-
->>>>>>> b0b03a85d7fb8aa6dab07c2d03f1066c9c696286
+  try{
+     $dbh=new PDO($dsn,$username,$passwd);
+  } catch (Exception $e) {
+    echo 'Connexion échouée : '.$e->getMessage();
+ }
+  return $dbh;
+}
 
 
 function AjoutAdherent($nom,$prenom,$adresse,$dateadhesion,$remarque){
@@ -20,9 +23,11 @@ function AjoutAdherent($nom,$prenom,$adresse,$dateadhesion,$remarque){
   if($PdoStatement->execute()){
     $PdoStatement->closeCursor();
     $dbh=null;
+    return true;
   }
   else{
-    throw new Exception("Erreur ajout d'adherent");
+    //throw new Exception("Erreur ajout d'adherent");
+    return false;
   }
 }
 function ModifAdherent($id,$nom,$prenom,$adresse,$date,$remarque)
@@ -1020,6 +1025,30 @@ function getCompte($pseudo,$mdp){
   {
     $dbh = connexion();
     $pdoStatement = $dbh->prepare("select * from user");
+    $pdoStatement->execute();
+    $result = $pdoStatement->fetchAll();
+    return $result;
+    $dbh = null;
+  }
+
+  function setNbLigne($value){
+    $dbh = connexion();
+    $pdoStatement = $dbh ->prepare("update Ligne set nbLigne = :ligne WHERE id='1'");
+    $pdoStatement->bindvalue("ligne",$value);
+    if($pdoStatement->execute())
+    {
+      $pdoStatement->closeCursor();
+      $dbh=null;
+    }
+    else
+    {
+      throw new Exception("Erreur modif ");
+    }
+  }
+
+  function getNbLigne(){
+    $dbh = connexion();
+    $pdoStatement = $dbh->prepare("select nbLigne from Ligne");
     $pdoStatement->execute();
     $result = $pdoStatement->fetchAll();
     return $result;

@@ -112,15 +112,19 @@
         echo '<td>'.$unAdherent['adresse'].'</td>';
         echo '<td>'.DateFr($unAdherent['dateAdhesion']).'</td>';
         echo '<td style=font-weight:bold;>'.$prixAdhesionActuel['prix'].' €</td>';
-        echo '<td><div id=conteneurBtn><form action="modifRead.php" id="modifadherent" method="POST"><input type="hidden" name="id" value='.$id.'><input type="hidden" name="publi" value="3"><input class="btn btn-info" id="btn-view" type="submit" value="Modifier"/></form></td></tr>';
+        echo '<td><div id=conteneurBtn><form action="modifRead.php" id="modifadherent" method="POST"><input type="hidden" name="id" value='.$id.'><input type="hidden" name="publi" value="3"><input class="btn btn-info" id="btn-view" type="submit" value="Modifier"/></form></div></td></tr>';
       }
 
   }
-
-  
-
+  $update = setNbLigne($Nbligne);
+    if (isset($_POST['nbLigne'])) {
+      echo '<script>window.location.replace("accueil.php");</script>';
+      exit;
+    }
+    if (isset($_POST['nbLigne3'])) {
+      echo '<script>window.location.replace("ListeAdherents.php");</script>';
+    }
   ?>
-
   </table>
   <form action="accueil.php" id="btnimpression">
   <input class="btn btn-info" type="submit" value="Accueil">
