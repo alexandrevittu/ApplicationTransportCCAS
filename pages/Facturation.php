@@ -88,6 +88,7 @@
       <tbody>
         <tr>
       <?php
+      $annee = date('Y');
       $trimestreavant = 0;
       $prixtrajetcours = Getprixtrajetcours();
       $prixtrajetmoyen = Getprixtrajetmoyen();
@@ -99,26 +100,30 @@
 
         if($trimestre == 1)         //affiche le trimestre en cours
         {
-          echo 'Trimestre actuel : Janvier/Fevrier/Mars';
+          echo 'Trimestre actuel : Janvier/Fevrier/Mars '.$annee."";
           $trimestreavant = 4;
+          echo '<br>';
+          $annee = $annee -1;
+          echo 'Facturation trimestre : Octobre/Novembre/Décembre '.$annee.'';
         }
         elseif($trimestre == 2)
         {
-          echo 'Trimestre actuel : Avril/Mai/Juin';
+          echo 'Trimestre actuel : Avril/Mai/Juin '.$annee."";
           $trimestreavant = 1;
+          echo 'Facturation trimestre : Janvier/Fevrier/Mars '.$annee.'';
 
         }
         elseif($trimestre == 3)
         {
-          echo 'Trimestre actuel : Juillet/Aout/Septembre';
+          echo 'Trimestre actuel : Juillet/Aout/Septembre '.$annee."";
           $trimestreavant = 2;
-
+          echo 'Facturation trimestre : Avril/Mai/Juin '.$annee.'';
         }
         elseif($trimestre == 4)
         {
-          echo 'Trimestre actuel : Octobre/Novembre/Décembre';
+          echo 'Trimestre actuel : Octobre/Novembre/Décembre '.$annee."";
           $trimestreavant = 3;
-
+          echo 'Facturation trimestre : Juillet/Aout/Septembre '.$annee.'';
         }
 
       foreach($lesAdherents as $unAdherent)       //parcours des adherents

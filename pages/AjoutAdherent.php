@@ -138,7 +138,7 @@ $(function()
       <label for="fnom">Adresse</label><br>
       <input type="text" name="adresse" id="fadresse" onblur="verifChamp(this)" required /><br>
       <label for="fnom">Date d'adhésion</label><br>
-      <input type="text" id="datepicker" name="date" onblur="verifDate(this)" required><br>
+      <input type="text" id="datepicker" name="date" onblur="verifDate(this)" readonly ><br>
       <label for="fnom">Remarques</label><br>
       <!-- <input type="text" name="remarque" id="fremarque" /><br> -->
       <textarea name="remarque" id="fremarque" form="ajoutadherent" rows="4" cols="50"/></textarea><br>

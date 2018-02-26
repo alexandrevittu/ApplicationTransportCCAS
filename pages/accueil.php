@@ -73,34 +73,44 @@ include_once "../fonctions/fonctions.php";  //inclut l'en-tete
   <div id="trimestre">
     <?php
     $mois = date('m');
-    //$mois = 02;
-
+    //$mois = 12;
+    $annee =date('Y');
     if($mois>=01 && $mois<=03)
     {
-      echo "<label>Trimestre en cours :Janvier/Fevrier/Mars</label>";
+      echo "<label>Trimestre en cours : Janvier/Fevrier/Mars ".$annee."</label>";
     }
     elseif($mois>=04 && $mois<=06)
     {
-      echo '<label>Trimestre en cours :Avril/Mai/Juin</label>';
+      echo '<label>Trimestre en cours : Avril/Mai/Juin '.$annee.'</label>';
     }
     elseif($mois>=10 && $mois<=12)
     {
-      echo '<label>Trimestre en cours :Octobre/Novembre/Decembre</label>';
+      echo '<label>Trimestre en cours : Octobre/Novembre/Decembre '.$annee.'</label>';
     }
     else
     {
-      echo '<label>Trimestre en cours :Juillet/Aout/Septembre</label>';
+      echo '<label>Trimestre en cours : Juillet/Aout/Septembre '.$annee.'</label>';
     }
 
 /***** Pour recepurer le nombre de renouvellement d'adhesion passée dans la variable $_SESSIOn, ainsi on recuperer de page en page.******/
-        $nb = getNbLigne();
-         if ($nb['0']['nbLigne'] == 1) {
-              echo '<a class="renouvellementAccueil" href="PubliPostageCSV.php">Il y a '.$nb['0']['nbLigne'].' renouvellement d\'adhésion.</a>';
-          }
-          else {
-            echo '<a class="renouvellementAccueil" href="PubliPostageCSV.php">Il y a '.$nb['0']['nbLigne'].' renouvellements d\'adhésions.</a>';
-          }
-        
+
+    if (isset($_SESSION['nbLigne'])) {
+      if ($_SESSION['nbLigne'] != 0) {
+        if ($_SESSION['nbLigne'] == 1) {
+            echo '<a class="renouvellementAccueil" href="PubliPostageCSV.php">Il y a '.$_SESSION['nbLigne'].' renouvellement d\'adhesion.</a>';
+        }
+        else {
+          echo '<a class="renouvellementAccueil" href="PubliPostageCSV.php">Il y a '.$_SESSION['nbLigne'].' renouvellements d\'adhesion.</a>';
+        }
+      }
+    }
+
+    if (isset($_SESSION['retour'])) {
+      if ($_SESSION['retour'] == -1) {
+        header('Location: ListeAdherents.php');
+      }
+    }
+
     ?>
 
   </div>
@@ -119,5 +129,22 @@ include_once "../fonctions/fonctions.php";  //inclut l'en-tete
         </form>
     </fieldset>
   </div>
+  <?php
+$lesAdherents = ListerAdherent();
+foreach($lesAdherents as $unAdherent)
+{
+  $dateadhesion = $unAdherent['dateAdhesion'];
+  $datetoday = date("Y-m-d");
+  $dateadd = date_create($dateadhesion);
+  $dateactueldatetime = date_create($datetoday);
+  $diff = date_diff($dateadd,$dateactueldatetime);
+
+  $difference = (int)$diff->format('%R%a');
+  if($difference > 730)
+  {
+    SupprimerAdherent($unAdherent['id']);
+  }
+}
+ ?>
 </body>
 </html>

@@ -18,6 +18,10 @@
         <button id="inscription" onclick="window.location='inscription.php';">Inscription</button>
       </div>
       <?php
+      $date = date('d/m/Y');
+      echo '<h3>'.$date.'</h3>';
+       ?>
+      <?php
     }
     elseif($_SESSION['id']>1)
     {
