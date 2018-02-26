@@ -978,11 +978,12 @@ function getCompte($pseudo,$mdp){
     return $result;
     $dbh = null;
   }
-  function ajoutreportparadherent($idadherent)
+  function ajoutreportparadherent($idadherent,$idtrimestre)
   {
     $dbh= connexion();
-    $PdoStatement = $dbh ->prepare("insert into report values (NULL,0,:idadherent)");
+    $PdoStatement = $dbh ->prepare("insert into report values (NULL,0,:idadherent,:idtrimestre)");
     $PdoStatement->bindvalue("idadherent",$idadherent);
+    $PdoStatement->bindvalue("idtrimestre",$idtrimestre);
     if($PdoStatement->execute()){
       $PdoStatement->closeCursor();
       $dbh=null;
@@ -991,12 +992,13 @@ function getCompte($pseudo,$mdp){
       throw new Exception("Erreur ajout report de d'adherent");
     }
   }
-  function getreportparadherent($idadherent)
+  function getreportparadherent($idadherent,$idtrimestre)
   {
     $dbh = connexion();
     try{
-      $pdoStatement = $dbh->prepare("select prixReport from report where idAdherent = :idadherent");
+      $pdoStatement = $dbh->prepare("select prixReport from report where idAdherent = :idadherent AND idTrimestre = :idtrimestre");
       $pdoStatement->bindvalue("idadherent",$idadherent);
+      $pdoStatement->bindvalue("idtrimestre",$idtrimestre);
       $pdoStatement->execute();
       $result = $pdoStatement->fetch();
       return $result;
@@ -1070,6 +1072,6 @@ function getCompte($pseudo,$mdp){
     {
       throw new Exception("Le nombre de trajet long n'a pas pu etre recuperer ...");
     }
-    
+
   }
 ?>

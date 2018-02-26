@@ -177,9 +177,10 @@ $(function()
            ajouttrajetcourtparadherent($id['id'],$i,$nbtrajet);
            ajouttrajetmoyenparadherent($id['id'],$i,$nbtrajet);
            ajouttrajetlongparadherent($id['id'],$i,$nbtrajet);
+           ajoutreportparadherent($id['id'],$i);
          }
          ajoutadhesionparadherent($id['id'],$trimestre,date('y-m-d'));
-         ajoutreportparadherent($id['id']);
+
          ?>
          <div id="dialog-confirm" title="Ajout d'adhérents">
            <p><span class="ui-icon ui-icon-check" style="margin-right:15px;"></span>L'adherent <?php echo $_POST['nom'].' '.$_POST['prenom']?> a été ajouté.</br> Voulez-vous ajouter un autre adhérent ?</p>

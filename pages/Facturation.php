@@ -128,7 +128,7 @@
 
       foreach($lesAdherents as $unAdherent)       //parcours des adherents
       {
-        $prixreport = getreportparadherent($unAdherent['id']);
+        $prixreport = getreportparadherent($unAdherent['id'],$trimestreavant);
 
         $test = false;
         $année=date('Y');
