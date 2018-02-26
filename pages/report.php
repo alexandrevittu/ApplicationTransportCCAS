@@ -71,7 +71,7 @@ $(document).ready(function() {
 
             $prixAdhe = Getprixadhesion(); //retourne le prix de l'adhesion
 
-             $prixDouble = (double)$prixAdhe['prix'];
+            // $prixDouble = (double)$prixAdhe['prix'];
             //   if($dateAdhesionTrimestre == $trimestreActuel){  // Verifie si  la date d'adhesion a ete fait dans le trimestre actuel si oui on ajoute le prix de l'adhesion
             //     $total += $prixDouble;
             //   }
@@ -98,9 +98,6 @@ $(document).ready(function() {
             // }
             //
 
-              var_dump($dateAdhesionTrimestre);
-              var_dump($trimestreActuel);
-
             if ($total < $leSeuil && $total != 0) {  //On affiche si seulement si le total est en dessous du sueil et que le total est different de 0
               updateReport($unAdherent['id'],$total);
               echo '<tr>';
@@ -114,6 +111,7 @@ $(document).ready(function() {
               } else {
               echo '<td>Aucune date saisie</td>'; //gerer exception si jamais il n'y a pas de date.
               }
+              
             }
           }
           ?>

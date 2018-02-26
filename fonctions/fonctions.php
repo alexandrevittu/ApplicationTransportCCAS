@@ -1070,5 +1070,6 @@ function getCompte($pseudo,$mdp){
     {
       throw new Exception("Le nombre de trajet long n'a pas pu etre recuperer ...");
     }
+    
   }
 ?>
