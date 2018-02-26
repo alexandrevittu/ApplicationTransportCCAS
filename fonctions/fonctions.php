@@ -1,8 +1,8 @@
 <?php
 function connexion(){
-  $dsn='mysql:dbname=bddccas;host=192.168.20.7';
-  $username='salihalexandre';
-  $passwd='a';
+  $dsn='mysql:dbname=bddccas;host=localhost';
+  $username='root';
+  $passwd='';
   try{
      $dbh=new PDO($dsn,$username,$passwd);
   } catch (Exception $e) {
