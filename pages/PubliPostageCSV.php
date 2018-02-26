@@ -80,7 +80,7 @@
           <th>Nom</th>
           <th>Prénom</th>
           <th>Adresse</th>
-          <th>Date d'adhesion</th>
+          <th>Date d'adhésion</th>
           <th>Coût actuel des adhésions</th>
           <th>Modifier</th>
         </tr>
