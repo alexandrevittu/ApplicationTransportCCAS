@@ -996,9 +996,9 @@ function getCompte($pseudo,$mdp){
     $dbh = connexion();
     try{
       $pdoStatement = $dbh->prepare("select prixReport from report where idAdherent = :idadherent");
-      $PdoStatement->bindvalue("idadherent",$idadherent);
+      $pdoStatement->bindvalue("idadherent",$idadherent);
       $pdoStatement->execute();
-      $result = $pdoStatement->fetchAll();
+      $result = $pdoStatement->fetch();
       return $result;
     }
     catch(Exception $e)

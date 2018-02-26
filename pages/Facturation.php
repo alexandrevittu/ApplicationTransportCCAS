@@ -124,11 +124,12 @@
           echo 'Trimestre actuel : Octobre/Novembre/Décembre '.$annee."";
           $trimestreavant = 3;
           echo 'Facturation trimestre : Juillet/Aout/Septembre '.$annee.'';
-
         }
 
       foreach($lesAdherents as $unAdherent)       //parcours des adherents
       {
+        $prixreport = getreportparadherent($unAdherent['id']);
+
         $test = false;
         $année=date('Y');
         if($trimestre ==1)
@@ -138,6 +139,9 @@
 
 
         $prixtotal = 0;
+        if ($prixreport > 0) {
+          $prixtotal += $prixreport['prixReport'];
+        }
         $nbtrajetcourt = Getnbtrajetcours($trimestreavant);            //recuperation du nombre de trajet (court,moyen,long) et si il est adheret
         $nbtrajetmoyen = Getnbtrajetmoyen($trimestreavant);
         $nbtrajetlong = Getnbtrajetlong($trimestreavant);
