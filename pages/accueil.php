@@ -93,25 +93,7 @@ include_once "../fonctions/fonctions.php";  //inclut l'en-tete
     }
 
 /***** Pour recepurer le nombre de renouvellement d'adhesion passée dans la variable $_SESSIOn, ainsi on recuperer de page en page.******/
-<<<<<<< HEAD
 
-    if (isset($_SESSION['nbLigne'])) {
-      if ($_SESSION['nbLigne'] != 0) {
-        if ($_SESSION['nbLigne'] == 1) {
-            echo '<a class="renouvellementAccueil" href="PubliPostageCSV.php">Il y a '.$_SESSION['nbLigne'].' renouvellement d\'adhesion.</a>';
-        }
-        else {
-          echo '<a class="renouvellementAccueil" href="PubliPostageCSV.php">Il y a '.$_SESSION['nbLigne'].' renouvellements d\'adhesion.</a>';
-        }
-      }
-    }
-
-    if (isset($_SESSION['retour'])) {
-      if ($_SESSION['retour'] == -1) {
-        header('Location: ListeAdherents.php');
-      }
-    }
-=======
         $nb = getNbLigne();
          if ($nb['0']['nbLigne'] == 1) {
               echo '<a class="renouvellementAccueil" href="PubliPostageCSV.php">Il y a '.$nb['0']['nbLigne'].' renouvellement d\'adhésion dans ce trimestre.</a>';
@@ -119,7 +101,6 @@ include_once "../fonctions/fonctions.php";  //inclut l'en-tete
           else {
             echo '<a class="renouvellementAccueil" href="PubliPostageCSV.php">Il y a '.$nb['0']['nbLigne'].' renouvellements d\'adhésions dans ce trimestre.</a>';
           }
->>>>>>> 52681cb59bd222df6e8fc2be3198a61608ce2119
 
     ?>
 
