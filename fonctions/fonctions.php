@@ -10,8 +10,6 @@ function connexion(){
  }
   return $dbh;
 }
-
-
 function AjoutAdherent($nom,$prenom,$adresse,$dateadhesion,$remarque){
   $dbh= connexion();
   $PdoStatement = $dbh ->prepare("insert into adherents values (NULL,:nom,:prenom,:adresse,:dateadhesion,:remarque)");
@@ -43,7 +41,6 @@ function ModifAdherent($id,$nom,$prenom,$adresse,$date,$remarque)
   $pdoStatement->bindvalue("id",$id);
   if($pdoStatement->execute())
   {
-
     $pdoStatement->closeCursor();
     $dbh=null;
   }
@@ -52,8 +49,6 @@ function ModifAdherent($id,$nom,$prenom,$adresse,$date,$remarque)
     throw new Exception("Erreur modification d'adherent");
   }
 }
-
-
 function Modifpseudo($pseudo,$id)
 {
   $dbh = connexion();
@@ -87,7 +82,6 @@ function Modifmdp($mdp,$id)
       return false;
     }
 }
-
 function ModifTarifCourt($prix)
 {
   $dbh = connexion();
@@ -217,61 +211,45 @@ function ModifTrajetLongParAdherent($idadherent,$trimestre,$nbtrajet,$datedernie
     throw new Exception("Erreur modif trajet long par adherent");
   }
 }
-
 function ListerAdherent(){
-
   $dbh = connexion();
   try {
-
     $pdoStatement = $dbh->prepare("select * from adherents");
     $pdoStatement->execute();
-
     $result = $pdoStatement->fetchAll();
     return $result;
   } catch (Exception $e) {
-
     throw new Exception("erreur lors de la recuperation des adhérents " . $ex);
-
   }
-
 }
-
 function GetTarif()
 {
   $dbh = connexion();
   try{
-
     $pdoStatement = $dbh->prepare("select prix from typetrajet");
     $pdoStatement->execute();
-
     $result = $pdoStatement->fetchAll();
     return $result;
-
   }
   catch(Exception $e)
   {
     throw new Exception("erreur lors de la recuperation des tarif ");
   }
-
 }
-
 function getDateAdhesion($idAdherent){
   $dbh = connexion();
   try{
-
     $pdoStatement = $dbh->prepare("SELECT dateAdhesion from adherents  where id=:idAdherent");
     $pdoStatement->bindvalue("idAdherent",$idAdherent);
     $pdoStatement->execute();
     $result = $pdoStatement->fetch();
     return $result;
-
   }
   catch(Exception $e)
   {
     throw new Exception("erreur lors de la recuperation des tarif ");
   }
 }
-
 function Getidadherent($nom,$prenom)
 {
   $dbh = connexion();
@@ -363,27 +341,18 @@ function GetAdherent($id)
     throw new Exception("erreur lors de la recuperation de l'adherent ");
   }
 }
-
 function pdfAdherent(){
-
   $dbh = connexion();
-
   $ListerAdherent = ListerAdherent();
-
   $pdf = new PDF();
   $pdf->addPage();
-
 }
-
-
 function SupprimerAdherent($idAdherentSupp){
   $pdo = connexion();
   $requete=$pdo->prepare("DELETE from adherents WHERE id= :idAdherentSupp ");
   $requete->bindValue(":idAdherentSupp",$idAdherentSupp);
   $requete->execute();
 }
-
-
 function Getnbtrajetcours($id)
 {
   $dbh = connexion();
@@ -395,7 +364,6 @@ function Getnbtrajetcours($id)
     $result = $pdoStatement->fetchAll();
     return $result;
     $dbh=null;
-
   }
   catch(Exception $e)
   {
@@ -413,7 +381,6 @@ function Getadhesion()
     $result = $pdoStatement->fetchAll();
     return $result;
     $dbh=null;
-
   }
   catch(Exception $e)
   {
@@ -431,7 +398,6 @@ function Getnbtrajetmoyen($id)
     $result = $pdoStatement->fetchAll();
     return $result;
     $dbh=null;
-
   }
   catch(Exception $e)
   {
@@ -450,7 +416,6 @@ function Getnbtrajetmoyenparadherent($id,$trimestre)
     $result = $pdoStatement->fetch();
     return $result;
     $dbh=null;
-
   }
   catch(Exception $e)
   {
@@ -469,7 +434,6 @@ function Getnbtrajetcourtparadherent($id,$trimestre)
     $result = $pdoStatement->fetch();
     return $result;
     $dbh=null;
-
   }
   catch(Exception $e)
   {
@@ -488,7 +452,6 @@ function Getnbtrajetlongparadherent($id,$trimestre)
     $result = $pdoStatement->fetch();
     return $result;
     $dbh=null;
-
   }
   catch(Exception $e)
   {
@@ -506,7 +469,6 @@ function Getnbtrajetlong($id)
     $result = $pdoStatement->fetchAll();
     return $result;
     $dbh=null;
-
   }
   catch(Exception $e)
   {
@@ -535,7 +497,6 @@ function getTrimestre()
   }
   return $result;
 }
-
 function Getprixtrajetcours()
 {
   $dbh = connexion();
@@ -600,8 +561,6 @@ function Getprixadhesion()
     throw new Exception("erreur lors de la recuperation du prix d'une adhesion");
   }
 }
-
-
 function getNbTrajetAdherent($idAdherent){
   $dbh = connexion();
   try{
@@ -616,7 +575,6 @@ function getNbTrajetAdherent($idAdherent){
     throw new Exception("Le nombre de trajet court n'a pas pu etre recuperer ...");
   }
 }
-
 function getNbTrajetCourtAdherent($idAdherent){
   $dbh = connexion();
   try{
@@ -632,7 +590,6 @@ function getNbTrajetCourtAdherent($idAdherent){
     throw new Exception("Le nombre de trajet court n'a pas pu etre recuperer ...");
   }
 }
-
 function getNbTrajetMoyenAdherent($idAdherent){
   $dbh = connexion();
   try{
@@ -648,7 +605,6 @@ function getNbTrajetMoyenAdherent($idAdherent){
     throw new Exception("Le nombre de trajet moyen n'a pas pu etre recuperer ...");
   }
 }
-
 function getNbTrajetLongAdherent($idAdherent){
   $dbh = connexion();
   try{
@@ -664,7 +620,6 @@ function getNbTrajetLongAdherent($idAdherent){
     throw new Exception("Le nombre de trajet long n'a pas pu etre recuperer ...");
   }
 }
-
 function adhesionPayee($idAdherent){
   $dbh = connexion();
   try{
@@ -680,12 +635,10 @@ function adhesionPayee($idAdherent){
     throw new Exception("l'adhesion n'est pas récuperer erreur dans l");
   }
 }
-
 function getSeuil(){
   $dbh = connexion();
   try{
     $pdoStatement = $dbh->prepare("select prix FROM typetrajet WHERE id = 1");
-
     $pdoStatement->execute();
     $result = $pdoStatement->fetch();
     return $result;
@@ -696,9 +649,7 @@ function getSeuil(){
     throw new Exception("Le seuil n'a pas pu etre recuperer ...");
   }
 }
-
 function getTrimestreSuivant(){
-
   $trimestreActuel = getTrimestre();
   $trimestreSuivant = 0;
   if ($trimestreActuel == 1) {
@@ -712,9 +663,7 @@ function getTrimestreSuivant(){
   }
   return $trimestreSuivant;
 }
-
 function getTrimestreSuivantNb(){
-
   $trimestreActuel = getTrimestre();
   $trimestreSuivant = 0;
   if ($trimestreActuel == 1) {
@@ -728,7 +677,6 @@ function getTrimestreSuivantNb(){
   }
   return $trimestreSuivant;
 }
-
 function getTrimestreLib($idTrimestre){
   $dbh = connexion();
   try{
@@ -744,12 +692,10 @@ function getTrimestreLib($idTrimestre){
     throw new Exception("Erreur...");
   }
 }
-
 function dateFr($date)
 {
   return strftime('%d-%m-%Y',strtotime($date));
 }
-
 function getDateDernierTrajet($idAdherent){
   $dbh = connexion();
   try{
@@ -765,7 +711,6 @@ function getDateDernierTrajet($idAdherent){
     throw new Exception("erreur lors de la recuperation de la date du dernier trajet");
   }
 }
-
 function getNbTrajetParAn($date1,$date2)
 {
   $dbh = connexion();
@@ -784,7 +729,6 @@ function getNbTrajetParAn($date1,$date2)
     throw new Exception("erreur lors de la recuperation de la date du dernier trajet");
   }
 }
-
 function getcompteutilisateur($id)
 {
   $dbh = connexion();
@@ -802,8 +746,6 @@ function getcompteutilisateur($id)
     throw new Exception("erreur lors de la recuperation des informations compte");
   }
 }
-
-
 function getTotalFactureAnneEnCours($dateDeb,$dateFin){
   $dbh = connexion();
   try{
@@ -820,7 +762,6 @@ function getTotalFactureAnneEnCours($dateDeb,$dateFin){
     throw new Exception("Erreur lors de la recuperation du totale...");
   }
 }
-
 function inscription($identifiant,$mdp,$mail)
 {
     $dbh = connexion();
@@ -838,7 +779,6 @@ function inscription($identifiant,$mdp,$mail)
       return false;
     }
 }
-
 function getTotalFactureAnneEnCourstest($dateDeb,$dateFin){
   $dbh = connexion();
   try{
@@ -855,7 +795,6 @@ function getTotalFactureAnneEnCourstest($dateDeb,$dateFin){
     throw new Exception("Erreur lors de la recuperation du totale...");
   }
 }
-
 function getTrajetMulticriteres($typetrajet,$datedeb,$datefin)
 {
   $dbh = connexion();
@@ -874,18 +813,13 @@ function getTrajetMulticriteres($typetrajet,$datedeb,$datefin)
     throw new Exception("Erreur lors de la recuperation du totale...");
   }
 }
-
 function orderTrimestre(){
-
   $trimestre = getTrimestre();
   $libelleTrimestre = getTrimestreLib($trimestre);
   $libelleTr = utf8_encode($libelleTrimestre['libelle']);
   $date = date('Y');
-
 $lesTrimestres = array();
-
   if ($libelleTr == "Janvier/Février/Mars") {
-
     $lesTrimestres = array(
       1 => array(
         "libelle" => "Avril/Mai/Juin",
@@ -909,7 +843,6 @@ $lesTrimestres = array();
       )
     );
   }elseif ($libelleTr == "Avril/Mai/Juin") {
-
     $lesTrimestres = array(
       1 => array(
         "libelle" => "Juillet/Aout/Septembre",
@@ -933,7 +866,6 @@ $lesTrimestres = array();
       )
     );
   }elseif ($libelleTr == "Juillet/Aout/Septembre") {
-
         $lesTrimestres = array(
           1 => array(
             "libelle" => "Octobre/Novembre/Decembre",
@@ -980,11 +912,8 @@ $lesTrimestres = array();
       )
     );
   }
-
   return $lesTrimestres;
-
 }
-
 function getCompte($pseudo,$mdp){
     $dbh = connexion();
     $pdoStatement = $dbh->prepare("select id from user where Pseudo = :pseudo and Mdp = :mdp");
@@ -995,8 +924,6 @@ function getCompte($pseudo,$mdp){
     return $result;
     $dbh = null;
   }
-
-
   function getTrimestreDate($date)
   {
     $d = date_parse_from_format("Y-m-d", implode($date));
@@ -1020,7 +947,6 @@ function getCompte($pseudo,$mdp){
     }
     return $result;
   }
-
   function getUtilisateur()
   {
     $dbh = connexion();
@@ -1030,7 +956,6 @@ function getCompte($pseudo,$mdp){
     return $result;
     $dbh = null;
   }
-
   function setNbLigne($value){
     $dbh = connexion();
     $pdoStatement = $dbh ->prepare("update Ligne set nbLigne = :ligne WHERE id='1'");
@@ -1045,7 +970,6 @@ function getCompte($pseudo,$mdp){
       throw new Exception("Erreur modif ");
     }
   }
-
   function getNbLigne(){
     $dbh = connexion();
     $pdoStatement = $dbh->prepare("select nbLigne from Ligne");
@@ -1053,5 +977,33 @@ function getCompte($pseudo,$mdp){
     $result = $pdoStatement->fetchAll();
     return $result;
     $dbh = null;
+  }
+  function ajoutreportparadherent($idadherent)
+  {
+    $dbh= connexion();
+    $PdoStatement = $dbh ->prepare("insert into report values (NULL,0,:idadherent)");
+    $PdoStatement->bindvalue("idadherent",$idadherent);
+    if($PdoStatement->execute()){
+      $PdoStatement->closeCursor();
+      $dbh=null;
+    }
+    else{
+      throw new Exception("Erreur ajout report de d'adherent");
+    }
+  }
+  function getreportparadherent($idadherent)
+  {
+    $dbh = connexion();
+    try{
+      $pdoStatement = $dbh->prepare("select prixReport from report where idAdherent = :idadherent");
+      $PdoStatement->bindvalue("idadherent",$idadherent);
+      $pdoStatement->execute();
+      $result = $pdoStatement->fetchAll();
+      return $result;
+    }
+    catch(Exception $e)
+    {
+      throw new Exception("erreur lors de la recuperation du report ");
+    }
   }
 ?>
