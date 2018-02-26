@@ -77,6 +77,9 @@ $(document).ready(function() {
                 $total += $prixDouble;
               }
 
+              var_dump($dateAdhesionTrimestre);
+              var_dump($trimestreActuel);
+
             if ($total < $leSeuil && $total != 0) {  //On affiche si seulement si le total est en dessous du sueil et que le total est different de 0
               echo '<tr>';
               echo '<td>'.$unAdherent['nom'].'</td>';
