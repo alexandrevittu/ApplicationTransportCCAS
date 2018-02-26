@@ -124,6 +124,7 @@
           echo 'Trimestre actuel : Octobre/Novembre/Décembre '.$annee."";
           $trimestreavant = 3;
           echo 'Facturation trimestre : Juillet/Aout/Septembre '.$annee.'';
+
         }
 
       foreach($lesAdherents as $unAdherent)       //parcours des adherents
