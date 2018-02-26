@@ -9,6 +9,8 @@
   <div id="logoTrnsport">
     <a href="accueil.php"><img src="../img/logo-LCA.png" alt="Logo application" id="logo"/></a>
   </div>
+
+
   <?php
     if($_SESSION['id']==1)
     {
@@ -17,10 +19,7 @@
         <button id="gestioncompte" type="submit" onclick="window.location='gestionCompte.php';">Gestion des compte</button>
         <button id="inscription" onclick="window.location='inscription.php';">Inscription</button>
       </div>
-      <?php
-      $date = date('d/m/Y');
-      echo '<h3>'.$date.'</h3>';
-       ?>
+
       <?php
     }
     elseif($_SESSION['id']>1)
@@ -31,6 +30,10 @@
       header('Location: connexion.php');
     }
    ?>
+   <?php
+   $date = date('d/m/Y');
+   echo '<h3 style="margin-top:45px;">'.$date.'</h3>';
+    ?>
 <script>
     setTimeout("window.location='deconnexion.php'",7200000);
 </script>

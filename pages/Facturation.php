@@ -152,6 +152,7 @@
                 if($unAdherent['dateAdhesion'] > $année."-01-01" && $unAdherent['dateAdhesion'] < $année."-03-31")    //verifie si c'est bien pour le trimestre actuel
                 {
                   $prixtotal += $prixadhesion['prix'];    //ajout prix
+
                 }
               }
               if($trimestreavant == 2)
