@@ -52,13 +52,24 @@ $(document).ready(function() {
 
 
           foreach($lesAdherents as $unAdherent){
-
+            updateReport($unAdherent['id'],0);
             $adhesion = 0;
             $trimestreActuel = getTrimestre(); // retourne le trimestre actuel
 
-            $adTrajetCours = getNbTrajetCourtAdherentTrimestreActuel($unAdherent['id'],$trimestreActuel);
-            $adTrajetMoyen = getNbTrajetMoyenAdherentTrimestreActuel($unAdherent['id'],$trimestreActuel);    //affichage du nombre de trajet court,moyen et long par adhérent.
-            $adTrajetLong = getNbTrajetLongAdherentTrimestreActuel($unAdherent['id'],$trimestreActuel);
+            if ($trimestreActuel == 1) {
+              $trimestreAvant = 4;
+            }elseif ($trimestreActuel == 2) {
+              $trimestreAvant = 1;
+            }elseif ($trimestreActuel == 3) {
+              $trimestreAvant = 2;
+            }
+            else {
+              $trimestreAvant = 3;
+            }
+
+            $adTrajetCours = getNbTrajetCourtAdherentTrimestreActuel($unAdherent['id'],$trimestreAvant);
+            $adTrajetMoyen = getNbTrajetMoyenAdherentTrimestreActuel($unAdherent['id'],$trimestreAvant);    //affichage du nombre de trajet court,moyen et long par adhérent.
+            $adTrajetLong = getNbTrajetLongAdherentTrimestreActuel($unAdherent['id'],$trimestreAvant);
 
             $trCourt = (double)$adTrajetCours['nbTrajetCourt'];
             $trMoy = (double)$adTrajetMoyen['nbTrajetCourt'];            //On caste ceci en double
@@ -71,32 +82,32 @@ $(document).ready(function() {
 
             $prixAdhe = Getprixadhesion(); //retourne le prix de l'adhesion
 
-            // $prixDouble = (double)$prixAdhe['prix'];
-            //   if($dateAdhesionTrimestre == $trimestreActuel){  // Verifie si  la date d'adhesion a ete fait dans le trimestre actuel si oui on ajoute le prix de l'adhesion
-            //     $total += $prixDouble;
-            //   }
+             $prixDouble = (double)$prixAdhe['prix'];
+               if($dateAdhesionTrimestre == $trimestreActuel){  // Verifie si  la date d'adhesion a ete fait dans le trimestre actuel si oui on ajoute le prix de l'adhesion
+                 $total += $prixDouble;
+               }
 
-            // if($dateAdhesionTrimestre == 1){
-            //   if ($trimestreActuel == 2) {
-            //     $total += $prixDouble;
-            //   }
-            // }
-            // else if ($dateAdhesionTrimestre == 2) {
-            //   if ($trimestreActuel == 3) {
-            //     $total += $prixDouble;
-            //   }
-            // }
-            // else if ($dateAdhesionTrimestre == 3) {
-            //   if ($trimestreActuel == 4) {
-            //     $total += $prixDouble;
-            //   }
-            // }
-            // elseif ($dateAdhesionTrimestre == 4) {
-            //   if ($trimestreActuel == 1) {
-            //     $total += $prixDouble;
-            //   }
-            // }
-            //
+             if($dateAdhesionTrimestre == 1){
+               if ($trimestreActuel == 2) {
+                 $total += $prixDouble;
+               }
+             }
+             else if ($dateAdhesionTrimestre == 2) {
+               if ($trimestreActuel == 3) {
+                 $total += $prixDouble;
+               }
+             }
+             else if ($dateAdhesionTrimestre == 3) {
+               if ($trimestreActuel == 4) {
+                 $total += $prixDouble;
+               }
+             }
+             elseif ($dateAdhesionTrimestre == 4) {
+               if ($trimestreActuel == 1) {
+                 $total += $prixDouble;
+               }
+             }
+
 
             if ($total < $leSeuil && $total != 0) {  //On affiche si seulement si le total est en dessous du sueil et que le total est different de 0
               updateReport($unAdherent['id'],$total);
@@ -111,7 +122,7 @@ $(document).ready(function() {
               } else {
               echo '<td>Aucune date saisie</td>'; //gerer exception si jamais il n'y a pas de date.
               }
-              
+
             }
           }
           ?>
