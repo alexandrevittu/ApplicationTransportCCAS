@@ -132,6 +132,7 @@
         var_dump($trimestreavant);
         $test = false;
         $année=date('Y');
+        
         if($trimestre ==1)
         {
           $année = $année-1;
