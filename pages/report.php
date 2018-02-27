@@ -83,9 +83,9 @@ $(document).ready(function() {
             $prixAdhe = Getprixadhesion(); //retourne le prix de l'adhesion
 
              $prixDouble = (double)$prixAdhe['prix'];
-               if($dateAdhesionTrimestre == $trimestreActuel){  // Verifie si  la date d'adhesion a ete fait dans le trimestre actuel si oui on ajoute le prix de l'adhesion
-                 $total += $prixDouble;
-               }
+               // if($dateAdhesionTrimestre == $trimestreActuel){  // Verifie si  la date d'adhesion a ete fait dans le trimestre actuel si oui on ajoute le prix de l'adhesion
+               //   $total += $prixDouble;
+               // }
 
              if($dateAdhesionTrimestre == 1){
                if ($trimestreActuel == 2) {
@@ -108,8 +108,11 @@ $(document).ready(function() {
                }
              }
 
-
+             $prix = getreportparadherent($unAdherent['id'],$trimestreAvant);
+             $total += $prix['prixReport'];
+             
             if ($total < $leSeuil && $total != 0) {  //On affiche si seulement si le total est en dessous du sueil et que le total est different de 0
+
               updateReport($unAdherent['id'],$total,$trimestreActuel);
               echo '<tr>';
               echo '<td>'.$unAdherent['nom'].'</td>';
