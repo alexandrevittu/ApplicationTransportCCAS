@@ -100,30 +100,33 @@
 
         if($trimestre == 1)         //affiche le trimestre en cours
         {
-          echo 'Trimestre actuel : Janvier/Fevrier/Mars '.$annee."";
+          echo '<span>Trimestre actuel : Janvier/Fevrier/Mars '.$annee."</span>";
           $trimestreavant = 4;
           echo '<br>';
           $annee = $annee -1;
-          echo 'Facturation trimestre : Octobre/Novembre/Décembre '.$annee.'';
+          echo '<span>Facturation trimestre : Octobre/Novembre/Décembre '.$annee.'</span>';
         }
         elseif($trimestre == 2)
         {
-          echo 'Trimestre actuel : Avril/Mai/Juin '.$annee."";
+          echo '<span>Trimestre actuel : Avril/Mai/Juin '.$annee."</span>";
           $trimestreavant = 1;
-          echo 'Facturation trimestre : Janvier/Fevrier/Mars '.$annee.'';
+          echo '<br>';
+          echo '<span>Facturation trimestre : Janvier/Fevrier/Mars '.$annee.'</span>';
 
         }
         elseif($trimestre == 3)
         {
-          echo 'Trimestre actuel : Juillet/Aout/Septembre '.$annee."";
+          echo '<span>Trimestre actuel : Juillet/Aout/Septembre '.$annee."</span>";
           $trimestreavant = 2;
-          echo 'Facturation trimestre : Avril/Mai/Juin '.$annee.'';
+          echo '<br>';
+          echo '<span>Facturation trimestre : Avril/Mai/Juin '.$annee.'</span>';
         }
         elseif($trimestre == 4)
         {
-          echo 'Trimestre actuel : Octobre/Novembre/Décembre '.$annee."";
+          echo '<span>Trimestre actuel : Octobre/Novembre/Décembre '.$annee."</span>";
           $trimestreavant = 3;
-          echo 'Facturation trimestre : Juillet/Aout/Septembre '.$annee.'';
+          echo '<br>';
+          echo '<span>Facturation trimestre : Juillet/Aout/Septembre '.$annee.'</span>';
         }
 
       foreach($lesAdherents as $unAdherent)       //parcours des adherents
