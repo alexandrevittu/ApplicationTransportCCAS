@@ -87,7 +87,7 @@ $(document).ready(function() {
                //   $total += $prixDouble;
                // }
               $annee = date('Y');
-              var_dump($trimestreAvant);
+              
              if($trimestreAvant == 1){
                if ($dateAdhesion['dateAdhesion']>$annee."-01-01" && $dateAdhesion['dateAdhesion'] < $annee."-03-31") {
                  $total += $prixDouble;

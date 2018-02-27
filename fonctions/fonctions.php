@@ -958,7 +958,7 @@ function getCompte($pseudo,$mdp){
   }
   function setNbLigne($value){
     $dbh = connexion();
-    $pdoStatement = $dbh ->prepare("update Ligne set nbLigne = :ligne WHERE id='1'");
+    $pdoStatement = $dbh ->prepare("update ligne set nbLigne = :ligne WHERE id='1'");
     $pdoStatement->bindvalue("ligne",$value);
     if($pdoStatement->execute())
     {
@@ -972,7 +972,7 @@ function getCompte($pseudo,$mdp){
   }
   function getNbLigne(){
     $dbh = connexion();
-    $pdoStatement = $dbh->prepare("select nbLigne from Ligne");
+    $pdoStatement = $dbh->prepare("select nbLigne from ligne");
     $pdoStatement->execute();
     $result = $pdoStatement->fetchAll();
     return $result;
