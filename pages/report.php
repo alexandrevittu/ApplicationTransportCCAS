@@ -87,7 +87,7 @@ $(document).ready(function() {
                //   $total += $prixDouble;
                // }
               $annee = date('Y');
-              
+
              if($trimestreAvant == 1){
                if ($dateAdhesion['dateAdhesion']>$annee."-01-01" && $dateAdhesion['dateAdhesion'] < $annee."-03-31") {
                  $total += $prixDouble;
@@ -114,7 +114,7 @@ $(document).ready(function() {
 
              if($total == 0)
              {
-               updateReport($unAdherent['id'],$total,$trimestreActuel);
+               //updateReport($unAdherent['id'],$total,$trimestreActuel);
 
              }
 
