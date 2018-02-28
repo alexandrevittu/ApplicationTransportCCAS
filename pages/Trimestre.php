@@ -59,6 +59,51 @@
       ModifTrajetMoyenParAdherent($_POST['id'],$_POST['trimestre'],$_POST['trajetmoyen'],$datemtn);
       ModifTrajetLongParAdherent($_POST['id'],$_POST['trimestre'],$_POST['trajetlong'],$datemtn);
     }
+    if(isset($_POST['trimestre']) && $_POST['trimestre']==1)
+    {
+      $annee = $triTrimestre[4]['annee'];
+      $libelleTrimestre = getTrimestreLib($_POST['trimestre']);
+      $libelleTr = utf8_encode($libelleTrimestre['libelle']);
+      echo"<h4 style='text-align: center;'>Trimestre selectionné : ".$libelleTr." ".$annee." </h4>";
+      echo "<script>";
+      echo "document.getElementById('selecttrimestre').style.display = 'none';";
+      echo "document.getElementById('btnenvoyer').style.display = 'none';";
+      echo'</script>';
+
+    }
+    elseif(isset($_POST['trimestre']) && $_POST['trimestre']==2)
+    {
+      $annee = $triTrimestre[3]['annee'];
+      $libelleTrimestre = getTrimestreLib($_POST['trimestre']);
+      $libelleTr = utf8_encode($libelleTrimestre['libelle']);
+      echo"<h4 style='text-align: center;'>Trimestre selectionné : ".$libelleTr." ".$annee." </h4>";
+      echo "<script>";
+      echo "document.getElementById('selecttrimestre').style.display = 'none';";
+      echo "document.getElementById('btnenvoyer').style.display = 'none';";
+      echo'</script>';
+    }
+    elseif(isset($_POST['trimestre']) && $_POST['trimestre']==3)
+    {
+      $annee = $triTrimestre[2]['annee'];
+      $libelleTrimestre = getTrimestreLib($_POST['trimestre']);
+      $libelleTr = utf8_encode($libelleTrimestre['libelle']);
+      echo"<h4 style='text-align: center;'>Trimestre selectionné : ".$libelleTr." ".$annee." </h4>";
+      echo "<script>";
+      echo "document.getElementById('selecttrimestre').style.display = 'none';";
+      echo "document.getElementById('btnenvoyer').style.display = 'none';";
+      echo'</script>';
+    }
+    elseif(isset($_POST['trimestre']) && $_POST['trimestre']==4)
+    {
+      $annee = $triTrimestre[1]['annee'];
+      $libelleTrimestre = getTrimestreLib($_POST['trimestre']);
+      $libelleTr = utf8_encode($libelleTrimestre['libelle']);
+      echo"<h4 style='text-align: center;'>Trimestre selectionné : ".$libelleTr." ".$annee." </h4>";
+      echo "<script>";
+      echo "document.getElementById('selecttrimestre').style.display = 'none';";
+      echo "document.getElementById('btnenvoyer').style.display = 'none';";
+      echo'</script>';
+    }
       if(isset($_POST['trimestre']))  //creation du tableau
       {
 
@@ -76,7 +121,7 @@
           echo '<td>'.$unAdherent['nom'].'</td>';
           echo '<td>'.$unAdherent['prenom'].'</td>';
           echo '<td>'.$unAdherent['adresse'].'</td>';
-          echo '<td><form action="addtrajet.php"  method="POST"><input type="hidden" name="prenom" value='.$unAdherent['prenom'].'><input type="hidden" name="nom" value='.$unAdherent['nom'].'><input type="hidden" name="id" value='.$id.'><input type="hidden" name="trimestre" value='.$_POST["trimestre"].'><button class="btn btn-info" id="btn-view" type="submit"><span class=" glyphicon glyphicon-plus" ></span> &nbsp;Ajout</button></form></td>';
+          echo '<td><form action="addtrajet.php"  method="POST"><input type="hidden" name="prenom" value='.$unAdherent['prenom'].'><input type="hidden" name="nom" value='.$unAdherent['nom'].'><input type="hidden" name="id" value='.$id.'><input type="hidden" name="trimestre" value='.$_POST["trimestre"].'><input type="hidden" name="annee" value='.$annee.'><button class="btn btn-info" id="btn-view" type="submit"><span class=" glyphicon glyphicon-plus" ></span> &nbsp;Ajout</button></form></td>';
           $trimestresuivant = getTrimestreSuivantNb();
           $test = getTrimestre();
           ModifTrajetCourtParAdherent($unAdherent['id'],$trimestresuivant,0,null);
@@ -85,47 +130,7 @@
           updateReport($unAdherent['id'],0,$trimestresuivant);
         }
       }
-      if(isset($_POST['trimestre']) && $_POST['trimestre']==1)
-      {
-        $libelleTrimestre = getTrimestreLib($_POST['trimestre']);
-        $libelleTr = utf8_encode($libelleTrimestre['libelle']);
-        echo"<h4>Trimestre selectionné : ".$libelleTr." </h4>";
-        echo "<script>";
-        echo "document.getElementById('selecttrimestre').style.display = 'none';";
-        echo "document.getElementById('btnenvoyer').style.display = 'none';";
-        echo'</script>';
 
-      }
-      elseif(isset($_POST['trimestre']) && $_POST['trimestre']==2)
-      {
-        $libelleTrimestre = getTrimestreLib($_POST['trimestre']);
-        $libelleTr = utf8_encode($libelleTrimestre['libelle']);
-        echo"<h4>Trimestre selectionné : ".$libelleTr." </h4>";
-        echo "<script>";
-        echo "document.getElementById('selecttrimestre').style.display = 'none';";
-        echo "document.getElementById('btnenvoyer').style.display = 'none';";
-        echo'</script>';
-      }
-      elseif(isset($_POST['trimestre']) && $_POST['trimestre']==3)
-      {
-        $libelleTrimestre = getTrimestreLib($_POST['trimestre']);
-        $libelleTr = utf8_encode($libelleTrimestre['libelle']);
-        echo"<h4>Trimestre selectionné : ".$libelleTr." </h4>";
-        echo "<script>";
-        echo "document.getElementById('selecttrimestre').style.display = 'none';";
-        echo "document.getElementById('btnenvoyer').style.display = 'none';";
-        echo'</script>';
-      }
-      elseif(isset($_POST['trimestre']) && $_POST['trimestre']==4)
-      {
-        $libelleTrimestre = getTrimestreLib($_POST['trimestre']);
-        $libelleTr = utf8_encode($libelleTrimestre['libelle']);
-        echo"<h4>Trimestre selectionné : ".$libelleTr." </h4>";
-        echo "<script>";
-        echo "document.getElementById('selecttrimestre').style.display = 'none';";
-        echo "document.getElementById('btnenvoyer').style.display = 'none';";
-        echo'</script>';
-      }
       echo '</table>';
 
 
