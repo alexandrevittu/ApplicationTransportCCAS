@@ -49,6 +49,7 @@ if (($handle = fopen($filename, "r")) !== FALSE) {
           ajouttrajetcourtparadherent($id['id'],$i,$nbtrajet);
           ajouttrajetmoyenparadherent($id['id'],$i,$nbtrajet);
           ajouttrajetlongparadherent($id['id'],$i,$nbtrajet);
+          ajoutreportparadherent($id['id'],$i);
         }
         ajoutadhesionparadherent($id['id'],$trimestre,($nom[3]));
         echo '<script>';
