@@ -138,7 +138,7 @@ $(function()
       <label for="fnom">Adresse</label><br>
       <input type="text" name="adresse" id="fadresse" onblur="verifChamp(this)" required /><br>
       <label for="fnom">Date d'adhésion</label><br>
-      <input type="text" id="datepicker" name="date" onblur="verifDate(this)" readonly ><br>
+      <input type="text" id="datepicker" name="date" onblur="verifDate(this)" readonly><br>
       <label for="fnom">Remarques</label><br>
       <!-- <input type="text" name="remarque" id="fremarque" /><br> -->
       <textarea name="remarque" id="fremarque" form="ajoutadherent" rows="4" cols="50"/></textarea><br>
@@ -159,9 +159,22 @@ $(function()
        $nb= (int)$diff->format('%R%a');
        if((int)$nb>=0)                        //verifie si la date n'est pas suppérieur a celle du jour
        {
+
          if(AjoutAdherent(($_POST["nom"]),($_POST["prenom"]),($_POST["adresse"]),($_POST["date"]),($_POST["remarque"])) == false)
          {
-           echo"<script>alert('L\'adhérent que vous voulez ajouter existe déjà !');</script>";
+           if($_POST['date'] == "")
+           {
+             $nom = $_POST['nom'];
+             $prenom = $_POST['prenom'];
+             $adresse = $_POST['adresse'];
+             $remarques = $_POST['remarque'];
+             echo"<script>alert('Date non saisie !');document.getElementById('fnom').value='".$nom."';document.getElementById('fprenom').value='".$prenom."';document.getElementById('fadresse').value='".$adresse."';document.getElementById('fremarque').value='".$remarques."';</script>";
+
+           }
+           else {
+             echo"<script>alert('L\'adhérent que vous voulez ajouter existe déjà !');</script>";
+
+           }
          }
          else {
 
@@ -186,8 +199,9 @@ $(function()
            <p><span class="ui-icon ui-icon-check" style="margin-right:15px;"></span>L'adherent <?php echo $_POST['nom'].' '.$_POST['prenom']?> a été ajouté.</br> Voulez-vous ajouter un autre adhérent ?</p>
          </div>
          <?php
+
        }
-       }
+     }
        else
        {
          $nom = $_POST['nom'];

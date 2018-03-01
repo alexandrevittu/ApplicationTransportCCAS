@@ -215,7 +215,7 @@
             $prixtotal += $nbtrajetlongparadherent['nbTrajet']*$prixtrajetlong['prix'];
           }
         }
-        if($prixtotal >= $seuil['prix'])  //affichage seulement si pris supérieur a seuil
+        if($prixtotal >= $seuil['prix'])  //affichage seulement si pris supérieur ou egal a seuil
         {
           echo '<td>'.$unAdherent['nom'].'</td>';
           echo '<td>'.$unAdherent['prenom'].'</td>';
