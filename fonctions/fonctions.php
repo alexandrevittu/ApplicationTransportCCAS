@@ -673,7 +673,7 @@ function getTrimestreSuivantNb(){
   }else if ($trimestreActuel == 3) {
     $trimestreSuivant = 4;
   }else{
-    $trimestreSuivant = 1;
+    $trimestreSuivant == 1;
   }
   return $trimestreSuivant;
 }
@@ -716,7 +716,7 @@ function getNbTrajetParAn($date1,$date2)
   $dbh = connexion();
   try
   {
-      $pdoStatement = $dbh->prepare("select SUM(nbTrajet) as nb FROM tarifs WHERE dateDernierTrajet BETWEEN :date1 AND :date2");
+      $pdoStatement = $dbh->prepare("select SUM(nbTrajet) as nb FROM tarifs WHERE dateDernierTrajet BETWEEN :date1 AND :date2 AND idTypetrajet != 5");
       $pdoStatement->bindvalue("date1",$date1);
       $pdoStatement->bindvalue("date2",$date2);
       $pdoStatement->execute();
