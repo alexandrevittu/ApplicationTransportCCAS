@@ -52,7 +52,7 @@ include_once "../fonctions/fonctions.php";
       dayNamesShort: ['Dim.', 'Lun.', 'Mar.', 'Mer.', 'Jeu.', 'Ven.', 'Sam.'],
       dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
       weekHeader: 'Sem.',
-      dateFormat: 'yy-mm-dd',
+      dateFormat: 'dd-mm-yy',
       firstDay: 1
     });
   });

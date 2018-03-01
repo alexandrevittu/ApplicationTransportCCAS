@@ -5,6 +5,29 @@
   <title>Tarifs</title>
 </head>
 <body>
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"> <!-- ici-->
+<link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
+<script type="text/javascript" src="assets/datatables.min.js"></script> <!-- ici-->
+<script type="text/javascript" src="https://cdn.datatables.net/fixedheader/3.1.3/js/dataTables.fixedHeader.min.js"></script>
+  <script>
+      $(function() {
+       $("#testbtn").click(function(){              //fenetre de dialog
+         if(document.getElementById('seuil').value == "" || document.getElementById('court').value == "" || document.getElementById('moyen').value== "" || document.getElementById('long').value=="" || document.getElementById('adhesion').value=="")
+         {
+
+
+         if(confirm("Êtes vous sûr de vouloir ajouter ces tarifs, un ou plusieurs tarif(s) est a zero ! ?")==true)
+         {
+            $("#tarif").submit();
+         }
+         else {
+         }}
+         else {
+           $("#tarif").submit();
+         }
+       });
+      });
+  </script>
 
 <?php
 include_once "header.php";
@@ -14,7 +37,7 @@ include_once "../fonctions/fonctions.php";
   <div class="content-loader" style="width: 50%;margin:5% 20%;">    <!--creation du Formulaire des tarifs-->
     <h2 style="text-align:center;">Tarifs</h2>
     <hr class="style-ligne">
-      <form id="tarif" method="POST">
+      <form action="Tarif.php" id="tarif" method="POST">
         <label>Seuil du report du trimestre</label><br>
         <input type="number" name="seuil" step="0.1" id="seuil"/><br>
         <label>Tarif trajet court</label><br>
@@ -25,19 +48,21 @@ include_once "../fonctions/fonctions.php";
         <input type="number" name="trajetlong" step="0.1" id="long"/><br>
         <label>Tarif de l'adhésion</label><br>
         <input type="number" name="tarifadhesion" step="0.1" id="adhesion"/><br>
-        <p><input class="" type="submit" value="Valider"/></p>
+        <input id="testbtn" class="btn btn-info" type="button" value="Valider">
       </form>
     <?php
     if(isset($_POST["trajetcourt"]))    //envoie dans la BDD
     {
-      ModifSeuil($_POST["seuil"]);
-      ModifTarifCourt($_POST["trajetcourt"]);
-      ModifTarifMoyen($_POST["trajetmoyen"]);
-      ModifTarifLong($_POST["trajetlong"]);
-      ModifTarifAdhesion($_POST["tarifadhesion"]);
-      echo'<script>';
-      echo"window.setTimeout(location=('accueil.php'), 6)";
-      echo'</script>';
+
+        ModifSeuil($_POST["seuil"]);
+        ModifTarifCourt($_POST["trajetcourt"]);
+        ModifTarifMoyen($_POST["trajetmoyen"]);
+        ModifTarifLong($_POST["trajetlong"]);
+        ModifTarifAdhesion($_POST["tarifadhesion"]);
+        echo'<script>';
+        echo"window.setTimeout(location=('accueil.php'), 6)";
+        echo'</script>';
+
     }
 
     ?>
