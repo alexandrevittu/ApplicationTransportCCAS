@@ -701,7 +701,7 @@ function dateFr($date)    //convertie la date en format FR  ex : DD-MM-YYYY
 function getDateDernierTrajet($idAdherent){ //retourne la date du dernier trajet fait pas l'adherent passer en paramétre
   $dbh = connexion();
   try{
-    $pdoStatement = $dbh->prepare("select DISTINCT idAdherent,dateDernierTrajet FROM tarifs where dateDernierTrajet != '' and idAdherent = :idAdherent");
+    $pdoStatement = $dbh->prepare("select DISTINCT idAdherent,idTrimestre FROM tarifs where dateDernierTrajet != '' and idAdherent = :idAdherent");
     $pdoStatement->bindvalue("idAdherent",$idAdherent);
     $pdoStatement->execute();
     $result = $pdoStatement->fetch();

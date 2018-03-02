@@ -126,9 +126,10 @@ $(document).ready(function() {
               echo '<td>'.$unAdherent['prenom'].'</td>';
               echo '<td>'.$unAdherent['adresse'].'</td>';
               echo '<td>'.$total.' €</td>';
-              $datederniertrajet = getDateDernierTrajet($unAdherent['id']);  // retourne la date du dernier trajet effecetué
-              if (!empty($datederniertrajet['dateDernierTrajet'])) {
-              echo '<td>'.dateFr($datederniertrajet['dateDernierTrajet']).'</td>';
+              $datederniertrajet = getDateDernierTrajet($unAdherent['id']);  // retourne la date du dernier trajet effectué
+              $libelleTrimestre  = getTrimestreLib($datederniertrajet['idTrimestre']);
+              if (!empty($datederniertrajet['idTrimestre'])) {
+              echo '<td>'.$datederniertrajet['idTrimestre'].'</td>';
               } else {
               echo '<td>Aucune date saisie</td>'; //gerer exception si jamais il n'y a pas de date.
               }
