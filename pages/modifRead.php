@@ -18,6 +18,7 @@
   <script>      <!-- traduction du calendrier -->
   $( function() {
     $( "#datepicker" ).datepicker({
+      showButtonPanel: true,
       altField: "#datepicker",
       closeText: 'Fermer',
       prevText: 'Précédent',
@@ -29,7 +30,7 @@
       dayNamesShort: ['Dim.', 'Lun.', 'Mar.', 'Mer.', 'Jeu.', 'Ven.', 'Sam.'],
       dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
       weekHeader: 'Sem.',
-      dateFormat: 'yy-mm-dd'
+      dateFormat: 'dd-mm-yy'
     });
   });
   </script>
@@ -46,7 +47,7 @@
       <label for="fadresse">Adresse</label></br>
       <input type="text" name="adresse" id="fadresse" onblur="verifChamp(this)" value="<?php echo$ladherent['adresse']?>"/></br>
       <label for="datepicker">Date d'adhésion</label></br>
-      <input type="text" name="dateAdhesion" id="datepicker" readonly onblur="verifDate(this)" value="<?php echo$ladherent['dateAdhesion']?>"/></br>
+      <input type="text" name="dateAdhesion" id="datepicker" readonly onblur="verifDate(this)" value="<?php echo dateFr($ladherent['dateAdhesion'])?>"/></br>
       <label for="fremarque">Remarque</label></br>
       <input type="text" name="remarque" id="fremarque" value="<?php echo $remarque?>"/></br>
       <input type="hidden" name="test" value="2"/>
