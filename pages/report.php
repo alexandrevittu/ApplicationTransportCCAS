@@ -128,7 +128,7 @@ $(document).ready(function() {
               echo '<td>'.$total.' €</td>';
               $datederniertrajet = getDateDernierTrajet($unAdherent['id']);  // retourne la date du dernier trajet effecetué
               if (!empty($datederniertrajet['dateDernierTrajet'])) {
-              echo '<td>'.$datederniertrajet['dateDernierTrajet'].'</td>';
+              echo '<td>'.dateFr($datederniertrajet['dateDernierTrajet']).'</td>';
               } else {
               echo '<td>Aucune date saisie</td>'; //gerer exception si jamais il n'y a pas de date.
               }

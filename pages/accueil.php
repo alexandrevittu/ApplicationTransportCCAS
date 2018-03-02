@@ -84,7 +84,7 @@ include_once "../fonctions/fonctions.php";  //inclut l'en-tete
     $annee =date('Y');
     if($mois>=01 && $mois<=03)
     {
-      echo "<label>Trimestre en cours : Janvier/Fevrier/Mars ".$annee."</label>";
+      echo "<label>Trimestre en cours : Janvier/Février/Mars ".$annee."</label>";
     }
     elseif($mois>=04 && $mois<=06)
     {
@@ -96,7 +96,7 @@ include_once "../fonctions/fonctions.php";  //inclut l'en-tete
     }
     else
     {
-      echo '<label>Trimestre en cours : Juillet/Aout/Septembre '.$annee.'</label>';
+      echo '<label>Trimestre en cours : Juillet/Août/Septembre '.$annee.'</label>';
     }
 
 /***** Pour recepurer le nombre de renouvellement d'adhesion passée dans la variable $_SESSIOn, ainsi on recuperer de page en page.******/

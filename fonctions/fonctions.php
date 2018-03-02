@@ -12,6 +12,11 @@ function connexion(){
 }
 function AjoutAdherent($nom,$prenom,$adresse,$dateadhesion,$remarque){
   $dbh= connexion();
+  if($dateadhesion =="")
+  {
+    return false;
+  }
+  else{
   $dateadhesion = strftime('%Y-%m-%d',strtotime($dateadhesion));
   $PdoStatement = $dbh ->prepare("insert into adherents values (NULL,:nom,:prenom,:adresse,:dateadhesion,:remarque)");
   $PdoStatement->bindvalue("nom",$nom);
@@ -27,7 +32,7 @@ function AjoutAdherent($nom,$prenom,$adresse,$dateadhesion,$remarque){
   else{
     //throw new Exception("Erreur ajout d'adherent");
     return false;
-  }
+  }}
 }
 function ModifAdherent($id,$nom,$prenom,$adresse,$date,$remarque)
 {

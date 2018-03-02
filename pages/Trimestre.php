@@ -116,6 +116,16 @@
 
         foreach($lesAdherents as $unAdherent)
         {
+          $dateadhesion = $unAdherent['dateAdhesion'];
+          $datetoday = date("Y-m-d");
+          $dateadd = date_create($dateadhesion);
+          $dateactueldatetime = date_create($datetoday);
+          $diff = date_diff($dateadd,$dateactueldatetime);
+          $difference = (int)$diff->format('%R%a');
+
+          if($difference < 365)
+          {
+
           $id=$unAdherent['id'];
           echo '<tr>';
           echo '<td>'.$unAdherent['nom'].'</td>';
@@ -128,6 +138,8 @@
           ModifTrajetMoyenParAdherent($unAdherent['id'],$trimestresuivant,0,null);
           ModifTrajetLongParAdherent($unAdherent['id'],$trimestresuivant,0,null);
           updateReport($unAdherent['id'],0,$trimestresuivant);
+          }
+
         }
       }
 
@@ -136,7 +148,18 @@
 
     ?>
     <form style="text-align:center;">
-    <input   class="btn btn-info" onclick="window.location.href='trimestre.php'" type="submit" value="Retour" id="btnretoureee"> <!-- Boutton annuler -->
+  <!--  <input   class="btn btn-info" onclick="window.location.href='trimestre.php'" type="button" value="Retour" id="btnretoureee"> <!-- Boutton annuler -->
+    <?php
+      if(isset($_POST['trimestre']))
+      {
+        ?>
+        <input class="btn btn-info" onclick="window.location.href='Facturation.php'" type="button" value="Facturation">
+
+        <input   class="btn btn-info" onclick="window.location.href='trimestre.php'" type="button" value="Retour au choix du trimestre" id="btnretoureee">
+        <?php
+      }
+     ?>
+
     <input  class="btn btn-info" onclick="window.location.href='accueil.php'" type="button"  value="Accueil">
   </form>
   </div>

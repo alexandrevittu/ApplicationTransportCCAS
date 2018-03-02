@@ -196,7 +196,7 @@ $(function()
 
          ?>
          <div id="dialog-confirm" title="Ajout d'adhérents">
-           <p><span class="ui-icon ui-icon-check" style="margin-right:15px;"></span>L'adherent <?php echo $_POST['nom'].' '.$_POST['prenom']?> a été ajouté.</br> Voulez-vous ajouter un autre adhérent ?</p>
+           <p><span class="ui-icon ui-icon-check" style="margin-right:15px;"></span>L'adhérent <?php echo $_POST['nom'].' '.$_POST['prenom']?> a été ajouté.</br> Voulez-vous ajouter un autre adhérent ?</p>
          </div>
          <?php
 
