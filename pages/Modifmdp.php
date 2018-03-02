@@ -31,9 +31,9 @@
 </script>
 </head>
 <body>
-  <div id="conteneur">
+  <div id="conteneur2">
   <h2 style="text-align:center;">Modification mot de passe</h2>
-  <form method="POST" style=";margin:0 auto;padding-top:15px;text-align:center;" id="ajoutadherent">
+  <form method="POST" style=";margin:0 auto;padding-top:15px;text-align:center;" id="compteMdp">
     <?php
     echo '<label>Utilisateur selectionné : '.$uti['Pseudo'].'</label><br>';
     echo '<label>Saisir le mot de passe actuel : </label><br>';
@@ -46,6 +46,9 @@
      <input type="password" size="10px;" style="padding:5px;" name="mdp" id="newmdp" required/>
      <input type="checkbox" onclick="affichernewmdp()"> Afficher le mot de passe</br>
      <input type="submit" value="Valider"/>
+     <form action="gestionCompte.php" style="text-align:center;">
+       <input type="submit" value="Annuler" id=""/>
+     </form>
   </form>
 </div>
   <?php
@@ -68,9 +71,7 @@
     }
   }
 ?>
-  <form action="gestionCompte.php" style="text-align:center;">
-    <input type="submit" value="Annuler" id="btn_ajout2"/>
-  </form>
+
 </body>
 
 </html>

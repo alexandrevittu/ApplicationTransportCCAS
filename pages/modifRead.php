@@ -46,7 +46,7 @@
       <label for="fadresse">Adresse</label></br>
       <input type="text" name="adresse" id="fadresse" onblur="verifChamp(this)" value="<?php echo$ladherent['adresse']?>"/></br>
       <label for="datepicker">Date d'adhésion</label></br>
-      <input type="text" name="dateAdhesion" id="datepicker" onblur="verifDate(this)" value="<?php echo$ladherent['dateAdhesion']?>"/></br>
+      <input type="text" name="dateAdhesion" id="datepicker" readonly onblur="verifDate(this)" value="<?php echo$ladherent['dateAdhesion']?>"/></br>
       <label for="fremarque">Remarque</label></br>
       <input type="text" name="remarque" id="fremarque" value="<?php echo $remarque?>"/></br>
       <input type="hidden" name="test" value="2"/>

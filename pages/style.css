@@ -222,11 +222,12 @@ a:hover{
 hr.style-ligne { border: 0; height: 1px; background: #333; background-image: linear-gradient(to right, #ccc, #333, #ccc); }
 
 #statistique{
-width: 70%;
+width: 90%;
 margin-left: auto;
 margin-right: auto;
 margin-top: 3%;
 text-align: center;
+margin-bottom: 3%;
 }
 
  #statistique form{
@@ -559,4 +560,139 @@ margin-top: 10px;
 	width: 50%;
 	border: 1px solid #ccc;
 	border-radius: 4px;
+}
+
+#compteMdp{
+	margin-left:auto;
+	margin-left: auto;
+	padding-right: 25%;
+	padding-left: 25%;
+	line-height: 2;
+	text-align: center;
+}
+
+#compteMdp input[type=password]{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#compteMdp input[type=submit]{
+	width: 50%;
+	background-color: #50BBDB;
+	color: white;
+	padding: 5px 20px;
+	margin: 8px 0;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+#conteneur2{
+	width: 1170px;
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 0%;
+}
+/************************************/
+.box2 {
+  width: 40%;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.2);
+  padding: 35px;
+  border: 2px solid #fff;
+  border-radius: 20px/50px;
+  background-clip: padding-box;
+  text-align: center;
+}
+
+.button2 {
+  font-size: 1em;
+  padding: 10px;
+  color: #fff;
+  border: 2px solid #06D85F;
+  border-radius: 20px/50px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+.button2:hover {
+  background: #06D85F;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup2 {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+	border: 2px solid #5bc0de;
+}
+
+.popup2 h3 {
+  margin-top: 0;
+  color: rgb(51,122,183);
+  font-family: Tahoma, Arial, sans-serif;
+	text-align: center;
+}
+.popup2 .close2 {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup2 .close2:hover {
+  color: #06D85F;
+}
+.popup2 .content2 {
+  max-height: 30%;
+  overflow: auto;
+}
+
+/*************boutton non supprimer adherent confiramtion******/
+
+#oui{
+	display: inline-block;
+	margin-top:15px;
+	padding-left:  150px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#non{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.affAdh{
+	text-align: center;
+}
+
+#modifadherent{
+	display: inline-block;
+	margin-right: 10px;
 }

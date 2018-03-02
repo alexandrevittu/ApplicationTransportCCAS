@@ -14,10 +14,13 @@ $lesAdherents = ListerAdherent();
   <link href="assets/datatables.min.css" rel="stylesheet" type="text/css"> <!-- ici-->
   <script type="text/javascript" src="assets/datatables.min.js"></script> <!-- ici-->
   <script type="text/javascript" src="https://cdn.datatables.net/fixedheader/3.1.3/js/dataTables.fixedHeader.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <style type="text/css">
   #dis{
     display:none;
   }
+
 </style>
 <script language="javascript" type="text/javascript">
 
@@ -35,7 +38,7 @@ $lesAdherents = ListerAdherent();
 
 
     $( "#formSupp" ).submit(function( event ) {
-      if (confirm("Etes vous sur de vouloir supprimmer cet adherent ?")==true) {    //confirmation de suppresion de l'adherent
+      if (confirm("Êtes-vous sûr de vouloir supprimer cet adhérent ?")==true) {    //confirmation de suppresion de l'adherent
         window.location = 'validerSupp.php';
         $(document).on('submit', '#formSupp', function () {
 
@@ -56,6 +59,11 @@ $lesAdherents = ListerAdherent();
       }
       event.preventDefault();
     });
+
+
+    function closeDiv(){
+      window.location = "ListeAdherents.php";
+    }
   } );
 
   </script>
@@ -123,7 +131,8 @@ $lesAdherents = ListerAdherent();
                 echo '<td>'.$unAdherent['adresse'].'</td>';
                 echo '<td>'.dateFr($unAdherent['dateAdhesion']).'</td>';
                 echo '<td>'.$unAdherent['remarque'].'</td>';
-                echo '<td>'.'<div id=conteneurBtn><form action="ModifAdherent.php" id="modifadherent" method="POST"><input type="hidden" name="id" value='.$id.'><input class="btn btn-info" id="btn-view" type="submit" value="Modifier"/></form><form id="formSupp" method="POST" ><input type="hidden" name="id" value='.$id.'><button class="btn btn-danger" type="submit" id="btn-view" onclick="">Supprimer</button></form></td>';
+                // echo '<td>'.'<div id=conteneurBtn><form action="ModifAdherent.php" id="modifadherent" method="POST"><input type="hidden" name="id" value='.$id.'><input class="btn btn-info" id="btn-view" type="submit" value="Modifier"/></form><form id="formSupp" method="POST" ><input type="hidden" name="id" value='.$id.'><button class="btn btn-danger" type="submit" id="btn-view" onclick="">Supprimer</button></form></td>';
+                echo '<td><div class="conteneurBtn"><form action="ModifAdherent.php" id="modifadherent" method="POST"><input type="hidden" name="id" value='.$id.'><input class="btn btn-info" id="btn-view" type="submit" value="Modifier"/></form><a class="btn btn-danger" href="#popup1">Supprimer</a></div></td>';
                 echo '</tr>';
 
               }else if (($result == $leTrimestre) && ($annee < $anneeMtnint)) {
@@ -134,7 +143,8 @@ $lesAdherents = ListerAdherent();
                 echo '<td>'.$unAdherent['adresse'].'</td>';
                 echo '<td>'.dateFr($unAdherent['dateAdhesion']).'</td>';
                 echo '<td>'.$unAdherent['remarque'].'</td>';
-                echo '<td>'.'<div id=conteneurBtn><form action="ModifAdherent.php" id="modifadherent" method="POST"><input type="hidden" name="id" value='.$id.'><input class="btn btn-info" id="btn-view" type="submit" value="Modifier"/></form><form id="formSupp" method="POST" ><input type="hidden" name="id" value='.$id.'><button class="btn btn-danger" type="submit" id="btn-view" onclick="">Supprimer</button></form></td>';
+                // echo '<td>'.'<div id=conteneurBtn><form action="ModifAdherent.php" id="modifadherent" method="POST"><input type="hidden" name="id" value='.$id.'><input class="btn btn-info" id="btn-view" type="submit" value="Modifier"/></form><form id="formSupp" method="POST" ><input type="hidden" name="id" value='.$id.'><button class="btn btn-danger" type="submit" id="btn-view" onclick="">Supprimer</button></form></td>';
+                echo '<td><div class="conteneurBtn"><form action="ModifAdherent.php" id="modifadherent" method="POST"><input type="hidden" name="id" value='.$id.'><input class="btn btn-info" id="btn-view" type="submit" value="Modifier"/></form><a class="btn btn-danger" href="#popup1">Supprimer</a></div></td>';
                 echo '</tr>';
 
               }
@@ -145,7 +155,8 @@ $lesAdherents = ListerAdherent();
                 echo '<td>'.$unAdherent['adresse'].'</td>';
                 echo '<td>'.dateFr($unAdherent['dateAdhesion']).'</td>';
                 echo '<td>'.$unAdherent['remarque'].'</td>';
-                echo '<td><div id=conteneurBtn><form action="ModifAdherent.php" id="modifadherent" method="POST"><input type="hidden" name="id" value='.$id.'><input class="btn btn-info" id="btn-view" type="submit" value="Modifier"/></form><form id="formSupp" method="POST" id=suppAdherent ><input type="hidden" name="id" value='.$id.'><button class="btn btn-danger" type="submit" id="btn-view" onclick="">Supprimer</button></form></td>';
+                // echo '<td><div id=conteneurBtn><form action="ModifAdherent.php" id="modifadherent" method="POST"><input type="hidden" name="id" value='.$id.'><input class="btn btn-info" id="btn-view" type="submit" value="Modifier"/></form><form id="formSupp" method="POST" id="suppAdherent" ><input type="hidden" name="id" value='.$id.'><button class="btn btn-danger" type="submit" id="btn-view" onclick="">Supprimer</button></form></td>';
+                echo '<td><div class="conteneurBtn"><form action="ModifAdherent.php" id="modifadherent" method="POST"><input type="hidden" name="id" value='.$id.'><input class="btn btn-info" id="btn-view" type="submit" value="Modifier"/></form><a class="btn btn-danger" href="#popup1">Supprimer</a></div></td>';
                 echo '</tr>';
               }
             }
@@ -153,13 +164,35 @@ $lesAdherents = ListerAdherent();
 
             ?>
           </div>
+
         </tbody>
       </table>
       <form action="accueil.php" id="annulerfacturation">
         <input class="btn btn-info" onclick="history.go(-1)" type="submit" value="Retour">
       </form>
-
   </div>
+  <!-- <div class="box2">
+  	<a class="button2" href="#popup1">Let me Pop up</a>
+  </div> -->
 
+  <div id="popup1" class="overlay">
+  	<div class="popup2">
+  		<h3>Êtes-vous sûr de vouloir supprimer l'adhérent </h3><h4 class="affAdh"><?php echo $unAdherent['nom'].' '.$unAdherent['prenom'].' ?';?></h4>
+  		<div class="content2">
+  			<form id="oui" action="validerSupp.php" method="post">
+          <input type="hidden" name="id" value="<?php echo $id;?>">
+          <input type="submit" value="Oui" class="btn btn-info" >
+        </form>
+        <!-- <a type="button" onclick="location.replace('ListeAdherents.php');" class="btn btn-info" id="non">Non</a> -->
+        <input type="submit" class="btn btn-info" value="Non" id="non" onclick=" relocate_home()">
+        <script>
+        function relocate_home()
+        {
+             location.href = "ListeAdherents.php";
+        }
+        </script>
+  		</div>
+  	</div>
+  </div>
 </body>
 </html>
