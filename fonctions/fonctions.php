@@ -824,7 +824,7 @@ function getTrajetMulticriteres($typetrajet,$datedeb,$datefin)
 function orderTrimestre(){
   $trimestre = getTrimestre();
   $libelleTrimestre = getTrimestreLib($trimestre);
-  $libelleTr = utf8_encode($libelleTrimestre['libelle']);
+  $libelleTr = $libelleTrimestre['libelle'];
   $date = date('Y');
   $lesTrimestres = array();
   if ($libelleTr == "Janvier/Février/Mars") {

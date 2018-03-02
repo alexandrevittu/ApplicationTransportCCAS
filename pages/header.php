@@ -32,7 +32,7 @@
    ?>
    <?php
    $date = date('d/m/Y');
-   echo '<p style="margin-top:45px;">Nous somme le :<br/>'.$date.'</p>';
+   echo '<p style="margin-top:45px;">Nous sommes le :<br/>'.$date.'</p>';
     ?>
 <script>
     setTimeout("window.location='deconnexion.php'",7200000);
