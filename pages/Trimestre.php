@@ -16,7 +16,7 @@
       include_once "../fonctions/fonctions.php";
       $trimestre = getTrimestre();
       $libelleTrimestre = getTrimestreLib($trimestre);
-      $libelleTr = utf8_encode($libelleTrimestre['libelle']);
+      $libelleTr = $libelleTrimestre['libelle'];
 
       $triTrimestre = orderTrimestre();
       $n1 = $triTrimestre[1]['idTrimestre'];
@@ -55,6 +55,11 @@
     if(isset($_POST['trajetcourt']))
     {
       $datemtn = date('Y-m-d');
+      if($_POST['trimestre']==4)
+      {
+        $annee = date('Y')-1;
+        $datemtn = $annee.'-12-03';
+      }
       ModifTrajetCourtParAdherent($_POST['id'],$_POST['trimestre'],$_POST['trajetcourt'],$datemtn); //envoie a la bdd
       ModifTrajetMoyenParAdherent($_POST['id'],$_POST['trimestre'],$_POST['trajetmoyen'],$datemtn);
       ModifTrajetLongParAdherent($_POST['id'],$_POST['trimestre'],$_POST['trajetlong'],$datemtn);

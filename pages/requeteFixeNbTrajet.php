@@ -12,8 +12,11 @@
       $annéenow = date('Y');
       $moisjournow = date('m-d');
       $annéedebut = $annéenow -1 ;
-      $datedebut = $annéedebut.'-'.$moisjournow;
-      $datefinannée = date('Y-m-d');
+      //$datedebut = $annéedebut.'-'.$moisjournow;
+      //$datefinannée = date('Y-m-d');
+      $datedebut = $annéedebut."-01-01";
+      $datefinannée = $annéedebut."-12-31";
+
       $nb = getNbTrajetParAn($datedebut,$datefinannée); /*nombre de trajet par an*/
   ?>
   <h2 style="text-align:center;">Statistique</h2>

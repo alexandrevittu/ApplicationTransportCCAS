@@ -290,6 +290,7 @@ function ajouttrajetcourtparadherent($idadherent,$trimestre,$nbtrajet)
 }
 function ajoutadhesionparadherent($idadherent,$trimestre,$date)
 {
+  $date = strftime('%Y-%m-%d',strtotime($date));
   $dbh= connexion();
   $PdoStatement = $dbh ->prepare("insert into tarifs values (NULL,1,:idadherent,5,:idtrimestre,:date)");
   $PdoStatement->bindvalue("date",$date);

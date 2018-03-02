@@ -192,7 +192,7 @@ $(function()
            ajouttrajetlongparadherent($id['id'],$i,$nbtrajet);
            ajoutreportparadherent($id['id'],$i);
          }
-         ajoutadhesionparadherent($id['id'],$trimestre,date('y-m-d'));
+         ajoutadhesionparadherent($id['id'],$trimestre,$_POST["date"]);
 
          ?>
          <div id="dialog-confirm" title="Ajout d'adhérents">
