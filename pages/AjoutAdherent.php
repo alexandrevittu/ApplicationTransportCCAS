@@ -41,6 +41,7 @@ include_once "../fonctions/fonctions.php";
 <script>
   $( function() {
     $( "#datepicker" ).datepicker({               //traduction du datapicker(calendrier)
+              showButtonPanel: true,
       altField: "#datepicker",
       closeText: 'Fermer',
       prevText: 'Précédent',

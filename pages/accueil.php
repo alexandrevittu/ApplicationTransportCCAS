@@ -92,7 +92,7 @@ include_once "../fonctions/fonctions.php";  //inclut l'en-tete
     }
     elseif($mois>=10 && $mois<=12)
     {
-      echo '<label>Trimestre en cours : Octobre/Novembre/Decembre '.$annee.'</label>';
+      echo '<label>Trimestre en cours : Octobre/Novembre/Décembre '.$annee.'</label>';
     }
     else
     {

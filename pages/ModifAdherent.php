@@ -20,6 +20,7 @@ $remarque=htmlspecialchars($ladherent['remarque']);
 $( function() {
 
   $( "#datepicker" ).datepicker({
+    showButtonPanel: true,
     altField: "#datepicker",
     closeText: 'Fermer',
     prevText: 'Précédent',
