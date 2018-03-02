@@ -160,7 +160,7 @@
         ?>
         <input class="btn btn-info" onclick="window.location.href='Facturation.php'" type="button" value="Facturation">
 
-        <input   class="btn btn-info" onclick="window.location.href='trimestre.php'" type="button" value="Retour au choix du trimestre" id="btnretoureee">
+        <input   class="btn btn-info" onclick="window.location.href='Trimestre.php'" type="button" value="Retour au choix du trimestre" id="btnretoureee">
         <?php
       }
      ?>
