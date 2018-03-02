@@ -124,6 +124,9 @@
     if (isset($_POST['nbLigne3'])) {
       echo '<script>window.location.replace("ListeAdherents.php");</script>';
     }
+    if (isset($_POST['nbLigne4'])) {
+      echo '<script>window.location.replace("accueil.php");</script>';
+    }
   ?>
   </table>
   <form action="accueil.php" id="btnimpression">

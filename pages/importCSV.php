@@ -52,9 +52,11 @@ if (($handle = fopen($filename, "r")) !== FALSE) {
           ajoutreportparadherent($id['id'],$i);
         }
         ajoutadhesionparadherent($id['id'],$trimestre,($nom[3]));
-        echo '<script>';
-        echo "window.location = 'accueil.php'";
-        echo '</script>';
+        // echo '<script>';
+        // echo "window.location = 'accueil.php'";
+        // echo '</script>';
+        echo '<form id="formLigne4" action="PubliPostageCSV.php" method="POST"><input type="hidden" id="nbLigne4" name="nbLigne4" value="0"></form>';
+        echo '<script>document.getElementById("formLigne4").submit(); </script>';
   }
 }
 }

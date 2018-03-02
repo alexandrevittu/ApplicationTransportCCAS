@@ -177,7 +177,7 @@ $lesAdherents = ListerAdherent();
 
   <div id="popup1" class="overlay">
   	<div class="popup2">
-  		<h3>Êtes-vous sûr de vouloir supprimer l'adhérent </h3><h4 class="affAdh"><?php echo $unAdherent['nom'].' '.$unAdherent['prenom'].' ?';?></h4>
+  		<h3>Êtes-vous sûr de vouloir supprimer l'adhérent ?</h3>
   		<div class="content2">
   			<form id="oui" action="validerSupp.php" method="post">
           <input type="hidden" name="id" value="<?php echo $id;?>">
