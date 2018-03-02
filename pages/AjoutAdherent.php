@@ -52,7 +52,7 @@ include_once "../fonctions/fonctions.php";
       dayNamesShort: ['Dim.', 'Lun.', 'Mar.', 'Mer.', 'Jeu.', 'Ven.', 'Sam.'],
       dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
       weekHeader: 'Sem.',
-      dateFormat: 'yy-mm-dd',
+      dateFormat: 'dd-mm-yy',
       firstDay: 1
     });
   });
@@ -192,11 +192,11 @@ $(function()
            ajouttrajetlongparadherent($id['id'],$i,$nbtrajet);
            ajoutreportparadherent($id['id'],$i);
          }
-         ajoutadhesionparadherent($id['id'],$trimestre,date('y-m-d'));
+         ajoutadhesionparadherent($id['id'],$trimestre,$_POST["date"]);
 
          ?>
          <div id="dialog-confirm" title="Ajout d'adhérents">
-           <p><span class="ui-icon ui-icon-check" style="margin-right:15px;"></span>L'adherent <?php echo $_POST['nom'].' '.$_POST['prenom']?> a été ajouté.</br> Voulez-vous ajouter un autre adhérent ?</p>
+           <p><span class="ui-icon ui-icon-check" style="margin-right:15px;"></span>L'adhérent <?php echo $_POST['nom'].' '.$_POST['prenom']?> a été ajouté.</br> Voulez-vous ajouter un autre adhérent ?</p>
          </div>
          <?php
 

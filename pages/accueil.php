@@ -84,7 +84,7 @@ include_once "../fonctions/fonctions.php";  //inclut l'en-tete
     $annee =date('Y');
     if($mois>=01 && $mois<=03)
     {
-      echo "<label>Trimestre en cours : Janvier/Fevrier/Mars ".$annee."</label>";
+      echo "<label>Trimestre en cours : Janvier/Février/Mars ".$annee."</label>";
     }
     elseif($mois>=04 && $mois<=06)
     {
@@ -96,7 +96,7 @@ include_once "../fonctions/fonctions.php";  //inclut l'en-tete
     }
     else
     {
-      echo '<label>Trimestre en cours : Juillet/Aout/Septembre '.$annee.'</label>';
+      echo '<label>Trimestre en cours : Juillet/Août/Septembre '.$annee.'</label>';
     }
 
 /***** Pour recepurer le nombre de renouvellement d'adhesion passée dans la variable $_SESSIOn, ainsi on recuperer de page en page.******/
@@ -124,6 +124,9 @@ include_once "../fonctions/fonctions.php";  //inclut l'en-tete
         </form>
         <form action="requetesMulticriteres.php">
           <button class="btn btn-info" type="submit"> <span class="glyphicon glyphicon-stats" ></span> &nbsp; Requêtes multicritères</button>
+        </form>
+        <form action="FactuJanvAuj.php">
+          <button class="btn btn-info" type="submit"><span class="glyphicon glyphicon-stats"></span> &nbsp; Facturation de janvier a aujourd'hui</button>
         </form>
     </fieldset>
   </div>

@@ -16,7 +16,7 @@
       include_once "../fonctions/fonctions.php";
       $trimestre = getTrimestre();
       $libelleTrimestre = getTrimestreLib($trimestre);
-      $libelleTr = utf8_encode($libelleTrimestre['libelle']);
+      $libelleTr = $libelleTrimestre['libelle'];
 
       $triTrimestre = orderTrimestre();
       $n1 = $triTrimestre[1]['idTrimestre'];
@@ -55,6 +55,11 @@
     if(isset($_POST['trajetcourt']))
     {
       $datemtn = date('Y-m-d');
+      if($_POST['trimestre']==4)
+      {
+        $annee = date('Y')-1;
+        $datemtn = $annee.'-12-03';
+      }
       ModifTrajetCourtParAdherent($_POST['id'],$_POST['trimestre'],$_POST['trajetcourt'],$datemtn); //envoie a la bdd
       ModifTrajetMoyenParAdherent($_POST['id'],$_POST['trimestre'],$_POST['trajetmoyen'],$datemtn);
       ModifTrajetLongParAdherent($_POST['id'],$_POST['trimestre'],$_POST['trajetlong'],$datemtn);
@@ -116,6 +121,16 @@
 
         foreach($lesAdherents as $unAdherent)
         {
+          $dateadhesion = $unAdherent['dateAdhesion'];
+          $datetoday = date("Y-m-d");
+          $dateadd = date_create($dateadhesion);
+          $dateactueldatetime = date_create($datetoday);
+          $diff = date_diff($dateadd,$dateactueldatetime);
+          $difference = (int)$diff->format('%R%a');
+
+          if($difference < 365)
+          {
+
           $id=$unAdherent['id'];
           echo '<tr>';
           echo '<td>'.$unAdherent['nom'].'</td>';
@@ -128,6 +143,8 @@
           ModifTrajetMoyenParAdherent($unAdherent['id'],$trimestresuivant,0,null);
           ModifTrajetLongParAdherent($unAdherent['id'],$trimestresuivant,0,null);
           updateReport($unAdherent['id'],0,$trimestresuivant);
+          }
+
         }
       }
 
@@ -136,7 +153,18 @@
 
     ?>
     <form style="text-align:center;">
-    <input   class="btn btn-info" onclick="window.location.href='trimestre.php'" type="submit" value="Retour" id="btnretoureee"> <!-- Boutton annuler -->
+  <!--  <input   class="btn btn-info" onclick="window.location.href='trimestre.php'" type="button" value="Retour" id="btnretoureee"> <!-- Boutton annuler -->
+    <?php
+      if(isset($_POST['trimestre']))
+      {
+        ?>
+        <input class="btn btn-info" onclick="window.location.href='Facturation.php'" type="button" value="Facturation">
+
+        <input   class="btn btn-info" onclick="window.location.href='trimestre.php'" type="button" value="Retour au choix du trimestre" id="btnretoureee">
+        <?php
+      }
+     ?>
+
     <input  class="btn btn-info" onclick="window.location.href='accueil.php'" type="button"  value="Accueil">
   </form>
   </div>

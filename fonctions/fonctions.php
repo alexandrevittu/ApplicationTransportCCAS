@@ -12,6 +12,12 @@ function connexion(){
 }
 function AjoutAdherent($nom,$prenom,$adresse,$dateadhesion,$remarque){
   $dbh= connexion();
+  if($dateadhesion =="")
+  {
+    return false;
+  }
+  else{
+  $dateadhesion = strftime('%Y-%m-%d',strtotime($dateadhesion));
   $PdoStatement = $dbh ->prepare("insert into adherents values (NULL,:nom,:prenom,:adresse,:dateadhesion,:remarque)");
   $PdoStatement->bindvalue("nom",$nom);
   $PdoStatement->bindvalue("prenom",$prenom);
@@ -26,11 +32,12 @@ function AjoutAdherent($nom,$prenom,$adresse,$dateadhesion,$remarque){
   else{
     //throw new Exception("Erreur ajout d'adherent");
     return false;
-  }
+  }}
 }
 function ModifAdherent($id,$nom,$prenom,$adresse,$date,$remarque)
 {
   $dbh = connexion();
+  $date = strftime('%Y-%m-%d',strtotime($date));
   $pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
   $pdoStatement = $dbh->prepare("update adherents set nom =:nom,prenom =:prenom,adresse =:adresse,dateAdhesion = :dateAdhesion,remarque = :remarque where id = :id ");
   $pdoStatement->bindvalue("nom",$nom);
@@ -283,6 +290,7 @@ function ajouttrajetcourtparadherent($idadherent,$trimestre,$nbtrajet)
 }
 function ajoutadhesionparadherent($idadherent,$trimestre,$date)
 {
+  $date = strftime('%Y-%m-%d',strtotime($date));
   $dbh= connexion();
   $PdoStatement = $dbh ->prepare("insert into tarifs values (NULL,1,:idadherent,5,:idtrimestre,:date)");
   $PdoStatement->bindvalue("date",$date);
@@ -818,7 +826,7 @@ function orderTrimestre(){
   $libelleTrimestre = getTrimestreLib($trimestre);
   $libelleTr = utf8_encode($libelleTrimestre['libelle']);
   $date = date('Y');
-$lesTrimestres = array();
+  $lesTrimestres = array();
   if ($libelleTr == "Janvier/Février/Mars") {
     $lesTrimestres = array(
       1 => array(

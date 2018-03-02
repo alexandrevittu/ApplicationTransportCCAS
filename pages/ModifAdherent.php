@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
   <meta charset="utf-8">
   <title>Modification d'un adherent</title>
@@ -15,8 +15,10 @@ $remarque=htmlspecialchars($ladherent['remarque']);
 ?>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="datepicker/datepicker-fr.js"></script>
 <script>      <!-- traduction du calendrier -->
 $( function() {
+
   $( "#datepicker" ).datepicker({
     altField: "#datepicker",
     closeText: 'Fermer',
@@ -29,7 +31,7 @@ $( function() {
     dayNamesShort: ['Dim.', 'Lun.', 'Mar.', 'Mer.', 'Jeu.', 'Ven.', 'Sam.'],
     dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
     weekHeader: 'Sem.',
-    dateFormat: 'yy-mm-dd'
+    dateFormat: 'dd-mm-yy'
   });
 });
 
@@ -47,7 +49,7 @@ $( function() {
       <label for="fadresse">Adresse</label></br>
       <input type="text" name="adresse" id="fadresse" onblur="verifChamp(this)" value="<?php echo$ladherent['adresse']?>"/></br>
       <label for="datepicker">Date d'adhésion</label></br>
-      <input type="text" name="dateAdhesion" id="datepicker" onblur="verifDate(this)" readonly value="<?php echo$ladherent['dateAdhesion']?>"/></br>
+      <input type="text" name="dateAdhesion" id="datepicker" onblur="verifDate(this)" readonly value="<?php echo dateFr($ladherent['dateAdhesion'])?>"/></br>
       <label for="fremarque">Remarque</label></br>
       <!-- <input type="text" name="remarque" id="fremarque" value=""/></br> -->
       <textarea name="remarque" id="fremarque" form="ajoutadherent" rows="4" cols="50"/><?php echo $remarque?></textarea><br>
