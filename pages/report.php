@@ -52,7 +52,7 @@ $(document).ready(function() {
 
 
           foreach($lesAdherents as $unAdherent){
-            updateReport($unAdherent['id'],0);
+            // updateReport($unAdherent['id'],0);
             $adhesion = 0;
             $trimestreActuel = getTrimestre(); // retourne le trimestre actuel
 
@@ -110,7 +110,7 @@ $(document).ready(function() {
 
 
             if ($total < $leSeuil && $total != 0) {  //On affiche si seulement si le total est en dessous du sueil et que le total est different de 0
-              updateReport($unAdherent['id'],$total);
+              updateReport($unAdherent['id'],$total,$trimestreActuel);
               echo '<tr>';
               echo '<td>'.$unAdherent['nom'].'</td>';
               echo '<td>'.$unAdherent['prenom'].'</td>';

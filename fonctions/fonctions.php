@@ -1008,10 +1008,11 @@ function getCompte($pseudo,$mdp){
       throw new Exception("erreur lors de la recuperation du report ");
     }
   }
-  function updateReport($idAdherent,$prix){
+  function updateReport($idAdherent,$prix,$trimestre){
       $dbh = connexion();
-      $pdoStatement = $dbh->prepare("update report set prixReport = :prix where idAdherent = :idadherent");
+      $pdoStatement = $dbh->prepare("update report set prixReport = :prix where idAdherent = :idadherent AND idTrimestre = :trimestre");
       $pdoStatement->bindvalue("idadherent",$idAdherent);
+      $pdoStatement->bindvalue("trimestre",$trimestre);
       $pdoStatement->bindvalue("prix",$prix);
       $pdoStatement->execute();
       if($pdoStatement->execute())
