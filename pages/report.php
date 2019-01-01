@@ -89,22 +89,22 @@ $(document).ready(function() {
               $annee = date('Y');
 
              if($trimestreAvant == 1){
-               if ($dateAdhesion['dateAdhesion']>$annee."-01-01" && $dateAdhesion['dateAdhesion'] < $annee."-03-31") {
+               if ($dateAdhesion['dateAdhesion']>=$annee."-01-01" && $dateAdhesion['dateAdhesion'] <= $annee."-03-31") {
                  $total += $prixDouble;
                }
              }
              else if ($trimestreAvant == 2) {
-               if ($dateAdhesion['dateAdhesion']>$annee."-04-01" && $dateAdhesion['dateAdhesion'] < $annee."-06-30") {
+               if ($dateAdhesion['dateAdhesion']>=$annee."-04-01" && $dateAdhesion['dateAdhesion'] <= $annee."-06-30") {
                  $total += $prixDouble;
                }
              }
              else if ($trimestreAvant == 3) {
-               if ($dateAdhesion['dateAdhesion']>$annee."-07-01" && $dateAdhesion['dateAdhesion'] < $annee."-09-30") {
+               if ($dateAdhesion['dateAdhesion']>=$annee."-07-01" && $dateAdhesion['dateAdhesion'] <= $annee."-09-30") {
                  $total += $prixDouble;
                }
              }
              elseif ($trimestreAvant == 4) {
-               if ($dateAdhesion['dateAdhesion']>$annee."-10-01" && $dateAdhesion['dateAdhesion'] < $annee."-12-31") {
+               if ($dateAdhesion['dateAdhesion']>=$annee."-10-01" && $dateAdhesion['dateAdhesion'] <= $annee."-12-31") {
                  $total += $prixDouble;
                }
              }
@@ -112,9 +112,9 @@ $(document).ready(function() {
              $prix = getreportparadherent($unAdherent['id'],$trimestreAvant);
              $total += $prix['prixReport'];
 
-             if($total == 0)
+             if($total > 15)
              {
-               //updateReport($unAdherent['id'],$total,$trimestreActuel);
+               updateReport($unAdherent['id'],0,$trimestreActuel);
 
              }
 

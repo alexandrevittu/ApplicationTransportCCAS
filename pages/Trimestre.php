@@ -77,7 +77,12 @@
           echo '<td>'.$unAdherent['prenom'].'</td>';
           echo '<td>'.$unAdherent['adresse'].'</td>';
           echo '<td><form action="addtrajet.php"  method="POST"><input type="hidden" name="prenom" value='.$unAdherent['prenom'].'><input type="hidden" name="nom" value='.$unAdherent['nom'].'><input type="hidden" name="id" value='.$id.'><input type="hidden" name="trimestre" value='.$_POST["trimestre"].'><button class="btn btn-info" id="btn-view" type="submit"><span class=" glyphicon glyphicon-plus" ></span> &nbsp;Ajout</button></form></td>';
-
+          $trimestresuivant = getTrimestreSuivantNb();
+          $test = getTrimestre();
+          ModifTrajetCourtParAdherent($unAdherent['id'],$trimestresuivant,0,null);
+          ModifTrajetMoyenParAdherent($unAdherent['id'],$trimestresuivant,0,null);
+          ModifTrajetLongParAdherent($unAdherent['id'],$trimestresuivant,0,null);
+          updateReport($unAdherent['id'],0,$trimestresuivant);
         }
       }
       if(isset($_POST['trimestre']) && $_POST['trimestre']==1)

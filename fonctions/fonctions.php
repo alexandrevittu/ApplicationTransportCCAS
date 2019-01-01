@@ -673,7 +673,7 @@ function getTrimestreSuivantNb(){
   }else if ($trimestreActuel == 3) {
     $trimestreSuivant = 4;
   }else{
-    $trimestreSuivant == 1;
+    $trimestreSuivant = 1;
   }
   return $trimestreSuivant;
 }

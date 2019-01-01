@@ -159,7 +159,7 @@
             {
               if($trimestreavant == 1)
               {
-                if($unAdherent['dateAdhesion'] > $année."-01-01" && $unAdherent['dateAdhesion'] < $année."-03-31")    //verifie si c'est bien pour le trimestre actuel
+                if($unAdherent['dateAdhesion'] >= $année."-01-01" && $unAdherent['dateAdhesion'] <= $année."-03-31")    //verifie si c'est bien pour le trimestre actuel
                 {
                   $prixtotal += $prixadhesion['prix'];    //ajout prix
 
@@ -167,7 +167,7 @@
               }
               if($trimestreavant == 2)
               {
-                if($unAdherent['dateAdhesion'] > $année."-04-01" && $unAdherent['dateAdhesion'] < $année."-06-30")
+                if($unAdherent['dateAdhesion'] >= $année."-04-01" && $unAdherent['dateAdhesion'] <= $année."-06-30")
                 {
                   $prixtotal += $prixadhesion['prix'];
                 }
@@ -175,7 +175,7 @@
               if($trimestreavant == 3)
               {
 
-                if($unAdherent['dateAdhesion'] > $année."-07-01" && $unAdherent['dateAdhesion'] < $année."-09-30")
+                if($unAdherent['dateAdhesion'] >= $année."-07-01" && $unAdherent['dateAdhesion'] <= $année."-09-30")
                 {
 
                   $prixtotal += $prixadhesion['prix'];
@@ -183,7 +183,7 @@
               }
               if($trimestreavant == 4)
               {
-                if($unAdherent['dateAdhesion'] > $année."-10-01" && $unAdherent['dateAdhesion'] < $année."-12-31")
+                if($unAdherent['dateAdhesion'] >= $année."-10-01" && $unAdherent['dateAdhesion'] <= $année."-12-31")
                 {
                   $prixtotal += $prixadhesion['prix'];
                 }
