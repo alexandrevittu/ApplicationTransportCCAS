@@ -110,10 +110,16 @@ $(document).ready(function() {
 
              $prix = getreportparadherent($unAdherent['id'],$trimestreAvant);
              $total += $prix['prixReport'];
-             
-            if ($total < $leSeuil && $total != 0) {  //On affiche si seulement si le total est en dessous du sueil et que le total est different de 0
 
+             if($total == 0)
+             {
+               updateReport($unAdherent['id'],$total,$trimestreActuel);
+
+             }
+
+            if ($total < $leSeuil && $total != 0) {  //On affiche si seulement si le total est en dessous du sueil et que le total est different de 0
               updateReport($unAdherent['id'],$total,$trimestreActuel);
+
               echo '<tr>';
               echo '<td>'.$unAdherent['nom'].'</td>';
               echo '<td>'.$unAdherent['prenom'].'</td>';
